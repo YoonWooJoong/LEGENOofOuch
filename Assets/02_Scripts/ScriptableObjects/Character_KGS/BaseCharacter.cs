@@ -21,8 +21,19 @@ public class BaseCharacter : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
     }
 
+    protected virtual void Update()
+    {
+        if (target != null)
+            lookDir = target.position - transform.position;
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        Move();
+    }
+
     protected virtual void Move()
     {
-
+        rig.velocity = moveDir.normalized * speed;
     }
 }
