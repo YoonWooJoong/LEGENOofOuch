@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelcet : MonoBehaviour
+public class CharacterManagert : MonoBehaviour
 {
 
     public Image characterPreview; //선택된 캐릭터 미리보기
