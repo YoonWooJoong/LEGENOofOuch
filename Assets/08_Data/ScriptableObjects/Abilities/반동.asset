@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
+  m_Name: "\uBC18\uB3D9"
+  m_EditorClassIdentifier: 
+  ability: 12
+  abilityName: "\uBC18\uB3D9"
+  description: "\uC801\uC5D0\uAC8C \uB9DE\uC740 \uD654\uC0B4\uC774 \uADFC\uCC98\uC758
+    \uC801\uC5D0\uAC8C \uCD5C\uB300 2\uD68C \uD295\uACA8 \uB098\uAC00\uBA70 \uC801\uC744
+    \uACF5\uACA9\uD55C\uB2E4. \uD295\uAE38 \uB54C\uB9C8\uB2E4 \uB300\uBBF8\uC9C0\uAC00
+    {n} %\uC529 \uAC10\uC18C\uB41C\uB2E4."
+  rank: 0
+  canUpgrade: 0
+  values:
+  - 30
+  - 60

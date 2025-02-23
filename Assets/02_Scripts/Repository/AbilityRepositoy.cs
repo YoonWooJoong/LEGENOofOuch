@@ -19,6 +19,11 @@ public class AbilityRepositoy : MonoBehaviour
         InitDictionary();
     }
 
+    public void SetabilityDataSOs(AbilityDataSO[] abilityDataSOs)
+    {
+        this.abilityDataSOs = abilityDataSOs;
+    }
+
     /// <summary>
     /// dicAbilityPrefabs, dicAbilityDataSO√ ±‚»≠
     /// </summary>

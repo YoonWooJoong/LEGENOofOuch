@@ -42,6 +42,7 @@ public abstract class AbilityBase : MonoBehaviour
             abilityDataSO.Rank,
             abilityDataSO.Values
             );
+        isUpgraded = abilityDataSO.CanUpgrade;
     }
 
     public abstract void UseSkill();
