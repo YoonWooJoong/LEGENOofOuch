@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StageManager : MonoBehaviour
 {
-    public class CharacterSelcet : MonoBehaviour
-    {
+
         public Image StageImage; //스테이지 이미지 배열
         public Text StageName; // 스테이지 이름
         public Sprite[] StageImages; //스테이지 이미지 배열
@@ -13,7 +12,7 @@ public class StageManager : MonoBehaviour
 
         private int StageIndex = 0; // 선택된 캐릭터 인덱스
 
-
+        
 
         void UpdateStageUI()
         {
@@ -41,5 +40,4 @@ public class StageManager : MonoBehaviour
         {
             UpdateStageUI();
         }
-    }
 }
