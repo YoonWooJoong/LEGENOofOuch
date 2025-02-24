@@ -36,7 +36,7 @@ public class PlayerCharacter : BaseCharacter
         }
     }
 
-    public override void Death()
+    protected override void Death()
     {
         //사망시 게임종료 로직 실행
         base.Death();
