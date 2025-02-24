@@ -160,7 +160,7 @@ MonoBehaviour:
   speed: 1
   attackPower: 0
   attackSpeed: 1
-  attackRange: 3
+  attackRange: 2
 --- !u!50 &2271822649697971388
 Rigidbody2D:
   serializedVersion: 4

@@ -44,7 +44,7 @@ public class BaseCharacter : MonoBehaviour
     }
 
     /// <summary>
-    /// 오버라이드시 이동방향을 이곳에서 결정합니다. 이동방향은 반드시 normalize를 마지막에 해 주어야 합니다.
+    /// 입력/조건에 따른 다음 행동을 결정합니다. 주로 이동방향의 결정 등이 있습니다.
     /// </summary>
     protected virtual void HandleAction()
     { }
