@@ -24,11 +24,13 @@ public class EnemyCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
+        moveDir = Vector2.zero;
+        if (target == null)
+            return;
+
         lookDir = (target.transform.position - transform.position).normalized;
         if (TargetDis > attackRange)
             moveDir = lookDir;
-        else
-            moveDir = Vector2.zero;
     }
 
     /// <summary>
@@ -37,9 +39,9 @@ public class EnemyCharacter : BaseCharacter
     protected override void Death()
     {
         if (Random.Range(0, 100) < potionDrop)
-            Instantiate(potionPrefeb, new Vector3(transform.position.x,transform.position.y), Quaternion.identity);
+            Instantiate(potionPrefeb, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
 
-            MM.RemoveEnemyOnDeath(this);
+        MM.RemoveEnemyOnDeath(this);
         base.Death();
     }
 }
