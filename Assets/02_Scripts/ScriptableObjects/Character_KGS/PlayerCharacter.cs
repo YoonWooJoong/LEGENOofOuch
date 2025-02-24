@@ -25,6 +25,7 @@ public class PlayerCharacter : BaseCharacter
     /// </summary>
     void SearchTarget()
     {
+        target = null;
         var enemys = FindObjectsOfType(typeof(EnemyCharacter));
         foreach (var enemy in enemys)
         {
