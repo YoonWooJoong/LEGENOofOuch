@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1682343103269893203}
   - component: {fileID: 6944006353983100278}
   - component: {fileID: 4588740625896376451}
-  m_Layer: 6
-  m_Name: Arrow
+  m_Layer: 7
+  m_Name: EnemyArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMaskEnemy:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   layerMaskWall:
     serializedVersion: 2
     m_Bits: 256

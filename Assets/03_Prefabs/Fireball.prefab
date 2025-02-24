@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3284326320174065882}
   - component: {fileID: 7696294436375263452}
   - component: {fileID: 5892556850660869606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768e1ce31e9b04d40b279451bb951aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  one: {fileID: 0}
-  two: {fileID: 0}
+  layerMaskEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  layerMaskWall:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &2335754997076783828
 Rigidbody2D:
   serializedVersion: 4

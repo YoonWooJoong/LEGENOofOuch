@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6436712910697571773}
   - component: {fileID: 62728719049651408}
   - component: {fileID: 5754993409095560456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SwordAura
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,8 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768e1ce31e9b04d40b279451bb951aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  one: {fileID: 0}
-  two: {fileID: 0}
+  layerMaskEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  layerMaskWall:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &8840345942733228665
 Rigidbody2D:
   serializedVersion: 4
