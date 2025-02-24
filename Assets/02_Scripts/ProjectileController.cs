@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private LayerMask layerMaskEnemy; //적 설정
     [SerializeField] private LayerMask layerMaskWall; // 벽 설정
     private Rigidbody2D rigidbody2D;
-    private Vector2 direction;
+    private Vector3 direction;
     private int contactWall; // 벽과 충돌 횟수
     private int contactEnemy; // 적과 충돌 횟수
     private int contactWallCount; // 받아온 벽 충돌 횟수
@@ -25,7 +25,7 @@ public class ProjectileController : MonoBehaviour
     /// <param name="_direction">방향</param>
     /// <param name="_contactwallCount">벽 충돌횟수, 적이 쏘면 0 </param>
     /// <param name="_contactEnemyCount">적 충돌횟수, 적이쏘면 0 </param>
-    public void Init(Vector2 _direction, int _contactwallCount = 0, int _contactEnemyCount = 0)
+    public void Init(Vector3 _direction, int _contactwallCount = 0, int _contactEnemyCount = 0)
     {
         direction = _direction;
         RotationRojectile();
