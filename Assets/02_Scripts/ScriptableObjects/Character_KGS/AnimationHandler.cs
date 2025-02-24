@@ -7,7 +7,11 @@ public class AnimationHandler : MonoBehaviour
     static readonly int IsMoving = Animator.StringToHash("isMove");
     static readonly int IsAttack = Animator.StringToHash("Attack");
 
-    [SerializeField] protected Animator anim;
+    protected Animator anim;
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     public void Move(Vector2 obj)
     {

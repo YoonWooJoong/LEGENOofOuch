@@ -14,11 +14,14 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected float attackPower, attackSpeed;
 
     protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
-    protected bool IsMove => moveDir.magnitude > 0;
-    protected bool isAttacking;
+    protected bool IsMove => moveDir.magnitude > 0.5f;
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
+
+    protected bool IsAttacking = true;
+    float AttackDelay => 1 / attackSpeed;
+    float timeSinceLastAttack = float.MaxValue;
 
     protected virtual void Awake()
     {
@@ -28,13 +31,18 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
+        HandleAction();
         SetDir();
+        HandleAttackDelay();
     }
 
     protected virtual void FixedUpdate()
     {
         Move();
     }
+
+    protected virtual void HandleAction()
+    { }
 
     protected virtual void Move()
     {
@@ -54,11 +62,19 @@ public class BaseCharacter : MonoBehaviour
         sprite.flipX = Mathf.Abs(rotZ) > 90f;
     }
 
+    void HandleAttackDelay()
+    {
+        if (timeSinceLastAttack <= AttackDelay)
+            timeSinceLastAttack += Time.deltaTime;
+        if (IsAttacking && timeSinceLastAttack > AttackDelay)
+        {
+            timeSinceLastAttack = 0;
+            Attack();
+        }
+    }
+
     protected virtual void Attack()
     {
-        if(isAttacking)
-        {
-            animHandle.Attack();
-        }
+        animHandle.Attack();
     }
 }
