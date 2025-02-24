@@ -18,7 +18,7 @@ public class SelectManager : MonoBehaviour
     public Image characterPreview; //선택된 캐릭터 미리보기
     [SerializeField] private Sprite[] characterImages; //캐릭터이미지 배열
     [SerializeField] private string[] characterNames; // 캐릭터 이름
-    public Text characterNameText; // 선택된 캐릭터 이름 표시
+    public TextMeshProUGUI characterNameText; // 선택된 캐릭터 이름 표시
     private int selectedCharacterIndex = 0; // 선택된 캐릭터 인덱스
 
     private void Awake()
