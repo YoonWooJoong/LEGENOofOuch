@@ -11,13 +11,15 @@ public class MonsterManager : MonoBehaviour
     /// 호출되면 지정된 범위내의 랜덤한 위치에서 무작위 적이 나타납니다.
     /// </summary>
     /// <param name="rect">적이 나타날 범위입니다.</param>
-    public void Spawn(Rect rect)
+    public void Spawn(Transform spawnPoint)
     {
+        Debug.Log("몬스터Spawn");
         GameObject randomPrefeb = monsterPrefebs[Random.Range(0, monsterPrefebs.Length)];
 
-        Vector2 randomP = new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
-
-        GameObject spawned = Instantiate(randomPrefeb, new Vector3(randomP.x, randomP.y), Quaternion.identity);
+        //Vector2 randomP = new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
+        //스폰포인트를 받아서 스폰
+        Debug.Log($"몬스터스폰 위치{spawnPoint}");
+        GameObject spawned = Instantiate(randomPrefeb, spawnPoint.position, spawnPoint.rotation);
         EnemyCharacter enemyCharacter = spawned.GetComponent<EnemyCharacter>();
 
         spawnedEnemys.Add(enemyCharacter);

@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
 
     public void NextStageButton()
     {
-       int number = GameManager.Instance.selectManager.GetSelectedStageIndex();
+       int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
         //if()
-        GameManager.Instance.selectManager.SetSelectedStageIndex( number);
+        GameManager.Instance.SelectManager.SetSelectedStageIndex( number);
     }
 
     public void PreviousStageButton()
