@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
   m_Name: "\uBA40\uD2F0 \uC0F7"
   m_EditorClassIdentifier: 
-  ability: 15
+  ability: 12
   abilityName: "\uBA40\uD2F0 \uC0F7"
   description: "\uBAA8\uB4E0 \uACF5\uACA9\uC744 \uD55C \uBC88 \uB354 \uBC1C\uC0AC\uD558\uC9C0\uB9CC
     \uACF5\uACA9 \uC18D\uB3C4\uB294 15%, \uCD5C\uC885 \uACF5\uACA9\uB825\uC740 {n}%
