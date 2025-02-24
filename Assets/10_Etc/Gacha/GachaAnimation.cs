@@ -30,12 +30,12 @@ public class GachaAnimation : MonoBehaviour
     /// selectedAbility: 최종적으로 고정할 능력 인덱스.
     /// isRare: 레어이면 true, 아니면 false.
     /// </summary>
-    public void StartSpin(int selectedAbility, bool isRare)
+    public void StartSpin(AbilityEnum selectedAbility, bool isRare)
     {
         StartCoroutine(AnimateSlot(selectedAbility, isRare));
     }
 
-    private IEnumerator AnimateSlot(int selectedAbility, bool isRare)
+    private IEnumerator AnimateSlot(AbilityEnum selectedAbility, bool isRare)
     {
         // 만약 레어라면, 두 단계(일반 → 레어)로 진행
         if (isRare)
@@ -110,13 +110,13 @@ public class GachaAnimation : MonoBehaviour
         }
 
         // 최종 결과: selectedAbility 값에 해당하는 스프라이트로 고정
-        // (이때 selectedAbility는 전체 배열(skillIcons)에서 유효한 인덱스여야 함)
-        if (selectedAbility < 0 || selectedAbility >= skillIcons.Length)
+        // (이때 selectedAbility는 전체 배열(AbilityIcons)에서 유효한 인덱스여야 함)
+        if ((int)selectedAbility < 0 || (int)selectedAbility >= skillIcons.Length)
         {
             Debug.LogWarning("selectedAbility out of range. Using index 0.");
             selectedAbility = 0;
         }
-        slotImage.sprite = skillIcons[selectedAbility];
+        slotImage.sprite = skillIcons[(int)selectedAbility];
     }
 }
 
