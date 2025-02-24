@@ -66,7 +66,7 @@ public class BaseCharacter : MonoBehaviour
     {
         if (timeSinceLastAttack <= AttackDelay)
             timeSinceLastAttack += Time.deltaTime;
-        if (IsAttacking && timeSinceLastAttack > AttackDelay)
+        else if (IsAttacking)
         {
             timeSinceLastAttack = 0;
             Attack();
