@@ -13,12 +13,13 @@ public class MonsterManager : MonoBehaviour
     /// <param name="rect">적이 나타날 범위입니다.</param>
     public void Spawn(Transform spawnPoint)
     {
+        Debug.Log("몬스터Spawn");
         GameObject randomPrefeb = monsterPrefebs[Random.Range(0, monsterPrefebs.Length)];
 
         //Vector2 randomP = new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
         //스폰포인트를 받아서 스폰
-
-        GameObject spawned = Instantiate(randomPrefeb, new Vector3(spawnPoint.position.x, spawnPoint.position.y), Quaternion.identity);
+        Debug.Log($"몬스터스폰 위치{spawnPoint}");
+        GameObject spawned = Instantiate(randomPrefeb, spawnPoint.position, spawnPoint.rotation);
         EnemyCharacter enemyCharacter = spawned.GetComponent<EnemyCharacter>();
 
         spawnedEnemys.Add(enemyCharacter);
