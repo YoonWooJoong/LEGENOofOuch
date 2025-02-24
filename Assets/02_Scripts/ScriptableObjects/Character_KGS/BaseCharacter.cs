@@ -23,6 +23,8 @@ public class BaseCharacter : MonoBehaviour
     float AttackDelay => 1 / attackSpeed;
     float timeSinceLastAttack = float.MaxValue;
 
+    protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
+
     protected virtual void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -46,7 +48,7 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Move()
     {
-        animHandle.Move(moveDir);
+        animHandle?.Move(moveDir);
         rig.velocity = moveDir * speed;
     }
 
@@ -75,6 +77,6 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Attack()
     {
-        animHandle.Attack();
+        animHandle?.Attack();
     }
 }
