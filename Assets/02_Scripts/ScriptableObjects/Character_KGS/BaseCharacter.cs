@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
-    [SerializeField]SpriteRenderer sprite;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] protected Transform target;
 
     [Header("Stat")]
     [SerializeField] protected float maxHp;
@@ -13,7 +14,6 @@ public class BaseCharacter : MonoBehaviour
 
     protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
     protected bool IsMove => moveDir.magnitude > 0;
-    protected Transform target;
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
@@ -42,11 +42,16 @@ public class BaseCharacter : MonoBehaviour
     {
         if (target != null && !IsMove)
             lookDir = target.position - transform.position;
-        else if(IsMove)
+        else if (IsMove)
             lookDir = moveDir;
 
         float rotZ = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
         sprite.flipX = Mathf.Abs(rotZ) > 90f;
+    }
+
+    protected virtual void Attack()
+    {
+
     }
 }
