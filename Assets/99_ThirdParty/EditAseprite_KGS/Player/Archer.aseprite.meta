@@ -123,8 +123,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Archer_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -143,8 +143,8 @@ ScriptedImporter:
     uvTransform: {x: 95, y: 95}
   - name: Archer_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -163,8 +163,8 @@ ScriptedImporter:
     uvTransform: {x: 125, y: 95}
   - name: Archer_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.54761904}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -183,8 +183,8 @@ ScriptedImporter:
     uvTransform: {x: 192, y: 49}
   - name: Archer_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.54761904}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -203,8 +203,8 @@ ScriptedImporter:
     uvTransform: {x: 222, y: 49}
   - name: Archer_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -223,8 +223,8 @@ ScriptedImporter:
     uvTransform: {x: 155, y: 95}
   - name: Archer_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -243,8 +243,8 @@ ScriptedImporter:
     uvTransform: {x: 185, y: 95}
   - name: Archer_Frame_22
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -263,8 +263,8 @@ ScriptedImporter:
     uvTransform: {x: 182, y: 152}
   - name: Archer_Frame_23
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -283,8 +283,8 @@ ScriptedImporter:
     uvTransform: {x: 208, y: 152}
   - name: Archer_Frame_24
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.52272725}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -303,8 +303,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 180}
   - name: Archer_Frame_27
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.35714287, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -323,8 +323,8 @@ ScriptedImporter:
     uvTransform: {x: 183, y: 4}
   - name: Archer_Frame_28
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3846154, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -343,8 +343,8 @@ ScriptedImporter:
     uvTransform: {x: 124, y: 49}
   - name: Archer_Frame_29
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.35714287, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -363,8 +363,8 @@ ScriptedImporter:
     uvTransform: {x: 219, y: 4}
   - name: Archer_Frame_30
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3846154, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -383,8 +383,8 @@ ScriptedImporter:
     uvTransform: {x: 158, y: 49}
   - name: Archer_Frame_31
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.41666666, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -403,8 +403,8 @@ ScriptedImporter:
     uvTransform: {x: 34, y: 152}
   - name: Archer_Frame_32
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.18181819, y: 0.6388889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -423,8 +423,8 @@ ScriptedImporter:
     uvTransform: {x: 75, y: 4}
   - name: Archer_Frame_33
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.15873016, y: 0.5540541}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -443,8 +443,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Archer_Frame_34
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.21276596, y: 0.56578946}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -463,8 +463,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 49}
   - name: Archer_Frame_35
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -483,8 +483,8 @@ ScriptedImporter:
     uvTransform: {x: 215, y: 95}
   - name: Archer_Frame_36
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -503,8 +503,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 124}
   - name: Archer_Frame_37
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -523,8 +523,8 @@ ScriptedImporter:
     uvTransform: {x: 34, y: 124}
   - name: Archer_Frame_38
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -543,8 +543,8 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 124}
   - name: Archer_Frame_39
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -563,8 +563,8 @@ ScriptedImporter:
     uvTransform: {x: 94, y: 124}
   - name: Archer_Frame_40
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5263158, y: 0.6052632}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -583,8 +583,8 @@ ScriptedImporter:
     uvTransform: {x: 155, y: 152}
   - name: Archer_Frame_41
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5263158, y: 0.6764706}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -603,8 +603,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 180}
   - name: Archer_Frame_42
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5882353, y: 0.88461536}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -623,8 +623,8 @@ ScriptedImporter:
     uvTransform: {x: 135, y: 180}
   - name: Archer_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -643,8 +643,8 @@ ScriptedImporter:
     uvTransform: {x: 124, y: 124}
   - name: Archer_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.54761904}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -663,8 +663,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 95}
   - name: Archer_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -683,8 +683,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 124}
   - name: Archer_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.6052632}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -703,8 +703,8 @@ ScriptedImporter:
     uvTransform: {x: 95, y: 152}
   - name: Archer_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -723,8 +723,8 @@ ScriptedImporter:
     uvTransform: {x: 184, y: 124}
   - name: Archer_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.54761904}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -743,8 +743,8 @@ ScriptedImporter:
     uvTransform: {x: 34, y: 95}
   - name: Archer_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -763,8 +763,8 @@ ScriptedImporter:
     uvTransform: {x: 214, y: 124}
   - name: Archer_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.6052632}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -783,8 +783,8 @@ ScriptedImporter:
     uvTransform: {x: 125, y: 152}
   - name: Archer_Frame_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -803,8 +803,8 @@ ScriptedImporter:
     uvTransform: {x: 234, y: 152}
   - name: Archer_Frame_15
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.52272725}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -823,8 +823,8 @@ ScriptedImporter:
     uvTransform: {x: 30, y: 180}
   - name: Archer_Frame_16
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -843,8 +843,8 @@ ScriptedImporter:
     uvTransform: {x: 56, y: 180}
   - name: Archer_Frame_17
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.4347826, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -863,8 +863,8 @@ ScriptedImporter:
     uvTransform: {x: 64, y: 95}
   - name: Archer_Frame_18
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.45454547, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -883,8 +883,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 152}
   - name: Archer_Frame_19
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.47619048, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -903,8 +903,8 @@ ScriptedImporter:
     uvTransform: {x: 66, y: 152}
   - name: Archer_Frame_20
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.27027026, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -923,8 +923,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 4}
   - name: Archer_Frame_21
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.41666666, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -943,8 +943,8 @@ ScriptedImporter:
     uvTransform: {x: 92, y: 49}
   - name: Archer_Frame_25
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5555556, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -963,8 +963,8 @@ ScriptedImporter:
     uvTransform: {x: 82, y: 180}
   - name: Archer_Frame_26
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.4, y: 0.575}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

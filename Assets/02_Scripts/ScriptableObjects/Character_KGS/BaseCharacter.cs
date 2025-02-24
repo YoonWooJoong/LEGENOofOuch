@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
+    [SerializeField]SpriteRenderer sprite;
+
     [Header("Stat")]
     [SerializeField] protected float maxHp;
     [SerializeField] protected float speed;
     [SerializeField] protected float attackPower, attackSpeed;
 
     protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
-    protected bool isMove;
+    protected bool IsMove => moveDir.magnitude > 0;
     protected Transform target;
 
     protected Rigidbody2D rig;
@@ -23,8 +25,7 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (target != null)
-            lookDir = target.position - transform.position;
+        SetDir();
     }
 
     protected virtual void FixedUpdate()
@@ -35,5 +36,17 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Move()
     {
         rig.velocity = moveDir.normalized * speed;
+    }
+
+    protected virtual void SetDir()
+    {
+        if (target != null && !IsMove)
+            lookDir = target.position - transform.position;
+        else if(IsMove)
+            lookDir = moveDir;
+
+        float rotZ = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+        sprite.flipX = Mathf.Abs(rotZ) > 90f;
     }
 }

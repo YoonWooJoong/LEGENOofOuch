@@ -9,9 +9,9 @@ public class PlayerCharacter : BaseCharacter
     [Header("")]
     [SerializeField] PlayerClassEnum pClass;
 
-    protected override void Update()
+    protected override void SetDir()
     {
         moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        base.Update();
+        base.SetDir();
     }
 }
