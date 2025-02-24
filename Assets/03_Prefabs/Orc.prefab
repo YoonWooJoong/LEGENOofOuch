@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 7392228391267861443}
   - component: {fileID: 907818331032063877}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
