@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] projectilePrefabs;
-    [SerializeField] private GameObject monsterProjectilePrefab;
-    [SerializeField] private GameObject fairyPrefab;
-    [SerializeField] private GameObject fireOrbPrefab;
+    [SerializeField] private GameObject[] projectilePrefabs; // 클래스별 투사체 프리팹
+    [SerializeField] private GameObject monsterProjectilePrefab; // 몬스터별 투사체 프리팹
+    [SerializeField] private GameObject fairyPrefab; // 요정 프리팹
+    [SerializeField] private GameObject fireOrbPrefab; // 불의 원 프리팹
 
     public Transform tras;
 
@@ -28,6 +28,11 @@ public class ProjectileManager : MonoBehaviour
         projectileController.Init(direction, contactWallCount,contactEnemyCount);
     }
 
+    /// <summary>
+    /// Enemy 총알 생성
+    /// </summary>
+    /// <param name="startPosition"></param>
+    /// <param name="direction"></param>
     public void ShootEnemyProjectile(Vector3 startPosition, Vector3 direction)
     {
         GameObject origin = monsterProjectilePrefab;
@@ -37,6 +42,10 @@ public class ProjectileManager : MonoBehaviour
         projectileController.Init(direction);
     }
 
+    /// <summary>
+    /// 스킬 불의 원 생성
+    /// </summary>
+    /// <param name="playerPosition"></param>
     public void CreateFireOrb(Vector3 playerPosition)
     {
         GameObject origin = fireOrbPrefab;
@@ -49,6 +58,10 @@ public class ProjectileManager : MonoBehaviour
         fireOrbController2.Init(playerPosition, 180);
     }
 
+    /// <summary>
+    /// 스킬 정령 생성
+    /// </summary>
+    /// <param name="playerPosition"></param>
     public void CreateFairy(Vector3 playerPosition)
     {
         GameObject origin = fairyPrefab;

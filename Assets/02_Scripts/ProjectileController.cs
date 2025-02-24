@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private LayerMask layerMaskEnemy; //적 설정
     [SerializeField] private LayerMask layerMaskWall; // 벽 설정
     private Rigidbody2D rigidbody2D;
-    private Vector3 direction;
+    private Vector3 direction; // 플레이어의 방향
     private int contactWall; // 벽과 충돌 횟수
     private int contactEnemy; // 적과 충돌 횟수
     private int contactWallCount; // 받아온 벽 충돌 횟수
