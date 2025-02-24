@@ -4560,8 +4560,6 @@ MonoBehaviour:
   - {fileID: 7294205467680841828, guid: 20585e4e66898cc4a9d982a940ff36d2, type: 3}
   mapSpawnPoint: {fileID: 1054294713}
   mainCamera: {fileID: 519420031}
-  SelectIndex: 0
-  currentMapInstance: {fileID: 0}
   StartButton: {fileID: 505185502}
 --- !u!1 &1914237033
 GameObject:
