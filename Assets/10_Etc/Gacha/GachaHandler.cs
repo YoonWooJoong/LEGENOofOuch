@@ -6,7 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class GachaHandler : MonoBehaviour
 {
-    public Gacha gacha = GachaManager.Instance.gacha;
+    public Gacha gacha;
     public GachaAnimation[] gachaAnimation;
     public RectTransform[] skillSlots;
     public Material pillarMaterial; // 기둥 머티리얼
@@ -21,7 +21,10 @@ public class GachaHandler : MonoBehaviour
     private Color commonColor = Color.green;  // 기본 초록색
     private Color rareColor = Color.yellow;   // 레어 확률일 때 노란색
 
-
+    private void Awake()
+    {
+       gacha = GachaManager.Instance.gacha;
+    }
     public void StartGacha()
     {
         StartCoroutine(HandleGacha());

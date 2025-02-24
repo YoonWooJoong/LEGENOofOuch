@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityindex: 24
-  isRare: 0
+  isRare: 1
 --- !u!1 &540127958
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,21 +918,45 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 2982256090563347352, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3779768853591145103, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820217169675903805, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411621563143032716, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5411621563143032716, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5724686616164398763, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -150
       objectReference: {fileID: 0}
+    - target: {fileID: 5724686616164398763, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8231244701520927982, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231244701520927982, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802359117546939933, guid: d06d4429e57ac4743b7b371c904918a2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
