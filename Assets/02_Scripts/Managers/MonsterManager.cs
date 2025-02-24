@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject[] monsterPrefebs;
+    List<EnemyCharacter> spawnedEnemys = new();
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn(Rect rect)
     {
-        
+        GameObject randomPrefeb = monsterPrefebs[Random.Range(0, monsterPrefebs.Length)];
+
+        Vector2 randomP = new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
+
+        GameObject spawned = Instantiate(randomPrefeb, new Vector3(randomP.x, randomP.y), Quaternion.identity);
+        EnemyCharacter enemyCharacter = spawned.GetComponent<EnemyCharacter>();
+
+        spawnedEnemys.Add(enemyCharacter);
     }
 }
