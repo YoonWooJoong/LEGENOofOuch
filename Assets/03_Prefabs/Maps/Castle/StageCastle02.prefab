@@ -1082,37 +1082,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 230274842833188367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &830359400305476045
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4758888608208332809}
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4758888608208332809
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830359400305476045}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1401971991032922525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443431367255938685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1401971991032922525}
+  - component: {fileID: 17003834916712459}
   m_Layer: 0
   m_Name: StageCastle02
   m_TagString: Untagged
@@ -1437,10 +1407,27 @@ Transform:
   - {fileID: 1342361735289087958}
   - {fileID: 230274842833188367}
   - {fileID: 8580145104229445614}
-  - {fileID: 4758888608208332809}
   - {fileID: 6815622489717876272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17003834916712459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462451342039687285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca7564301d62a8479f551b22dac09e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnPoint:
+  - {fileID: 4946007639155039915}
+  - {fileID: 5649766300683067108}
+  - {fileID: 228493931791638650}
+  - {fileID: 7419055481171815730}
+  playerSpawnPoint: {fileID: 8580145104229445614}
 --- !u!1 &4244795053001891516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3821,7 @@ GameObject:
   - component: {fileID: 4088202219691365537}
   - component: {fileID: 574589217682730639}
   m_Layer: 0
-  m_Name: MapIndoor
+  m_Name: MapCastle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
