@@ -1,9 +1,8 @@
 Shader "UI/GradientPillar"
 {
-    Properties
+        Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _GradientColor ("Gradient Color", Color) = (1,1,1,1)
     }
     SubShader
     {
@@ -44,14 +43,12 @@ Shader "UI/GradientPillar"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float alphaY = 1.0 - abs(i.uv.y - 0.5) * 1.5;
+                float alphaY = 1.0 - abs(i.uv.y - 0.5) * 2.0;
                 float alphaX = 1.0 - abs(i.uv.x - 0.5) * 2.0; 
                 float alpha = alphaY * alphaX; 
                 alpha = clamp(alpha, 0.0, 0.7);
-                fixed3 gradientColor = lerp(_Color.rgb, _GradientColor.rgb, abs(i.uv.y - 0.5) * 2.0);
-
-                
-                return fixed4(gradientColor, alpha);
+                return fixed4(_Color.rgb, alpha);
+     
             }
             ENDCG
         }

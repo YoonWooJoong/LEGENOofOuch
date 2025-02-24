@@ -2,67 +2,75 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class GachaHandler : MonoBehaviour
 {
-    public Gacha gacha;
-    public GachaAnimation gachaAnimation;
+    public Gacha gacha = GachaManager.Instance.gacha;
+    public GachaAnimation[] gachaAnimation;
     public RectTransform[] skillSlots;
-    public Image backgroundEffect;
     public Material pillarMaterial; // 기둥 머티리얼
+    public Sprite[] skillIcons;
+    public GameObject Piller;
+    public GameObject commonBackground;
+    public GameObject rareBackground;
     public float bounceScale = 1.2f;
     public float bounceDuration = 0.2f;
 
     // 색상 설정
-    private Color normalColor = Color.green;  // 기본 초록색
+    private Color commonColor = Color.green;  // 기본 초록색
     private Color rareColor = Color.yellow;   // 레어 확률일 때 노란색
 
-    void Start()
+
+    public void StartGacha()
     {
-        gacha.SelectRandomIcons();
         StartCoroutine(HandleGacha());
     }
-
     private IEnumerator HandleGacha()
     {
-        yield return StartCoroutine(gachaAnimation.AnimatePachinko());
+        //yield return StartCoroutine(gachaAnimation.AnimateSlot());
 
-        bool isRare = false;
-        Sprite[] selectedIcons = gacha.GetSelectedIcons();
-        foreach (var icon in selectedIcons)
+        Piller.SetActive(true);
+        ChangePillarColor(commonColor);
+        int[] selectedAbility = gacha.GetSelectedAbility();
+        bool isRare = gacha.GetIsRare();
+        for (int i = 0; i < selectedAbility.Length; i++)
         {
-            if (gacha.IsRare(icon))
-            {
-                isRare = true;
-                break;
-            }
+            gachaAnimation[i].StartSpin(selectedAbility[i], isRare);
         }
-
-        if (isRare)
-        {
-            yield return StartCoroutine(PlayRareEffect());
-        }
-
         // 2초 후 색상 변경
-        ChangePillarColor(isRare);
+        
 
-        for (int i = 0; i < 3; i++)
+        yield return new WaitForSeconds(2f);
+        if (!isRare)
         {
-            yield return new WaitForSeconds(0.3f);
-            skillSlots[i].GetComponent<Image>().sprite = selectedIcons[i];
-            skillSlots[i].GetComponent<Image>().color = isRare ? rareColor : normalColor;
-            StartCoroutine(PlayBounceEffect(skillSlots[i]));
+            for (int i = 0; i < selectedAbility.Length; i++)
+            {
+                StartCoroutine(PlayBounceEffect(skillSlots[i]));
+                yield return new WaitForSeconds(0.5f);
+            }
+            Piller.SetActive(false);
+            commonBackground.SetActive(true);
         }
-    }
+        else
+        {
+            ChangePillarColor(rareColor);
+            for (int i = 0; i < selectedAbility.Length; i++)
+            {
+                StartCoroutine(PlayBounceEffect(skillSlots[i]));
+            }
+            yield return new WaitForSeconds(2f);
+            for (int i = 0; i < selectedAbility.Length; i++)
+            {
+                StartCoroutine(PlayBounceEffect(skillSlots[i]));
+                yield return new WaitForSeconds(0.5f);
+            }
+            Piller.SetActive(false);
+            rareBackground.SetActive(true);
+        }
+        
 
-    private IEnumerator PlayRareEffect()
-    {
-        backgroundEffect.color = new Color(1f, 1f, 0.5f, 0.8f);
-        backgroundEffect.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        backgroundEffect.gameObject.SetActive(false);
     }
-
     private IEnumerator PlayBounceEffect(RectTransform slot)
     {
         Vector3 originalScale = slot.localScale;
@@ -85,12 +93,8 @@ public class GachaHandler : MonoBehaviour
         }
     }
 
-    private void ChangePillarColor(bool isRare)
+    private void ChangePillarColor(Color color)
     {
-        if (pillarMaterial != null)
-        {
-            Color targetColor = isRare ? rareColor : normalColor;
-            pillarMaterial.SetColor("_GradientColor", targetColor);
-        }
+            pillarMaterial.SetColor("_Color", color);
     }
 }
