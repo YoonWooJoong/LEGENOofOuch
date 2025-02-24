@@ -35,4 +35,10 @@ public class PlayerCharacter : BaseCharacter
                 target = enemy.GameObject().transform;
         }
     }
+
+    public override void Death()
+    {
+        //사망시 게임종료 로직 실행
+        base.Death();
+    }
 }
