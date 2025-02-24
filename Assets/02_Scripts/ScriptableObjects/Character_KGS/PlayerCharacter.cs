@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerCharacter : BaseCharacter
 {
-    [SerializeField] float criticalDamage, criticalChance;
+    [SerializeField] float criticalDamage = 0.2f, criticalChance;
 
     [Header("")]
     [SerializeField] PlayerClassEnum pClass;

@@ -10,13 +10,9 @@ public class TestManager_KGS : MonoBehaviour
     [SerializeField] Rect[] spawnPoints;
     EnemyCharacter enemy;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// 좌클릭:적 생성, 스페이스:플레이어 2데미지, E:가장 먼저 생성된 적에게 2데미지
+    /// </summary>
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

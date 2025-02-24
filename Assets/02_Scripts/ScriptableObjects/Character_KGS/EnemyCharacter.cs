@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyCharacter : BaseCharacter
 {
-    [SerializeField] float attackRange;
+    [SerializeField] float attackRange = 3;
 
     [Header("")]
     [SerializeField] MonsterEnum mEnum;

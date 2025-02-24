@@ -12,9 +12,9 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] Slider HpBar;
 
     [Header("Stat")]
-    [SerializeField] protected float maxHp;
-    [SerializeField] protected float speed;
-    [SerializeField] protected float attackPower, attackSpeed;
+    [SerializeField] protected float maxHp = 100;
+    [SerializeField] protected float speed = 2;
+    [SerializeField] protected float attackPower = 1, attackSpeed = 1;
 
     float curHp;
     protected float CurHp { get => curHp; set => curHp = value <= maxHp ? (value >= 0 ? value : 0) : maxHp; }
@@ -40,6 +40,7 @@ public class BaseCharacter : MonoBehaviour
         HandleAction();
         SetDir();
         HandleAttackDelay();
+        Debug.DrawRay(transform.position, lookDir, Color.red);
     }
 
     protected virtual void FixedUpdate()
@@ -114,6 +115,9 @@ public class BaseCharacter : MonoBehaviour
             Death();
     }
 
+    /// <summary>
+    /// 캐릭터가 사망하면 그자리에 정지하고 잠시 후 사라집니다.
+    /// </summary>
     protected virtual void Death()
     {
         rig.velocity = Vector2.zero;
