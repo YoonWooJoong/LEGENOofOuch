@@ -67,9 +67,8 @@ public class BaseCharacter : MonoBehaviour
         else if (IsMove)
             lookDir = moveDir;
 
-        float rotZ = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-
-        sprite.flipX = Mathf.Abs(rotZ) > 90f;
+        if (lookDir.x != 0)
+            sprite.flipX = lookDir.x < 0;
     }
 
     /// <summary>
