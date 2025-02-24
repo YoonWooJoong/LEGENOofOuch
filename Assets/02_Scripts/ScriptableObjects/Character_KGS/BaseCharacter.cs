@@ -43,6 +43,9 @@ public class BaseCharacter : MonoBehaviour
         Move();
     }
 
+    /// <summary>
+    /// 오버라이드시 이동방향을 이곳에서 결정합니다. 이동방향은 반드시 normalize를 마지막에 해 주어야 합니다.
+    /// </summary>
     protected virtual void HandleAction()
     { }
 
@@ -54,6 +57,9 @@ public class BaseCharacter : MonoBehaviour
             rig.velocity = moveDir * speed;
     }
 
+    /// <summary>
+    /// 이동시에는 이동방향을, 그 외에는 목표물을 바라보도록 합니다.
+    /// </summary>
     protected virtual void SetDir()
     {
         if (target != null && !IsMove)
@@ -66,6 +72,9 @@ public class BaseCharacter : MonoBehaviour
         sprite.flipX = Mathf.Abs(rotZ) > 90f;
     }
 
+    /// <summary>
+    /// 공격속도를 반영해 다음 공격까지 공격을 대기합니다.
+    /// </summary>
     void HandleAttackDelay()
     {
         if (timeSinceLastAttack <= AttackDelay)
@@ -77,6 +86,9 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 공격시 행동을 정의합니다.
+    /// </summary>
     protected virtual void Attack()
     {
         animHandle?.Attack();
