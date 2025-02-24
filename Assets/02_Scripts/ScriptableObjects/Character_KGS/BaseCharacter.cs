@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseCharacter : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sprite;
     AnimationHandler animHandle;
     [SerializeField] protected Transform target;
+    [SerializeField] Slider HpBar;
 
     [Header("Stat")]
     [SerializeField] protected float maxHp;
@@ -107,7 +109,7 @@ public class BaseCharacter : MonoBehaviour
     public virtual void ChangeHealth(float change)
     {
         CurHp += change;
-
+        HpBar.value = CurHp / maxHp;
         if (CurHp == 0f)
             Death();
     }

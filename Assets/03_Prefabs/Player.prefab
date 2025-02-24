@@ -498,6 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 5591733757984271156}
   target: {fileID: 0}
+  HpBar: {fileID: 2343946829416873299}
   maxHp: 10
   speed: 3
   attackPower: 0
