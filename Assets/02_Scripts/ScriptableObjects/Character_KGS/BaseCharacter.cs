@@ -49,7 +49,9 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Move()
     {
         animHandle?.Move(moveDir);
-        rig.velocity = moveDir * speed;
+
+        if (rig != null)
+            rig.velocity = moveDir * speed;
     }
 
     protected virtual void SetDir()
