@@ -19,7 +19,7 @@ public class BaseCharacter : MonoBehaviour
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
 
-    protected bool IsAttacking = true;
+    protected bool IsAttacking => !IsMove && target != null;
     float AttackDelay => 1 / attackSpeed;
     float timeSinceLastAttack = float.MaxValue;
 
