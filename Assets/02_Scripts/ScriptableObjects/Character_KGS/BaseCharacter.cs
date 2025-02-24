@@ -14,16 +14,15 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected float attackPower, attackSpeed;
 
     protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
-    protected bool IsMove => moveDir.magnitude > 0.5f;
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
+    protected bool IsMove => moveDir.magnitude > 0.5f;
+    protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
 
     protected bool IsAttacking => !IsMove && target != null;
     float AttackDelay => 1 / attackSpeed;
     float timeSinceLastAttack = float.MaxValue;
-
-    protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
 
     protected virtual void Awake()
     {
@@ -91,5 +90,15 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Attack()
     {
         animHandle?.Attack();
+    }
+
+    public virtual void CreateProjectile()
+    {
+
+    }
+
+    public virtual void Death()
+    {
+
     }
 }
