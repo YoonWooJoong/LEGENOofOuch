@@ -9,6 +9,8 @@ public class EnemyCharacter : BaseCharacter
 
     [Header("")]
     [SerializeField] MonsterEnum mEnum;
+    [SerializeField] GameObject potionPrefeb;
+    [SerializeField][Range(0, 100)] float potionDrop;
     MonsterManager MM;
 
     void Start()
@@ -29,9 +31,15 @@ public class EnemyCharacter : BaseCharacter
             moveDir = Vector2.zero;
     }
 
+    /// <summary>
+    /// 적은 사망시 확률적으로 포션을 하나 드랍하고, 남은 적 리스트에서 제외됩니다.
+    /// </summary>
     protected override void Death()
     {
-        MM.RemoveEnemyOnDeath(this);
+        if (Random.Range(0, 100) < potionDrop)
+            Instantiate(potionPrefeb, new Vector3(transform.position.x,transform.position.y), Quaternion.identity);
+
+            MM.RemoveEnemyOnDeath(this);
         base.Death();
     }
 }
