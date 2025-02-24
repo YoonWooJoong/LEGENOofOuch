@@ -109,7 +109,7 @@ public class BaseCharacter : MonoBehaviour
             Death();
     }
 
-    public virtual void Death()
+    protected virtual void Death()
     {
         rig.velocity = Vector2.zero;
 
