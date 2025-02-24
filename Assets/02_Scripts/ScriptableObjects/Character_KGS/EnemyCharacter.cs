@@ -7,6 +7,9 @@ public class EnemyCharacter : BaseCharacter
 {
     [SerializeField] float attackRange;
 
+    [Header("")]
+    [SerializeField] MonsterEnum mEnum;
+
     void Start()
     {
         target = FindAnyObjectByType(typeof(PlayerCharacter)).GameObject().transform;
