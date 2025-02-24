@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("StartGame");
+        //적생성
+        //플레이어생성
+        //스테이지선택
+
     }
 
     public void KillMonster()
