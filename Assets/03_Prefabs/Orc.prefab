@@ -351,7 +351,7 @@ MonoBehaviour:
   HpBar: {fileID: 3657336185170633128}
   maxHp: 5
   speed: 1
-  attackPower: 0
+  attackPower: 1
   attackSpeed: 1
   attackRange: 2
   mEnum: 1

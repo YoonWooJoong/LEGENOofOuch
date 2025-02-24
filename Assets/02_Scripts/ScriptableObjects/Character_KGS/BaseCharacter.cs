@@ -96,6 +96,7 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Attack()
     {
         animHandle?.Attack();
+        //gamemaneger.~~~
     }
 
     public virtual void CreateProjectile()

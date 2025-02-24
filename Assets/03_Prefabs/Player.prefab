@@ -501,9 +501,9 @@ MonoBehaviour:
   HpBar: {fileID: 2343946829416873299}
   maxHp: 10
   speed: 3
-  attackPower: 0
-  attackSpeed: 0
-  criticalDamage: 0
+  attackPower: 1
+  attackSpeed: 1
+  criticalDamage: 0.2
   criticalChance: 0
   pClass: 2
 --- !u!50 &2570352770424791577
