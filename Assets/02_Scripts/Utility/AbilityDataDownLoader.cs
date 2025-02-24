@@ -33,11 +33,11 @@ public class AbilityDataDownLoader : MonoBehaviour
 
     private void Awake()
     {
-        StartDownload(false);
+      //  StartDownload(false);
     }
     private void Start()
     {
-        Invoke("SetActiveDisable", 10f);
+    //    Invoke("SetActiveDisable", 10f);
     }
     private void SetActiveDisable()
     {

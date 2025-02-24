@@ -15,13 +15,8 @@ public class TileMapManager : MonoBehaviour
     private int SelectIndex = 0; // 현재 선택된 맵의 인덱스
     private GameObject currentMapInstance; // 현재 활성화된 맵 프리팹
 
-    public Button StartButton;
-
-
     void Start()
     {
-        StartButton.onClick.AddListener(StartGame);
-        UpdateStageUI();
         LoadSelectedMap();
     }
 
@@ -34,19 +29,7 @@ public class TileMapManager : MonoBehaviour
         }
     }
 
-    public void NextStage()
-    {
-        SelectIndex = (SelectIndex + 1) % SelectImages.Length;
-        UpdateStageUI();
-        LoadSelectedMap();
-    }
-
-    public void PreviousStage()
-    {
-        SelectIndex = (SelectIndex - 1 + SelectImages.Length) % SelectImages.Length;
-        UpdateStageUI();
-        LoadSelectedMap();
-    }
+    //void GameStart()
 
     void LoadSelectedMap()
     {
@@ -58,25 +41,11 @@ public class TileMapManager : MonoBehaviour
 
         if (MapPrefabs != null && SelectIndex < MapPrefabs.Length && MapPrefabs[SelectIndex] != null)
         {
-            currentMapInstance = Instantiate(MapPrefabs[SelectIndex], new Vector3(-20, 0, 0), Quaternion.identity);
+            currentMapInstance = Instantiate(MapPrefabs[SelectIndex], Vector3.zero, Quaternion.identity);
         }
         else
         {
             Debug.LogError("맵 프리팹이 존재하지 않음: " + SelectNames[SelectIndex]);
         }
-    }
-    void StartGame()
-    {
-        if(currentMapInstance != null)
-        {
-            mainCamera.transform.position = new Vector3(currentMapInstance.transform.position.x, currentMapInstance.transform.position.y, mainCamera.transform.position.z);
-            Debug.Log("맵으로 이동");
-        }
-        else
-        {
-            Debug.LogError("맵이 없음");
-        }
-        
-
     }
 }

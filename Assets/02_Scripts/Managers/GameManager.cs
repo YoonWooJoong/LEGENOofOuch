@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public UIManager UIManager { get; private set; }
     public ProjectileManager ProjectileManager { get; private set; }
     public SelectManager selectManager { get; private set; }
+    public TileMapManager tileMapManager { get; private set; }
 
     public PlayerCharacter player;
 

@@ -66,11 +66,14 @@ public class SoundManager : MonoBehaviour
             source.enabled = false;
             audioSourcePool.Enqueue(source);
         }
+
+
+        // 무슨 소리가 들어가야한다. 설명
+        SoundManager.instance.PlaySFX("");
     }
 
     /// <summary>
-    /// SFX 재생 (Object Pooling 사용)
-    /// </summary>
+    /// SFX 재생 (Object Pooling 사용)    /// </summary>
     /// <param name="soundName">사운드 이름</param>
     public void PlaySFX(string soundName)
     {
