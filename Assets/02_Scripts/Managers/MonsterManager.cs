@@ -18,4 +18,13 @@ public class MonsterManager : MonoBehaviour
 
         spawnedEnemys.Add(enemyCharacter);
     }
+
+    public void RemoveEnemyOnDeath(EnemyCharacter enemy)
+    {
+        spawnedEnemys.Remove(enemy);
+        if (spawnedEnemys.Count == 0)
+        {
+            //스테이지가 클리어 됬습니다.
+        }
+    }
 }

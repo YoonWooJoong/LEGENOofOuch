@@ -9,6 +9,7 @@ public class EnemyCharacter : BaseCharacter
 
     [Header("")]
     [SerializeField] MonsterEnum mEnum;
+    MonsterManager MM;
 
     void Start()
     {
@@ -26,5 +27,11 @@ public class EnemyCharacter : BaseCharacter
             moveDir = lookDir;
         else
             moveDir = Vector2.zero;
+    }
+
+    protected override void Death()
+    {
+        MM.RemoveEnemyOnDeath(this);
+        base.Death();
     }
 }
