@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseCharacter : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sprite;
+    AnimationHandler animHandle;
     [SerializeField] protected Transform target;
 
     [Header("Stat")]
@@ -14,6 +15,7 @@ public class BaseCharacter : MonoBehaviour
 
     protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
     protected bool IsMove => moveDir.magnitude > 0;
+    protected bool isAttacking;
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
@@ -21,6 +23,7 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
+        animHandle = GetComponent<AnimationHandler>();
     }
 
     protected virtual void Update()
@@ -35,13 +38,14 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Move()
     {
-        rig.velocity = moveDir.normalized * speed;
+        animHandle.Move(moveDir);
+        rig.velocity = moveDir * speed;
     }
 
     protected virtual void SetDir()
     {
         if (target != null && !IsMove)
-            lookDir = target.position - transform.position;
+            lookDir = (target.position - transform.position).normalized;
         else if (IsMove)
             lookDir = moveDir;
 
@@ -52,6 +56,9 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Attack()
     {
-
+        if(isAttacking)
+        {
+            animHandle.Attack();
+        }
     }
 }

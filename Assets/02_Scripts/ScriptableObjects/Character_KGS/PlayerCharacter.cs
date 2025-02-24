@@ -11,7 +11,7 @@ public class PlayerCharacter : BaseCharacter
 
     protected override void SetDir()
     {
-        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         base.SetDir();
     }
 }
