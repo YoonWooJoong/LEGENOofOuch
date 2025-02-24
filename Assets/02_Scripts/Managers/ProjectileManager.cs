@@ -11,7 +11,6 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] private GameObject fairyPrefab; // 요정 프리팹
     [SerializeField] private GameObject fireOrbPrefab; // 불의 원 프리팹
 
-    public Transform tras;
 
     /// <summary>
     /// 총알 생성, 리스트에 워리어, 위자드, 궁수 순서대로 프리팹 넣어야함
@@ -71,9 +70,4 @@ public class ProjectileManager : MonoBehaviour
         fairyController.Init(playerPosition,270);
     }
 
-    public void Start()
-    {
-        CreateFireOrb(tras.position);
-        CreateFairy(tras.position);
-    }
 }

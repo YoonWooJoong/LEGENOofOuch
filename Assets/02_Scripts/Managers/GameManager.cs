@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public ProjectileManager ProjectileManager { get; private set; }
     public SelectManager selectManager { get; private set; }
 
+    public PlayerCharacter player;
 
     private void Awake()
     {
