@@ -2296,6 +2296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3991648572010720189}
+  - component: {fileID: 4311609582601232233}
   m_Layer: 0
   m_Name: StageSwamp02
   m_TagString: Untagged
@@ -2320,10 +2321,29 @@ Transform:
   - {fileID: 7052615019885450644}
   - {fileID: 3611018652215494752}
   - {fileID: 1721933669798565509}
-  - {fileID: 7961422689783369845}
   - {fileID: 6854901009379636687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4311609582601232233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2434951905755286918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca7564301d62a8479f551b22dac09e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnPoint:
+  - {fileID: 7650312923102172287}
+  - {fileID: 2798204745675159277}
+  - {fileID: 7128598767407889569}
+  - {fileID: 6932580206582191908}
+  - {fileID: 1391136526490382198}
+  - {fileID: 217684923616312385}
+  playerSpawnPoint: {fileID: 1721933669798565509}
 --- !u!1 &2517380434333492837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4257,37 +4277,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.5}
   m_EdgeRadius: 0
---- !u!1 &8108931872990358793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7961422689783369845}
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7961422689783369845
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8108931872990358793}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3991648572010720189}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8524410984665212869
 GameObject:
   m_ObjectHideFlags: 0

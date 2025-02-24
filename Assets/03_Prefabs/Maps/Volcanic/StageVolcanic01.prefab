@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3501374134122221668}
+  - component: {fileID: 1990229681350724098}
   m_Layer: 0
-  m_Name: StageSwamp01
+  m_Name: StageVolcanic01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,10 +34,27 @@ Transform:
   - {fileID: 1540129008489091129}
   - {fileID: 1736402672385318062}
   - {fileID: 5741585474891616613}
-  - {fileID: 6455452605772895135}
   - {fileID: 7066227102873929130}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1990229681350724098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158917681382754949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca7564301d62a8479f551b22dac09e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnPoint:
+  - {fileID: 7922762743967029761}
+  - {fileID: 1771648460944679778}
+  - {fileID: 4509513226346021984}
+  - {fileID: 598492662015390794}
+  playerSpawnPoint: {fileID: 5741585474891616613}
 --- !u!1 &2308138159637298893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,37 +2394,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1736402672385318062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4523871586984061992
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6455452605772895135}
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6455452605772895135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4523871586984061992}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3501374134122221668}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4680651109703741789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,7 +2548,7 @@ GameObject:
   - component: {fileID: 1293127067787178841}
   - component: {fileID: 6414327566530488793}
   m_Layer: 0
-  m_Name: MapSwamp
+  m_Name: MapVolcanic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

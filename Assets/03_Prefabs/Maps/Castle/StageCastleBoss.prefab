@@ -179,37 +179,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &2277463579184119301
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2168228246312321384}
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2168228246312321384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2277463579184119301}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1473916875497725841}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3353941515217528513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,7 +1782,7 @@ GameObject:
   - component: {fileID: 3123489061155380333}
   - component: {fileID: 7339091925130601086}
   m_Layer: 0
-  m_Name: MapIndoor
+  m_Name: MapCastle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3378,6 +3347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1473916875497725841}
+  - component: {fileID: 5680967835771423987}
   m_Layer: 0
   m_Name: StageCastleBoss
   m_TagString: Untagged
@@ -3402,10 +3372,24 @@ Transform:
   - {fileID: 6411390791345336767}
   - {fileID: 8962669405578672613}
   - {fileID: 9064968516815910116}
-  - {fileID: 2168228246312321384}
   - {fileID: 160434332914534978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5680967835771423987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998064419188645552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca7564301d62a8479f551b22dac09e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnPoint:
+  - {fileID: 209724441516969709}
+  playerSpawnPoint: {fileID: 9064968516815910116}
 --- !u!1 &7773110286257021303
 GameObject:
   m_ObjectHideFlags: 0
