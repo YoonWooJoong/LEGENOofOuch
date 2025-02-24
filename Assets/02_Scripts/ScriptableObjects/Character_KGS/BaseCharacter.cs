@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
@@ -13,7 +14,8 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected float speed;
     [SerializeField] protected float attackPower, attackSpeed;
 
-    protected float CurHp { get => CurHp; set => Mathf.Clamp(value, 0, maxHp); }
+    float curHp;
+    protected float CurHp { get => curHp; set => curHp = value <= maxHp ? (value >= 0 ? value : 0) : maxHp; }
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
@@ -28,6 +30,7 @@ public class BaseCharacter : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         animHandle = GetComponent<AnimationHandler>();
+        curHp = maxHp;
     }
 
     protected virtual void Update()
