@@ -349,14 +349,14 @@ MonoBehaviour:
   sprite: {fileID: 6710667964943839992}
   target: {fileID: 0}
   HpBar: {fileID: 3657336185170633128}
-  maxHp: 0
+  maxHp: 5
   speed: 1
   attackPower: 0
   attackSpeed: 1
   attackRange: 2
   mEnum: 1
   potionPrefeb: {fileID: 1077902193551154372, guid: ff527ef4c0663784088eebcbfb700717, type: 3}
-  potionDrop: 0
+  potionDrop: 60
 --- !u!50 &2271822649697971388
 Rigidbody2D:
   serializedVersion: 4

@@ -16,6 +16,7 @@ public class EnemyCharacter : BaseCharacter
     void Start()
     {
         target = FindAnyObjectByType(typeof(PlayerCharacter)).GameObject().transform;
+        MM = FindFirstObjectByType<MonsterManager>();
     }
 
     /// <summary>
@@ -39,7 +40,7 @@ public class EnemyCharacter : BaseCharacter
     protected override void Death()
     {
         if (Random.Range(0, 100) < potionDrop)
-            Instantiate(potionPrefeb, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+            Instantiate(potionPrefeb, transform.position, Quaternion.identity);
 
         MM.RemoveEnemyOnDeath(this);
         base.Death();

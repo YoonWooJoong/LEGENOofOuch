@@ -8,6 +8,7 @@ public class TestManager_KGS : MonoBehaviour
     [SerializeField] MonsterManager MM;
 
     [SerializeField] Rect[] spawnPoints;
+    EnemyCharacter enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +23,11 @@ public class TestManager_KGS : MonoBehaviour
             MM.Spawn(spawnPoints[Random.Range(0, spawnPoints.Length)]);
         if (Input.GetKeyDown(KeyCode.Space))
             player.ChangeHealth(-2);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (enemy == null)
+                enemy = FindFirstObjectByType<EnemyCharacter>();
+            enemy?.ChangeHealth(-2);
+        }
     }
 }
