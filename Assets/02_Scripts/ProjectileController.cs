@@ -73,8 +73,7 @@ public class ProjectileController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        if (contactEnemy < 2 && collision.gameObject.CompareTag("Enemy")) // 임시로 Enemy로 작성 
+        else if (contactEnemy < 2 && collision.gameObject.CompareTag("Enemy")) // 임시로 Enemy로 작성 
         {
             var contact = collision.contacts[0]; // 충돌 지점
             direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
