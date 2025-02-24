@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
   m_Name: "\uC18D\uB3C4 \uC624\uB85C\uB77C"
   m_EditorClassIdentifier: 
-  ability: 0
-  abilityName: 
-  description: 
+  ability: 2
+  abilityName: "\uC18D\uB3C4 \uC624\uB85C\uB77C"
+  description: "{n} \uCD08\uB9C8\uB2E4 2 \uCD08 \uB3D9\uC548 \uACF5\uACA9 \uC18D\uB3C4\uAC00
+    62.5 % \uC99D\uAC00\uD55C\uB2E4."
   rank: 0
   canUpgrade: 0
-  values: []
+  values:
+  - 9
+  - 18

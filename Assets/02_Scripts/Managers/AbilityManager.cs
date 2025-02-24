@@ -10,6 +10,11 @@ public class AbilityManager : MonoBehaviour
 
     [SerializeField] private Transform abilityParent;
 
+    private void Awake()
+    {
+        abilityParent = transform;
+    }
+
     /// <summary>
     /// 소유중인 모든 어빌리티 소멸
     /// </summary>

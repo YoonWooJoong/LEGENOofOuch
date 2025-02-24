@@ -71,6 +71,7 @@ public class AbilityDataDownLoader : MonoBehaviour
             Debug.LogError("데이터 가져오기 실패: " + www.error);
         }
 
+        CreatePrefabs();
         ApplyAbilityDataSO();
     }
 
@@ -227,8 +228,40 @@ public class AbilityDataDownLoader : MonoBehaviour
         return newSO;
     }
 
+    /// <summary>
+    /// 가지고 있는 SO 정보를 토대로 프리팹 생성 및 덮어쓰기
+    /// </summary>
+    private void CreatePrefabs()
+    {
+        string folderPath = "Assets/03_Prefabs/Abilities";
 
-    void ApplyAbilityDataSO()
+        // 폴더가 없으면 생성
+        if (!AssetDatabase.IsValidFolder(folderPath))
+        {
+            AssetDatabase.CreateFolder("Assets/03_Prefabs", "Abilities");
+        }
+
+        for (int i = 0; i < abilityDataSO.Count; i++)
+        {
+            string prefabPath = $"{folderPath}/{abilityDataSO[i].AbilityName}.prefab";
+
+            GameObject abilityObject = new GameObject(abilityDataSO[i].AbilityName);
+            abilityObject.AddComponent<AbilityController>();
+
+            // 기존 프리팹이 있다면 덮어쓰기
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(abilityObject, prefabPath);
+
+            EditorUtility.SetDirty(abilityObject); // 변경 사항 강제 적용, 반드시 하나했을때 개별적으로 적용시키기.
+
+            DestroyImmediate(abilityObject);
+        }
+
+        // 변경 사항 저장
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
+
+    private void ApplyAbilityDataSO()
     {
         abilityRepositoy.SetabilityDataSOs(abilityDataSO.ToArray());
     }
