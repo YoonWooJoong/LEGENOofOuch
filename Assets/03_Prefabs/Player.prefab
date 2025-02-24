@@ -194,7 +194,7 @@ MonoBehaviour:
   attackSpeed: 0
   criticalDamage: 0
   criticalChance: 0
-  pClass: 0
+  pClass: 2
 --- !u!50 &2570352770424791577
 Rigidbody2D:
   serializedVersion: 4

@@ -97,8 +97,25 @@ public class BaseCharacter : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 캐릭터의 현제 체력을 변경합니다.
+    /// </summary>
+    /// <param name="change">변경할 수치입니다. 데미지면 음수, 회복이면 양수값을 입력합니다.</param>
+    public virtual void ChangeHealth(float change)
+    {
+        CurHp += change;
+
+        if (CurHp == 0f)
+            Death();
+    }
+
     public virtual void Death()
     {
+        rig.velocity = Vector2.zero;
 
+        foreach (var compo in transform.GetComponentsInChildren<Behaviour>())
+            compo.enabled = false;
+
+        Destroy(gameObject, 2f);
     }
 }

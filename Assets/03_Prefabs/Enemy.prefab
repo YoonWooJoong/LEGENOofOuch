@@ -161,6 +161,7 @@ MonoBehaviour:
   attackPower: 0
   attackSpeed: 1
   attackRange: 2
+  mEnum: 1
 --- !u!50 &2271822649697971388
 Rigidbody2D:
   serializedVersion: 4
