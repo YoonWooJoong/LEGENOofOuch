@@ -1,41 +1,46 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterManagert : MonoBehaviour
 {
-    public GameObject[] CharaterPrefabs; //프리팹 배열
-    public Transform spawnPoint; //선택된 캐릭터가 보일위치
+    public Image characterPreview; //선택된 캐릭터 미리보기
+    public Sprite[] characterImages; //캐릭터이미지 배열
     public string[] characterNames; // 캐릭터 이름
     public Text characterNameText; // 선택된 캐릭터 이름 표시
 
-
-    private GameObject currentCharacter; // 현재 선택된 캐릭터
     private int selectedCharacterIndex = 0; // 선택된 캐릭터 인덱스
+    void Start()
+    {
+
+        LoadSavedCharater();
+    }
+
 
     public void SelectCharater(int index)
-    {
-        if(currentCharacter != null)
-        {
-            Destroy(currentCharacter);
-        }
-        currentCharacter = Instantiate(CharaterPrefabs[index], spawnPoint.position, Quaternion.identity);
+    { 
+        
         selectedCharacterIndex = index;
+        characterPreview.sprite = characterImages[index];
+        characterNameText.text = characterNames[index];
+
+        SaveCharacter();
     }
 
-    public void PlayAnimation(String animationName)
+    public void SaveCharacter()
     {
-        if(currentCharacter != null)
-        {
-            Animator animator = currentCharacter.GetComponent<Animator>();
-            if (animator != null)
-            {
-                animator.Play(animationName);
-            }
-        }
+        PlayerPrefs.SetInt("SelectedCharacter", selectedCharacterIndex);
+        PlayerPrefs.Save();
+        Debug.Log("Character Saved: " + characterNames[selectedCharacterIndex]);
     }
 
+    void LoadSavedCharater()
+    {
+        selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        SelectCharater(selectedCharacterIndex);
+    }
 
 }
