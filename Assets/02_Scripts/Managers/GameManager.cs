@@ -15,10 +15,13 @@ public class GameManager : MonoBehaviour
     public AbilityManager AbilityManager { get; private set; }
     public UIManager UIManager { get; private set; }
     public ProjectileManager ProjectileManager { get; private set; }
-    public SelectManager selectManager { get; private set; }
-    public TileMapManager tileMapManager { get; private set; }
+    public SelectManager SelectManager { get; private set; }
+    public TileMapManager TileMapManager { get; private set; }
+
+    public Transform playerspown;
 
     public PlayerCharacter player;
+    public Transform MmonsterSpawn { get; private set; }
 
     private void Awake()
     {
@@ -38,11 +41,16 @@ public class GameManager : MonoBehaviour
         //적생성
         //플레이어생성
         //스테이지선택
+        //
 
     }
 
     public void KillMonster()
     {
         Debug.Log("KillMonster");
+    }
+    public void GetTransrate()
+    {
+
     }
 }
