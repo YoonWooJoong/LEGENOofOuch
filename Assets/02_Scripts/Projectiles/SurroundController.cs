@@ -7,9 +7,9 @@ public class SurroundController : MonoBehaviour
     private float circleRadius = 1f; // 반지름
     private float deg = 0; // 각도
     private float speed = 40f;  // 이동 속도
-    private float timeSinceLastAttack = 0;
-    private float AttackDelay = 5f;
-    private bool IsAttacking = true;
+    private float timeSinceLastAttack = 0; //공격 시간
+    private float AttackDelay = 5f; // 공격 딜레이
+    private bool IsAttacking = true; // 공격 여부
 
     public void Init(float chagedeg = 0)
     {
@@ -19,7 +19,7 @@ public class SurroundController : MonoBehaviour
     void Update()
     {
         SurroundPosition();
-        if (timeSinceLastAttack <= AttackDelay)
+        if (timeSinceLastAttack <= AttackDelay) // 딜레이 
             timeSinceLastAttack += Time.deltaTime;
         else if (IsAttacking)
         {

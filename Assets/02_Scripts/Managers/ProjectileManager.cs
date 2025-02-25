@@ -71,6 +71,11 @@ public class ProjectileManager : MonoBehaviour
         fairyController.Init(270);
     }
 
+    /// <summary>
+    /// 요정 공격
+    /// </summary>
+    /// <param name="fairyPosition">요정 위치</param>
+    /// <param name="direction">표적과 요정의 위치 뺀값</param>
     public void ShootFairy(Vector3 fairyPosition, Vector3 direction)
     {
         GameObject origin = fairyProjectilePrefab;
