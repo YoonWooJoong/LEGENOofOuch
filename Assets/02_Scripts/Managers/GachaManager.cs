@@ -9,7 +9,6 @@ public class GachaManager : MonoBehaviour
     public GameObject gachaobject;
     public Gacha gacha;
     public GachaController gachaHandler;
-    public int[] selectedAbility;
     public string[] AbilityName {  get; private set; }
     public string[] Abilitydescription {  get; private set; }
 
@@ -32,8 +31,8 @@ public class GachaManager : MonoBehaviour
 
     public void Start()
     {
-        //gachaobject.gameObject.SetActive(true);
-        //StartGacha();
+        gachaobject.gameObject.SetActive(true);
+        StartGacha();
     }
 
     /// <summary>
@@ -43,31 +42,31 @@ public class GachaManager : MonoBehaviour
     {
         gachaHandler.init();
         gacha.SelectRandomAbility();
+        GameManager.Instance.SetAbilityText();
         gachaHandler.StartGacha();
-        GetAbilityName();
-        GetAbilitydescription();
     }
 
     /// <summary>
     /// 게임매니저에서 스킬이름을 가져오는 함수
     /// </summary>
-    public void GetAbilityName()
+    public void GetAbilityName(string[] name)
     {
         //게임매니저에서 가져오기
-        AbilityName[0] = "1번스킬이름";
-        AbilityName[1] = "2번스킬이름";
-        AbilityName[2] = "3번스킬이름";
+        gacha.SelectRandomAbility();
+        AbilityName[0] = name[0];
+        AbilityName[1] = name[1];
+        AbilityName[2] = name[2];
 
     }
 
     /// <summary>
     /// 게임매니저에서 스킬설명을 가져오는 함수
     /// </summary>
-    public void GetAbilitydescription()
+    public void GetAbilitydescription(string[] description)
     {
-        Abilitydescription[0] = "1번스킬설명";
-        Abilitydescription[1] = "2번스킬설명";
-        Abilitydescription[2] = "3번스킬설명";
+        Abilitydescription[0] = description[0];
+        Abilitydescription[1] = description[1];
+        Abilitydescription[2] = description[2];
     }
 
     /// <summary>
@@ -75,11 +74,11 @@ public class GachaManager : MonoBehaviour
     /// </summary>
     /// <param name="abilityEnum"></param>
     /// <returns></returns>
-    public AbilityEnum GachaSelect(AbilityEnum abilityEnum)
+    public void GachaSelect(AbilityEnum abilityEnum)
     {
         Debug.Log(abilityEnum);
         gachaobject.gameObject.SetActive(false);
-        return abilityEnum;
+        GameManager.Instance.GetAbility(abilityEnum);
     }
 
 
