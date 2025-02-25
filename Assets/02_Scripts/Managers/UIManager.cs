@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingUI;
 
 
-
     private void Update()
     {
         ButtonActivate();
@@ -51,8 +50,6 @@ public class UIManager : MonoBehaviour
         previousStageButton.SetActive(number > 0);
 
         nextStageButton.SetActive(number < GameManager.Instance.SelectManager.stageImages.Length - 1);
-
-
     }
     /// <summary>
     /// 다음스테이지 화면을 볼 수 있게 해주는 버튼
@@ -60,7 +57,6 @@ public class UIManager : MonoBehaviour
     public void NextStageButton()
     {
         int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
-
         number = number + 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
@@ -74,9 +70,10 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
 
+
     public void StartButton()
     {
-        
+
     }
 
 }

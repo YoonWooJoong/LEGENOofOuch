@@ -206,10 +206,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 959683902}
-        m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: SetSelectedStageIndex
-        m_Mode: 3
+      - m_Target: {fileID: 1313185638}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: StartButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4288,7 +4288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1212427181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4428,7 +4428,7 @@ MonoBehaviour:
   - Knight
   - Archer
   - Wizard
-  characterNameText: {fileID: 0}
+  characterNameText: {fileID: 1277867103}
 --- !u!1 &1238799345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4744,7 +4744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextStageButton: {fileID: 1962177786}
   previousStageButton: {fileID: 888149938}
-  startButton: {fileID: 0}
+  startButton: {fileID: 15437344}
   startUI: {fileID: 1350858759}
   characterUI: {fileID: 1212427180}
   settingUI: {fileID: 90295417}
@@ -4892,7 +4892,6 @@ GameObject:
   - component: {fileID: 1350858760}
   - component: {fileID: 1350858762}
   - component: {fileID: 1350858761}
-  - component: {fileID: 1350858763}
   m_Layer: 5
   m_Name: StartUI
   m_TagString: Untagged
@@ -4960,18 +4959,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350858759}
   m_CullTransparentMesh: 1
---- !u!114 &1350858763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350858759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3a4f347a6df944d9f541485c5d9851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1354139989
 GameObject:
   m_ObjectHideFlags: 0
@@ -10073,7 +10060,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10456,7 +10443,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
