@@ -12,6 +12,14 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] private GameObject fireOrbPrefab; // 불의 원 프리팹
     [SerializeField] private GameObject fairyProjectilePrefab; // 요정 프리팹
 
+    private int contactWallCount;
+    private int contactEnemyCount;
+    private float contactWallDecreaseDamage;
+    private float contactEnemyDecreaseDamage;
+    private float finalDecreaseDamage;
+    private float darkTouchDecrreaseDamage;
+    private bool isDarkTouch = false;
+
 
     /// <summary>
     /// 총알 생성, 리스트에 워리어, 위자드, 궁수 순서대로 프리팹 넣어야함
@@ -19,13 +27,13 @@ public class ProjectileManager : MonoBehaviour
     /// <param name="startPosition">시작 위치</param>
     /// <param name="playerClass">플레이어 클래스</param>
     /// <param name="direction"></param>
-    public void ShootPlayerProjectile(Vector3 startPosition, Vector3 direction, PlayerClassEnum playerClass, int contactWallCount, int contactEnemyCount)
+    public void ShootPlayerProjectile(Vector3 startPosition, Vector3 direction, PlayerClassEnum playerClass)
     {
         GameObject origin = projectilePrefabs[Convert.ToInt32(playerClass)];
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
         
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction, contactWallCount,contactEnemyCount);
+        projectileController.Init(direction, isDarkTouch, contactWallCount, contactEnemyCount);
     }
 
     /// <summary>
@@ -82,7 +90,83 @@ public class ProjectileManager : MonoBehaviour
         GameObject obj = Instantiate(origin, fairyPosition, Quaternion.identity);
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction);
+        projectileController.Init(direction, false);
     }
+
+
+
+    /// <summary>
+    /// 아래 변수들을 가져오거나 내보내는 함수
+    /// contactWallCount;
+    /// contactEnemyCount;
+    /// contactWallDecreaseDamage;
+    /// contactEnemyDecreaseDamage;
+    /// finalDecreaseDamage;
+    /// darkTouchDecrreaseDamage;
+    /// </summary>
+    /// <returns></returns>
+    #region
+    public int GetContactWallCount()
+    {
+        return contactWallCount;
+    }
+
+    public void SetContactWallCount(int count)
+    {
+        contactWallCount = count;
+    }
+    public int GetContactEnemyCount()
+    {
+        return contactEnemyCount;
+    }
+
+    public void SetContactEnemyCount(int count)
+    {
+        contactEnemyCount = count;
+    }
+
+    public float GetContactWallDecreaseDamage()
+    {
+        return contactWallDecreaseDamage;
+    }
+
+    public void SetContactWallDecreaseDamage(float Damage)
+    {
+        contactWallDecreaseDamage = Damage;
+    }
+
+    public float GetContactEnemyDecreaseDamage()
+    {
+        return contactEnemyDecreaseDamage;
+    }
+
+    public void SetContactEnemyDecreaseDamage(float Damage)
+    {
+        contactEnemyDecreaseDamage = Damage;
+    }
+    
+   public float GetFinalDecreaseDamage()
+    {
+        return finalDecreaseDamage;
+    }
+
+    public void SetFinalDecreaseDamage(float Damage)
+    {
+        finalDecreaseDamage = Damage;
+    }
+    
+     public float GetDarkTouchDecrreaseDamage()
+    {
+        return darkTouchDecrreaseDamage;
+    }
+
+    public void SetDarkTouchDecrreaseDamage(float Damage)
+    {
+        darkTouchDecrreaseDamage = Damage;
+    }
+
+
+    #endregion
+
 
 }
