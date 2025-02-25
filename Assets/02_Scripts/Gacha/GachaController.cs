@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GachaHandler : MonoBehaviour
+public class GachaController : MonoBehaviour
 {
     public Gacha gacha;
     public GachaAnimation[] gachaAnimation;
@@ -38,10 +38,19 @@ public class GachaHandler : MonoBehaviour
         }
         gacha = GachaManager.Instance.gacha;
     }
+
+    /// <summary>
+    /// 외부에서 가챠를 실행하는 함수 
+    /// </summary>
     public void StartGacha()
     {
         StartCoroutine(HandleGacha());
     }
+
+    /// <summary>
+    /// 가챠 실행을 처리하는 코루틴
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator HandleGacha()
     {
         //yield return StartCoroutine(gachaAnimation.AnimateSlot());
@@ -94,6 +103,12 @@ public class GachaHandler : MonoBehaviour
         
 
     }
+
+    /// <summary>
+    /// 슬롯에 바운스 효과를 주는 코루틴
+    /// </summary>
+    /// <param name="slot"></param>
+    /// <returns></returns>
     private IEnumerator PlayBounceEffect(RectTransform slot)
     {
         Vector3 originalScale = slot.localScale;
@@ -116,10 +131,19 @@ public class GachaHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 레어 확률일 때 기둥 색상 변경
+    /// 일반 확률일 때 기둥 색상 변경   
+    /// </summary>
+    /// <param name="color"></param>
     private void ChangePillarColor(Color color)
     {
             pillarMaterial.SetColor("_Color", color);
     }
+
+    /// <summary>
+    /// 능력 이름과 설명을 가져오는 함수
+    /// </summary>
     private void GetText()
     {
         for (int i = 0; i < abilityName.Length; i++)
@@ -131,12 +155,22 @@ public class GachaHandler : MonoBehaviour
             abilityDescription[i].text = GachaManager.Instance.Abilitydescription[i];
         }
     }
+
+    /// <summary>
+    /// 플레이어가 버튼을 누르면 스킬번호를 반환해주는 함수
+    /// 실행이후 가챠가 종료된다
+    /// </summary>
+    /// <param name="bottonSelect"></param>
     public void OnClickButton(int bottonSelect)
     {
         AbilityEnum[] selectedAbility = gacha.GetSelectedAbility();
         GachaManager.Instance.GachaSelect(selectedAbility[bottonSelect]);
         init();
     }
+
+    /// <summary>
+    /// 초기화 함수
+    /// </summary>
     public void init()
     {
         Piller.SetActive(true);

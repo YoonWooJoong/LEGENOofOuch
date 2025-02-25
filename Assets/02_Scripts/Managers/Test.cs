@@ -7,6 +7,9 @@ public class Test : MonoBehaviour
     private StageContainer stageContainer;
 
 
+    /// <summary>
+    /// 맵을 생성하고 게임메니저에게 플레이어와 몬스터의 스폰 포인트를 전달
+    /// </summary>
     public void SpawnRandomMap()
     {
         // 랜덤한 맵 선택

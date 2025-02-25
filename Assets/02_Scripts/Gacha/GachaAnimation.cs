@@ -21,8 +21,7 @@ public class GachaAnimation : MonoBehaviour
 
     void Awake()
     {
-        // 예시: 같은 GameObject에 GachaHandler가 붙어있다고 가정할 때
-        GachaHandler handler = GetComponent<GachaHandler>();
+        GachaController handler = GetComponent<GachaController>();
 
     }
     /// <summary>
@@ -35,6 +34,12 @@ public class GachaAnimation : MonoBehaviour
         StartCoroutine(AnimateSlot(selectedAbility, isRare));
     }
 
+    /// <summary>
+    /// 슬롯이미지를 일정 시간 간격으로 교체하며 스핀 애니메이션을 재생.
+    /// </summary>
+    /// <param name="selectedAbility">현재 슬롯에 들어가는 능력</param>
+    /// <param name="isRare">레어인지 아닌지 판별</param>
+    /// <returns></returns>
     private IEnumerator AnimateSlot(AbilityEnum selectedAbility, bool isRare)
     {
         // 만약 레어라면, 두 단계(일반 → 레어)로 진행
