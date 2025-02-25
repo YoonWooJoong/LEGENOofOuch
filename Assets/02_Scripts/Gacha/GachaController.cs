@@ -88,7 +88,6 @@ public class GachaController : MonoBehaviour
             ChangePillarColor(rareColor);
             for (int i = 0; i < abilitySlots.Length; i++)
             {
-                Debug.Log("i");Debug.Log(abilitySlots[i]);
                 StartCoroutine(PlayBounceEffect(abilitySlots[i]));
             }
             yield return new WaitForSeconds(2f);

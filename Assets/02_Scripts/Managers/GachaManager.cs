@@ -31,8 +31,8 @@ public class GachaManager : MonoBehaviour
 
     public void Start()
     {
-        gachaobject.gameObject.SetActive(true);
-        StartGacha();
+        //gachaobject.gameObject.SetActive(true);
+        //StartGacha();
     }
 
     /// <summary>
