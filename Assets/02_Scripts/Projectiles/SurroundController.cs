@@ -7,17 +7,26 @@ public class SurroundController : MonoBehaviour
     private float circleRadius = 1f; // 반지름
     private float deg = 0; // 각도
     private float speed = 40f;  // 이동 속도
-    private Vector3 playerPosition; // 플레이어 포지션
+    private float timeSinceLastAttack = 0;
+    private float AttackDelay = 5f;
+    private bool IsAttacking = true;
 
-    public void Init(Vector3 _playerPosition, float chagedeg = 0)
+    public void Init(float chagedeg = 0)
     {
-        playerPosition = _playerPosition;
         deg = chagedeg;
     }
     // Update is called once per frame
     void Update()
     {
         SurroundPosition();
+        if (timeSinceLastAttack <= AttackDelay)
+            timeSinceLastAttack += Time.deltaTime;
+        else if (IsAttacking)
+        {
+            timeSinceLastAttack = 0;
+            GameManager.Instance.ProjectileManager.ShootFairy(this.transform.position, (GameManager.Instance.player.target.position - this.transform.position));
+        }
+
     }
 
     /// <summary>
@@ -31,7 +40,7 @@ public class SurroundController : MonoBehaviour
             float rad = Mathf.Deg2Rad * (deg); //1도(degree)를 라디안으로 변환하는 상수(π / 180) 이므로, deg 값에 곱하면 라디안 값을 얻을 수 있음, rad는해당 각도에서의 위치를 계산하기 위한 라디안 값
             float x = circleRadius * Mathf.Cos(rad); // x와 y위치를 바꾸면 시계방향으로 회전
             float y = circleRadius * Mathf.Sin(rad);
-            this.transform.position = playerPosition + new Vector3(x, y, 0);
+            this.transform.position = GameManager.Instance.player.transform.position + new Vector3(x, y, 0);
         }
         else { deg = 0; }
     }

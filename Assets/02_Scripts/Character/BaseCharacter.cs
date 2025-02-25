@@ -8,7 +8,7 @@ public class BaseCharacter : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sprite;
     AnimationHandler animHandle;
-    [SerializeField] protected Transform target;
+    [SerializeField] public Transform target;
     [SerializeField] Slider HpBar;
 
     [Header("BaseStat")]
