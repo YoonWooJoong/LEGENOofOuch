@@ -50,10 +50,9 @@ public class SelectManager : MonoBehaviour
         imageStage.sprite = stageImages[number];
         textStageName.text = stageName[number];
     }
-
     public void UpdateStageUI()
     {
-        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+        int number = GetSelectedStageIndex();
         if (stageImages.Length > 0 && stageName.Length > 0)
         {
             imageStage.sprite = stageImages[number];
