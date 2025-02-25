@@ -2994,22 +2994,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aa5dfb098f5e4ab84a1e309388fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectImage: {fileID: 0}
-  SelectName: {fileID: 765650419}
-  SelectImages: []
-  SelectNames: []
-  MapPrefabs:
+  stageCastlePrefabs:
   - {fileID: 1814542901282651351, guid: 9882562d5b9862c47b23e4eabeeaba5d, type: 3}
   - {fileID: 3462451342039687285, guid: 9e89e7381a0994f4c8dcdebbe14e6673, type: 3}
   - {fileID: 913467833939118796, guid: 4289c2a733c9a6145a4549527325fb23, type: 3}
+  stagecastleBossPrefabs: {fileID: 6998064419188645552, guid: b03b55af3c6ae6e45a80050c83cfc476, type: 3}
+  stageSwampPrefabs:
   - {fileID: 952055575209137893, guid: 1b40602efafbc9848a1700124a4a196d, type: 3}
   - {fileID: 2434951905755286918, guid: f811beb14d8a88e4194a4193b80aab7f, type: 3}
   - {fileID: 4585826599353559938, guid: 44911a26631dce14b868a9b35da8ec90, type: 3}
+  stageSwampBossPrefabs: {fileID: 4057684294800665588, guid: e8d654bb19a6b9642a3e8242e0afb79e, type: 3}
+  stageVolcanicPrefabs:
   - {fileID: 2158917681382754949, guid: 65d13628c5d19a749b950f50971da175, type: 3}
   - {fileID: 7723232624028157766, guid: e2435cafdd93ecb449103296f05c1562, type: 3}
   - {fileID: 2830272113616495334, guid: 9b1570fd6919be744a8af119981754fb, type: 3}
-  mapSpawnPoint: {fileID: 0}
-  mainCamera: {fileID: 0}
+  stageVolcanicBossPrefabs: {fileID: 7294205467680841828, guid: 20585e4e66898cc4a9d982a940ff36d2, type: 3}
+  roundIndex: 0
 --- !u!1 &765650417
 GameObject:
   m_ObjectHideFlags: 0
