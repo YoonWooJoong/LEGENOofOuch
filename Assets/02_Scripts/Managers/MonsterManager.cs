@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     [SerializeField] GameObject[] monsterPrefebs;
-    List<EnemyCharacter> spawnedEnemys = new();
+    public List<EnemyCharacter> spawnedEnemys = new();
 
     /// <summary>
     /// 호출되면 지정된 범위내의 랜덤한 위치에서 무작위 적이 나타납니다.

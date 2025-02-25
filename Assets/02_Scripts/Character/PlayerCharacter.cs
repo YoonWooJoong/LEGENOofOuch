@@ -75,4 +75,15 @@ public class PlayerCharacter : BaseCharacter
         //사망시 게임종료 로직 실행
         base.Death();
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        GameManager.Instance.ProjectileManager.ShootPlayerProjectile(this.transform.position, lookDir,pClass,0,0);
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.ProjectileManager.CreateFairy(this.transform.position);
+    }
 }
