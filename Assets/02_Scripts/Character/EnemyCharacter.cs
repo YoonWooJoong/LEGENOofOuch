@@ -23,6 +23,7 @@ public class EnemyCharacter : BaseCharacter
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.updatePosition = false;
+        agent.speed = Speed;
     }
 
     void Start()
@@ -38,9 +39,18 @@ public class EnemyCharacter : BaseCharacter
         base.HandleAction();
         if (target == null)
             return;
-        agent.SetDestination(target.position);
 
-        moveDir = TargetDis > attackRange ? (agent.nextPosition - transform.position).normalized : Vector2.zero;
+        if (TargetDis > attackRange)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(target.position);
+        }
+        else
+        {
+            agent.nextPosition = transform.position;
+            agent.isStopped = true;
+        }
+        moveDir = (agent.nextPosition - transform.position).normalized;
     }
 
     /// <summary>
