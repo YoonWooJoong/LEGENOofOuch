@@ -33,7 +33,7 @@ public enum StageEnum
 {
     Castle,
     Swamp,
-    volcano
+    Volcano
 }
 public enum AbilityEnum
 {

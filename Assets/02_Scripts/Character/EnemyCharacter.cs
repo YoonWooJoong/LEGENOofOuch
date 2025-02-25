@@ -11,12 +11,10 @@ public class EnemyCharacter : BaseCharacter
     [SerializeField] MonsterEnum mEnum;
     [SerializeField] GameObject potionPrefeb;
     [SerializeField][Range(0, 100)] float potionDrop;
-    MonsterManager MM;
 
     void Start()
     {
         target = FindAnyObjectByType(typeof(PlayerCharacter)).GameObject().transform;
-        MM = FindFirstObjectByType<MonsterManager>();
     }
 
     /// <summary>
@@ -42,7 +40,7 @@ public class EnemyCharacter : BaseCharacter
         if (Random.Range(0, 100) < potionDrop)
             Instantiate(potionPrefeb, transform.position, Quaternion.identity);
 
-        MM.RemoveEnemyOnDeath(this);
+        GameManager.Instance.KillMonster(this);
         base.Death();
     }
 

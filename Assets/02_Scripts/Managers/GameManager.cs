@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerPrefab; 
     public PlayerCharacter player;
-    
+    public int healReward = 0;
 
     private void Awake()
     {
@@ -58,10 +58,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void KillMonster()
+    public void KillMonster(EnemyCharacter enemy)
     {
+        monsterManager.RemoveEnemyOnDeath(enemy);
+        //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
+        player.ChangeHealth(healReward);
         Debug.Log("KillMonster");
     }
+
     public void GetTransrate(Transform _playerSpawn, Transform[] _monsterSpawn)
     {
         playerSpawn= _playerSpawn;
@@ -97,6 +101,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("기존 플레이어가 스폰 위치로 이동되었습니다.");
         }
     }
+
     public void SpawnMonsters()
     {
         //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
