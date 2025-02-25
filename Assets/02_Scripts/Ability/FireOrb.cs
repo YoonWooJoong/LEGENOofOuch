@@ -8,10 +8,6 @@ public class FireOrb : AbilityBase
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
-    }
-
-    public override void UseSkill()
-    {
-        Debug.Log($"UseSkill{this.name}");
+        GameManager.Instance.ProjectileManager.CreateFireOrb(GameManager.Instance.player.transform.position);
     }
 }
