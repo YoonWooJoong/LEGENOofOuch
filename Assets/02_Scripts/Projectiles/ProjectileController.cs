@@ -92,7 +92,6 @@ public class ProjectileController : MonoBehaviour
                 if (contactEnemy < contactEnemyCount)
                 {
                     EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    Debug.Log(GameManager.Instance.player.attackPower);
                     enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
                     var contact = collision.contacts[0];
                     // 충돌 지점
@@ -103,7 +102,6 @@ public class ProjectileController : MonoBehaviour
                 else if (contactEnemy >= contactEnemyCount)
                 {
                     EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    Debug.Log(GameManager.Instance.player.attackPower);
                     enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
                     Destroy(this.gameObject);
                 }

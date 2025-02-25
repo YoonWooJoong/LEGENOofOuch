@@ -91,7 +91,6 @@ public class ProjectileEnemyController : MonoBehaviour
                 if (contactEnemy < contactEnemyCount)
                 {
                     PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    Debug.Log(GameManager.Instance.monsterManager.spawnedEnemys[0].attackPower);
                     player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
                     var contact = collision.contacts[0];
                     // 충돌 지점

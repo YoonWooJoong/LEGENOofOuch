@@ -75,4 +75,10 @@ public class PlayerCharacter : BaseCharacter
         //사망시 게임종료 로직 실행
         base.Death();
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position, lookDir);
+    }
 }
