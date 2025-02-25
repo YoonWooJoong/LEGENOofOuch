@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMaskEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   layerMaskWall:
     serializedVersion: 2
     m_Bits: 256
