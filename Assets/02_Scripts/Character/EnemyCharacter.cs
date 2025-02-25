@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyCharacter : BaseCharacter
 {
@@ -11,6 +13,17 @@ public class EnemyCharacter : BaseCharacter
     [SerializeField] MonsterEnum mEnum;
     [SerializeField] GameObject potionPrefeb;
     [SerializeField][Range(0, 100)] float potionDrop;
+
+    NavMeshAgent agent;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.updatePosition = false;
+    }
 
     void Start()
     {
@@ -23,13 +36,14 @@ public class EnemyCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        moveDir = Vector2.zero;
         if (target == null)
             return;
+        agent.SetDestination(target.position);
 
-        lookDir = (target.transform.position - transform.position).normalized;
         if (TargetDis > attackRange)
-            moveDir = lookDir;
+            moveDir = (agent.nextPosition - transform.position).normalized;
+        else
+            moveDir = Vector2.zero;
     }
 
     /// <summary>
@@ -47,6 +61,6 @@ public class EnemyCharacter : BaseCharacter
     protected override void Attack()
     {
         base.Attack();
-        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position,lookDir);
+        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position, lookDir);
     }
 }
