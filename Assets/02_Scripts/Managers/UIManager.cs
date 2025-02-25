@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    GameManager gameManager = new GameManager();
     SelectManager selectManager;
     [SerializeField] private GameObject nextStageButton;
     [SerializeField] private GameObject previousStageButton;
+    [SerializeField] private GameObject startButton;
 
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject characterUI;
@@ -32,47 +33,43 @@ public class UIManager : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// 다음 스테이지 버튼
-    /// 마지막 스테이지에서는 버튼 비활성화
-    /// </summary>
     public void NextStageButton()
     {
-        int number = gameManager.SelectManager.GetSelectedStageIndex();
+        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
         if (number < 2)
         {
-            int nextNumber = number + 1;
-            GameManager.Instance.SelectManager.SetSelectedStageIndex(nextNumber);
+            number = number + 1;
+            GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
             selectManager.UpdateStageUI();
 
             previousStageButton.SetActive(true);
-            if (nextNumber == 2)
-            {
-                nextStageButton.SetActive(false);
-            }
-
+        }
+        if (number == 2)
+        {
+            nextStageButton.SetActive(false);
         }
     }
-    /// <summary>
-    /// 이전 스테이지 버튼
-    /// 처음시작 
-    /// </summary>
+
     public void PreviousStageButton()
     {
-        int number = gameManager.SelectManager.GetSelectedStageIndex();
+        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
         if (number > 0)
         {
-            int nextnumber = number - 1;
-            GameManager.Instance.SelectManager.SetSelectedStageIndex(nextnumber);
+            number = number - 1;
+            GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
             selectManager.UpdateStageUI();
 
             nextStageButton.SetActive(true);
-            if (nextnumber == 0)
-            {
-                previousStageButton.SetActive(false);
-            }
-
         }
+        if (number == 0)
+        {
+            previousStageButton.SetActive(false);
+        }
+    }
+
+    public void StartButton()
+    {
+        
     }
 
     /*
