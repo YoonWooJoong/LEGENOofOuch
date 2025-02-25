@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AbilityRepositoy : MonoBehaviour
 {
-    private List<AbilityController> ownedAbilities = new List<AbilityController>();
+    [SerializeField] private List<AbilityController> ownedAbilities = new List<AbilityController>();
 
     private Dictionary<AbilityEnum, GameObject> dicAbilityPrefabs = new Dictionary<AbilityEnum, GameObject>();
     private Dictionary<AbilityEnum, AbilityDataSO> dicAbilityDataSO = new Dictionary<AbilityEnum, AbilityDataSO>();
@@ -97,8 +97,8 @@ public class AbilityRepositoy : MonoBehaviour
     /// </summary>
     /// <param name="abilityEnum">원하는 어빌리티의 ID</param>
     /// <returns></returns>
-    public AbilityData FindAbilityData(AbilityEnum abilityEnum)
+    public AbilityDataSO FindAbilityData(AbilityEnum abilityEnum)
     {
-        return dicAbilityPrefabs[abilityEnum].GetComponent<AbilityController>().AbilityBase.abilityData;
+        return dicAbilityDataSO[abilityEnum];
     }
 }
