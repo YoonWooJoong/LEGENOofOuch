@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
@@ -32,6 +33,9 @@ public class MonsterManager : MonoBehaviour
     public void RemoveEnemyOnDeath(EnemyCharacter enemy)
     {
         spawnedEnemys.Remove(enemy);
+
+
+        //남은 적이 없으면 스테이지가 클리어 된 것입니다.
         if (spawnedEnemys.Count == 0)
         {
             //스테이지가 클리어 됬습니다.
