@@ -43,4 +43,10 @@ public class EnemyCharacter : BaseCharacter
         GameManager.Instance.KillMonster(this);
         base.Death();
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position,lookDir);
+    }
 }

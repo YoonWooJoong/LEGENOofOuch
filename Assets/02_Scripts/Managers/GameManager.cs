@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public AbilityManager AbilityManager { get; private set; }
     public UIManager UIManager { get; private set; }
-    public ProjectileManager ProjectileManager { get; private set; }
+    [field: SerializeField] public ProjectileManager ProjectileManager { get; set; }
     public SelectManager SelectManager { get; private set; }
     public TileMapManager TileMapManager { get; private set; }
     public MonsterManager monsterManager;
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject newPlayer = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
             player = newPlayer.GetComponent<PlayerCharacter>();
+            
 
             if (player != null)
             {
