@@ -6,6 +6,7 @@ public class ProjectileEnemyController : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMaskEnemy; //적 설정
     [SerializeField] private LayerMask layerMaskWall; // 벽 설정
+    [SerializeField] private LayerMask layerMaskTeam; // 아군 설정 및 총알설정 layer에 아군과 projectile넣어주면됨
     private Rigidbody2D rigidbody2D;
     private Vector3 direction; // 플레이어의 방향
     private int contactWall; // 벽과 충돌 횟수
@@ -69,47 +70,47 @@ public class ProjectileEnemyController : MonoBehaviour
     /// <param name="collision">벽 혹은 적</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<ProjectileController>()) //다른 오브젝트가 ProjectileController를 가지고 있으면 총알이기 때문에
-        { Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
-        else // 그외
+        //if (collision.gameObject.GetComponent<ProjectileController>()) //다른 오브젝트가 ProjectileController를 가지고 있으면 총알이기 때문에
+        //{ Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
+        //else // 그외
+        //{
+        if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
         {
-            if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
+            if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
             {
-                if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
-                {
-                    var contact = collision.contacts[0];
-                    // 충돌 지점
-                    direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
-                    RotationRojectile();
-                    contactWall += 1;
-                }
-                else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
-                    Destroy(this.gameObject);
+                var contact = collision.contacts[0];
+                // 충돌 지점
+                direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
+                RotationRojectile();
+                contactWall += 1;
             }
-            else if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
-            {
-                if (contactEnemy < contactEnemyCount)
-                {
-                    PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
-                    var contact = collision.contacts[0];
-                    // 충돌 지점
-                    direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
-                    RotationRojectile();
-                    contactEnemy += 1;
-                }
-                else if (contactEnemy >= contactEnemyCount)
-                {
-                    PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
-                    Destroy(this.gameObject);
-                }
-            }
-            else if (this.gameObject.layer == collision.gameObject.layer)
-            {
-                Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
-            } // 같은 레이어는 무시
+            else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
+                Destroy(this.gameObject);
         }
+        else if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
+        {
+            if (contactEnemy < contactEnemyCount)
+            {
+                PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
+                player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
+                var contact = collision.contacts[0];
+                // 충돌 지점
+                direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
+                RotationRojectile();
+                contactEnemy += 1;
+            }
+            else if (contactEnemy >= contactEnemyCount)
+            {
+                PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
+                player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
+                Destroy(this.gameObject);
+            }
+        }
+        else if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀과 projectile레이어 두개를 넣어주면 된다.
+        {
+            Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
+        }
+        //}
 
         //if (contactWall < 2 && collision.gameObject.CompareTag("Wall")) // 임시로 wall로 작성 // 숫자에는 총알 튕기는 횟수변수 넣어주면됨
         //{

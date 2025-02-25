@@ -54,6 +54,9 @@ MonoBehaviour:
   layerMaskWall:
     serializedVersion: 2
     m_Bits: 256
+  layerMaskTeam:
+    serializedVersion: 2
+    m_Bits: 576
 --- !u!50 &8840345942733228665
 Rigidbody2D:
   serializedVersion: 4

@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMaskEnemy; //적 설정
     [SerializeField] private LayerMask layerMaskWall; // 벽 설정
+    [SerializeField] private LayerMask layerMaskTeam; // 아군 설정
     private Rigidbody2D rigidbody2D;
     private Collider2D arrowCollider;
     private Vector3 direction; // 플레이어의 방향
@@ -72,10 +73,10 @@ public class ProjectileController : MonoBehaviour
     /// <param name="collision">벽 혹은 적</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<ProjectileController>()) //다른 오브젝트가 ProjectileController를 가지고 있으면 총알이기 때문에
-        { Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
-        else // 그외
-        {
+        //if (collision.gameObject.GetComponent<ProjectileController>()) //다른 오브젝트가 ProjectileController를 가지고 있으면 총알이기 때문에
+        //{ Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
+        //else // 그외
+        //{
             if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
             {
                 if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
@@ -105,11 +106,11 @@ public class ProjectileController : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
-            else if (this.gameObject.layer == collision.gameObject.layer)
+            else if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀일 경우
             {
                 Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
             }
-        }
+       // }
 
         //if (contactWall < 2 && collision.gameObject.CompareTag("Wall")) // 임시로 wall로 작성 // 숫자에는 총알 튕기는 횟수변수 넣어주면됨
         //{
