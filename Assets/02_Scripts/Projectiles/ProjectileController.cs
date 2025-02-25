@@ -16,6 +16,7 @@ public class ProjectileController : MonoBehaviour
     private int contactWallCount; // 받아온 벽 충돌 횟수
     private int contactEnemyCount; // 받아온 적 충돌 횟수
     private bool isDarkTouch;
+    private bool isBlaze;
 
     private void Awake()
     {
@@ -29,13 +30,14 @@ public class ProjectileController : MonoBehaviour
     /// <param name="_direction">방향</param>
     /// <param name="_contactwallCount">벽 충돌횟수, 적이 쏘면 0 </param>
     /// <param name="_contactEnemyCount">적 충돌횟수, 적이쏘면 0 </param>
-    public void Init(Vector3 _direction, bool _isDarkTouch, int _contactwallCount = 0, int _contactEnemyCount = 0)
+    public void Init(Vector3 _direction, bool _isDarkTouch, bool _isBlaze, int _contactwallCount = 0, int _contactEnemyCount = 0)
     {
         direction = _direction;
         RotationRojectile();
         contactWallCount = _contactwallCount;
         contactEnemyCount = _contactEnemyCount;
         isDarkTouch = _isDarkTouch;
+        isBlaze = _isBlaze;
     }
 
     void Update()
@@ -104,6 +106,10 @@ public class ProjectileController : MonoBehaviour
                     {
                         StartCoroutine(DarkTouchDelay(enemy));
                     }
+                    if (isBlaze) // 블레이즈 실행
+                    {
+                        StartCoroutine (BlazeDelay(enemy));
+                    }
                 }
                 Physics2D.IgnoreCollision(arrowCollider, collision.collider);
                 contactEnemy += 1;
@@ -118,6 +124,10 @@ public class ProjectileController : MonoBehaviour
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
                     {
                         StartCoroutine(DarkTouchDelay(enemy));
+                    }
+                    if (isBlaze) // 블레이즈 실행
+                    {
+                        StartCoroutine(BlazeDelay(enemy));
                     }
                 }
                 Destroy(this.gameObject);
@@ -162,7 +172,7 @@ public class ProjectileController : MonoBehaviour
     IEnumerator DarkTouchDelay(EnemyCharacter enemy)
     {
         yield return new WaitForSeconds(1);
-        enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecrreaseDamage());
+        enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
         List<EnemyCharacter> list = GameManager.Instance.MonsterManager.spawnedEnemys;
         float nearDir = 5000f;
         EnemyCharacter nearEnemy = null;
@@ -181,6 +191,22 @@ public class ProjectileController : MonoBehaviour
         {
             Debug.Log("Projectile의 DarkTouchDelay의 nearEnemy가 null입니다!");
         }
-        nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecrreaseDamage());
+        nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
     }
+
+    /// <summary>
+    /// 블레이즈 스킬 구현부
+    /// </summary>
+    /// <param name="enemy"></param>
+    /// <returns></returns>
+    IEnumerator BlazeDelay(EnemyCharacter enemy)
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            yield return new WaitForSeconds(0.25f);
+            enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetBlazeDecresaseDamage());
+        }
+        yield return new WaitForSeconds(0.25f);
+    }
+    
 }

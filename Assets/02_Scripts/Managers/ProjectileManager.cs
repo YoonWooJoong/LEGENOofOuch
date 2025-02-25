@@ -17,8 +17,11 @@ public class ProjectileManager : MonoBehaviour
     private float contactWallDecreaseDamage;
     private float contactEnemyDecreaseDamage;
     private float finalDecreaseDamage;
-    private float darkTouchDecrreaseDamage;
+    private float darkTouchDecreaseDamage;
+    private float blazeDecresaseDamage;
     private bool isDarkTouch = false;
+    private bool isBlaze = false;
+    private bool isDeathBoom = false;
 
 
     /// <summary>
@@ -33,7 +36,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
         
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction, isDarkTouch, contactWallCount, contactEnemyCount);
+        projectileController.Init(direction, isDarkTouch, isBlaze, contactWallCount, contactEnemyCount);
     }
 
     /// <summary>
@@ -90,7 +93,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject obj = Instantiate(origin, fairyPosition, Quaternion.identity);
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction, false);
+        projectileController.Init(direction, false,false);
     }
 
 
@@ -103,6 +106,8 @@ public class ProjectileManager : MonoBehaviour
     /// contactEnemyDecreaseDamage;
     /// finalDecreaseDamage;
     /// darkTouchDecrreaseDamage;
+    /// isDeathBoom;
+    /// BlazeDecresaseDamage;
     /// </summary>
     /// <returns></returns>
     #region
@@ -155,14 +160,34 @@ public class ProjectileManager : MonoBehaviour
         finalDecreaseDamage = Damage;
     }
     
-     public float GetDarkTouchDecrreaseDamage()
+    public float GetDarkTouchDecreaseDamage()
     {
-        return darkTouchDecrreaseDamage;
+        return darkTouchDecreaseDamage;
     }
 
-    public void SetDarkTouchDecrreaseDamage(float Damage)
+    public void SetDarkTouchDecreaseDamage(float Damage)
     {
-        darkTouchDecrreaseDamage = Damage;
+        darkTouchDecreaseDamage = Damage;
+    }
+    
+
+    public float GetBlazeDecresaseDamage()
+    {
+        return blazeDecresaseDamage;
+    }
+
+    public void SetBlazeDecresaseDamage(float Damage)
+    {
+        blazeDecresaseDamage = Damage;
+    }
+
+    public bool GetDeathBoom()
+    {
+        return isDeathBoom;
+    }
+    public void SetDeathBoom(bool isBoom)
+    {
+        isDeathBoom = isBoom;
     }
 
 
