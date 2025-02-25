@@ -11,17 +11,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject nextStageButton;
     [SerializeField] private GameObject previousStageButton;
     [SerializeField] private GameObject startButton;
-    [SerializeField] private GameObject GameStartButton;
 
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject characterUI;
     [SerializeField] private GameObject settingUI;
-    [SerializeField] private GameObject MainCanvus;
 
 
-    /// <summary>
-    /// 버튼활성화 ,비활성화를 업데이트하여 계속 확인
-    /// </summary>
+
     private void Update()
     {
         ButtonActivate();
@@ -43,9 +39,6 @@ public class UIManager : MonoBehaviour
             case 2:
                 settingUI.SetActive(!settingUI.activeSelf);
                 break;
-            case 3:
-                MainCanvus.SetActive(!MainCanvus.activeSelf);
-
         }
     }
     /// <summary>
@@ -72,7 +65,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
     /// <summary>
-    /// 이전스테이지 화면을 볼 수 있게 해주는 버튼
+    /// 스테이지 화면을 볼 수 있게 해주는 버튼
     /// </summary>
     public void PreviousStageButton()
     {
