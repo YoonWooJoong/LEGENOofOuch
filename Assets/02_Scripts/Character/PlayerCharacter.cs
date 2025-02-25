@@ -30,6 +30,9 @@ public class PlayerCharacter : BaseCharacter
     public bool GodMod = false;
     public int life = 1;
 
+    // 멀티샷
+    public bool isMultiShot = false;
+
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -93,5 +96,10 @@ public class PlayerCharacter : BaseCharacter
         for (int i = 0; i < upLv; i++)
             ChangeHealth(maxHp / 10);
         exp %= 100;
+    }
+
+    public PlayerClassEnum GetPlayerClass()
+    {
+        return pClass;
     }
 }

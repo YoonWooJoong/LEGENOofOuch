@@ -46,7 +46,6 @@ public enum AbilityEnum
     DeathBoom,
     BloodThirst,
     Invincibility,
-    Recoil,
     WallReflection,
     PiercingShot,
     MultiShot,

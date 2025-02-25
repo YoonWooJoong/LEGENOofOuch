@@ -29,7 +29,7 @@ public class AbilityDataDownLoader : MonoBehaviour
     [SerializeField] private List<AbilityDataSO> abilityDataSO = new List<AbilityDataSO>();
 
 
-    const string URL_AbilityDataSheet = "https://docs.google.com/spreadsheets/d/1Pl0qeIoV5spMGGxwze2p57locYqj8LpiyNRB4fx34r0/export?format=tsv&range=A1:H32"; // ability
+    const string URL_AbilityDataSheet = "https://docs.google.com/spreadsheets/d/1Pl0qeIoV5spMGGxwze2p57locYqj8LpiyNRB4fx34r0/export?format=tsv&range=A1:H24"; // ability
 
     private void Awake()
     {

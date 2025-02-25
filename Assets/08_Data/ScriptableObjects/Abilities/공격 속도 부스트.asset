@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: 1
   abilityName: "\uACF5\uACA9 \uC18D\uB3C4 \uBD80\uC2A4\uD2B8"
-  description: "\uACF5\uACA9 \uC18D\uB3C4\uAC00 {n} % \uC99D\uAC00\uD55C\uB2E4."
+  description: "\uACF5\uACA9 \uC18D\uB3C4\uAC00 {0} % \uC99D\uAC00\uD55C\uB2E4."
   rank: 0
   canUpgrade: 0
   values:

@@ -13,6 +13,7 @@ public class AbilityManager : MonoBehaviour
     private void Awake()
     {
         abilityParent = transform;
+        SetAbility(AbilityEnum.FrontShot);
     }
 
     /// <summary>

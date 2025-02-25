@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
   m_Name: "\uBE14\uB808\uC774\uC988"
   m_EditorClassIdentifier: 
-  ability: 16
+  ability: 15
   abilityName: "\uBE14\uB808\uC774\uC988"
   description: "\uC801\uC911 \uC2DC 2 \uCD08\uAC04 \uD654\uC5FC \uC9C0\uC18D \uB300\uBBF8\uC9C0\uB97C
-    \uC785\uD78C\uB2E4. \uAE30\uBCF8 \uACF5\uACA9\uB825\uC758 {n}%\uC758 \uB300\uBBF8\uC9C0\uB97C
+    \uC785\uD78C\uB2E4. \uAE30\uBCF8 \uACF5\uACA9\uB825\uC758 {0}%\uC758 \uB300\uBBF8\uC9C0\uB97C
     0.25 \uCD08\uB2F9 \uD55C \uBC88\uC529 \uCD1D 7 \uD68C \uC785\uD78C\uB2E4."
   rank: 1
   canUpgrade: 1

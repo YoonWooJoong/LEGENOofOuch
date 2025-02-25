@@ -5,13 +5,43 @@ using UnityEngine;
 
 public class DiagonalShot : AbilityBase
 {
+    GameManager gameManager;
+    ProjectileManager projectileManager;
+    PlayerCharacter player;
+
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
+        gameManager = GameManager.Instance;
+        projectileManager = gameManager.ProjectileManager;
+        player = gameManager.player;
     }
 
     public override void UseSkill()
     {
-        Debug.Log($"UseSkill{this.name}");
+       /* Vector3 lookDir = player.GetlookDir();
+        PlayerClassEnum pClass = player.GetPlayerClass();
+        int wallCount = projectileManager.GetWallCount();
+        int contactCount = projectileManager.GetContactCount();
+
+        // 기본 화살 (전방 1개)
+        ShootArrow(player.transform.position, lookDir, pClass, wallCount, contactCount);
+
+        // 대각선 화살 각도 설정
+        float[] angles = isUpgraded ? new float[] { 30f, 60f } : new float[] { 45f };
+
+        foreach (float angle in angles)
+        {
+            Vector3 leftDir = Quaternion.Euler(0, 0, angle) * lookDir;
+            Vector3 rightDir = Quaternion.Euler(0, 0, -angle) * lookDir;
+
+            ShootArrow(player.transform.position, leftDir, pClass, wallCount, contactCount);
+            ShootArrow(player.transform.position, rightDir, pClass, wallCount, contactCount);
+        }*/
+    }
+
+    private void ShootArrow(Vector3 position, Vector3 direction, PlayerClassEnum pClass, int wallCount, int contactCount)
+    {
+        projectileManager.ShootPlayerProjectile(position, direction, pClass, wallCount, contactCount);
     }
 }

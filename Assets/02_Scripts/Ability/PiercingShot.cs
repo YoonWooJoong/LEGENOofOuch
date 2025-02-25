@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PiercingShot : AbilityBase
 {
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
+
+        // 반사 횟수 카운트 증가
+      //  GameManager.Instance.ProjectileManager.SetPiercingCount((int)value);
+
+        UpdateAbility();
     }
 
-    public override void UseSkill()
+    protected override void UpdateAbility()
     {
-        Debug.Log($"UseSkill{this.name}");
+        float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
+
+        // 피해량 감소
+      //  GameManager.Instance.ProjectileManager.SetPiercingDamage((int)value);
     }
 }
