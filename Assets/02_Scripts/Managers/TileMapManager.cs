@@ -6,14 +6,18 @@ public class TileMapManager : MonoBehaviour
 
     public GameObject[] stageCastlePrefabs;
     public GameObject stagecastleBossPrefabs;
+    public GameObject stagecastleDevilPrefabs;
     public GameObject[] stageSwampPrefabs;
     public GameObject stageSwampBossPrefabs;
+    public GameObject stageSwampDevilPrefabs;
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
+    public GameObject stageVolcanicDevilPrefabs;
     private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// 선택된 맵의 인스턴스
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
+    private const int devilround = 4;
     public int roundIndex = 0;
 
     /// <summary>
@@ -27,13 +31,13 @@ public class TileMapManager : MonoBehaviour
         switch (stage)
         {
             case StageEnum.Castle:
-                InstantiateMaps(stageCastlePrefabs);
+                InstantiateMaps(stageCastlePrefabs,stagecastleDevilPrefabs,stagecastleBossPrefabs);
                 break;
             case StageEnum.Swamp:
-                InstantiateMaps(stageSwampPrefabs);
+                InstantiateMaps(stageSwampPrefabs,stageSwampDevilPrefabs,stageSwampBossPrefabs);
                 break;
             case StageEnum.Volcano:
-                InstantiateMaps(stageVolcanicPrefabs);
+                InstantiateMaps(stageVolcanicPrefabs,stageVolcanicDevilPrefabs,stageVolcanicBossPrefabs);
                 break;
         }
         // 생성된 맵에서 플레이어 스폰 포인트 찾기
@@ -47,16 +51,16 @@ public class TileMapManager : MonoBehaviour
     /// 맵을 생성하여 배열에 집어넣는다.
     /// </summary>
     /// <param name="mapPrefabs"></param>
-    private void InstantiateMaps(GameObject[] mapPrefabs)
+    private void InstantiateMaps(GameObject[] mapPrefabs, GameObject devilPrefab, GameObject bossPrefab)
     {
         for (int i = 0; i < NormalMaps; i++)
         {
             GameObject selectedMap = mapPrefabs[Random.Range(0, mapPrefabs.Length)];
             selectedMapInstance[i] = Instantiate(selectedMap, Vector3.zero, Quaternion.identity);
-            StageContainer stageContainer = selectedMapInstance[i].GetComponent<StageContainer>();
             selectedMapInstance[i].SetActive(false);
         }
-        selectedMapInstance[TotalMaps-1] = Instantiate(stagecastleBossPrefabs, Vector3.zero, Quaternion.identity);
+        selectedMapInstance[devilround] = Instantiate(devilPrefab, Vector3.zero, Quaternion.identity);
+        selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
     }
 
     /// <summary>
