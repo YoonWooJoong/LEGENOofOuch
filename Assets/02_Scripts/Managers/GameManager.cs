@@ -158,9 +158,9 @@ public class GameManager : MonoBehaviour
         string[] abilityDescription = new string[3];
         for(int i=0;i<selectedAbility.Length;i++)
         {
-            AbilityData abilityData = AbilityManager.FindAbilityData(selectedAbility[i]);
-            abilityName[i] = abilityData.abilityName;
-            abilityDescription[i] = abilityData.description;
+            AbilityDataSO abilityData = AbilityManager.FindAbilityData(selectedAbility[i]);
+            abilityName[i] = abilityData.AbilityName;
+            abilityDescription[i] = abilityData.Description;
             Debug.Log(abilityName[i]);
             Debug.Log(abilityDescription[i]);
         }
