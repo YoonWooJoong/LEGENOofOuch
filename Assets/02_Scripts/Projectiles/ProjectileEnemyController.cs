@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileEnemyController : MonoBehaviour
 {
     [SerializeField] private LayerMask layerMaskEnemy; //적 설정
     [SerializeField] private LayerMask layerMaskWall; // 벽 설정
@@ -91,9 +90,9 @@ public class ProjectileController : MonoBehaviour
             {
                 if (contactEnemy < contactEnemyCount)
                 {
-                    EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    Debug.Log(GameManager.Instance.player.attackPower);
-                    enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                    PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
+                    Debug.Log(GameManager.Instance.monsterManager.spawnedEnemys[0].attackPower);
+                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
                     var contact = collision.contacts[0];
                     // 충돌 지점
                     direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
@@ -102,9 +101,8 @@ public class ProjectileController : MonoBehaviour
                 }
                 else if (contactEnemy >= contactEnemyCount)
                 {
-                    EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    Debug.Log(GameManager.Instance.player.attackPower);
-                    enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                    PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
+                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
                     Destroy(this.gameObject);
                 }
             }

@@ -45,4 +45,10 @@ public class EnemyCharacter : BaseCharacter
         MM.RemoveEnemyOnDeath(this);
         base.Death();
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position,lookDir);
+    }
 }

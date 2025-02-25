@@ -36,6 +36,12 @@ public class PlayerCharacter : BaseCharacter
         }
     }
 
+    protected override void Attack()
+    {
+        base.Attack();
+        GameManager.Instance.ProjectileManager.ShootPlayerProjectile(GameManager.Instance.player.transform.position, lookDir, pClass, 0, 0);
+    }
+
     protected override void Death()
     {
         //사망시 게임종료 로직 실행

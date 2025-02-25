@@ -37,8 +37,8 @@ public class ProjectileManager : MonoBehaviour
         GameObject origin = monsterProjectilePrefab;
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
 
-        ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction);
+        ProjectileEnemyController projectileEnemyController = obj.GetComponent<ProjectileEnemyController>();
+        projectileEnemyController.Init(direction);
     }
 
     /// <summary>
