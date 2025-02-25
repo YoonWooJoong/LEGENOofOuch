@@ -2,16 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class SelectManager : MonoBehaviour
 {
-    [SerializeField] private Image imageStage;
+
+    public Image imageStage;
     [SerializeField] private Sprite[] stageImages;
     [SerializeField] private string[] stageName;
-    [SerializeField] private TextMeshProUGUI textStageName;
+    public TextMeshProUGUI textStageName;
     private int selectedStageIndex = 0; // 선택된 스테이지 인덱스
 
 
@@ -24,7 +27,8 @@ public class SelectManager : MonoBehaviour
     private void Awake()
     {
         SelectCharater(0);
-    }
+        SetSelectedStageIndex(0);
+    } 
 
     public void SelectCharater(int index)
     {
@@ -43,6 +47,19 @@ public class SelectManager : MonoBehaviour
     public void SetSelectedStageIndex(int number)
     {
         selectedStageIndex = number;
+        imageStage.sprite = stageImages[number];
+        textStageName.text = stageName[number];
     }
+
+    public void UpdateStageUI()
+    {
+        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+        if (stageImages.Length > 0 && stageName.Length > 0)
+        {
+            imageStage.sprite = stageImages[number];
+            textStageName.text = stageName[number];
+        }
+    }
+
 
 }
