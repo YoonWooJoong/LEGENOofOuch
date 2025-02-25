@@ -13,7 +13,7 @@ public class TileMapManager : MonoBehaviour
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
     public GameObject stageVolcanicDevilPrefabs;
-    private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// 선택된 맵의 인스턴스
+   [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// 선택된 맵의 인스턴스
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
@@ -40,6 +40,7 @@ public class TileMapManager : MonoBehaviour
                 InstantiateMaps(stageVolcanicPrefabs,stageVolcanicDevilPrefabs,stageVolcanicBossPrefabs);
                 break;
         }
+        MapStart();
         // 생성된 맵에서 플레이어 스폰 포인트 찾기
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
@@ -55,14 +56,26 @@ public class TileMapManager : MonoBehaviour
     {
         for (int i = 0; i < NormalMaps; i++)
         {
+            if (i == devilround)
+            {
+                selectedMapInstance[i] = Instantiate(devilPrefab, Vector3.zero, Quaternion.identity);
+                selectedMapInstance[i].SetActive(false);
+                continue;
+            }
             GameObject selectedMap = mapPrefabs[Random.Range(0, mapPrefabs.Length)];
             selectedMapInstance[i] = Instantiate(selectedMap, Vector3.zero, Quaternion.identity);
             selectedMapInstance[i].SetActive(false);
         }
-        selectedMapInstance[devilround] = Instantiate(devilPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+        selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
 
+    public void MapStart()
+    {
+        selectedMapInstance[0].SetActive(true);
+        Debug.Log($"선택된 맵: {selectedMapInstance[0].name}");
+        SetTransrate();
+    }
     /// <summary>
     /// 클리어시 다음맵 활성화.
     /// 맵을 활성화하면서 스폰포인트 전달
