@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerCharacter : BaseCharacter
 {
     [SerializeField] float criticalDamage = 0.2f, criticalChance;
+    [SerializeField] int level;
+    [SerializeField] int exp;
 
     [Header("")]
     [SerializeField] PlayerClassEnum pClass;
@@ -85,5 +87,15 @@ public class PlayerCharacter : BaseCharacter
     private void Start()
     {
         GameManager.Instance.ProjectileManager.CreateFairy(this.transform.position);
+    }
+
+    public void GetExp(int exp)
+    {
+        this.exp += exp;
+        int upLv = exp / 100;
+        level += upLv;
+        for (int i = 0; i < upLv; i++)
+            ChangeHealth(maxHp / 10);
+        exp %= 100;
     }
 }
