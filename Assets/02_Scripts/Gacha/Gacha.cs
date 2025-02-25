@@ -14,27 +14,44 @@ public class Gacha : MonoBehaviour
     /// <summary>
     /// 능력을 랜덤으로 선택
     /// 5프로 확률로 레어 능력이 선택됨
+    /// 자신의 직업에 맞는 능력만 선택
     /// </summary>
     public void SelectRandomAbility()
     {
         // Rare로 분류할 인덱스 집합
-        AbilityEnum[] rareIndices = new AbilityEnum[] { AbilityEnum.BloodThirst, AbilityEnum.Invincibility, AbilityEnum.Blaze, AbilityEnum.Spirit, AbilityEnum.Archer, AbilityEnum.Mage, AbilityEnum.Warrior };
+        AbilityEnum[] rareIndices = new AbilityEnum[] {
+        AbilityEnum.BloodThirst, AbilityEnum.Invincibility, AbilityEnum.Blaze,
+        AbilityEnum.Spirit, AbilityEnum.Archer, AbilityEnum.Mage, AbilityEnum.Warrior
+    };
+        AbilityEnum DevilIndices = AbilityEnum.ExtraLife;
         AbilityEnum[] sourceIndices;
+
+        // IsRare()로 레어 능력 여부 설정
         IsRare();
+
+        // 플레이어의 직업을 가져옴
+        PlayerClassEnum playerClass = PlayerClassEnum.Archer;
+        //하드코딩됨 나중에 수정할것
+
         if (isRare)
         {
+            // 레어 능력만 선택
             sourceIndices = rareIndices;
         }
         else
         {
             List<AbilityEnum> nonRareList = new List<AbilityEnum>();
-            for (int i = 0; i < abilityindex; i++)
+
+            // 직업에 맞지 않는 능력들을 제외
+            foreach (AbilityEnum ability in Enum.GetValues(typeof(AbilityEnum)))
             {
-                if (Array.IndexOf(rareIndices, i) < 0)
+                if (Array.IndexOf(rareIndices, ability) < 0 && ability != DevilIndices && IsAbilityValidForClass(ability, playerClass))
                 {
-                    nonRareList.Add((AbilityEnum)i);
+                    nonRareList.Add(ability);
                 }
             }
+
+            // 일반 능력 목록을 sourceIndices에 할당
             sourceIndices = nonRareList.ToArray();
         }
 
@@ -49,6 +66,25 @@ public class Gacha : MonoBehaviour
         for (int i = 0; i < selectedAbility.Length; i++)
         {
             selectedAbility[i] = sourceIndices[i];
+            Debug.Log($"선택된 능력 {i} : {selectedAbility[i]}");
+        }
+    }
+
+    /// <summary>
+    /// 직업에 맞는 능력만 선택하도록 필터링
+    /// </summary>
+    private bool IsAbilityValidForClass(AbilityEnum ability, PlayerClassEnum playerClass)
+    {
+        switch (playerClass)
+        {
+            case PlayerClassEnum.Warrior:
+                return ability != AbilityEnum.Archer && ability != AbilityEnum.Mage;
+            case PlayerClassEnum.Archer:
+                return ability != AbilityEnum.Warrior && ability != AbilityEnum.Mage;
+            case PlayerClassEnum.Mage:
+                return ability != AbilityEnum.Warrior && ability != AbilityEnum.Archer;
+            default:
+                return true; // 모든 직업이 선택할 수 있는 경우 (기본값)
         }
     }
 
