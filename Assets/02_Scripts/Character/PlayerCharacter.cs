@@ -25,6 +25,9 @@ public class PlayerCharacter : BaseCharacter
     public float CriDmg => criticalDamage + CriDmgBuf;
     public float CriChance => criticalChance + CriChanceBuf;
 
+    public bool GodMod = false;
+    public int life = 1;
+
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -52,8 +55,23 @@ public class PlayerCharacter : BaseCharacter
         }
     }
 
+    /// <summary>
+    /// 무적상태일 경우 체력회복만 가능합니다.
+    /// </summary>
+    /// <param name="change">변경할 수치입니다. 데미지면 음수, 회복이면 양수값을 입력합니다.</param>
+    public override void ChangeHealth(float change)
+    {
+        if (!GodMod || change > 0)
+            base.ChangeHealth(change);
+    }
+
+    /// <summary>
+    /// 죽음에 달하면 목숨이 하나 줄고, 목숨이 다하면 사망합니다.
+    /// </summary>
     protected override void Death()
     {
+        if (--life > 0)
+            return;
         //사망시 게임종료 로직 실행
         base.Death();
     }
