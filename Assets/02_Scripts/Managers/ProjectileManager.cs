@@ -22,6 +22,7 @@ public class ProjectileManager : MonoBehaviour
     private bool isDarkTouch = false;
     private bool isBlaze = false;
     private bool isDeathBoom = false;
+    
 
 
     /// <summary>
@@ -94,6 +95,20 @@ public class ProjectileManager : MonoBehaviour
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, false,false);
+    }
+
+    public GameObject ShootBigSwordAura(Vector3 startPosition, Vector3 direction, PlayerClassEnum playerClass)
+    {
+        GameObject origin = projectilePrefabs[Convert.ToInt32(playerClass)];
+        GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
+
+        ProjectileController projectileController = obj.GetComponent<ProjectileController>();
+        projectileController.Init(direction, isDarkTouch, isBlaze, contactWallCount, contactEnemyCount);
+        float x = obj.transform.localScale.x * 2; // 크기 100% 증가
+        float y = obj.transform.localScale.y * 2;
+        obj.transform.localScale = new Vector3(x, y, 1);
+
+        return obj;
     }
 
 
