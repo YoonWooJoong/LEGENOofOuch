@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {
-        StartGame();
+        //StartGame();
     }
 
     public void StartGame()
@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
     public void KillMonster(EnemyCharacter enemy)
     {
         MonsterManager.RemoveEnemyOnDeath(enemy);
+        //플레이어에게 경험치를 제공합니다.
+        player.GetExp(17);
         //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
         player.ChangeHealth(healReward);
         Debug.Log("KillMonster");
