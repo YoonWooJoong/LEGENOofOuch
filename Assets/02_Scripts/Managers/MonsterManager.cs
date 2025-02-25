@@ -8,14 +8,6 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] GameObject[] monsterPrefebs;
     List<EnemyCharacter> spawnedEnemys = new();
 
-    PlayerCharacter player;
-    public int healReward = 0;
-
-    void Start()
-    {
-        player = FindObjectOfType(typeof(PlayerCharacter)).GetComponent<PlayerCharacter>();
-    }
-
     /// <summary>
     /// 호출되면 지정된 범위내의 랜덤한 위치에서 무작위 적이 나타납니다.
     /// </summary>
@@ -42,8 +34,6 @@ public class MonsterManager : MonoBehaviour
     {
         spawnedEnemys.Remove(enemy);
 
-        //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
-        player.ChangeHealth(healReward);
 
         //남은 적이 없으면 스테이지가 클리어 된 것입니다.
         if (spawnedEnemys.Count == 0)
