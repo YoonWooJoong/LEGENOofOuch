@@ -12,7 +12,7 @@ public class SelectManager : MonoBehaviour
 {
 
     public Image imageStage;
-    [SerializeField] private Sprite[] stageImages;
+    public Sprite[] stageImages;
     [SerializeField] private string[] stageName;
     public TextMeshProUGUI textStageName;
     private int selectedStageIndex = 0; // 선택된 스테이지 인덱스
@@ -50,15 +50,4 @@ public class SelectManager : MonoBehaviour
         imageStage.sprite = stageImages[number];
         textStageName.text = stageName[number];
     }
-    public void UpdateStageUI()
-    {
-        int number = GetSelectedStageIndex();
-        if (stageImages.Length > 0 && stageName.Length > 0)
-        {
-            imageStage.sprite = stageImages[number];
-            textStageName.text = stageName[number];
-        }
-    }
-
-
 }

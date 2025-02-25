@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -13,6 +15,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject characterUI;
     [SerializeField] private GameObject settingUI;
+
+
+
+    private void Update()
+    {
+        ButtonActivate();
+    }
+
 
     public void toglePanel(int selectPanelNumber)
     {
@@ -32,39 +42,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ButtonActivate()
+    {
+        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
 
+        previousStageButton.SetActive(number > 0);
+
+        nextStageButton.SetActive(number < GameManager.Instance.SelectManager.stageImages.Length - 1);
+
+
+    }
     public void NextStageButton()
     {
         int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
-        if (number < 2)
-        {
-            number = number + 1;
-            GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
-            selectManager.UpdateStageUI();
 
-            previousStageButton.SetActive(true);
-        }
-        if (number == 2)
-        {
-            nextStageButton.SetActive(false);
-        }
+        number = number + 1;
+        GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
 
     public void PreviousStageButton()
     {
         int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
-        if (number > 0)
-        {
-            number = number - 1;
-            GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
-            selectManager.UpdateStageUI();
-
-            nextStageButton.SetActive(true);
-        }
-        if (number == 0)
-        {
-            previousStageButton.SetActive(false);
-        }
+        number = number - 1;
+        GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
 
     public void StartButton()
