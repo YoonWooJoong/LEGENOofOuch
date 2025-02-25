@@ -40,10 +40,7 @@ public class EnemyCharacter : BaseCharacter
             return;
         agent.SetDestination(target.position);
 
-        if (TargetDis > attackRange)
-            moveDir = (agent.nextPosition - transform.position).normalized;
-        else
-            moveDir = Vector2.zero;
+        moveDir = TargetDis > attackRange ? (agent.nextPosition - transform.position).normalized : Vector2.zero;
     }
 
     /// <summary>
