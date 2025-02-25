@@ -123,8 +123,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Wizard_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -143,8 +143,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 135}
   - name: Wizard_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -163,8 +163,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 164}
   - name: Wizard_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -183,8 +183,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 435}
   - name: Wizard_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -203,8 +203,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 465}
   - name: Wizard_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -223,8 +223,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 193}
   - name: Wizard_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -243,8 +243,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 222}
   - name: Wizard_Frame_14
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -263,8 +263,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 251}
   - name: Wizard_Frame_15
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3611111, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -283,8 +283,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 457}
   - name: Wizard_Frame_16
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.34210527, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -303,8 +303,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 367}
   - name: Wizard_Frame_17
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.325, y: 0.5217391}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -323,8 +323,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 305}
   - name: Wizard_Frame_18
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.30952382, y: 0.5}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -343,7 +343,7 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 211}
   - name: Wizard_Frame_19
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -363,7 +363,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 85}
   - name: Wizard_Frame_20
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -383,7 +383,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 166}
   - name: Wizard_Frame_21
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -403,7 +403,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 447}
   - name: Wizard_Frame_22
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -423,7 +423,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 4}
   - name: Wizard_Frame_23
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -443,7 +443,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 84}
   - name: Wizard_Frame_24
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -463,7 +463,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 407}
   - name: Wizard_Frame_25
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -483,7 +483,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 44}
   - name: Wizard_Frame_26
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -503,7 +503,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 321}
   - name: Wizard_Frame_27
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -523,7 +523,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 364}
   - name: Wizard_Frame_28
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -543,8 +543,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 274}
   - name: Wizard_Frame_29
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -563,8 +563,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 280}
   - name: Wizard_Frame_30
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3611111, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -583,8 +583,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 283}
   - name: Wizard_Frame_31
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.34210527, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -603,8 +603,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 397}
   - name: Wizard_Frame_32
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.325, y: 0.5217391}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -623,8 +623,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 336}
   - name: Wizard_Frame_33
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.30952382, y: 0.5}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -643,8 +643,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 243}
   - name: Wizard_Frame_34
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.34210527, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -663,8 +663,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 427}
   - name: Wizard_Frame_45
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -683,8 +683,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 309}
   - name: Wizard_Frame_46
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3611111, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -703,8 +703,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 313}
   - name: Wizard_Frame_47
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5217391}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -723,8 +723,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 373}
   - name: Wizard_Frame_48
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.6, y: 0.42857143}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -743,8 +743,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 211}
   - name: Wizard_Frame_49
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.22413793, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -763,7 +763,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 124}
   - name: Wizard_Frame_50
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -783,7 +783,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 366}
   - name: Wizard_Frame_51
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -803,7 +803,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 171}
   - name: Wizard_Frame_52
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -823,7 +823,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 95}
   - name: Wizard_Frame_53
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -843,7 +843,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 487}
   - name: Wizard_Frame_54
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -863,7 +863,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 66}
   - name: Wizard_Frame_55
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -883,7 +883,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 36}
   - name: Wizard_Frame_56
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -903,8 +903,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 4}
   - name: Wizard_Frame_57
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -923,8 +923,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 338}
   - name: Wizard_Frame_58
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.3611111, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -943,8 +943,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 343}
   - name: Wizard_Frame_59
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5217391}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -963,8 +963,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 404}
   - name: Wizard_Frame_60
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.6, y: 0.42857143}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -983,8 +983,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 247}
   - name: Wizard_Frame_61
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.22413793, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1003,8 +1003,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 153}
   - name: Wizard_Frame_62
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.22413793, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1023,8 +1023,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 182}
   - name: Wizard_Frame_70
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1043,8 +1043,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 367}
   - name: Wizard_Frame_71
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1063,8 +1063,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 396}
   - name: Wizard_Frame_72
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1083,8 +1083,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 425}
   - name: Wizard_Frame_73
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1103,8 +1103,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 454}
   - name: Wizard_Frame_74
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1123,8 +1123,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 483}
   - name: Wizard_Frame_75
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.6}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1143,8 +1143,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 120}
   - name: Wizard_Frame_76
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.30952382, y: 0.6666667}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1163,8 +1163,8 @@ ScriptedImporter:
     uvTransform: {x: 154, y: 487}
   - name: Wizard_Frame_77
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.203125, y: 0.9230769}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1183,8 +1183,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 4}
   - name: Wizard_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1203,8 +1203,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 4}
   - name: Wizard_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1223,8 +1223,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 25}
   - name: Wizard_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1243,8 +1243,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 33}
   - name: Wizard_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.6}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1263,8 +1263,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 148}
   - name: Wizard_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1283,8 +1283,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 62}
   - name: Wizard_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.54545456}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1303,8 +1303,8 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 55}
   - name: Wizard_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.5714286}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1323,8 +1323,8 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 91}
   - name: Wizard_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.38235295, y: 0.6}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1343,7 +1343,7 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 176}
   - name: Wizard_Frame_35
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1363,7 +1363,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Wizard_Frame_36
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1383,7 +1383,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 220}
   - name: Wizard_Frame_37
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1403,7 +1403,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 395}
   - name: Wizard_Frame_38
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1423,7 +1423,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 435}
   - name: Wizard_Frame_39
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1443,7 +1443,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 200}
   - name: Wizard_Frame_40
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1463,7 +1463,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 326}
   - name: Wizard_Frame_41
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1483,7 +1483,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 475}
   - name: Wizard_Frame_42
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1503,7 +1503,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 240}
   - name: Wizard_Frame_43
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1523,7 +1523,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 283}
   - name: Wizard_Frame_44
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1543,7 +1543,7 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 124}
   - name: Wizard_Frame_63
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1563,7 +1563,7 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 227}
   - name: Wizard_Frame_64
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1583,7 +1583,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 495}
   - name: Wizard_Frame_65
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1603,7 +1603,7 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 112}
   - name: Wizard_Frame_66
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1623,7 +1623,7 @@ ScriptedImporter:
     uvTransform: {x: 226, y: 204}
   - name: Wizard_Frame_67
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1643,7 +1643,7 @@ ScriptedImporter:
     uvTransform: {x: 163, y: 124}
   - name: Wizard_Frame_68
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1663,7 +1663,7 @@ ScriptedImporter:
     uvTransform: {x: 186, y: 85}
   - name: Wizard_Frame_69
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
