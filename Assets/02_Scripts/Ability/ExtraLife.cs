@@ -8,10 +8,10 @@ public class ExtraLife : AbilityBase
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
-    }
 
-    public override void UseSkill()
-    {
-        Debug.Log($"UseSkill{this.name}");
+        PlayerCharacter player = GameManager.Instance.player;
+        if (player == null) return;
+        player.life++;
+        Debug.Log("¸ñ¼û Ãß°¡");
     }
 }

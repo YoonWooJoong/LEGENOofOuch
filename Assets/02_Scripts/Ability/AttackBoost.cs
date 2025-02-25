@@ -8,10 +8,22 @@ public class AttackBoost : AbilityBase
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
+        UpdateAbility();
     }
 
-    public override void UseSkill()
+    protected override void UpdateAbility()
     {
-        Debug.Log($"UseSkill{this.name}");
+        PlayerCharacter player = GameManager.Instance.player;
+        if (player == null) return;
+
+        if (isUpgraded)
+        {
+            player.AtkBuf -= abilityData.values[0];
+        }
+
+        float attackBoost = abilityData.values[isUpgraded ? 1 : 0] * 0.01f;
+        player.AtkBuf += attackBoost;
+
+        Debug.Log($"공격 부스트 {player.AtkBuf} 대미지 증가");
     }
 }

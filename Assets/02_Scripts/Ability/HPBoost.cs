@@ -8,10 +8,20 @@ public class HPBoost : AbilityBase
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
+        UpdateAbility();
     }
-
-    public override void UseSkill()
+    protected override void UpdateAbility()
     {
-        Debug.Log($"UseSkill{this.name}");
+        PlayerCharacter player = GameManager.Instance.player;
+        if (player == null) return;
+
+        if (isUpgraded)
+        {
+            player.MaxHpBuf -= abilityData.values[0];
+        }
+        float hpBoost = abilityData.values[isUpgraded ? 1 : 0] * 0.01f;
+        player.MaxHpBuf += hpBoost;
+
+        Debug.Log($"hp 부스트 {player.MaxHpBuf} 체력 증가");
     }
 }

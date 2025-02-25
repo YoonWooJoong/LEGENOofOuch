@@ -133,4 +133,13 @@ public class BaseCharacter : MonoBehaviour
 
         Destroy(gameObject, 2f);
     }
+
+    /// <summary>
+    /// 현재 HP 반환
+    /// </summary>
+    /// <returns></returns>
+    public float GetCurHp()
+    {
+        return CurHp;
+    }
 }
