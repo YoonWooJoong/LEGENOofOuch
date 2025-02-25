@@ -91,7 +91,7 @@ public class ProjectileEnemyController : MonoBehaviour
                 if (contactEnemy < contactEnemyCount)
                 {
                     PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
+                    player.ChangeHealth(-GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
                     var contact = collision.contacts[0];
                     // 충돌 지점
                     direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
@@ -101,11 +101,14 @@ public class ProjectileEnemyController : MonoBehaviour
                 else if (contactEnemy >= contactEnemyCount)
                 {
                     PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
+                    player.ChangeHealth(-GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
                     Destroy(this.gameObject);
                 }
             }
-            else { Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 같은 레이어는 무시
+            else if (this.gameObject.layer == collision.gameObject.layer)
+            {
+                Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
+            } // 같은 레이어는 무시
         }
 
         //if (contactWall < 2 && collision.gameObject.CompareTag("Wall")) // 임시로 wall로 작성 // 숫자에는 총알 튕기는 횟수변수 넣어주면됨

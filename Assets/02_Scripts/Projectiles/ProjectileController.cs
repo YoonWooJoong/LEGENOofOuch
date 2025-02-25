@@ -94,18 +94,21 @@ public class ProjectileController : MonoBehaviour
                 if (contactEnemy < contactEnemyCount)
                 {
                     EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                    enemey.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
                     Physics2D.IgnoreCollision(arrowCollider, collision.collider);
                     contactEnemy += 1;
                 }
                 else if (contactEnemy >= contactEnemyCount)
                 {
                     EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    enemey.ChangeHealth(GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                    enemey.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
                     Destroy(this.gameObject);
                 }
             }
-            else { Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 같은 레이어는 무시
+            else if (this.gameObject.layer == collision.gameObject.layer)
+            {
+                Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
+            }
         }
 
         //if (contactWall < 2 && collision.gameObject.CompareTag("Wall")) // 임시로 wall로 작성 // 숫자에는 총알 튕기는 횟수변수 넣어주면됨
