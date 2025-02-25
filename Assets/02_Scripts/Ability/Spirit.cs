@@ -8,10 +8,6 @@ public class Spirit : AbilityBase
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
-    }
-
-    public override void UseSkill()
-    {
-        Debug.Log($"UseSkill{this.name}");
+        GameManager.Instance.ProjectileManager.CreateFairy(GameManager.Instance.player.transform.position);
     }
 }

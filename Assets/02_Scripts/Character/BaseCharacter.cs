@@ -142,4 +142,13 @@ public class BaseCharacter : MonoBehaviour
     {
         return CurHp;
     }
+
+    /// <summary>
+    /// 현재 바라보는 방향 vector
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 GetlookDir()
+    {
+        return lookDir;
+    }
 }

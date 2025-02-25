@@ -79,11 +79,7 @@ public class PlayerCharacter : BaseCharacter
     protected override void Attack()
     {
         base.Attack();
-        GameManager.Instance.ProjectileManager.ShootPlayerProjectile(this.transform.position, lookDir,pClass,1,1);
-    }
 
-    private void Start()
-    {
-        GameManager.Instance.ProjectileManager.CreateFairy(this.transform.position);
+        GameManager.Instance.AbilityManager.UseAbility();
     }
 }
