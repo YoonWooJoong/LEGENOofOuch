@@ -29,6 +29,7 @@ public class AbilityManager : MonoBehaviour
     /// <param name="abilityEnum">¾îºô¸®Æ¼ÀÇ ID</param>
     public void SetAbility(AbilityEnum abilityEnum)
     {
+        Debug.Log($"{abilityEnum}¹Þ¾Ñ´Ù");
         AbilityRepositoy.SetAbility(abilityEnum).transform.SetParent(abilityParent);
     }
 

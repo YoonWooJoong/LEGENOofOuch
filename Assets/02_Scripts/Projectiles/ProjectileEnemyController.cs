@@ -91,7 +91,7 @@ public class ProjectileEnemyController : MonoBehaviour
                 if (contactEnemy < contactEnemyCount)
                 {
                     PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
+                    player.ChangeHealth(GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
                     var contact = collision.contacts[0];
                     // 충돌 지점
                     direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
@@ -101,7 +101,7 @@ public class ProjectileEnemyController : MonoBehaviour
                 else if (contactEnemy >= contactEnemyCount)
                 {
                     PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                    player.ChangeHealth(GameManager.Instance.monsterManager.spawnedEnemys[0].AttackPower);
+                    player.ChangeHealth(GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
                     Destroy(this.gameObject);
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.LookDev;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class GameManager : MonoBehaviour
     // PlayerClassEnum chooseplayerClass;
     // StageEnum chooseStage;
 
-    public AbilityManager AbilityManager { get; private set; }
-    public UIManager UIManager { get; private set; }
+    [field: SerializeField] public AbilityManager AbilityManager { get; private set; }
+    [field: SerializeField] public UIManager UIManager { get; private set; }
     [field: SerializeField] public ProjectileManager ProjectileManager { get; set; }
-    public SelectManager SelectManager { get; private set; }
-    public TileMapManager TileMapManager { get; private set; }
-    public MonsterManager monsterManager;
+    [field: SerializeField] public SelectManager SelectManager { get; private set; }
+    [field: SerializeField] public TileMapManager TileMapManager { get; private set; }
+    [field: SerializeField] public MonsterManager MonsterManager { get; private set; }
+    [field: SerializeField] public GachaManager GachaManager { get; private set; }
     public Test test; 
     public Transform playerSpawn;
     public Transform[] monsterSpawn;
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void KillMonster(EnemyCharacter enemy)
     {
-        monsterManager.RemoveEnemyOnDeath(enemy);
+        MonsterManager.RemoveEnemyOnDeath(enemy);
         //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
         player.ChangeHealth(healReward);
         Debug.Log("KillMonster");
@@ -118,7 +120,7 @@ public class GameManager : MonoBehaviour
         foreach (Transform spawnPoint in selectedSpawns)
         {
             Debug.Log("몬스터 생성넘겨줌");
-            monsterManager.Spawn(spawnPoint);
+            MonsterManager.Spawn(spawnPoint);
         }
     }
 
@@ -143,6 +145,27 @@ public class GameManager : MonoBehaviour
         }
 
         return selected;
+    }
+    public void GetAbility(AbilityEnum abilityEnum)
+    {
+        AbilityManager.SetAbility(abilityEnum);
+    }
+
+    public void SetAbilityText()
+    {
+        AbilityEnum[] selectedAbility = GachaManager.gacha.GetSelectedAbility();
+        string[] abilityName = new string[3];
+        string[] abilityDescription = new string[3];
+        for(int i=0;i<selectedAbility.Length;i++)
+        {
+            AbilityData abilityData = AbilityManager.FindAbilityData(selectedAbility[i]);
+            abilityName[i] = abilityData.abilityName;
+            abilityDescription[i] = abilityData.description;
+            Debug.Log(abilityName[i]);
+            Debug.Log(abilityDescription[i]);
+        }
+        GachaManager.GetAbilityName(abilityName);
+        GachaManager.GetAbilitydescription(abilityDescription);
     }
 }
 
