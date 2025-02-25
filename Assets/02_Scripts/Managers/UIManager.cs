@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject characterUI;
     [SerializeField] private GameObject settingUI;
+    [SerializeField] private GameObject MainCanvas;
 
 
     private void Update()
@@ -37,6 +38,10 @@ public class UIManager : MonoBehaviour
 
             case 2:
                 settingUI.SetActive(!settingUI.activeSelf);
+                break;
+            case 3:
+                MainCanvas.SetActive(!MainCanvas.activeSelf);
+                GameManager.Instance.StartGame();
                 break;
         }
     }
