@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6436712910697571773}
   - component: {fileID: 62728719049651408}
   - component: {fileID: 5754993409095560456}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: SwordAura
   m_TagString: Untagged
   m_Icon: {fileID: 0}

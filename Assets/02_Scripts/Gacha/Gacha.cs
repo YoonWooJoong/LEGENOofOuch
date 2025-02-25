@@ -78,4 +78,9 @@ public class Gacha : MonoBehaviour
         if (UnityEngine.Random.Range(0, 100) < 5)
             isRare = true;
     }
+
+    public AbilityEnum[] GachaSelect()
+    {
+        return selectedAbility;
+    }
 }

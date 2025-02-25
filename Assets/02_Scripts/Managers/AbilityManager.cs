@@ -29,6 +29,7 @@ public class AbilityManager : MonoBehaviour
     /// <param name="abilityEnum">어빌리티의 ID</param>
     public void SetAbility(AbilityEnum abilityEnum)
     {
+        Debug.Log($"{abilityEnum}받앗다");
         AbilityRepositoy.SetAbility(abilityEnum).transform.SetParent(abilityParent);
     }
 
@@ -57,7 +58,7 @@ public class AbilityManager : MonoBehaviour
     /// </summary>
     /// <param name="abilityEnum">원하는 어빌리티의 ID</param>
     /// <returns></returns>
-    public AbilityData FindAbilityData(AbilityEnum abilityEnum)
+    public AbilityDataSO FindAbilityData(AbilityEnum abilityEnum)
     {
         return abilityRepositoy.FindAbilityData(abilityEnum);
     }

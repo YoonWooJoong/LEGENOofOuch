@@ -23,11 +23,13 @@ public class GachaController : MonoBehaviour
     private Color commonColor = Color.green;  // 기본 초록색
     private Color rareColor = Color.yellow;   // 레어 확률일 때 노란색
     private void Awake() 
-    {   for (int i = 0; i < 3; i++)
+    {   
+        for (int i = 0; i < 3; i++)
         {
             int index = i;
             button[i].onClick.AddListener(() => OnClickButton(index));
         }
+        gacha = GachaManager.Instance.gacha;
     }
     private void Start()
     {
@@ -36,7 +38,7 @@ public class GachaController : MonoBehaviour
             Debug.LogError("GachaManager.Instance is NULL. Ensure GachaManager exists in the scene.");
             return;
         }
-        gacha = GachaManager.Instance.gacha;
+        
     }
 
     /// <summary>
