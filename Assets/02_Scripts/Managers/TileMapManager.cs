@@ -76,6 +76,7 @@ public class TileMapManager : MonoBehaviour
     {
         SpawnPlayer();
         SpawnMonsters();
+        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
     public void MapStart()
     {
