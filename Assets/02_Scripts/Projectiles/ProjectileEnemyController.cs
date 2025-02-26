@@ -13,6 +13,7 @@ public class ProjectileEnemyController : MonoBehaviour
     private int contactEnemy; // 적과 충돌 횟수
     private int contactWallCount; // 받아온 벽 충돌 횟수
     private int contactEnemyCount; // 받아온 적 충돌 횟수
+    private float damage;
 
     private void Awake()
     {
@@ -25,12 +26,13 @@ public class ProjectileEnemyController : MonoBehaviour
     /// <param name="_direction">방향</param>
     /// <param name="_contactwallCount">벽 충돌횟수, 적이 쏘면 0 </param>
     /// <param name="_contactEnemyCount">적 충돌횟수, 적이쏘면 0 </param>
-    public void Init(Vector3 _direction, int _contactwallCount = 0, int _contactEnemyCount = 0)
+    public void Init(Vector3 _direction,float _damage, int _contactwallCount = 0, int _contactEnemyCount = 0)
     {
         direction = _direction;
         RotationRojectile();
         contactWallCount = _contactwallCount;
         contactEnemyCount = _contactEnemyCount;
+        damage = _damage;
     }
 
     void Update()
@@ -92,7 +94,7 @@ public class ProjectileEnemyController : MonoBehaviour
             if (contactEnemy < contactEnemyCount)
             {
                 PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
+                player.ChangeHealth(-damage);
                 var contact = collision.contacts[0];
                 // 충돌 지점
                 direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
@@ -102,7 +104,7 @@ public class ProjectileEnemyController : MonoBehaviour
             else if (contactEnemy >= contactEnemyCount)
             {
                 PlayerCharacter player = collision.gameObject.GetComponent<PlayerCharacter>();
-                player.ChangeHealth(-GameManager.Instance.MonsterManager.spawnedEnemys[0].AttackPower);
+                player.ChangeHealth(-damage);
                 Destroy(this.gameObject);
             }
         }

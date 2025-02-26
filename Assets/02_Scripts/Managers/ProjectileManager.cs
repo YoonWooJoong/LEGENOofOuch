@@ -63,14 +63,14 @@ public class ProjectileManager : MonoBehaviour
     /// </summary>
     /// <param name="startPosition"></param>
     /// <param name="direction"></param>
-    public void ShootEnemyProjectile(Vector3 startPosition, Vector3 direction)
+    public void ShootEnemyProjectile(Vector3 startPosition, Vector3 direction, float damage)
     {
         startPosition += direction * 0.5f;
         GameObject origin = monsterProjectilePrefab;
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
 
         ProjectileEnemyController projectileEnemyController = obj.GetComponent<ProjectileEnemyController>();
-        projectileEnemyController.Init(direction);
+        projectileEnemyController.Init(direction,damage);
     }
 
     /// <summary>
