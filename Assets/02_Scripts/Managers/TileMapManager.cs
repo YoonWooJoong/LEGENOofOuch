@@ -118,6 +118,11 @@ public class TileMapManager : MonoBehaviour
             SetTransrate();
             SpawnEntity(GameManager.Instance.playerClassEnum);
         }
+
+        //필드에 나와있는 모든 물약 삭제
+        var potions = FindObjectsOfType<HpPotion>();
+        foreach (var potion in potions)
+            Destroy(potion.gameObject);
     }
 
 
@@ -159,7 +164,9 @@ public class TileMapManager : MonoBehaviour
         {
             GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, playerSpawn.position, playerSpawn.rotation);
             GameManager.Instance.player = newPlayer.GetComponent<PlayerCharacter>();
+            GameManager.Instance.player.SetClass(playerClassEnum);
 
+            GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
 
             if (GameManager.Instance.player != null)
             {
@@ -231,6 +238,5 @@ public class TileMapManager : MonoBehaviour
     {
         SpawnPlayer(playerClassEnum);
         SpawnMonsters();
-        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 }

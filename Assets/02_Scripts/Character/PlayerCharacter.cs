@@ -45,17 +45,18 @@ public class PlayerCharacter : BaseCharacter
     }
 
     /// <summary>
-    /// 현제 활성화된 적들 중 가장 가까운 적을 목표로 삼습니다.
+    /// 현제 활성화된 살아있는 적들 중 가장 가까운 적을 목표로 삼습니다.
     /// </summary>
     void SearchTarget()
     {
         target = null;
-        var enemys = FindObjectsOfType(typeof(EnemyCharacter));
+        var enemys = FindObjectsOfType<EnemyCharacter>();
         foreach (var enemy in enemys)
         {
-            float distance = (enemy.GameObject().transform.position - transform.position).magnitude;
+            var enemyCharacter = enemy.GetComponent<EnemyCharacter>();
+            float distance = (enemyCharacter.gameObject.transform.position - transform.position).magnitude;
 
-            if (distance < TargetDis)
+            if (distance < TargetDis && enemyCharacter.GetCurHp() != 0)
                 target = enemy.GameObject().transform;
         }
     }
@@ -133,5 +134,12 @@ public class PlayerCharacter : BaseCharacter
         GodMod = isMultiShot = false;
         life = 1;
         CurHp = MaxHp;
+    }
+
+    public void SetClass(PlayerClassEnum pClass)
+    {
+        this.pClass = pClass;
+        var pForm = GetComponent<PlayerFormChange>();
+        pForm.FormChange(pClass);
     }
 }

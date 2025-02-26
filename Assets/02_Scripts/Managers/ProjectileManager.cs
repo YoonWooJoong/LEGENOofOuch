@@ -50,6 +50,7 @@ public class ProjectileManager : MonoBehaviour
     /// <param name="direction"></param>
     public void ShootPlayerProjectile(Vector3 startPosition, Vector3 direction, PlayerClassEnum playerClass)
     {
+        startPosition += direction * 0.5f;
         GameObject origin = projectilePrefabs[Convert.ToInt32(playerClass)];
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
 
@@ -64,6 +65,7 @@ public class ProjectileManager : MonoBehaviour
     /// <param name="direction"></param>
     public void ShootEnemyProjectile(Vector3 startPosition, Vector3 direction)
     {
+        startPosition += direction * 0.5f;
         GameObject origin = monsterProjectilePrefab;
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
 
