@@ -24,12 +24,7 @@ public class SurroundController : MonoBehaviour
         else if (IsAttacking)
         {
             timeSinceLastAttack = 0;
-            if (GameManager.Instance.player.target == null)
-            {
-                Debug.Log("요정의 공격대상이 없습니다!");
-                
-            }
-            else { GameManager.Instance.ProjectileManager.ShootFairy(this.transform.position, (GameManager.Instance.player.target.position - this.transform.position)); }
+            GameManager.Instance.ProjectileManager.ShootFairy(this.transform.position, (GameManager.Instance.player.target.position - this.transform.position));
         }
 
     }
