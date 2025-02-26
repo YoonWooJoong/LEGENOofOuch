@@ -30,6 +30,9 @@ public class PlayerCharacter : BaseCharacter
     public bool GodMod = false;
     public int life = 1;
 
+    // 멀티샷
+    public bool isMultiShot = false;
+
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -83,6 +86,24 @@ public class PlayerCharacter : BaseCharacter
         base.Attack();
 
         GameManager.Instance.AbilityManager.UseAbility();
+        if (GameManager.Instance.AbilityManager.GetMultiShotOn())
+        {
+            StopAllCoroutines(); // 실행 중인 모든 코루틴 취소
+            StartCoroutine(AttackWithDelay(0.1f)); // 새로운 코루틴 실행
+        }
+    }
+
+    IEnumerator AttackWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        base.Attack(); // 두 번째 공격 실행
+        GameManager.Instance.AbilityManager.UseAbility();
+    }
+
+    protected override void Move()
+    {
+        base.Move();
+        StopAllCoroutines(); // 이동이 발생하면 모든 코루틴 취소
     }
 
     public void GetExp(int exp)
@@ -93,5 +114,10 @@ public class PlayerCharacter : BaseCharacter
         for (int i = 0; i < upLv; i++)
             ChangeHealth(maxHp / 10);
         exp %= 100;
+    }
+
+    public PlayerClassEnum GetPlayerClass()
+    {
+        return pClass;
     }
 }

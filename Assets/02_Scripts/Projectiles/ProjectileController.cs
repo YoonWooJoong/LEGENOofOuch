@@ -15,6 +15,9 @@ public class ProjectileController : MonoBehaviour
     private int contactEnemy; // 적과 충돌 횟수
     private int contactWallCount; // 받아온 벽 충돌 횟수
     private int contactEnemyCount; // 받아온 적 충돌 횟수
+    private bool isDarkTouch;
+    private bool isBlaze;
+    private float arrowAttackPower;
 
     private void Awake()
     {
@@ -28,12 +31,15 @@ public class ProjectileController : MonoBehaviour
     /// <param name="_direction">방향</param>
     /// <param name="_contactwallCount">벽 충돌횟수, 적이 쏘면 0 </param>
     /// <param name="_contactEnemyCount">적 충돌횟수, 적이쏘면 0 </param>
-    public void Init(Vector3 _direction, int _contactwallCount = 0, int _contactEnemyCount = 0)
+    public void Init(Vector3 _direction, bool _isDarkTouch, bool _isBlaze, float _attackPower ,int _contactwallCount = 0, int _contactEnemyCount = 0)
     {
         direction = _direction;
         RotationRojectile();
         contactWallCount = _contactwallCount;
         contactEnemyCount = _contactEnemyCount;
+        isDarkTouch = _isDarkTouch;
+        isBlaze = _isBlaze;
+        arrowAttackPower = _attackPower;
     }
 
     void Update()
@@ -77,40 +83,65 @@ public class ProjectileController : MonoBehaviour
         //{ Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
         //else // 그외
         //{
-            if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
+        if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
+        {
+            if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
             {
-                if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
-                {
-                    var contact = collision.contacts[0];
-                    // 충돌 지점
-                    direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
-                    RotationRojectile();
-                    contactWall += 1;
-                }
-                else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
-                    Destroy(this.gameObject);
+                var contact = collision.contacts[0];
+                // 충돌 지점
+                direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
+                RotationRojectile();
+                contactWall += 1;
+                arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactWallDecreaseDamage();
             }
-            else if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
+            else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
+                Destroy(this.gameObject);
+        }
+        else if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
+        {
+            if (contactEnemy < contactEnemyCount)
             {
-                if (contactEnemy < contactEnemyCount)
+                EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
+                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
+                if(enemy != null)
                 {
-                    EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    enemey.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
-                    Physics2D.IgnoreCollision(arrowCollider, collision.collider);
-                    contactEnemy += 1;
+                    if (isDarkTouch) // 어둠의 접촉 스킬 실행
+                    {
+                        StartCoroutine(DarkTouchDelay(enemy));
+                    }
+                    if (isBlaze) // 블레이즈 실행
+                    {
+                        StartCoroutine (BlazeDelay(enemy));
+                    }
                 }
-                else if (contactEnemy >= contactEnemyCount)
-                {
-                    EnemyCharacter enemey = collision.gameObject.GetComponent<EnemyCharacter>();
-                    enemey.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
-                    Destroy(this.gameObject);
-                }
+                Physics2D.IgnoreCollision(arrowCollider, collision.collider);
+                contactEnemy += 1;
+                arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactEnemyDecreaseDamage();
+
             }
-            else if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀일 경우
+            else if (contactEnemy >= contactEnemyCount)
             {
-                Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
+                EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
+                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
+                if (enemy != null)
+                {
+                    if (isDarkTouch) // 어둠의 접촉 스킬 실행
+                    {
+                        StartCoroutine(DarkTouchDelay(enemy));
+                    }
+                    if (isBlaze) // 블레이즈 실행
+                    {
+                        StartCoroutine(BlazeDelay(enemy));
+                    }
+                }
+                Destroy(this.gameObject);
             }
-       // }
+        }
+        else if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀일 경우
+        {
+            Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
+        }
+        // }
 
         //if (contactWall < 2 && collision.gameObject.CompareTag("Wall")) // 임시로 wall로 작성 // 숫자에는 총알 튕기는 횟수변수 넣어주면됨
         //{
@@ -135,4 +166,51 @@ public class ProjectileController : MonoBehaviour
         //    Destroy(this.gameObject);
         //}
     }
+
+
+    /// <summary>
+    /// 어둠의 접촉 스킬 부현부
+    /// </summary>
+    /// <param name="enemy"></param>
+    /// <returns></returns>
+    IEnumerator DarkTouchDelay(EnemyCharacter enemy)
+    {
+        yield return new WaitForSeconds(1);
+        enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
+        List<EnemyCharacter> list = GameManager.Instance.MonsterManager.spawnedEnemys;
+        float nearDir = 5000f;
+        EnemyCharacter nearEnemy = null;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].transform.position != enemy.transform.position)
+            {
+                if (nearDir > Vector3.Distance(list[i].transform.position, enemy.transform.position))
+                {
+                    nearDir = Vector3.Distance(list[i].transform.position, enemy.transform.position);
+                    nearEnemy = list[i];
+                }
+            }
+        }
+        if (nearEnemy == null)
+        {
+            Debug.Log("Projectile의 DarkTouchDelay의 nearEnemy가 null입니다!");
+        }
+        nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
+    }
+
+    /// <summary>
+    /// 블레이즈 스킬 구현부
+    /// </summary>
+    /// <param name="enemy"></param>
+    /// <returns></returns>
+    IEnumerator BlazeDelay(EnemyCharacter enemy)
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            yield return new WaitForSeconds(0.25f);
+            enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetBlazeDecresaseDamage());
+        }
+        yield return new WaitForSeconds(0.25f);
+    }
+    
 }
