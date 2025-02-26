@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -179,26 +180,31 @@ public class ProjectileController : MonoBehaviour
     IEnumerator DarkTouchDelay(EnemyCharacter enemy)
     {
         yield return new WaitForSeconds(1);
-        enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
-        List<EnemyCharacter> list = GameManager.Instance.MonsterManager.spawnedEnemys;
-        float nearDir = 5000f;
-        EnemyCharacter nearEnemy = null;
-        for (int i = 0; i < list.Count; i++)
+        if (enemy != null)
         {
-            if (list[i].transform.position != enemy.transform.position)
+            enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
+
+            List<EnemyCharacter> list = GameManager.Instance.MonsterManager.spawnedEnemys;
+            float nearDir = 5000f;
+            EnemyCharacter nearEnemy = null;
+            for (int i = 0; i < list.Count; i++)
             {
-                if (nearDir > Vector3.Distance(list[i].transform.position, enemy.transform.position))
+                if (list[i].transform.position != enemy.transform.position)
                 {
-                    nearDir = Vector3.Distance(list[i].transform.position, enemy.transform.position);
-                    nearEnemy = list[i];
+                    if (nearDir > Vector3.Distance(list[i].transform.position, enemy.transform.position))
+                    {
+                        nearDir = Vector3.Distance(list[i].transform.position, enemy.transform.position);
+                        nearEnemy = list[i];
+                    }
                 }
             }
+
+            if (nearEnemy == null)
+            {
+                Debug.Log("Projectile의 DarkTouchDelay의 nearEnemy가 null입니다!");
+            }
+            else { nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage()); }
         }
-        if (nearEnemy == null)
-        {
-            Debug.Log("Projectile의 DarkTouchDelay의 nearEnemy가 null입니다!");
-        }
-        nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage());
     }
 
     /// <summary>
@@ -211,6 +217,7 @@ public class ProjectileController : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             yield return new WaitForSeconds(0.25f);
+            if (enemy == null) { break; }
             enemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetBlazeDecresaseDamage());
         }
         yield return new WaitForSeconds(0.25f);
