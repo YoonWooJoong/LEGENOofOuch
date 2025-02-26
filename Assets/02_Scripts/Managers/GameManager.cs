@@ -105,7 +105,8 @@ public class GameManager : MonoBehaviour
         {
             GameObject newPlayer = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
             player = newPlayer.GetComponent<PlayerCharacter>();
-            
+
+            AbilityManager.SetAbility(AbilityEnum.FrontShot);
 
             if (player != null)
             {
