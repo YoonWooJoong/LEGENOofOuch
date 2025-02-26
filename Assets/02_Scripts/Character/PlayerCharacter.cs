@@ -77,7 +77,7 @@ public class PlayerCharacter : BaseCharacter
     {
         if (--life > 0)
         {
-            ChangeHealth(maxHp);
+            ChangeHealth(MaxHp);
             return;
         }
         //사망시 게임종료 로직 실행
@@ -115,12 +115,23 @@ public class PlayerCharacter : BaseCharacter
         int upLv = exp / 100;
         level += upLv;
         for (int i = 0; i < upLv; i++)
-            ChangeHealth(maxHp / 10);
+            ChangeHealth(MaxHp / 10);
         exp %= 100;
     }
 
     public PlayerClassEnum GetPlayerClass()
     {
         return pClass;
+    }
+
+    /// <summary>
+    /// 가지고 있는 모든 증감스텟을 0으로 하고 체력을 최대로 합니다.
+    /// </summary>
+    public void ClearPlayerBuf()
+    {
+        MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
+        GodMod = isMultiShot = false;
+        life = 1;
+        CurHp = MaxHp;
     }
 }

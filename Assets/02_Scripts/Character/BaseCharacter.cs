@@ -12,17 +12,17 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] Slider HpBar;
 
     [Header("BaseStat")]
-    [SerializeField] protected float maxHp = 100;
-    [SerializeField] protected float speed = 2;
-    [SerializeField] protected float attackPower = 1, attackSpeed = 1;
+    [SerializeField] float maxHp = 100;
+    [SerializeField] float speed = 2;
+    [SerializeField] float attackPower = 1, attackSpeed = 1;
 
-    public virtual float MaxHp { get => maxHp; }
-    public virtual float Speed { get => speed; }
-    public virtual float AttackPower { get => attackPower; }
-    public virtual float AttackSpeed { get => attackSpeed; }
+    public virtual float MaxHp => maxHp;
+    public virtual float Speed => speed;
+    public virtual float AttackPower => attackPower;
+    public virtual float AttackSpeed => attackSpeed;
 
     float curHp;
-    protected float CurHp { get => curHp; set => curHp = value <= maxHp ? (value >= 0 ? value : 0) : maxHp; }
+    protected float CurHp { get => curHp; set => curHp = value <= MaxHp ? (value >= 0 ? value : 0) : MaxHp; }
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
@@ -30,14 +30,14 @@ public class BaseCharacter : MonoBehaviour
     protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
 
     protected virtual bool IsAttacking => !IsMove && target != null;
-    float AttackDelay => 1 / attackSpeed;
+    float AttackDelay => 1 / AttackSpeed;
     float timeSinceLastAttack = float.MaxValue;
 
     protected virtual void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
         animHandle = GetComponent<AnimationHandler>();
-        curHp = maxHp;
+        curHp = MaxHp;
     }
 
     protected virtual void Update()
@@ -64,7 +64,7 @@ public class BaseCharacter : MonoBehaviour
         animHandle?.Move(moveDir);
 
         if (rig != null)
-            rig.velocity = moveDir * speed;
+            rig.velocity = moveDir * Speed;
     }
 
     /// <summary>
@@ -116,7 +116,7 @@ public class BaseCharacter : MonoBehaviour
     public virtual void ChangeHealth(float change)
     {
         CurHp += change;
-        HpBar.value = CurHp / maxHp;
+        HpBar.value = CurHp / MaxHp;
         if (CurHp == 0f)
             Death();
     }
