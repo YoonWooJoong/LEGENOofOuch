@@ -40,6 +40,7 @@ public class GachaManager : MonoBehaviour
     /// </summary>
     public void StartGacha()
     {
+        gachaobject.gameObject.SetActive(true);
         gachaHandler.init();
         gacha.SelectRandomAbility();
         GameManager.Instance.SetAbilityText();

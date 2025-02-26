@@ -7,13 +7,7 @@ using UnityEngine;
 public class GachaAbilityController : MonoBehaviour
 {
 
-    private int[] upgradeCounts;
-
-    private void Awake()
-    {
-        int count = Enum.GetValues(typeof(AbilityEnum)).Length;
-        upgradeCounts = new int[count];
-    }
+    private int[] upgradeCounts = new int[Enum.GetValues(typeof(AbilityEnum)).Length];
 
     /// <summary>
     /// 지정한 능력의 업그레이드 횟수를 1 증가시킵니다.
