@@ -31,13 +31,22 @@ public class Gacha : MonoBehaviour
         IsRare();
 
         // 플레이어의 직업을 가져옴
-        PlayerClassEnum playerClass = PlayerClassEnum.Archer;
+        PlayerClassEnum playerClass = GameManager.Instance.playerClassEnum;
         //하드코딩됨 나중에 수정할것
 
         if (isRare)
         {
+            List<AbilityEnum> validRareList = new List<AbilityEnum>();
+            foreach (AbilityEnum ability in rareIndices)
+            {
+                if (IsAbilityValidForClass(ability, playerClass))
+                {
+                    validRareList.Add(ability);
+                }
+            }
             // 레어 능력만 선택
-            sourceIndices = rareIndices;
+
+            sourceIndices = validRareList.ToArray();
         }
         else
         {
@@ -46,7 +55,7 @@ public class Gacha : MonoBehaviour
             // 직업에 맞지 않는 능력들을 제외
             foreach (AbilityEnum ability in Enum.GetValues(typeof(AbilityEnum)))
             {
-                if (Array.IndexOf(rareIndices, ability) < 0 && ability != DevilIndices && IsAbilityValidForClass(ability, playerClass))
+                if (Array.IndexOf(rareIndices, ability) < 0 && ability != DevilIndices)
                 {
                     nonRareList.Add(ability);
                 }
