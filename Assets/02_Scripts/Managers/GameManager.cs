@@ -45,7 +45,11 @@ public class GameManager : MonoBehaviour
     {
         //StartGame();
     }
-
+    /// <summary>
+    /// 게임 시작
+    /// 게임 시작에 관련된 함수들 호출
+    /// 맵생성과 플레이어생성 , 몬스터생성
+    /// </summary>
     public void StartGame()
     {
 
@@ -60,7 +64,10 @@ public class GameManager : MonoBehaviour
         //
 
     }
-
+    /// <summary>
+    /// 몬스터를 죽였을때 호출되는 함수
+    /// </summary>
+    /// <param name="enemy"></param>
     public void KillMonster(EnemyCharacter enemy)
     {
         MonsterManager.RemoveEnemyOnDeath(enemy);
@@ -71,12 +78,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("KillMonster");
     }
 
+    /// <summary>
+    /// 소환포인트를 받아오는 함수
+    /// </summary>
+    /// <param name="_playerSpawn"></param>
+    /// <param name="_monsterSpawn"></param>
     public void GetTransrate(Transform _playerSpawn, Transform[] _monsterSpawn)
     {
         playerSpawn= _playerSpawn;
         monsterSpawn = _monsterSpawn;
     }
 
+    /// <summary>
+    /// 플레이어를 생성, 이동시키는 함수
+    /// 맵 이동시 플레이어 위치를 바꾸어준다.
+    /// </summary>
     public void SpawnPlayer()
     {
         if (playerSpawn == null)
@@ -107,6 +123,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 몬스터를 생성하는 함수
+    /// 스폰포인트중 랜덤한포인트에 몬스터 생성
+    /// </summary>
     public void SpawnMonsters()
     {
         //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
@@ -127,6 +147,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 몬스터 스폰 포인트 중 랜덤한 포인트를 선택하여 반환
+    /// </summary>
+    /// <param name="count"></param>
+    /// <returns></returns>
     private Transform[] GetRandomSpawnPoints(int count)
     {
         List<Transform> spawnList = new List<Transform>(monsterSpawn);
@@ -149,23 +174,36 @@ public class GameManager : MonoBehaviour
 
         return selected;
     }
+
+    /// <summary>
+    /// 가챠에서 선택한 능력을 어빌리티매니저에게 전달
+    /// </summary>
+    /// <param name="abilityEnum"></param>
     public void GetAbility(AbilityEnum abilityEnum)
     {
         AbilityManager.SetAbility(abilityEnum);
     }
 
+    /// <summary>
+    /// 어빌리티 매니저에서 스킬정보를 받아와서 UI에 전달
+    /// </summary>
     public void SetAbilityText()
     {
         AbilityEnum[] selectedAbility = GachaManager.gacha.GetSelectedAbility();
         string[] abilityName = new string[3];
         string[] abilityDescription = new string[3];
-        for(int i=0;i<selectedAbility.Length;i++)
-        {
+        
+        for (int i=0;i<selectedAbility.Length;i++)
+        {   
+            
             AbilityDataSO abilityData = AbilityManager.FindAbilityData(selectedAbility[i]);
             abilityName[i] = abilityData.AbilityName;
-            abilityDescription[i] = abilityData.Description;
-            Debug.Log(abilityName[i]);
-            Debug.Log(abilityDescription[i]);
+            int upgradeCount = GachaManager.gacha.gachaAbilityController.GetUpgradeCount(selectedAbility[i]);
+            if (upgradeCount > 0)
+            {
+                abilityName[i] += $"\n<color=yellow>+{upgradeCount}</color>";
+            }
+            abilityDescription[i]= abilityData.Description.Replace("{0}", abilityData.Values[upgradeCount].ToString());
         }
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);

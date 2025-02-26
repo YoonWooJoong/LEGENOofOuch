@@ -10,11 +10,12 @@ public class Gacha : MonoBehaviour
     public int abilityindex = Enum.GetValues(typeof(AbilityEnum)).Length;
     private AbilityEnum[] selectedAbility = new AbilityEnum[3]; // 선택된 3개 능력 인덱스
     public bool isRare = false;
-
+    public GachaAbilityController gachaAbilityController = new GachaAbilityController();//능력 업그레이드 수치를 저장하는 클래스
     /// <summary>
     /// 능력을 랜덤으로 선택
     /// 5프로 확률로 레어 능력이 선택됨
     /// 자신의 직업에 맞는 능력만 선택
+    /// 이미 풀업그레이드면 후보풀에서 제외
     /// </summary>
     public void SelectRandomAbility()
     {
@@ -55,17 +56,47 @@ public class Gacha : MonoBehaviour
             sourceIndices = nonRareList.ToArray();
         }
 
-        for (int i = sourceIndices.Length - 1; i > 0; i--)
+        List<AbilityEnum> candidatePool = new List<AbilityEnum>(sourceIndices);
+        for (int i = candidatePool.Count - 1; i > 0; i--)
         {
             int randomIndex = UnityEngine.Random.Range(0, i + 1);
-            AbilityEnum temp = sourceIndices[i];
-            sourceIndices[i] = sourceIndices[randomIndex];
-            sourceIndices[randomIndex] = temp;
+            AbilityEnum temp = candidatePool[i];
+            candidatePool[i] = candidatePool[randomIndex];
+            candidatePool[randomIndex] = temp;
         }
 
+        // 각 슬롯에 대해 능력을 선택 (중복 없이)
         for (int i = 0; i < selectedAbility.Length; i++)
         {
-            selectedAbility[i] = sourceIndices[i];
+            bool candidateFound = false;
+            AbilityEnum selectedCandidate = default;
+            // 후보 풀에서 풀업그레이드가 아닌 능력을 찾아 선택
+            for (int j = 0; j < candidatePool.Count; j++)
+            {
+                if (!gachaAbilityController.FullUpgrade(candidatePool[j]))
+                {
+                    selectedCandidate = candidatePool[j];
+                    candidatePool.RemoveAt(j); // 선택한 후보는 중복 방지를 위해 제거
+                    candidateFound = true;
+                    break;
+                }
+            }
+            // 만약 후보 풀에 남은 모든 능력이 이미 풀업그레이드라면,
+            // 또는 후보 풀이 비어있다면, 필요에 따라 기본값 처리 또는 경고 출력
+            if (!candidateFound)
+            {
+                if (candidatePool.Count > 0)
+                {
+                    selectedCandidate = candidatePool[0];
+                    candidatePool.RemoveAt(0);
+                }
+                else
+                {
+                    Debug.LogWarning($"슬롯 {i}에 할당할 능력이 부족합니다.");
+                    continue;
+                }
+            }
+            selectedAbility[i] = selectedCandidate;
             Debug.Log($"선택된 능력 {i} : {selectedAbility[i]}");
         }
     }

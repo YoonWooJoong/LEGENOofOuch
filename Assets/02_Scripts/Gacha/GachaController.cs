@@ -165,6 +165,7 @@ public class GachaController : MonoBehaviour
     public void OnClickButton(int bottonSelect)
     {
         AbilityEnum[] selectedAbility = gacha.GetSelectedAbility();
+        gacha.gachaAbilityController.UpgradeAbility(selectedAbility[bottonSelect]);
         GachaManager.Instance.GachaSelect(selectedAbility[bottonSelect]);
         init();
     }
