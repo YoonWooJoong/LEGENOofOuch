@@ -33,7 +33,6 @@ public class PlayerCharacter : BaseCharacter
     // 멀티샷
     public bool isMultiShot = false;
 
-    bool playerPaused = false;
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -41,8 +40,7 @@ public class PlayerCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        if (!playerPaused)
-            moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         SearchTarget();
     }
 
@@ -86,6 +84,7 @@ public class PlayerCharacter : BaseCharacter
         //사망시 게임종료 로직 실행
         base.Death();
     }
+
     protected override void Attack()
     {
         base.Attack();
@@ -93,24 +92,22 @@ public class PlayerCharacter : BaseCharacter
         GameManager.Instance.AbilityManager.UseAbility();
         if (GameManager.Instance.AbilityManager.GetMultiShotOn())
         {
-            StartCoroutine(AttackWithDelay(0.1f));
+            StopAllCoroutines(); // 실행 중인 모든 코루틴 취소
+            StartCoroutine(AttackWithDelay(0.1f)); // 새로운 코루틴 실행
         }
     }
 
     IEnumerator AttackWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        base.Attack(); // 두 번째 공격 실행
         GameManager.Instance.AbilityManager.UseAbility();
     }
 
     protected override void Move()
     {
         base.Move();
-
-        if (IsMove)
-        {
-            StopAllCoroutines();
-        }
+        StopAllCoroutines(); // 이동이 발생하면 모든 코루틴 취소
     }
 
     public void GetExp(int exp)
@@ -137,7 +134,6 @@ public class PlayerCharacter : BaseCharacter
         MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
         GodMod = isMultiShot = false;
         life = 1;
-        playerPaused = false;
         CurHp = MaxHp;
     }
 
@@ -146,15 +142,5 @@ public class PlayerCharacter : BaseCharacter
         this.pClass = pClass;
         var pForm = GetComponent<PlayerFormChange>();
         pForm.FormChange(pClass);
-    }
-
-    /// <summary>
-    /// 스테이지 종료 직후 플레이어를 일시정지/스킬 획득 후 해체합니다.
-    /// </summary>
-    public void PauseControll()
-    {
-        playerPaused = !playerPaused;
-        var collider = GetComponent<BoxCollider2D>();
-        collider.isTrigger = playerPaused;
     }
 }

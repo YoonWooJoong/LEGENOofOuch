@@ -30,19 +30,16 @@ public class SideShot : AbilityBase
     {
         PlayerClassEnum pClass = player.GetPlayerClass();
 
-        // 캐릭터가 바라보는 방향 벡터
-        Vector3 lookDir = player.GetlookDir().normalized;
-
-        // lookDir 기준으로 오른쪽 방향 벡터 구하기 (법선 벡터 이용)
-        Vector3 rightDir = Vector3.Cross(Vector3.forward, lookDir).normalized;
-        Vector3 leftDir = -rightDir;
+        // 90도 방향 벡터 (좌우 방향)
+        Vector3 leftDir = Quaternion.Euler(0, 0, 90) * Vector3.right;
+        Vector3 rightDir = Quaternion.Euler(0, 0, -90) * Vector3.right;
 
         for (int i = 0; i < arrowCount; i++)
         {
             // 대칭된 위치 계산
             float posOffset = (i - (arrowCount - 1) / 2.0f) * offset;
-            Vector3 leftSpawnPos = player.transform.position + rightDir * posOffset;
-            Vector3 rightSpawnPos = player.transform.position - rightDir * posOffset;
+            Vector3 leftSpawnPos = player.transform.position + Vector3.up * posOffset;
+            Vector3 rightSpawnPos = player.transform.position + Vector3.up * posOffset;
 
             projectileManager.ShootPlayerProjectile(leftSpawnPos, leftDir, pClass);
             projectileManager.ShootPlayerProjectile(rightSpawnPos, rightDir, pClass);

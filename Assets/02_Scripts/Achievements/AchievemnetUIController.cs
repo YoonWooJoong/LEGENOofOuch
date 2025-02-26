@@ -37,6 +37,7 @@ public class AchievementUIController : MonoBehaviour
 
     private void OnEnable()
     {
+
         // 이벤트 등록
         Achievements.OnFirstLevelUp += () => ShowAchievement("LevelUp");
         Achievements.OnFirstDeath += () => ShowAchievement("Death");
@@ -45,10 +46,12 @@ public class AchievementUIController : MonoBehaviour
         Achievements.OnFirstCastleClear += () => ShowAchievement("CastleClear");
         Achievements.OnFirstSwampClear += () => ShowAchievement("SwampClear");
         Achievements.OnFirstVolcanoClear += () => ShowAchievement("VolcanoClear");
+
     }
 
     private void OnDisable()
     {
+
         // 이벤트 해제
         Achievements.OnFirstLevelUp -= () => ShowAchievement("LevelUp");
         Achievements.OnFirstDeath -= () => ShowAchievement("Death");
@@ -85,5 +88,5 @@ public class AchievementUIController : MonoBehaviour
         sequence.Append(achievementUI.transform.DOLocalMoveY(targetY, 0.5f).SetEase(Ease.OutCubic)) // 360 위로 이동
                 .AppendInterval(1f) // 1초 대기
                 .Append(achievementUI.transform.DOLocalMoveY(originalY, 0.5f).SetEase(Ease.InCubic)); // 다시 원래 위치로 이동
-    }
+
 }
