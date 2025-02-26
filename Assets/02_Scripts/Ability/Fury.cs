@@ -15,6 +15,7 @@ public class Fury : AbilityBase
         PlayerCharacter player = GameManager.Instance.player;
         if (player == null) return;
 
+        UpdateAbility();
         // 기존에 실행 중인 코루틴이 있다면 중지
         if (furyCoroutine != null)
         {
@@ -25,7 +26,7 @@ public class Fury : AbilityBase
 
     protected override void UpdateAbility()
     {
-        damageIncreasePerPercent = abilityData.values[isUpgraded ? 1 : 0] * 0.01f;
+        damageIncreasePerPercent = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
     }
 
     private IEnumerator UpdateFuryDamage(PlayerCharacter player)
@@ -34,7 +35,7 @@ public class Fury : AbilityBase
         {
             // 현재 체력에 따른 추가 공격력 계산
             float lostHpPercent = (1 - (player.GetCurHp() / player.MaxHp)) * 100;
-            float newFuryAtkBonus = lostHpPercent * damageIncreasePerPercent;
+            float newFuryAtkBonus = (int)lostHpPercent * damageIncreasePerPercent;
 
             // 기존 Fury 보너스를 제거 후 새 값을 추가
             player.AtkBuf -= furyAtkBonus;

@@ -167,6 +167,7 @@ public class GachaController : MonoBehaviour
         AbilityEnum[] selectedAbility = gacha.GetSelectedAbility();
         gacha.gachaAbilityController.UpgradeAbility(selectedAbility[bottonSelect]);
         GachaManager.Instance.GachaSelect(selectedAbility[bottonSelect]);
+        SoundManager.instance.PlaySFX("클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.");
         init();
     }
 
