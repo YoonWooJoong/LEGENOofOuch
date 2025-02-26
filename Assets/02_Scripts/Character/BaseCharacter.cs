@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class BaseCharacter : MonoBehaviour
@@ -150,5 +151,10 @@ public class BaseCharacter : MonoBehaviour
     public Vector3 GetlookDir()
     {
         return lookDir;
+    }
+
+    public SpriteRenderer GetPlayerSpriteRenderer()
+    {
+        return sprite;
     }
 }
