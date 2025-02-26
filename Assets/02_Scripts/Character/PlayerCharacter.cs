@@ -33,6 +33,7 @@ public class PlayerCharacter : BaseCharacter
     // 멀티샷
     public bool isMultiShot = false;
 
+    bool playerPaused = false;
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -40,7 +41,8 @@ public class PlayerCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        if (!playerPaused)
+            moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         SearchTarget();
     }
 
@@ -135,6 +137,7 @@ public class PlayerCharacter : BaseCharacter
         MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
         GodMod = isMultiShot = false;
         life = 1;
+        playerPaused = false;
         CurHp = MaxHp;
     }
 
@@ -143,5 +146,15 @@ public class PlayerCharacter : BaseCharacter
         this.pClass = pClass;
         var pForm = GetComponent<PlayerFormChange>();
         pForm.FormChange(pClass);
+    }
+
+    /// <summary>
+    /// 스테이지 종료 직후 플레이어를 일시정지/스킬 획득 후 해체합니다.
+    /// </summary>
+    public void PauseControll()
+    {
+        playerPaused = !playerPaused;
+        var collider = GetComponent<BoxCollider2D>();
+        collider.isTrigger = playerPaused;
     }
 }

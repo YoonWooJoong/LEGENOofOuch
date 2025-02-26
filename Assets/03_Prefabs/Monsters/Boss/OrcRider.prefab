@@ -432,7 +432,7 @@ MonoBehaviour:
   attackPower: 5
   attackSpeed: 1
   attackRange: 5
-  mEnum: 0
+  mEnum: 1
   potionPrefeb: {fileID: 1077902193551154372, guid: ff527ef4c0663784088eebcbfb700717, type: 3}
   potionDrop: 60
 --- !u!50 &2271822649697971388
