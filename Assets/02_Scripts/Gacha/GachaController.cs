@@ -168,6 +168,7 @@ public class GachaController : MonoBehaviour
         gacha.gachaAbilityController.UpgradeAbility(selectedAbility[bottonSelect]);
         GachaManager.Instance.GachaSelect(selectedAbility[bottonSelect]);
         SoundManager.instance.PlaySFX("클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.");
+        Achievements.TriggerFirstAbility();
         GameManager.Instance.PlayerPauseControll(false);
         init();
     }

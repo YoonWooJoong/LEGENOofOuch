@@ -15,7 +15,7 @@ public class Achievements : MonoBehaviour
     // 단발성 이벤트 (각 도전과제 발생 시 한 번만 호출)
     public static event Action OnFirstLevelUp;
     public static event Action OnFirstDeath;
-    public static event Action OnFirstAbility;
+    public static event Action OnFirstAbility;//추가완료
     public static event Action OnFirstTradlear;
     public static event Action OnFirstCastleClear;
     public static event Action OnFirstSwampClear;
