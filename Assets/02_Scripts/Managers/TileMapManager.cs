@@ -14,7 +14,7 @@ public class TileMapManager : MonoBehaviour
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
     public GameObject stageVolcanicDevilPrefabs;
-   [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// ���õ� ���� �ν��Ͻ�
+    [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// 선택된 맵의 인스턴스
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
@@ -24,27 +24,27 @@ public class TileMapManager : MonoBehaviour
     public Transform[] monsterSpawn;
 
     /// <summary>
-    /// ���������� �ش��ϴ� ���� ���� 
+    /// 스테이지에 해당하는 맵을 생성 
     /// </summary>
     public void SpawnRandomMap()
     {
         //StageEnum stage = GameManager.Instance.GetStage();
         StageEnum stage = StageEnum.Castle;
-        // ������ �� ����
+        // 랜덤한 맵 선택
         switch (stage)
         {
             case StageEnum.Castle:
-                InstantiateMaps(stageCastlePrefabs,stagecastleDevilPrefabs,stagecastleBossPrefabs);
+                InstantiateMaps(stageCastlePrefabs, stagecastleDevilPrefabs, stagecastleBossPrefabs);
                 break;
             case StageEnum.Swamp:
-                InstantiateMaps(stageSwampPrefabs,stageSwampDevilPrefabs,stageSwampBossPrefabs);
+                InstantiateMaps(stageSwampPrefabs, stageSwampDevilPrefabs, stageSwampBossPrefabs);
                 break;
             case StageEnum.Volcano:
-                InstantiateMaps(stageVolcanicPrefabs,stageVolcanicDevilPrefabs,stageVolcanicBossPrefabs);
+                InstantiateMaps(stageVolcanicPrefabs, stageVolcanicDevilPrefabs, stageVolcanicBossPrefabs);
                 break;
         }
         MapStart();
-        // ������ �ʿ��� �÷��̾� ���� ����Ʈ ã��
+        // 생성된 맵에서 플레이어 스폰 포인트 찾기
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
 
@@ -52,7 +52,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ���� �����Ͽ� �迭�� ����ִ´�.
+    /// 맵을 생성하여 배열에 집어넣는다.
     /// </summary>
     /// <param name="mapPrefabs"></param>
     private void InstantiateMaps(GameObject[] mapPrefabs, GameObject devilPrefab, GameObject bossPrefab)
@@ -69,32 +69,24 @@ public class TileMapManager : MonoBehaviour
             selectedMapInstance[i] = Instantiate(selectedMap, Vector3.zero, Quaternion.identity);
             selectedMapInstance[i].SetActive(false);
         }
-        selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+        selectedMapInstance[TotalMaps - 1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps - 1].SetActive(false);
-    }
-
-    public void SpawnEntity() 
-    {
-        SpawnPlayer();
-        SpawnMonsters();
-        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
-        Debug.Log($"���õ� ��: {selectedMapInstance[0].name}");
+        Debug.Log($"선택된 맵: {selectedMapInstance[0].name}");
         SetTransrate();
     }
-
     /// <summary>
-    /// Ŭ����� ������ Ȱ��ȭ.
-    /// ���� Ȱ��ȭ�ϸ鼭 ��������Ʈ ����
-    /// �������� Ŭ����� ��� �� ����
+    /// 클리어시 다음맵 활성화.
+    /// 맵을 활성화하면서 스폰포인트 전달
+    /// 스테이지 클리어시 모든 맵 삭제
     /// </summary>
     public void NextMap()
     {
-        // ���� �� ��Ȱ��ȭ
+        // 현재 맵 비활성화
         if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(false);
@@ -102,14 +94,14 @@ public class TileMapManager : MonoBehaviour
 
         roundIndex++;
 
-        // ���� ������ �ʿ� �����ϸ� ��� ���� �����ϰ� �������� Ŭ����
+        // 만약 마지막 맵에 도달하면 모든 맵을 삭제하고 스테이지 클리어
         if (roundIndex >= selectedMapInstance.Length)
         {
             foreach (GameObject map in selectedMapInstance)
             {
                 Destroy(map);
             }
-            // �������� Ŭ����
+            // 스테이지 클리어
             return;
         }
         if (roundIndex == devilround)
@@ -119,7 +111,7 @@ public class TileMapManager : MonoBehaviour
             SpawnPlayer();
             return;
         }
-        // ���ο� �� Ȱ��ȭ
+        // 새로운 맵 활성화
         if (roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(true);
@@ -130,7 +122,7 @@ public class TileMapManager : MonoBehaviour
 
 
     /// <summary>
-    /// ���� �÷��̾�� ������ ���� ����Ʈ�� ���Ӹ޴������� ����
+    /// 맵의 플레이어와 몬스터의 스폰 포인트를 게임메니저에게 전달
     /// </summary>
     public void SetTransrate()
     {
@@ -141,7 +133,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ��ȯ����Ʈ�� �޾ƿ��� �Լ�
+    /// 소환포인트를 받아오는 함수
     /// </summary>
     /// <param name="_playerSpawn"></param>
     /// <param name="_monsterSpawn"></param>
@@ -152,14 +144,14 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// �÷��̾ ����, �̵���Ű�� �Լ�
-    /// �� �̵��� �÷��̾� ��ġ�� �ٲپ��ش�.
+    /// 플레이어를 생성, 이동시키는 함수
+    /// 맵 이동시 플레이어 위치를 바꾸어준다.
     /// </summary>
     public void SpawnPlayer()
     {
         if (playerSpawn == null)
         {
-            Debug.LogError("PlayerSpawn ��ġ�� �������� �ʾҽ��ϴ�!");
+            Debug.LogError("PlayerSpawn 위치가 설정되지 않았습니다!");
             return;
         }
 
@@ -171,11 +163,11 @@ public class TileMapManager : MonoBehaviour
 
             if (GameManager.Instance.player != null)
             {
-                Debug.Log("���ο� �÷��̾ �����Ǿ����ϴ�.");
+                Debug.Log("새로운 플레이어가 생성되었습니다.");
             }
             else
             {
-                Debug.LogError("������ �÷��̾ PlayerCharacter ������Ʈ�� �����ϴ�!");
+                Debug.LogError("생성된 플레이어에 PlayerCharacter 컴포넌트가 없습니다!");
             }
         }
         else
@@ -185,31 +177,31 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ���͸� �����ϴ� �Լ�
-    /// ��������Ʈ�� ����������Ʈ�� ���� ����
+    /// 몬스터를 생성하는 함수
+    /// 스폰포인트중 랜덤한포인트에 몬스터 생성
     /// </summary>
     public void SpawnMonsters()
     {
-        //���⿡ �������� �Ŵ������� ���� ������ �����ٰ�
+        //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
         if (monsterSpawn == null || monsterSpawn.Length < 3)
         {
-            Debug.LogError("���� ���� ����Ʈ�� �����մϴ�! �ּ� 3�� �̻� �ʿ��մϴ�.");
+            Debug.LogError("몬스터 스폰 포인트가 부족합니다! 최소 3개 이상 필요합니다.");
             return;
         }
 
-        // ������ 3���� ���� ��ġ ���� (�ߺ� ����)
+        // 랜덤한 3개의 스폰 위치 선택 (중복 없이)
         Transform[] selectedSpawns = GetRandomSpawnPoints(3);
 
-        // ���õ� ��ġ�� ���� ����
+        // 선택된 위치에 몬스터 생성
         foreach (Transform spawnPoint in selectedSpawns)
         {
-            Debug.Log("���� �����Ѱ���");
+            Debug.Log("몬스터 생성넘겨줌");
             GameManager.Instance.MonsterManager.Spawn(spawnPoint);
         }
     }
 
     /// <summary>
-    /// ���� ���� ����Ʈ �� ������ ����Ʈ�� �����Ͽ� ��ȯ
+    /// 몬스터 스폰 포인트 중 랜덤한 포인트를 선택하여 반환
     /// </summary>
     /// <param name="count"></param>
     /// <returns></returns>
@@ -218,7 +210,7 @@ public class TileMapManager : MonoBehaviour
         List<Transform> spawnList = new List<Transform>(monsterSpawn);
         Transform[] selected = new Transform[count];
 
-        // Fisher-Yates ������ ����Ͽ� ����Ʈ ����
+        // Fisher-Yates 셔플을 사용하여 리스트 섞기
         for (int i = spawnList.Count - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -227,7 +219,7 @@ public class TileMapManager : MonoBehaviour
             spawnList[randomIndex] = temp;
         }
 
-        // �տ������� `count`�� ����
+        // 앞에서부터 `count`개 선택
         for (int i = 0; i < count; i++)
         {
             selected[i] = spawnList[i];
@@ -242,51 +234,3 @@ public class TileMapManager : MonoBehaviour
         GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 }
-
-
-/////////////////////////*�±Դ� �ڵ�*/////////////////////////
-//public Image SelectImage; // UI�� ǥ���� �̹���
-//public Text SelectName; // �� �̸� ǥ��
-//public Sprite[] SelectImages; // �� �̹��� �迭
-//public string[] SelectNames; // �� �̸� �迭
-//public GameObject[] MapPrefabs; // �� ������ �迭
-//public Transform mapSpawnPoint;
-//public Camera mainCamera;
-
-//private int SelectIndex = 0; // ���� ���õ� ���� �ε���
-//private GameObject currentMapInstance; // ���� Ȱ��ȭ�� �� ������
-
-//void Start()
-//{
-//    LoadSelectedMap();
-//}
-
-//void UpdateStageUI()
-//{
-//    if (SelectImages.Length > 0 && SelectNames.Length > 0)
-//    {
-//        SelectImage.sprite = SelectImages[SelectIndex];
-//        SelectName.text = SelectNames[SelectIndex];
-//    }
-//}
-
-////void GameStart()
-
-//void LoadSelectedMap()
-//{
-//    // ���� �� ����
-//    if (currentMapInstance != null)
-//    {
-//        Destroy(currentMapInstance);
-//    }
-
-//    if (MapPrefabs != null && SelectIndex < MapPrefabs.Length && MapPrefabs[SelectIndex] != null)
-//    {
-//        currentMapInstance = Instantiate(MapPrefabs[SelectIndex], Vector3.zero, Quaternion.identity);
-//    }
-//    else
-//    {
-//        Debug.LogError("�� �������� �������� ����: " + SelectNames[SelectIndex]);
-//    }
-//}
-/////////////////////////*�±Դ� �ڵ�*/////////////////////////
