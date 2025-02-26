@@ -10,7 +10,7 @@ public class Gacha : MonoBehaviour
     public int abilityindex = Enum.GetValues(typeof(AbilityEnum)).Length;
     private AbilityEnum[] selectedAbility = new AbilityEnum[3]; // 선택된 3개 능력 인덱스
     public bool isRare = false;
-    public GachaAbilityController gachaAbilityController = new GachaAbilityController();//능력 업그레이드 수치를 저장하는 클래스
+    public GachaAbilityController gachaAbilityController;//능력 업그레이드 수치를 저장하는 클래스
     /// <summary>
     /// 능력을 랜덤으로 선택
     /// 5프로 확률로 레어 능력이 선택됨

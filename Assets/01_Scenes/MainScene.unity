@@ -1595,6 +1595,8 @@ MonoBehaviour:
   <TileMapManager>k__BackingField: {fileID: 735993694}
   <MonsterManager>k__BackingField: {fileID: 1549722065}
   <GachaManager>k__BackingField: {fileID: 6311328766886578965}
+  playerClassEnum: 0
+  stageEnum: 0
   test: {fileID: 934417965}
   playerPrefab: {fileID: 8841419548765523558, guid: 46b22d70bcaac4e489c026e3258e9f6d, type: 3}
   player: {fileID: 0}
@@ -7952,6 +7954,7 @@ GameObject:
   - component: {fileID: 1747717022}
   - component: {fileID: 1747717024}
   - component: {fileID: 1747717023}
+  - component: {fileID: 1747717025}
   m_Layer: 5
   m_Name: Gacha
   m_TagString: Untagged
@@ -7995,7 +7998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityindex: 24
   isRare: 1
-  gachaAbilityController: {fileID: 0}
+  gachaAbilityController: {fileID: 1747717025}
 --- !u!114 &1747717024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8036,6 +8039,18 @@ MonoBehaviour:
   - {fileID: 1522809389}
   bounceScale: 1.2
   bounceDuration: 0.2
+--- !u!114 &1747717025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747717021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33b54da3745c6d4196beed0129e378e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1759997282
 GameObject:
   m_ObjectHideFlags: 0
