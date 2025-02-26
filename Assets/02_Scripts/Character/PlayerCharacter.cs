@@ -76,7 +76,10 @@ public class PlayerCharacter : BaseCharacter
     protected override void Death()
     {
         if (--life > 0)
+        {
+            ChangeHealth(maxHp);
             return;
+        }
         //사망시 게임종료 로직 실행
         base.Death();
     }
