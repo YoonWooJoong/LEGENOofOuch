@@ -48,8 +48,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        
-        test.SpawnRandomMap();
+
+        TileMapManager.SpawnRandomMap();
+        TileMapManager.MapStart();
         Debug.Log("StartGame");
         SpawnPlayer();
         SpawnMonsters();

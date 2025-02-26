@@ -32,6 +32,7 @@ public class SelectManager : MonoBehaviour
 
     public void SelectCharater(int index)
     {
+        Debug.Log(index);
         selectedCharacterIndex = index;
         characterPreview.sprite = characterImages[index];
         characterNameText.text = characterNames[index];
