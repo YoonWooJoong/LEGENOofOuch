@@ -72,12 +72,7 @@ public class TileMapManager : MonoBehaviour
         selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
-    public void SpawnEntity() 
-    {
-        SpawnPlayer();
-        SpawnMonsters();
-        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
-    }
+
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
@@ -109,12 +104,19 @@ public class TileMapManager : MonoBehaviour
             // 스테이지 클리어
             return;
         }
-
+        if (roundIndex == devilround)
+        {
+            selectedMapInstance[roundIndex].SetActive(true);
+            SetTransrate();
+            SpawnPlayer();
+            return;
+        }
         // 새로운 맵 활성화
         if (roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
+            SpawnEntity();
         }
     }
 
@@ -224,6 +226,12 @@ public class TileMapManager : MonoBehaviour
         }
 
         return selected;
+    }
+    public void SpawnEntity()
+    {
+        SpawnPlayer();
+        SpawnMonsters();
+        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 }
 

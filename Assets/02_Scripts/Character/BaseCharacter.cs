@@ -29,7 +29,7 @@ public class BaseCharacter : MonoBehaviour
     protected bool IsMove => moveDir.magnitude > 0.5f;
     protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
 
-    protected bool IsAttacking => !IsMove && target != null;
+    protected virtual bool IsAttacking => !IsMove && target != null;
     float AttackDelay => 1 / attackSpeed;
     float timeSinceLastAttack = float.MaxValue;
 
