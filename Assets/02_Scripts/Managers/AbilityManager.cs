@@ -30,7 +30,12 @@ public class AbilityManager : MonoBehaviour
     /// <param name="abilityEnum">¾îºô¸®Æ¼ÀÇ ID</param>
     public void SetAbility(AbilityEnum abilityEnum)
     {
-        AbilityRepositoy.SetAbility(abilityEnum).transform.SetParent(abilityParent);
+        GameObject abilityObject = AbilityRepositoy.SetAbility(abilityEnum);
+
+        if (abilityObject != null)
+        {
+            abilityObject.transform.SetParent(abilityParent);
+        }
     }
 
     /// <summary>

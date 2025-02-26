@@ -57,16 +57,27 @@ public class AbilityRepositoy : MonoBehaviour
     }
 
     /// <summary>
-    /// 해당 어빌리티를 Dic에서 검색 및 오브젝트 생성하여 소유 어빌리티 목록에 추가
+    /// 해당 어빌리티를 Dic에서 검색 및 오브젝트 생성하여 소유 어빌리티 목록에 추가 또는 강화
     /// </summary>
     /// <param name="ability">어빌리티의 ID</param>
     /// <returns>생성된 어빌리티 오브젝트</returns>
     public GameObject SetAbility(AbilityEnum ability)
     {
-        GameObject abilityPrefab = Instantiate(dicAbilityPrefabs[ability]);
-        ownedAbilities.Add(abilityPrefab.transform.GetComponent<AbilityController>());
+        // 이미 소유 중인 경우 강화
+        foreach (var varAbilityController in ownedAbilities)
+        {
+            if (varAbilityController.AbilityBase != null && varAbilityController.AbilityBase.abilityData.abilityID == ability)
+            {
+                UpgradeOwnedAbility(ability);
+                return null;
+            }
+        }
 
-        abilityPrefab.transform.GetComponent<AbilityController>().Init(dicAbilityDataSO[ability]);
+        GameObject abilityPrefab = Instantiate(dicAbilityPrefabs[ability]);
+        AbilityController abilityController = abilityPrefab.transform.GetComponent<AbilityController>();
+
+        ownedAbilities.Add(abilityController);
+        abilityController.Init(dicAbilityDataSO[ability]);
 
         return abilityPrefab;
     }
