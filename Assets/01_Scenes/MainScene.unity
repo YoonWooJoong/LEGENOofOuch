@@ -2539,7 +2539,7 @@ GameObject:
   - component: {fileID: 520712332}
   - component: {fileID: 520712331}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2673,7 +2673,7 @@ GameObject:
   - component: {fileID: 532031103}
   - component: {fileID: 532031102}
   m_Layer: 5
-  m_Name: Desciption
+  m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7388,7 +7388,6 @@ MonoBehaviour:
   - {fileID: 3760012203042012043, guid: 7faa231fab9740d45bc6450190ca9f36, type: 3}
   - {fileID: 3760012203042012043, guid: b2393c9125a5c244cb15948a38f38cce, type: 3}
   - {fileID: 3760012203042012043, guid: dad99e4301cf21742bdbc376a4a763c2, type: 3}
-  bossPrefebs: []
   spawnedEnemys: []
 --- !u!1 &1552250267
 GameObject:
@@ -9133,8 +9132,6 @@ GameObject:
   - component: {fileID: 1999861672}
   - component: {fileID: 1999861674}
   - component: {fileID: 1999861673}
-  - component: {fileID: 1999861676}
-  - component: {fileID: 1999861675}
   m_Layer: 5
   m_Name: Achievements
   m_TagString: Untagged
@@ -9202,42 +9199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999861671}
   m_CullTransparentMesh: 1
---- !u!114 &1999861675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999861671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434550453b1e5824f9a4494d13a07ce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievementUI: {fileID: 1999861672}
-  achievementNameText: {fileID: 520712331}
-  achievementDescriptionText: {fileID: 532031102}
-  achievementImage: {fileID: 952059572}
-  iconlist:
-  - {fileID: 21300000, guid: 9b247b1d423dfc24580e4b5f0d0d605d, type: 3}
-  - {fileID: 21300000, guid: 99be35fd5c534ea43b408be4a1d05490, type: 3}
-  - {fileID: 21300000, guid: 5b68fe4a59ab20a4f88c087b2a4619c0, type: 3}
-  - {fileID: 21300000, guid: dabc251d91c184c44bbc50bf2d7e091c, type: 3}
-  - {fileID: 21300000, guid: 510895ad733cc3b498292a8d490f6bf1, type: 3}
-  - {fileID: 21300000, guid: 7829ca0814dfe3748ac395b0a121d785, type: 3}
-  - {fileID: 21300000, guid: 4c127fbb42d37cb49890195887596258, type: 3}
---- !u!114 &1999861676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999861671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0230b0d255f894144a6b5ce6a7b633b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2002366234
 GameObject:
   m_ObjectHideFlags: 0
