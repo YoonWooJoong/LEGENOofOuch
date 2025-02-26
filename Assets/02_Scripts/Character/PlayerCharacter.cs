@@ -40,11 +40,9 @@ public class PlayerCharacter : BaseCharacter
     /// </summary>
     protected override void HandleAction()
     {
-        if (playerPaused)
-            return;
-
         base.HandleAction();
-        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        if (!playerPaused)
+            moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         SearchTarget();
     }
 
