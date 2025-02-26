@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,8 +19,6 @@ public class TileMapManager : MonoBehaviour
     private const int NormalMaps = 14;
     private const int devilround = 4;
     public int roundIndex = 0;
-    public Transform playerSpawn;
-    public Transform[] monsterSpawn;
 
     /// <summary>
     /// 스테이지에 해당하는 맵을 생성 
@@ -48,7 +45,7 @@ public class TileMapManager : MonoBehaviour
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
 
-        GetTransrate(playerSpawnPoint, monsterSpawnPoint);
+        GameManager.Instance.GetTransrate(playerSpawnPoint, monsterSpawnPoint);
     }
 
     /// <summary>
@@ -72,11 +69,7 @@ public class TileMapManager : MonoBehaviour
         selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
-    public void SpawnEntity() 
-    {
-        SpawnPlayer();
-        SpawnMonsters();
-    }
+
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
@@ -126,103 +119,7 @@ public class TileMapManager : MonoBehaviour
         stageContainer = selectedMapInstance[roundIndex].GetComponent<StageContainer>();
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
-        GetTransrate(playerSpawnPoint, monsterSpawnPoint);
-    }
-
-    /// <summary>
-    /// 소환포인트를 받아오는 함수
-    /// </summary>
-    /// <param name="_playerSpawn"></param>
-    /// <param name="_monsterSpawn"></param>
-    public void GetTransrate(Transform _playerSpawn, Transform[] _monsterSpawn)
-    {
-        playerSpawn = _playerSpawn;
-        monsterSpawn = _monsterSpawn;
-    }
-
-    /// <summary>
-    /// 플레이어를 생성, 이동시키는 함수
-    /// 맵 이동시 플레이어 위치를 바꾸어준다.
-    /// </summary>
-    public void SpawnPlayer()
-    {
-        if (playerSpawn == null)
-        {
-            Debug.LogError("PlayerSpawn 위치가 설정되지 않았습니다!");
-            return;
-        }
-
-        if (GameManager.Instance.player == null)
-        {
-            GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, playerSpawn.position, playerSpawn.rotation);
-            GameManager.Instance.player = newPlayer.GetComponent<PlayerCharacter>();
-
-
-            if (GameManager.Instance.player != null)
-            {
-                Debug.Log("새로운 플레이어가 생성되었습니다.");
-            }
-            else
-            {
-                Debug.LogError("생성된 플레이어에 PlayerCharacter 컴포넌트가 없습니다!");
-            }
-        }
-        else
-        {
-            GameManager.Instance.player.transform.position = playerSpawn.position;
-        }
-    }
-
-    /// <summary>
-    /// 몬스터를 생성하는 함수
-    /// 스폰포인트중 랜덤한포인트에 몬스터 생성
-    /// </summary>
-    public void SpawnMonsters()
-    {
-        //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
-        if (monsterSpawn == null || monsterSpawn.Length < 3)
-        {
-            Debug.LogError("몬스터 스폰 포인트가 부족합니다! 최소 3개 이상 필요합니다.");
-            return;
-        }
-
-        // 랜덤한 3개의 스폰 위치 선택 (중복 없이)
-        Transform[] selectedSpawns = GetRandomSpawnPoints(3);
-
-        // 선택된 위치에 몬스터 생성
-        foreach (Transform spawnPoint in selectedSpawns)
-        {
-            Debug.Log("몬스터 생성넘겨줌");
-            GameManager.Instance.MonsterManager.Spawn(spawnPoint);
-        }
-    }
-
-    /// <summary>
-    /// 몬스터 스폰 포인트 중 랜덤한 포인트를 선택하여 반환
-    /// </summary>
-    /// <param name="count"></param>
-    /// <returns></returns>
-    private Transform[] GetRandomSpawnPoints(int count)
-    {
-        List<Transform> spawnList = new List<Transform>(monsterSpawn);
-        Transform[] selected = new Transform[count];
-
-        // Fisher-Yates 셔플을 사용하여 리스트 섞기
-        for (int i = spawnList.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            Transform temp = spawnList[i];
-            spawnList[i] = spawnList[randomIndex];
-            spawnList[randomIndex] = temp;
-        }
-
-        // 앞에서부터 `count`개 선택
-        for (int i = 0; i < count; i++)
-        {
-            selected[i] = spawnList[i];
-        }
-
-        return selected;
+        GameManager.Instance.GetTransrate(playerSpawnPoint, monsterSpawnPoint);
     }
 }
 

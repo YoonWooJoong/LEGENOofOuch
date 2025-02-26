@@ -24,7 +24,7 @@ public class Test : MonoBehaviour
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
 
-        //GameManager.Instance.GetTransrate(playerSpawnPoint, monsterSpawnPoint);
+        GameManager.Instance.GetTransrate(playerSpawnPoint, monsterSpawnPoint);
 
     }
 }
