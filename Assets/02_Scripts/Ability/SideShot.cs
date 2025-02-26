@@ -29,8 +29,6 @@ public class SideShot : AbilityBase
     public override void UseSkill()
     {
         PlayerClassEnum pClass = player.GetPlayerClass();
-       /* int wallCount = projectileManager.GetWallCount();
-        int contactCount = projectileManager.GetContactCount();
 
         // 90µµ πÊ«‚ ∫§≈Õ (¡¬øÏ πÊ«‚)
         Vector3 leftDir = Quaternion.Euler(0, 0, 90) * Vector3.right;
@@ -43,8 +41,8 @@ public class SideShot : AbilityBase
             Vector3 leftSpawnPos = player.transform.position + Vector3.up * posOffset;
             Vector3 rightSpawnPos = player.transform.position + Vector3.up * posOffset;
 
-            projectileManager.ShootPlayerProjectile(leftSpawnPos, leftDir, pClass, wallCount, contactCount);
-            projectileManager.ShootPlayerProjectile(rightSpawnPos, rightDir, pClass, wallCount, contactCount);
-        }*/
+            projectileManager.ShootPlayerProjectile(leftSpawnPos, leftDir, pClass);
+            projectileManager.ShootPlayerProjectile(rightSpawnPos, rightDir, pClass);
+        }
     }
 }

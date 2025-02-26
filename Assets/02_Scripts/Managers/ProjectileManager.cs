@@ -23,7 +23,6 @@ public class ProjectileManager : MonoBehaviour
     private float fairyDecreaseDamage;
     private bool isDarkTouch = false;
     private bool isBlaze = false;
-    private bool isDeathBoom = false;
     
 
 
@@ -67,8 +66,8 @@ public class ProjectileManager : MonoBehaviour
         GameObject obj1 = Instantiate(origin, playerPosition, Quaternion.identity);
         GameObject obj2 = Instantiate(origin, playerPosition, Quaternion.identity);
 
-        SurroundController fireOrbController1 = obj1.GetComponent<SurroundController>();
-        SurroundController fireOrbController2 = obj2.GetComponent<SurroundController>();
+        FireOrbController fireOrbController1 = obj1.GetComponent<FireOrbController>();
+        FireOrbController fireOrbController2 = obj2.GetComponent<FireOrbController>();
         fireOrbController1.Init(0);
         fireOrbController2.Init(180);
     }
@@ -108,9 +107,6 @@ public class ProjectileManager : MonoBehaviour
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
         projectileController.Init(direction, isDarkTouch, isBlaze, contactWallCount, contactEnemyCount);
-        float x = obj.transform.localScale.x * 2; // 크기 100% 증가
-        float y = obj.transform.localScale.y * 2;
-        obj.transform.localScale = new Vector3(x, y, 1);
 
         return obj;
     }
@@ -178,7 +174,11 @@ public class ProjectileManager : MonoBehaviour
 
     public void SetFinalDecreaseDamage(float Damage)
     {
-        finalDecreaseDamage = Damage;
+        finalDecreaseDamage += Damage;
+    }
+    public void SetDarkTouch(bool value)
+    {
+        isDarkTouch = value;
     }
 
     public float GetDarkTouchDecreaseDamage()
@@ -191,6 +191,10 @@ public class ProjectileManager : MonoBehaviour
         darkTouchDecreaseDamage = Damage;
     }
 
+    public void SetBlaze(bool value)
+    {
+        isBlaze = value;
+    }
 
     public float GetBlazeDecresaseDamage()
     {
@@ -220,14 +224,6 @@ public class ProjectileManager : MonoBehaviour
     {
         fairyDecreaseDamage = Damage;
         
-    }
-    public bool GetDeathBoom()
-    {
-        return isDeathBoom;
-    }
-    public void SetDeathBoom(bool isBoom)
-    {
-        isDeathBoom = isBoom;
     }
 
 

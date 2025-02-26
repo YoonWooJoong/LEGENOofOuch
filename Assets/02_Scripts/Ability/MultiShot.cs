@@ -23,8 +23,25 @@ public class MultiShot : AbilityBase
     }
     protected override void UpdateAbility()
     {
-        float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
-        //projectileManager.GetContactCount(value);  최종 공격력 낮추는 함수
+        float value;
+        if (isUpgraded)
+        {
+            value = abilityData.values[1];
+
+            float value2 = abilityData.values[0];
+            value2 = (100 - value2) * 0.01f;
+            projectileManager.SetFinalDecreaseDamage(-value2);
+        }
+        else
+        {
+            value = abilityData.values[0];
+        }
+
+
+      //  float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
+
+        value = (100 - value) * 0.01f;
+        projectileManager.SetFinalDecreaseDamage(value);
 
     }
 }

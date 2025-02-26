@@ -43,7 +43,6 @@ public enum AbilityEnum
     CriticalMaster,
     HPBoost,
     Fury,
-    DeathBoom,
     BloodThirst,
     Invincibility,
     WallReflection,

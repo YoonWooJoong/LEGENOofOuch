@@ -4,6 +4,7 @@ using UnityEditor.Rendering.LookDev;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using static UnityEditor.ShaderData;
+using static UnityEngine.Rendering.DebugUI;
 
 public class FrontShot : AbilityBase
 {
@@ -20,7 +21,8 @@ public class FrontShot : AbilityBase
         projectileManager = GameManager.Instance.ProjectileManager;
         player = gameManager.player;
 
-        //projectileManager.GetContactCount();  최종 공격력 낮추는 함수 25%
+        float value = (100 - 25) * 0.01f;
+        projectileManager.SetFinalDecreaseDamage(value);
         UpdateAbility();
     }
 
@@ -29,12 +31,11 @@ public class FrontShot : AbilityBase
         // 화살 개수 설정
         arrowCount = isUpgraded ? (int)abilityData.values[0] : (int)abilityData.values[1];
     }
+
     public override void UseSkill()
     {
         Vector3 lookDir = player.GetlookDir();
         PlayerClassEnum pClass = player.GetPlayerClass();
-      /*  int wallCount = projectileManager.GetWallCount();
-        int contactCount = projectileManager.GetContactCount();
 
         for (int i = 0; i < arrowCount; i++)
         {
@@ -42,7 +43,7 @@ public class FrontShot : AbilityBase
 
             Vector3 spawnPos = GameManager.Instance.player.transform.position + Vector3.right * posOffset;
 
-            GameManager.Instance.ProjectileManager.ShootPlayerProjectile(spawnPos, lookDir, pClass, wallCount, contactCount);
-        }*/
+            GameManager.Instance.ProjectileManager.ShootPlayerProjectile(spawnPos, lookDir, pClass);
+        }
     }
 }

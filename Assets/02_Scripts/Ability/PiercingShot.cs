@@ -10,8 +10,7 @@ public class PiercingShot : AbilityBase
     {
         base.Init(abilityDataSO);
 
-        // 반사 횟수 카운트 증가
-      //  GameManager.Instance.ProjectileManager.SetPiercingCount((int)value);
+        GameManager.Instance.ProjectileManager.SetContactEnemyCount(1);
 
         UpdateAbility();
     }
@@ -20,7 +19,7 @@ public class PiercingShot : AbilityBase
     {
         float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
 
-        // 피해량 감소
-      //  GameManager.Instance.ProjectileManager.SetPiercingDamage((int)value);
+        value = (100 - value) * 0.01f;
+        GameManager.Instance.ProjectileManager.SetContactEnemyDecreaseDamage(value);
     }
 }

@@ -43,13 +43,11 @@ public class Archer : AbilityBase
     {
         Vector3 playerPos = player.transform.position;
         PlayerClassEnum pClass = player.GetPlayerClass();
-       /* int wallCount = projectileManager.GetWallCount();
-        int contactCount = projectileManager.GetContactCount();
 
         foreach (float angle in fireAngles)
         {
             Vector3 direction = Quaternion.Euler(0, 0, angle) * Vector3.right;
-            projectileManager.ShootPlayerProjectile(playerPos, direction, pClass, wallCount, contactCount);
-        }*/
+            projectileManager.ShootPlayerProjectile(playerPos, direction, pClass);
+        }
     }
 }

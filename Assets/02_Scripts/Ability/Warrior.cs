@@ -33,6 +33,7 @@ public class Warrior : AbilityBase
     protected override void UpdateAbility()
     {
         sizeMultiplier = isUpgraded ? abilityData.values[1] : abilityData.values[0];
+        sizeMultiplier *= 0.01f;
     }
 
     private IEnumerator AutoShootProjectile()
@@ -44,14 +45,12 @@ public class Warrior : AbilityBase
             Vector3 playerPos = player.transform.position;
             Vector3 lookDir = player.GetlookDir();
             PlayerClassEnum pClass = player.GetPlayerClass();
-           /* int wallCount = projectileManager.GetWallCount();
-            int contactCount = projectileManager.GetContactCount();
 
             Vector3 projectileScale = Vector3.one * sizeMultiplier; // 크기 적용
 
             // 거대한 검기 발사
-           GameObject obj = projectileManager.ShootPlayerProjectile(playerPos, lookDir, pClass, wallCount, contactCount);
-            obj.transform.localScale = projectileScale;*/
+            GameObject obj = projectileManager.ShootBigSwordAura(playerPos, lookDir, pClass);
+            obj.transform.localScale = projectileScale;
         }
     }
 }

@@ -10,8 +10,7 @@ public class WallReflection : AbilityBase
     {
         base.Init(abilityDataSO);
 
-        // 반사 횟수 카운트 증가
-      //  GameManager.Instance.ProjectileManager.SetWallReflectCount((int)value);
+        GameManager.Instance.ProjectileManager.SetContactWallCount(2);
 
         UpdateAbility();
     }
@@ -19,8 +18,8 @@ public class WallReflection : AbilityBase
     protected override void UpdateAbility()
     {
         float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
-        
-        // 피해량 감소
-      //  GameManager.Instance.ProjectileManager.SetWallReflectDamage((int)value);
+
+        value = (100 - value) * 0.01f;
+        GameManager.Instance.ProjectileManager.SetContactWallDecreaseDamage(value);
     }
 }

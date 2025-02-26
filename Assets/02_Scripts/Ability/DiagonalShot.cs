@@ -27,26 +27,24 @@ public class DiagonalShot : AbilityBase
 
     public override void UseSkill()
     {
-       /* Vector3 lookDir = player.GetlookDir();
+        Vector3 lookDir = player.GetlookDir();
         PlayerClassEnum pClass = player.GetPlayerClass();
-        int wallCount = projectileManager.GetWallCount();
-        int contactCount = projectileManager.GetContactCount();
 
         // 기본 화살 (전방 1개)
-        ShootArrow(player.transform.position, lookDir, pClass, wallCount, contactCount);
+        ShootArrow(player.transform.position, lookDir, pClass);
 
         foreach (float angle in angles)
         {
             Vector3 leftDir = Quaternion.Euler(0, 0, angle) * lookDir;
             Vector3 rightDir = Quaternion.Euler(0, 0, -angle) * lookDir;
 
-            ShootArrow(player.transform.position, leftDir, pClass, wallCount, contactCount);
-            ShootArrow(player.transform.position, rightDir, pClass, wallCount, contactCount);
-        }*/
+            ShootArrow(player.transform.position, leftDir, pClass);
+            ShootArrow(player.transform.position, rightDir, pClass);
+        }
     }
 
-    private void ShootArrow(Vector3 position, Vector3 direction, PlayerClassEnum pClass, int wallCount, int contactCount)
+    private void ShootArrow(Vector3 position, Vector3 direction, PlayerClassEnum pClass)
     {
-        projectileManager.ShootPlayerProjectile(position, direction, pClass, wallCount, contactCount);
+        projectileManager.ShootPlayerProjectile(position, direction, pClass);
     }
 }
