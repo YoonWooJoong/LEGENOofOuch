@@ -14,7 +14,7 @@ public class TileMapManager : MonoBehaviour
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
     public GameObject stageVolcanicDevilPrefabs;
-   [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// ¼±ÅÃµÈ ¸ÊÀÇ ÀÎ½ºÅÏ½º
+   [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
@@ -24,13 +24,13 @@ public class TileMapManager : MonoBehaviour
     public Transform[] monsterSpawn;
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö¿¡ ÇØ´çÇÏ´Â ¸ÊÀ» »ý¼º 
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     /// </summary>
     public void SpawnRandomMap()
     {
         //StageEnum stage = GameManager.Instance.GetStage();
         StageEnum stage = StageEnum.Castle;
-        // ·£´ýÇÑ ¸Ê ¼±ÅÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         switch (stage)
         {
             case StageEnum.Castle:
@@ -44,7 +44,7 @@ public class TileMapManager : MonoBehaviour
                 break;
         }
         MapStart();
-        // »ý¼ºµÈ ¸Ê¿¡¼­ ÇÃ·¹ÀÌ¾î ½ºÆù Æ÷ÀÎÆ® Ã£±â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã£ï¿½ï¿½
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
 
@@ -52,7 +52,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ÊÀ» »ý¼ºÇÏ¿© ¹è¿­¿¡ Áý¾î³Ö´Â´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´Â´ï¿½.
     /// </summary>
     /// <param name="mapPrefabs"></param>
     private void InstantiateMaps(GameObject[] mapPrefabs, GameObject devilPrefab, GameObject bossPrefab)
@@ -83,18 +83,18 @@ public class TileMapManager : MonoBehaviour
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
-        Debug.Log($"¼±ÅÃµÈ ¸Ê: {selectedMapInstance[0].name}");
+        Debug.Log($"ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½: {selectedMapInstance[0].name}");
         SetTransrate();
     }
 
     /// <summary>
-    /// Å¬¸®¾î½Ã ´ÙÀ½¸Ê È°¼ºÈ­.
-    /// ¸ÊÀ» È°¼ºÈ­ÇÏ¸é¼­ ½ºÆùÆ÷ÀÎÆ® Àü´Þ
-    /// ½ºÅ×ÀÌÁö Å¬¸®¾î½Ã ¸ðµç ¸Ê »èÁ¦
+    /// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­.
+    /// ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void NextMap()
     {
-        // ÇöÀç ¸Ê ºñÈ°¼ºÈ­
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
         if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(false);
@@ -102,28 +102,35 @@ public class TileMapManager : MonoBehaviour
 
         roundIndex++;
 
-        // ¸¸¾à ¸¶Áö¸· ¸Ê¿¡ µµ´ÞÇÏ¸é ¸ðµç ¸ÊÀ» »èÁ¦ÇÏ°í ½ºÅ×ÀÌÁö Å¬¸®¾î
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
         if (roundIndex >= selectedMapInstance.Length)
         {
             foreach (GameObject map in selectedMapInstance)
             {
                 Destroy(map);
             }
-            // ½ºÅ×ÀÌÁö Å¬¸®¾î
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
             return;
         }
-
-        // »õ·Î¿î ¸Ê È°¼ºÈ­
+        if (roundIndex == devilround)
+        {
+            selectedMapInstance[roundIndex].SetActive(true);
+            SetTransrate();
+            SpawnPlayer();
+            return;
+        }
+        // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ È°ï¿½ï¿½È­
         if (roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
+            SpawnEntity();
         }
     }
 
 
     /// <summary>
-    /// ¸ÊÀÇ ÇÃ·¹ÀÌ¾î¿Í ¸ó½ºÅÍÀÇ ½ºÆù Æ÷ÀÎÆ®¸¦ °ÔÀÓ¸Þ´ÏÀú¿¡°Ô Àü´Þ
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¸Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void SetTransrate()
     {
@@ -134,7 +141,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼ÒÈ¯Æ÷ÀÎÆ®¸¦ ¹Þ¾Æ¿À´Â ÇÔ¼ö
+    /// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     /// <param name="_playerSpawn"></param>
     /// <param name="_monsterSpawn"></param>
@@ -145,14 +152,14 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î¸¦ »ý¼º, ÀÌµ¿½ÃÅ°´Â ÇÔ¼ö
-    /// ¸Ê ÀÌµ¿½Ã ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ¹Ù²Ù¾îÁØ´Ù.
+    /// ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½, ï¿½Ìµï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½
+    /// ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ù²Ù¾ï¿½ï¿½Ø´ï¿½.
     /// </summary>
     public void SpawnPlayer()
     {
         if (playerSpawn == null)
         {
-            Debug.LogError("PlayerSpawn À§Ä¡°¡ ¼³Á¤µÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+            Debug.LogError("PlayerSpawn ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½!");
             return;
         }
 
@@ -164,11 +171,11 @@ public class TileMapManager : MonoBehaviour
 
             if (GameManager.Instance.player != null)
             {
-                Debug.Log("»õ·Î¿î ÇÃ·¹ÀÌ¾î°¡ »ý¼ºµÇ¾ú½À´Ï´Ù.");
+                Debug.Log("ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             }
             else
             {
-                Debug.LogError("»ý¼ºµÈ ÇÃ·¹ÀÌ¾î¿¡ PlayerCharacter ÄÄÆ÷³ÍÆ®°¡ ¾ø½À´Ï´Ù!");
+                Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ PlayerCharacter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
             }
         }
         else
@@ -178,31 +185,31 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ó½ºÅÍ¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
-    /// ½ºÆùÆ÷ÀÎÆ®Áß ·£´ýÇÑÆ÷ÀÎÆ®¿¡ ¸ó½ºÅÍ »ý¼º
+    /// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void SpawnMonsters()
     {
-        //¿©±â¿¡ ½ºÅ×ÀÌÁö ¸Å´ÏÀú¿¡¼­ ¸ó½ºÅÍ ¸¶¸®¼ö Á¤ÇØÁÙ°Í
+        //ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù°ï¿½
         if (monsterSpawn == null || monsterSpawn.Length < 3)
         {
-            Debug.LogError("¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ®°¡ ºÎÁ·ÇÕ´Ï´Ù! ÃÖ¼Ò 3°³ ÀÌ»ó ÇÊ¿äÇÕ´Ï´Ù.");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½! ï¿½Ö¼ï¿½ 3ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.");
             return;
         }
 
-        // ·£´ýÇÑ 3°³ÀÇ ½ºÆù À§Ä¡ ¼±ÅÃ (Áßº¹ ¾øÀÌ)
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ (ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½)
         Transform[] selectedSpawns = GetRandomSpawnPoints(3);
 
-        // ¼±ÅÃµÈ À§Ä¡¿¡ ¸ó½ºÅÍ »ý¼º
+        // ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         foreach (Transform spawnPoint in selectedSpawns)
         {
-            Debug.Log("¸ó½ºÅÍ »ý¼º³Ñ°ÜÁÜ");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½ï¿½");
             GameManager.Instance.MonsterManager.Spawn(spawnPoint);
         }
     }
 
     /// <summary>
-    /// ¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ® Áß ·£´ýÇÑ Æ÷ÀÎÆ®¸¦ ¼±ÅÃÇÏ¿© ¹ÝÈ¯
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯
     /// </summary>
     /// <param name="count"></param>
     /// <returns></returns>
@@ -211,7 +218,7 @@ public class TileMapManager : MonoBehaviour
         List<Transform> spawnList = new List<Transform>(monsterSpawn);
         Transform[] selected = new Transform[count];
 
-        // Fisher-Yates ¼ÅÇÃÀ» »ç¿ëÇÏ¿© ¸®½ºÆ® ¼¯±â
+        // Fisher-Yates ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         for (int i = spawnList.Count - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -220,7 +227,7 @@ public class TileMapManager : MonoBehaviour
             spawnList[randomIndex] = temp;
         }
 
-        // ¾Õ¿¡¼­ºÎÅÍ `count`°³ ¼±ÅÃ
+        // ï¿½Õ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ `count`ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < count; i++)
         {
             selected[i] = spawnList[i];
@@ -228,20 +235,26 @@ public class TileMapManager : MonoBehaviour
 
         return selected;
     }
+    public void SpawnEntity()
+    {
+        SpawnPlayer();
+        SpawnMonsters();
+        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
+    }
 }
 
 
-/////////////////////////*½Â±Ô´Ô ÄÚµå*/////////////////////////
-//public Image SelectImage; // UI¿¡ Ç¥½ÃÇÒ ÀÌ¹ÌÁö
-//public Text SelectName; // ¸Ê ÀÌ¸§ Ç¥½Ã
-//public Sprite[] SelectImages; // ¸Ê ÀÌ¹ÌÁö ¹è¿­
-//public string[] SelectNames; // ¸Ê ÀÌ¸§ ¹è¿­
-//public GameObject[] MapPrefabs; // ¸Ê ÇÁ¸®ÆÕ ¹è¿­
+/////////////////////////*ï¿½Â±Ô´ï¿½ ï¿½Úµï¿½*/////////////////////////
+//public Image SelectImage; // UIï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
+//public Text SelectName; // ï¿½ï¿½ ï¿½Ì¸ï¿½ Ç¥ï¿½ï¿½
+//public Sprite[] SelectImages; // ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½è¿­
+//public string[] SelectNames; // ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½è¿­
+//public GameObject[] MapPrefabs; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
 //public Transform mapSpawnPoint;
 //public Camera mainCamera;
 
-//private int SelectIndex = 0; // ÇöÀç ¼±ÅÃµÈ ¸ÊÀÇ ÀÎµ¦½º
-//private GameObject currentMapInstance; // ÇöÀç È°¼ºÈ­µÈ ¸Ê ÇÁ¸®ÆÕ
+//private int SelectIndex = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+//private GameObject currentMapInstance; // ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 //void Start()
 //{
@@ -261,7 +274,7 @@ public class TileMapManager : MonoBehaviour
 
 //void LoadSelectedMap()
 //{
-//    // ±âÁ¸ ¸Ê »èÁ¦
+//    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //    if (currentMapInstance != null)
 //    {
 //        Destroy(currentMapInstance);
@@ -273,7 +286,7 @@ public class TileMapManager : MonoBehaviour
 //    }
 //    else
 //    {
-//        Debug.LogError("¸Ê ÇÁ¸®ÆÕÀÌ Á¸ÀçÇÏÁö ¾ÊÀ½: " + SelectNames[SelectIndex]);
+//        Debug.LogError("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " + SelectNames[SelectIndex]);
 //    }
 //}
-/////////////////////////*½Â±Ô´Ô ÄÚµå*/////////////////////////
+/////////////////////////*ï¿½Â±Ô´ï¿½ ï¿½Úµï¿½*/////////////////////////
