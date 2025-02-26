@@ -54,6 +54,7 @@ public class ProjectileController : MonoBehaviour
     public void DirectionProjcetile()
     {
         rigidbody2D.velocity = direction.normalized * 10f;
+        
     }
 
     /// <summary>
@@ -106,8 +107,8 @@ public class ProjectileController : MonoBehaviour
             if (contactEnemy < contactEnemyCount)
             {
                 EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
-                if(enemy != null)
+                CirticalPer(enemy); // 변수 바뀌면 적용
+                if (enemy != null)
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
                     {
@@ -126,7 +127,7 @@ public class ProjectileController : MonoBehaviour
             else if (contactEnemy >= contactEnemyCount)
             {
                 EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
+                CirticalPer(enemy); // 변수 바뀌면 적용
                 if (enemy != null)
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
@@ -169,6 +170,18 @@ public class ProjectileController : MonoBehaviour
         //{
         //    Destroy(this.gameObject);
         //}
+    }
+
+    /// <summary>
+    /// 크리티컬 계산
+    /// </summary>
+    /// <param name="enemy"></param>
+    private void CirticalPer(EnemyCharacter enemy)
+    {
+        if (GameManager.Instance.player.CriChance < Random.Range(0.01f, 1))
+            enemy.ChangeHealth(-(arrowAttackPower + (GameManager.Instance.player.CriDmg)*arrowAttackPower));
+        else
+            enemy.ChangeHealth(-arrowAttackPower);
     }
 
 
