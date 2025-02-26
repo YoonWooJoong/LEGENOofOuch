@@ -6,4 +6,5 @@ public class StageContainer : MonoBehaviour
 {
     public Transform[] enemySpawnPoint;
     public Transform playerSpawnPoint;
+    public PolygonCollider2D cameraCollider;
 }
