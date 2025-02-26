@@ -17,6 +17,7 @@ public class ProjectileController : MonoBehaviour
     private int contactEnemyCount; // 받아온 적 충돌 횟수
     private bool isDarkTouch;
     private bool isBlaze;
+    private float arrowAttackPower;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class ProjectileController : MonoBehaviour
         contactEnemyCount = _contactEnemyCount;
         isDarkTouch = _isDarkTouch;
         isBlaze = _isBlaze;
+        arrowAttackPower = GameManager.Instance.player.AttackPower;
     }
 
     void Update()
@@ -90,6 +92,7 @@ public class ProjectileController : MonoBehaviour
                 direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
                 RotationRojectile();
                 contactWall += 1;
+                arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactWallDecreaseDamage();
             }
             else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
                 Destroy(this.gameObject);
@@ -99,7 +102,7 @@ public class ProjectileController : MonoBehaviour
             if (contactEnemy < contactEnemyCount)
             {
                 EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-                enemy.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
                 if(enemy != null)
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
@@ -113,12 +116,13 @@ public class ProjectileController : MonoBehaviour
                 }
                 Physics2D.IgnoreCollision(arrowCollider, collision.collider);
                 contactEnemy += 1;
+                arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactEnemyDecreaseDamage();
 
             }
             else if (contactEnemy >= contactEnemyCount)
             {
                 EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-                enemy.ChangeHealth(-GameManager.Instance.player.AttackPower); // 변수 바뀌면 적용
+                enemy.ChangeHealth(-arrowAttackPower); // 변수 바뀌면 적용
                 if (enemy != null)
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
