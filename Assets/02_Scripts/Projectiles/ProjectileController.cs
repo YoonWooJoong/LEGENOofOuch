@@ -40,7 +40,7 @@ public class ProjectileController : MonoBehaviour
         contactEnemyCount = _contactEnemyCount;
         isDarkTouch = _isDarkTouch;
         isBlaze = _isBlaze;
-        arrowAttackPower = _attackPower;
+        arrowAttackPower = _attackPower * GameManager.Instance.ProjectileManager.GetFinalDecreaseDamage();
     }
 
     void Update()
