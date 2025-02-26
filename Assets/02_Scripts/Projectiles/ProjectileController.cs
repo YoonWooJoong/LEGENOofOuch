@@ -31,7 +31,7 @@ public class ProjectileController : MonoBehaviour
     /// <param name="_direction">방향</param>
     /// <param name="_contactwallCount">벽 충돌횟수, 적이 쏘면 0 </param>
     /// <param name="_contactEnemyCount">적 충돌횟수, 적이쏘면 0 </param>
-    public void Init(Vector3 _direction, bool _isDarkTouch, bool _isBlaze, int _contactwallCount = 0, int _contactEnemyCount = 0)
+    public void Init(Vector3 _direction, bool _isDarkTouch, bool _isBlaze, float _attackPower ,int _contactwallCount = 0, int _contactEnemyCount = 0)
     {
         direction = _direction;
         RotationRojectile();
@@ -39,7 +39,7 @@ public class ProjectileController : MonoBehaviour
         contactEnemyCount = _contactEnemyCount;
         isDarkTouch = _isDarkTouch;
         isBlaze = _isBlaze;
-        arrowAttackPower = GameManager.Instance.player.AttackPower;
+        arrowAttackPower = _attackPower;
     }
 
     void Update()
