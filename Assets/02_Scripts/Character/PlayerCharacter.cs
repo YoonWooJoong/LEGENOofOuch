@@ -86,7 +86,6 @@ public class PlayerCharacter : BaseCharacter
         //사망시 게임종료 로직 실행
         base.Death();
     }
-
     protected override void Attack()
     {
         base.Attack();
@@ -94,22 +93,24 @@ public class PlayerCharacter : BaseCharacter
         GameManager.Instance.AbilityManager.UseAbility();
         if (GameManager.Instance.AbilityManager.GetMultiShotOn())
         {
-            StopAllCoroutines(); // 실행 중인 모든 코루틴 취소
-            StartCoroutine(AttackWithDelay(0.1f)); // 새로운 코루틴 실행
+            StartCoroutine(AttackWithDelay(0.1f));
         }
     }
 
     IEnumerator AttackWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        base.Attack(); // 두 번째 공격 실행
         GameManager.Instance.AbilityManager.UseAbility();
     }
 
     protected override void Move()
     {
         base.Move();
-        StopAllCoroutines(); // 이동이 발생하면 모든 코루틴 취소
+
+        if (IsMove)
+        {
+            StopAllCoroutines();
+        }
     }
 
     public void GetExp(int exp)
