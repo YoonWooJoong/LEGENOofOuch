@@ -546,6 +546,7 @@ MonoBehaviour:
   pClass: 2
   GodMod: 0
   life: 1
+  isMultiShot: 0
 --- !u!50 &2570352770424791577
 Rigidbody2D:
   serializedVersion: 4
