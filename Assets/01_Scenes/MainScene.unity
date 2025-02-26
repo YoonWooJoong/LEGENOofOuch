@@ -2707,6 +2707,22 @@ MonoBehaviour:
   - {fileID: 2830272113616495334, guid: 9b1570fd6919be744a8af119981754fb, type: 3}
   stageVolcanicBossPrefabs: {fileID: 7294205467680841828, guid: 20585e4e66898cc4a9d982a940ff36d2, type: 3}
   stageVolcanicDevilPrefabs: {fileID: 6029055976399364691, guid: b552952aa8993c84f8b36e403c09470a, type: 3}
+  selectedMapInstance:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   roundIndex: 0
 --- !u!1 &765598791
 GameObject:
@@ -5320,10 +5336,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cef948c7cb96f4498b1fff56328309e, type: 2}
   - {fileID: 11400000, guid: f4661d34d1986eb47a18e0a96e3d4b9a, type: 2}
   - {fileID: 11400000, guid: 4a746e13113827e47869e371a15e5d85, type: 2}
-  - {fileID: 11400000, guid: 3b697b44cca3d2d41ade3f75b6f9c8ed, type: 2}
   - {fileID: 11400000, guid: f8e47145f1bc3d840aaed4a19a1fa4fa, type: 2}
   - {fileID: 11400000, guid: 6c048ceb461e9f24d96a471f461910e3, type: 2}
-  - {fileID: 11400000, guid: 1d76129ef4b34ad4f830f8d6acda8d2d, type: 2}
   - {fileID: 11400000, guid: 1c16e09be28f2c048ad143c4648ae7db, type: 2}
   - {fileID: 11400000, guid: d577811ef56cf6741832096e56e2947c, type: 2}
   - {fileID: 11400000, guid: aeb67659d8f06d548b285e0d674341a0, type: 2}
@@ -5344,10 +5358,8 @@ MonoBehaviour:
   - {fileID: 1467932123278592255, guid: aa74835f540bcbc4e9d19058a18ec87e, type: 3}
   - {fileID: 2950181035276332462, guid: 4e6e32db304c7874dabcb84f0c406f9a, type: 3}
   - {fileID: 3616825868627247635, guid: eac4cbcd6d87bed4aa8a76d15c60f0a5, type: 3}
-  - {fileID: 6922364075479203581, guid: e8e4a4a8b3d35a949ace663b6e742958, type: 3}
   - {fileID: 2403128589491459594, guid: f5f6b3221e7fb25499ab248254492de2, type: 3}
   - {fileID: 5218090484808540993, guid: 5ec96bdd854baf1458234393902b9a6d, type: 3}
-  - {fileID: 7048086371381072302, guid: b4399d9e90214c74eac30d61c2d0cd76, type: 3}
   - {fileID: 876722143078838309, guid: afba6ec5dfd08fa4bbe493718546b852, type: 3}
   - {fileID: 3282254667588469793, guid: 5fc0e8f8574e3dd4cac11e75cc6ad3fe, type: 3}
   - {fileID: 84342667670869749, guid: dd383ec54ab3ea244a3212bce24c2a67, type: 3}
@@ -8588,10 +8600,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cef948c7cb96f4498b1fff56328309e, type: 2}
   - {fileID: 11400000, guid: f4661d34d1986eb47a18e0a96e3d4b9a, type: 2}
   - {fileID: 11400000, guid: 4a746e13113827e47869e371a15e5d85, type: 2}
-  - {fileID: 11400000, guid: 3b697b44cca3d2d41ade3f75b6f9c8ed, type: 2}
   - {fileID: 11400000, guid: f8e47145f1bc3d840aaed4a19a1fa4fa, type: 2}
   - {fileID: 11400000, guid: 6c048ceb461e9f24d96a471f461910e3, type: 2}
-  - {fileID: 11400000, guid: 1d76129ef4b34ad4f830f8d6acda8d2d, type: 2}
   - {fileID: 11400000, guid: 1c16e09be28f2c048ad143c4648ae7db, type: 2}
   - {fileID: 11400000, guid: d577811ef56cf6741832096e56e2947c, type: 2}
   - {fileID: 11400000, guid: aeb67659d8f06d548b285e0d674341a0, type: 2}
