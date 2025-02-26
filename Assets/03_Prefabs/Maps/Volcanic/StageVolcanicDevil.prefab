@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: dab1405e85809be4ab66af09255a2239, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: cbd048a8a7422464c901f2c8bad371e1, type: 2}
 --- !u!114 &6975842047857541165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,6 +2317,7 @@ GameObject:
   - component: {fileID: 5492137230726323899}
   - component: {fileID: 2734377521498447049}
   - component: {fileID: 2419490067722274282}
+  - component: {fileID: 1049152601891394388}
   m_Layer: 8
   m_Name: Tilemap_Obstacles
   m_TagString: Untagged
@@ -2574,6 +2575,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 3692444478527993868}
+--- !u!114 &1049152601891394388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692444478527993868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5888685166845292149
 GameObject:
   m_ObjectHideFlags: 0
