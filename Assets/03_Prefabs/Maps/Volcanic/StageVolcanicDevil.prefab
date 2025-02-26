@@ -3690,7 +3690,7 @@ MonoBehaviour:
   enemySpawnPoint:
   - {fileID: 2694391763165897792}
   playerSpawnPoint: {fileID: 8776606856237097458}
-  cameraCollider: {fileID: 0}
+  cameraCollider: {fileID: 4801523546471449147}
 --- !u!1 &6246317335391853651
 GameObject:
   m_ObjectHideFlags: 0

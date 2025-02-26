@@ -139,7 +139,7 @@ MonoBehaviour:
   - {fileID: 3101896406370997170}
   - {fileID: 6543056422813602702}
   playerSpawnPoint: {fileID: 5360603698749502088}
-  cameraCollider: {fileID: 0}
+  cameraCollider: {fileID: 3540183420852486832}
 --- !u!1 &2027296278135743105
 GameObject:
   m_ObjectHideFlags: 0
