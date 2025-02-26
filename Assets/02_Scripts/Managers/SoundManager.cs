@@ -25,13 +25,17 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             Init();
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        PlayBGM("TestBGM");
     }
 
     /// <summary>
@@ -66,10 +70,6 @@ public class SoundManager : MonoBehaviour
             source.enabled = false;
             audioSourcePool.Enqueue(source);
         }
-
-
-        // 무슨 소리가 들어가야한다. 설명
-        SoundManager.instance.PlaySFX("");
     }
 
     /// <summary>

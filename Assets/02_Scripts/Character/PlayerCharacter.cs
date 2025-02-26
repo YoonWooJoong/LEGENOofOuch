@@ -41,7 +41,17 @@ public class PlayerCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        moveDir = playerPaused ? Vector2.zero : new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+
+        // 키 바인딩에서 사용자 설정 키 가져오기
+        bool moveUp = Input.GetKey(OptionManager.instance.GetKey("Up"));
+        bool moveDown = Input.GetKey(OptionManager.instance.GetKey("Down"));
+        bool moveLeft = Input.GetKey(OptionManager.instance.GetKey("Left"));
+        bool moveRight = Input.GetKey(OptionManager.instance.GetKey("Right"));
+
+        moveDir.Set((moveRight ? 1 : 0) - (moveLeft ? 1 : 0),
+                    (moveUp ? 1 : 0) - (moveDown ? 1 : 0));
+
+        moveDir.Normalize();
         SearchTarget();
     }
 
