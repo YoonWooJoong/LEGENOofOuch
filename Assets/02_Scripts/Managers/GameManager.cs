@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("KillMonster");
         if (MonsterManager.ClearSpawn)
         {
-            //GachaManager.StartGacha();
+            GachaManager.StartGacha();
         }
     }
 

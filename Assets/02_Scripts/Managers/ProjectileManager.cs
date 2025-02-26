@@ -123,7 +123,7 @@ public class ProjectileManager : MonoBehaviour
         GameObject obj = Instantiate(origin, startPosition, Quaternion.identity);
 
         ProjectileController projectileController = obj.GetComponent<ProjectileController>();
-        projectileController.Init(direction, isDarkTouch, isBlaze, contactWallCount, contactEnemyCount);
+        projectileController.Init(direction, isDarkTouch, isBlaze, GameManager.Instance.player.AttackPower*1.5f, contactWallCount, contactEnemyCount);
 
         return obj;
     }

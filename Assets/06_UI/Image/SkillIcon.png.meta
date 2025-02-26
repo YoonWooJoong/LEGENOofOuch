@@ -157,7 +157,7 @@ TextureImporter:
         width: 46
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_20
+      name: SkillIcon_18
       rect:
         serializedVersion: 2
         x: 58
@@ -178,7 +178,7 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_12
+      name: SkillIcon_10
       rect:
         serializedVersion: 2
         x: 111
@@ -199,7 +199,7 @@ TextureImporter:
         width: 42
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -212,7 +212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_13
+      name: SkillIcon_11
       rect:
         serializedVersion: 2
         x: 162
@@ -220,7 +220,7 @@ TextureImporter:
         width: 45
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,27 +228,6 @@ TextureImporter:
       bones: []
       spriteID: 1918d58ea0bffa044831dbd044afe18a
       internalID: -1791921945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkillIcon_9
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 520
-        width: 46
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3aada6f9b0b47e43b491daea529a357
-      internalID: -651701184
       vertices: []
       indices: 
       edges: []
@@ -262,7 +241,7 @@ TextureImporter:
         width: 44
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_8
+      name: SkillIcon_7
       rect:
         serializedVersion: 2
         x: 269
@@ -283,7 +262,7 @@ TextureImporter:
         width: 46
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +283,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +304,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +325,7 @@ TextureImporter:
         width: 44
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_14
+      name: SkillIcon_12
       rect:
         serializedVersion: 2
         x: 423
@@ -367,7 +346,7 @@ TextureImporter:
         width: 44
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,7 +359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_7
+      name: SkillIcon_6
       rect:
         serializedVersion: 2
         x: 472
@@ -388,7 +367,7 @@ TextureImporter:
         width: 42
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,7 +380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_11
+      name: SkillIcon_9
       rect:
         serializedVersion: 2
         x: 4
@@ -409,7 +388,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,7 +401,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_10
+      name: SkillIcon_8
       rect:
         serializedVersion: 2
         x: 56
@@ -430,7 +409,7 @@ TextureImporter:
         width: 46
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,7 +443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_17
+      name: SkillIcon_15
       rect:
         serializedVersion: 2
         x: 318
@@ -472,7 +451,7 @@ TextureImporter:
         width: 43
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,7 +464,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_16
+      name: SkillIcon_14
       rect:
         serializedVersion: 2
         x: 419
@@ -493,7 +472,7 @@ TextureImporter:
         width: 42
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,7 +485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_19
+      name: SkillIcon_17
       rect:
         serializedVersion: 2
         x: 111
@@ -514,7 +493,7 @@ TextureImporter:
         width: 46
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,7 +506,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_22
+      name: SkillIcon_20
       rect:
         serializedVersion: 2
         x: 319
@@ -535,7 +514,7 @@ TextureImporter:
         width: 44
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -548,7 +527,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_23
+      name: SkillIcon_21
       rect:
         serializedVersion: 2
         x: 417
@@ -556,7 +535,7 @@ TextureImporter:
         width: 43
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -569,7 +548,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_15
+      name: SkillIcon_13
       rect:
         serializedVersion: 2
         x: 57
@@ -590,7 +569,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_18
+      name: SkillIcon_16
       rect:
         serializedVersion: 2
         x: 57
@@ -598,7 +577,7 @@ TextureImporter:
         width: 46
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -611,7 +590,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillIcon_21
+      name: SkillIcon_19
       rect:
         serializedVersion: 2
         x: 320
@@ -619,7 +598,7 @@ TextureImporter:
         width: 45
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -627,27 +606,6 @@ TextureImporter:
       bones: []
       spriteID: 5eb1bd72d9ea2414ab0a4b2eb23a616a
       internalID: 1949902229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkillIcon_6
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 63
-        width: 43
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 667fda60407d2db4ebb6548822212dde
-      internalID: 1470062542
       vertices: []
       indices: 
       edges: []
@@ -665,22 +623,20 @@ TextureImporter:
     nameFileIdTable:
       SkillIcon_0: -432133545
       SkillIcon_1: -309211044
-      SkillIcon_10: 260550704
+      SkillIcon_10: -2109792227
       SkillIcon_100: 804204367
-      SkillIcon_11: 1550226829
-      SkillIcon_12: -2109792227
-      SkillIcon_13: -1791921945
-      SkillIcon_14: -1990800618
-      SkillIcon_15: 1044979107
-      SkillIcon_16: 1730580857
-      SkillIcon_17: -1332934583
-      SkillIcon_18: -1063407062
-      SkillIcon_19: -774851148
+      SkillIcon_11: -1791921945
+      SkillIcon_12: -1990800618
+      SkillIcon_13: 1044979107
+      SkillIcon_14: 1730580857
+      SkillIcon_15: -1332934583
+      SkillIcon_16: -1063407062
+      SkillIcon_17: -774851148
+      SkillIcon_18: 1994930165
+      SkillIcon_19: 1949902229
       SkillIcon_2: 808432028
-      SkillIcon_20: 1994930165
-      SkillIcon_21: 1949902229
-      SkillIcon_22: -1484233841
-      SkillIcon_23: 1178936524
+      SkillIcon_20: -1484233841
+      SkillIcon_21: 1178936524
       SkillIcon_24: 828667491
       SkillIcon_27: 1744957250
       SkillIcon_3: -209878034
@@ -707,7 +663,7 @@ TextureImporter:
       SkillIcon_56: -1282124844
       SkillIcon_57: -252713567
       SkillIcon_58: -1692468983
-      SkillIcon_6: 1470062542
+      SkillIcon_6: 915404628
       SkillIcon_60: -1225848089
       SkillIcon_61: 1983040614
       SkillIcon_62: 899436332
@@ -716,11 +672,11 @@ TextureImporter:
       SkillIcon_65: 163056855
       SkillIcon_66: 130060117
       SkillIcon_68: 682143035
-      SkillIcon_7: 915404628
+      SkillIcon_7: 1835111736
       SkillIcon_70: -1088642741
       SkillIcon_71: 267559900
-      SkillIcon_8: 1835111736
-      SkillIcon_9: -651701184
+      SkillIcon_8: 260550704
+      SkillIcon_9: 1550226829
       SkillIcon_999: 1541335944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
