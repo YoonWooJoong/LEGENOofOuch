@@ -3789,10 +3789,8 @@ MonoBehaviour:
   - {fileID: -209878034, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -1322997513, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2064670595, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: 1470062542, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 915404628, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1835111736, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: -651701184, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 260550704, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1550226829, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2109792227, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
@@ -4353,7 +4351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &831588257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8552,7 +8550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1747717022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8587,8 +8585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7208424d6fecdfa4b8a3255a366968dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityindex: 24
-  isRare: 1
+  abilityindex: 22
+  isRare: 0
   gachaAbilityController: {fileID: 1747717025}
 --- !u!114 &1747717024
 MonoBehaviour:
@@ -9222,10 +9220,8 @@ MonoBehaviour:
   - {fileID: -209878034, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -1322997513, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2064670595, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: 1470062542, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 915404628, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1835111736, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: -651701184, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 260550704, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1550226829, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2109792227, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
@@ -10013,10 +10009,8 @@ MonoBehaviour:
   - {fileID: -209878034, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -1322997513, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2064670595, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: 1470062542, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 915404628, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1835111736, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
-  - {fileID: -651701184, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 260550704, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: 1550226829, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}
   - {fileID: -2109792227, guid: 17ce162c98c47684393d1b308a3d65cb, type: 3}

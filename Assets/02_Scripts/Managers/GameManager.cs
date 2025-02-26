@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Initialized();
+
     }
     /// <summary>
     /// 게임 시작
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("KillMonster");
         if (MonsterManager.ClearSpawn)
         {
+            GachaManager.gachaobject.gameObject.SetActive(true);
             GachaManager.StartGacha();
         }
     }
