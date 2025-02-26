@@ -41,8 +41,7 @@ public class PlayerCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        if (!playerPaused)
-            moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        moveDir = playerPaused ? Vector2.zero : new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         SearchTarget();
     }
 
@@ -137,7 +136,7 @@ public class PlayerCharacter : BaseCharacter
         MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
         GodMod = isMultiShot = false;
         life = 1;
-        playerPaused = false;
+        PauseControll(false);
         CurHp = MaxHp;
     }
 
@@ -151,10 +150,13 @@ public class PlayerCharacter : BaseCharacter
     /// <summary>
     /// 스테이지 종료 직후 플레이어를 일시정지/스킬 획득 후 해체합니다.
     /// </summary>
-    public void PauseControll()
+    public void PauseControll(bool paused)
     {
-        playerPaused = !playerPaused;
+        moveDir = Vector2.zero;
+        playerPaused = paused;
         var collider = GetComponent<BoxCollider2D>();
-        collider.isTrigger = playerPaused;
+        var rigi = GetComponent<Rigidbody2D>();
+        collider.enabled = !playerPaused;
+        rigi.simulated = !playerPaused;
     }
 }

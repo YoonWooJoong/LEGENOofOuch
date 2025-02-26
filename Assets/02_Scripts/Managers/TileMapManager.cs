@@ -29,7 +29,7 @@ public class TileMapManager : MonoBehaviour
     public void SpawnRandomMap(StageEnum stage)
     {
         //StageEnum stage = GameManager.Instance.GetStage();
-        
+
         // 랜덤한 맵 선택
         switch (stage)
         {
@@ -189,6 +189,14 @@ public class TileMapManager : MonoBehaviour
     /// </summary>
     public void SpawnMonsters()
     {
+        //보스스테이이면 보스몹 소환하고 종료
+        if (roundIndex == TotalMaps - 1 && monsterSpawn.Length >= 1)
+        {
+            Debug.Log("보스스테이지 입니다.");
+            GameManager.Instance.MonsterManager.BossSpawn(monsterSpawn[0]);
+            return;
+        }
+
         //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
         if (monsterSpawn == null || monsterSpawn.Length < 3)
         {

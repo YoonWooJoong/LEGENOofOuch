@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("KillMonster");
         if (MonsterManager.ClearSpawn)
         {
-            PlayerPauseControll();
+            PlayerPauseControll(true);
             GachaManager.StartGacha();
         }
     }
@@ -140,11 +140,11 @@ public class GameManager : MonoBehaviour
         ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
         //플레이어 init
-        player.ClearPlayerBuf();
+        player?.ClearPlayerBuf();
     }
 
-    public void PlayerPauseControll()
+    public void PlayerPauseControll(bool paused)
     {
-        player.PauseControll();
+        player.PauseControll(paused);
     }
 }
