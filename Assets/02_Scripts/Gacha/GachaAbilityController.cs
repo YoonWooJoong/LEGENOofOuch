@@ -45,5 +45,11 @@ public class GachaAbilityController : MonoBehaviour
             return false;
         }
     }
-
+    public void ClearUpgradeCount()
+    {
+        for (int i = 0; i < upgradeCounts.Length; i++)
+        {
+            upgradeCounts[i] = 0;
+        }
+    }
 }

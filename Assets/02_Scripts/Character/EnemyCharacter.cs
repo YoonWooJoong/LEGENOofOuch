@@ -14,6 +14,8 @@ public class EnemyCharacter : BaseCharacter
     [SerializeField] GameObject potionPrefeb;
     [SerializeField][Range(0, 100)] float potionDrop;
 
+    protected override bool IsAttacking => base.IsAttacking && TargetDis <= attackRange;
+
     NavMeshAgent agent;
 
     protected override void Awake()
@@ -41,15 +43,9 @@ public class EnemyCharacter : BaseCharacter
             return;
 
         if (TargetDis > attackRange)
-        {
-            agent.isStopped = false;
             agent.SetDestination(target.position);
-        }
         else
-        {
-            agent.nextPosition = transform.position;
-            agent.isStopped = true;
-        }
+            agent.SetDestination(transform.position);
         moveDir = (agent.nextPosition - transform.position).normalized;
     }
 

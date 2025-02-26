@@ -1819,11 +1819,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 160434332914534978}
-  - {fileID: 9064968516815910116}
-  - {fileID: 8962669405578672613}
-  - {fileID: 6411390791345336767}
   - {fileID: 3123489061155380333}
+  - {fileID: 6411390791345336767}
+  - {fileID: 8962669405578672613}
+  - {fileID: 9064968516815910116}
+  - {fileID: 160434332914534978}
   m_Father: {fileID: 1473916875497725841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3503447144413608784
@@ -3565,6 +3565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160434332914534978}
   - component: {fileID: 7599899563353723746}
+  - component: {fileID: 2633715570572639605}
   m_Layer: 0
   m_Name: NextStageCollider
   m_TagString: Untagged
@@ -3632,6 +3633,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.74}
   m_EdgeRadius: 0
+--- !u!114 &2633715570572639605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7773110286257021303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425c59db73a116b44a49b36a29f04002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7833143853991189967
 GameObject:
   m_ObjectHideFlags: 0
