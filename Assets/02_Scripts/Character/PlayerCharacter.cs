@@ -112,12 +112,13 @@ public class PlayerCharacter : BaseCharacter
 
     public void GetExp(int exp)
     {
+        Debug.Log($"{exp}exp get");
         this.exp += exp;
-        int upLv = exp / 100;
+        int upLv = this.exp / 100;
         level += upLv;
         for (int i = 0; i < upLv; i++)
             ChangeHealth(MaxHp / 10);
-        exp %= 100;
+        this.exp %= 100;
     }
 
     public PlayerClassEnum GetPlayerClass()
