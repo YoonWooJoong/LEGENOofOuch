@@ -798,6 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5258013475458993748}
   - component: {fileID: 2749433595438514841}
+  - component: {fileID: 5451491060057811891}
   m_Layer: 0
   m_Name: NextStageCollider
   m_TagString: Untagged
@@ -865,6 +866,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.74}
   m_EdgeRadius: 0
+--- !u!114 &5451491060057811891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481481650157523638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425c59db73a116b44a49b36a29f04002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627624638252864957
 GameObject:
   m_ObjectHideFlags: 0
