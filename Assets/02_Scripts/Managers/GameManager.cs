@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Initialized();
-
     }
+
     /// <summary>
     /// 게임 시작
     /// 게임 시작에 관련된 함수들 호출
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         //
 
     }
+
     /// <summary>
     /// 몬스터를 죽였을때 호출되는 함수
     /// </summary>
@@ -86,7 +87,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("KillMonster");
         if (MonsterManager.ClearSpawn)
         {
-            GachaManager.gachaobject.gameObject.SetActive(true);
+            PlayerPauseControll();
             GachaManager.StartGacha();
         }
     }
@@ -98,6 +99,7 @@ public class GameManager : MonoBehaviour
     public void GetAbility(AbilityEnum abilityEnum)
     {
         AbilityManager.SetAbility(abilityEnum);
+        Achievements.TriggerFirstAbility();
     }
 
     /// <summary>
@@ -124,6 +126,7 @@ public class GameManager : MonoBehaviour
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);
     }
+
     public void GoNextMap()
     {
         if (MonsterManager.ClearSpawn)    
@@ -138,5 +141,10 @@ public class GameManager : MonoBehaviour
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
         //플레이어 init
         player.ClearPlayerBuf();
+    }
+
+    public void PlayerPauseControll()
+    {
+        player.PauseControll();
     }
 }
