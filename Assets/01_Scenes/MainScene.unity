@@ -7386,7 +7386,10 @@ MonoBehaviour:
   - {fileID: 3760012203042012043, guid: 7faa231fab9740d45bc6450190ca9f36, type: 3}
   - {fileID: 3760012203042012043, guid: b2393c9125a5c244cb15948a38f38cce, type: 3}
   - {fileID: 3760012203042012043, guid: dad99e4301cf21742bdbc376a4a763c2, type: 3}
-  bossPrefebs: []
+  bossPrefebs:
+  - {fileID: 3760012203042012043, guid: c4b197f48f227ad43b1394ffc1e8b2c5, type: 3}
+  - {fileID: 3760012203042012043, guid: a733324470b1f194189d4176d6ef38eb, type: 3}
+  - {fileID: 3760012203042012043, guid: b48d5f2e48fffe44bb273064c0f913b2, type: 3}
   spawnedEnemys: []
 --- !u!1 &1552250267
 GameObject:
@@ -9211,17 +9214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementUI: {fileID: 1999861672}
-  achievementNameText: {fileID: 520712331}
-  achievementDescriptionText: {fileID: 532031102}
-  achievementImage: {fileID: 952059572}
-  iconlist:
-  - {fileID: 21300000, guid: 2d2bdc63fae04244ba862bdb4f0c6c02, type: 3}
-  - {fileID: 21300000, guid: ac81c5e650b05b64db82a3618b3c4886, type: 3}
-  - {fileID: 21300000, guid: 0118c33a8d592c5448de9be8453b7d21, type: 3}
-  - {fileID: 21300000, guid: 15d5b1bce39430445bb6021708cfcbc0, type: 3}
-  - {fileID: 21300000, guid: 6de478407b835fd42a6a4252e1312c64, type: 3}
-  - {fileID: 21300000, guid: a4ad25b1d2b5c1643bf36216ddaad524, type: 3}
-  - {fileID: 21300000, guid: 4e3a156ceac8c364a8d87995f4e64942, type: 3}
+  achievementNameText: {fileID: 0}
+  achievementDescriptionText: {fileID: 0}
+  achievementImage: {fileID: 0}
+  iconlist: []
 --- !u!114 &1999861676
 MonoBehaviour:
   m_ObjectHideFlags: 0
