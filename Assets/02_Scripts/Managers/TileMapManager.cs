@@ -26,10 +26,10 @@ public class TileMapManager : MonoBehaviour
     /// <summary>
     /// 스테이지에 해당하는 맵을 생성 
     /// </summary>
-    public void SpawnRandomMap()
+    public void SpawnRandomMap(StageEnum stage)
     {
         //StageEnum stage = GameManager.Instance.GetStage();
-        StageEnum stage = StageEnum.Castle;
+        
         // 랜덤한 맵 선택
         switch (stage)
         {
@@ -108,7 +108,7 @@ public class TileMapManager : MonoBehaviour
         {
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
-            SpawnPlayer();
+            SpawnPlayer(GameManager.Instance.playerClassEnum);
             return;
         }
         // 새로운 맵 활성화
@@ -116,7 +116,7 @@ public class TileMapManager : MonoBehaviour
         {
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
-            SpawnEntity();
+            SpawnEntity(GameManager.Instance.playerClassEnum);
         }
     }
 
@@ -147,7 +147,7 @@ public class TileMapManager : MonoBehaviour
     /// 플레이어를 생성, 이동시키는 함수
     /// 맵 이동시 플레이어 위치를 바꾸어준다.
     /// </summary>
-    public void SpawnPlayer()
+    public void SpawnPlayer(PlayerClassEnum playerClassEnum)
     {
         if (playerSpawn == null)
         {
@@ -227,9 +227,9 @@ public class TileMapManager : MonoBehaviour
 
         return selected;
     }
-    public void SpawnEntity()
+    public void SpawnEntity(PlayerClassEnum playerClassEnum)
     {
-        SpawnPlayer();
+        SpawnPlayer(playerClassEnum);
         SpawnMonsters();
         GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }

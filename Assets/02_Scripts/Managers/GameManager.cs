@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public TileMapManager TileMapManager { get; private set; }
     [field: SerializeField] public MonsterManager MonsterManager { get; private set; }
     [field: SerializeField] public GachaManager GachaManager { get; private set; }
+
+    public PlayerClassEnum playerClassEnum;
+    public StageEnum stageEnum;
     public Test test;
     //public Transform playerSpawn;
     //public Transform[] monsterSpawn;
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //StartGame();
+        Initialized();
     }
     /// <summary>
     /// 게임 시작
@@ -53,10 +56,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-
-        TileMapManager.SpawnRandomMap();
+        
+        playerClassEnum = SelectManager.GetSelectedCharacter();
+        stageEnum = SelectManager.GetSelectedStageIndex();
+        TileMapManager.SpawnRandomMap(stageEnum);
         TileMapManager.MapStart();
-        TileMapManager.SpawnEntity();
+        TileMapManager.SpawnEntity(playerClassEnum);
         Debug.Log("StartGame");
         //SpawnPlayer();
         //SpawnMonsters();
@@ -78,6 +83,10 @@ public class GameManager : MonoBehaviour
         //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
         player.ChangeHealth(healReward);
         Debug.Log("KillMonster");
+        if (MonsterManager.ClearSpawn)
+        {
+            //GachaManager.StartGacha();
+        }
     }
 
     /// <summary>
@@ -115,7 +124,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoNextMap()
     {
-        if (MonsterManager.ClearSpawn)
+        if (MonsterManager.ClearSpawn)    
             TileMapManager.NextMap();
     }
 
@@ -123,7 +132,7 @@ public class GameManager : MonoBehaviour
     {
         //프로젝타일 매니저 init
         AbilityManager.ClearOwnedAbilities();
-        //ProjectileManager.ClearProjectiles();
+        ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
         //플레이어 init
         player.ClearPlayerBuf();

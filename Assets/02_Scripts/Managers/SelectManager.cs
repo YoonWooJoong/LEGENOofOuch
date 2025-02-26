@@ -34,18 +34,18 @@ public class SelectManager : MonoBehaviour
 
     public void OnClick_CheckSelectedCharacter()
     {
-        int num = GetSelectedCharacter();
+        PlayerClassEnum num = GetSelectedCharacter();
         Debug.Log($"선택된 캐릭터 인덱스: {num}");
     }
 
     public void OnClick_CheckSelectedStage()
     {
-        int num2 = GetSelectedStageIndex();
+        StageEnum num2 = GetSelectedStageIndex();
         Debug.Log($"선택된 스테이지 인덱스: {num2}");
     }
-    public int GetSelectedCharacter()
+    public PlayerClassEnum GetSelectedCharacter()
     {
-        return selectedCharacterIndex;
+        return (PlayerClassEnum)selectedCharacterIndex;
     }
     
     public void SelectCharater(int index)
@@ -59,9 +59,9 @@ public class SelectManager : MonoBehaviour
         characterNameText.text = characterNames[index];
     }
 
-    public int GetSelectedStageIndex()
+    public StageEnum GetSelectedStageIndex()
     {
-        return selectedStageIndex;
+        return (StageEnum)selectedStageIndex;
     }
 
     public void SetSelectedStageIndex(int number)

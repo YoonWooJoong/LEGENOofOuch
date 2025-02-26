@@ -41,11 +41,11 @@ public class UIManager : MonoBehaviour
                 settingUI.SetActive(!settingUI.activeSelf);
                 break;
             case 3:
-                int selectedStageIndex = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+                StageEnum selectedStageIndex = GameManager.Instance.SelectManager.GetSelectedStageIndex();
                 Debug.Log("선택된 스테이지 인덱스" + selectedStageIndex);
                 if (Enum.IsDefined(typeof(StageEnum), selectedStageIndex))
                 {
-                    StageEnum stage = (StageEnum)selectedStageIndex;
+                    StageEnum stage = selectedStageIndex;
                     Debug.Log("선택된 스테이지 " + stage);
                     switch (stage)
                     {
@@ -71,18 +71,18 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void ButtonActivate()
     {
-        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+        StageEnum number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
 
         previousStageButton.SetActive(number > 0);
 
-        nextStageButton.SetActive(number < GameManager.Instance.SelectManager.stageImages.Length - 1);
+        nextStageButton.SetActive((int)number < GameManager.Instance.SelectManager.stageImages.Length - 1);
     }
     /// <summary>
     /// 다음스테이지 화면을 볼 수 있게 해주는 버튼
     /// </summary>
     public void NextStageButton()
     {
-        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+        int number = (int)GameManager.Instance.SelectManager.GetSelectedStageIndex();
         number = number + 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
@@ -91,7 +91,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void PreviousStageButton()
     {
-        int number = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+        int number = (int)GameManager.Instance.SelectManager.GetSelectedStageIndex();
         number = number - 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
