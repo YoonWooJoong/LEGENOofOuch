@@ -8,6 +8,7 @@ public class DiagonalShot : AbilityBase
     GameManager gameManager;
     ProjectileManager projectileManager;
     PlayerCharacter player;
+    float[] angles;
 
     public override void Init(AbilityDataSO abilityDataSO)
     {
@@ -15,6 +16,13 @@ public class DiagonalShot : AbilityBase
         gameManager = GameManager.Instance;
         projectileManager = gameManager.ProjectileManager;
         player = gameManager.player;
+        UpdateAbility();
+    }
+
+    protected override void UpdateAbility()
+    {
+        // 대각선 화살 각도 설정
+        angles = isUpgraded ? new float[] { 30f, 60f } : new float[] { 45f };
     }
 
     public override void UseSkill()
@@ -26,9 +34,6 @@ public class DiagonalShot : AbilityBase
 
         // 기본 화살 (전방 1개)
         ShootArrow(player.transform.position, lookDir, pClass, wallCount, contactCount);
-
-        // 대각선 화살 각도 설정
-        float[] angles = isUpgraded ? new float[] { 30f, 60f } : new float[] { 45f };
 
         foreach (float angle in angles)
         {

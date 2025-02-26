@@ -86,6 +86,24 @@ public class PlayerCharacter : BaseCharacter
         base.Attack();
 
         GameManager.Instance.AbilityManager.UseAbility();
+        if (GameManager.Instance.AbilityManager.GetMultiShotOn())
+        {
+            StopAllCoroutines(); // 실행 중인 모든 코루틴 취소
+            StartCoroutine(AttackWithDelay(0.1f)); // 새로운 코루틴 실행
+        }
+    }
+
+    IEnumerator AttackWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        base.Attack(); // 두 번째 공격 실행
+        GameManager.Instance.AbilityManager.UseAbility();
+    }
+
+    protected override void Move()
+    {
+        base.Move();
+        StopAllCoroutines(); // 이동이 발생하면 모든 코루틴 취소
     }
 
     public void GetExp(int exp)

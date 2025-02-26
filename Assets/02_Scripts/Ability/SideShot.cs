@@ -9,6 +9,7 @@ public class SideShot : AbilityBase
     private ProjectileManager projectileManager;
     private PlayerCharacter player;
     private float offset = 0.5f; // 화살 간격
+    int arrowCount;
 
     public override void Init(AbilityDataSO abilityDataSO)
     {
@@ -16,6 +17,13 @@ public class SideShot : AbilityBase
         gameManager = GameManager.Instance;
         projectileManager = gameManager.ProjectileManager;
         player = gameManager.player;
+        UpdateAbility();
+    }
+
+    protected override void UpdateAbility()
+    {
+        // 화살 개수 설정 (업그레이드 전: 좌우 1개씩, 업그레이드 후: 좌우 2개씩)
+        arrowCount = isUpgraded ? 2 : 1;
     }
 
     public override void UseSkill()
@@ -23,9 +31,6 @@ public class SideShot : AbilityBase
         PlayerClassEnum pClass = player.GetPlayerClass();
        /* int wallCount = projectileManager.GetWallCount();
         int contactCount = projectileManager.GetContactCount();
-
-        // 화살 개수 설정 (업그레이드 전: 좌우 1개씩, 업그레이드 후: 좌우 2개씩)
-        int arrowCount = isUpgraded ? 2 : 1;
 
         // 90도 방향 벡터 (좌우 방향)
         Vector3 leftDir = Quaternion.Euler(0, 0, 90) * Vector3.right;
