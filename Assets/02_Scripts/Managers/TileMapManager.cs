@@ -164,6 +164,7 @@ public class TileMapManager : MonoBehaviour
         {
             GameObject newPlayer = Instantiate(GameManager.Instance.playerPrefab, playerSpawn.position, playerSpawn.rotation);
             GameManager.Instance.player = newPlayer.GetComponent<PlayerCharacter>();
+            GameManager.Instance.player.SetClass(playerClassEnum);
 
 
             if (GameManager.Instance.player != null)

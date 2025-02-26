@@ -50,7 +50,7 @@ public class PlayerCharacter : BaseCharacter
     void SearchTarget()
     {
         target = null;
-        var enemys = FindObjectsOfType(typeof(EnemyCharacter));
+        var enemys = FindObjectsOfType<EnemyCharacter>();
         foreach (var enemy in enemys)
         {
             var enemyCharacter = enemy.GetComponent<EnemyCharacter>();
@@ -134,5 +134,12 @@ public class PlayerCharacter : BaseCharacter
         GodMod = isMultiShot = false;
         life = 1;
         CurHp = MaxHp;
+    }
+
+    public void SetClass(PlayerClassEnum pClass)
+    {
+        this.pClass = pClass;
+        var pForm = GetComponent<PlayerFormChange>();
+        pForm.FormChange(pClass);
     }
 }
