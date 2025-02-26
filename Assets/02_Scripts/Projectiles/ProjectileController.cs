@@ -112,11 +112,11 @@ public class ProjectileController : MonoBehaviour
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
                     {
-                        StartCoroutine(DarkTouchDelay(enemy));
+                        GameManager.Instance.StartCoroutine(DarkTouchDelay(enemy));
                     }
                     if (isBlaze) // 블레이즈 실행
                     {
-                        StartCoroutine (BlazeDelay(enemy));
+                        GameManager.Instance.StartCoroutine (BlazeDelay(enemy));
                     }
                 }
                 Physics2D.IgnoreCollision(arrowCollider, collision.collider);
@@ -132,11 +132,11 @@ public class ProjectileController : MonoBehaviour
                 {
                     if (isDarkTouch) // 어둠의 접촉 스킬 실행
                     {
-                        StartCoroutine(DarkTouchDelay(enemy));
+                        GameManager.Instance.StartCoroutine(DarkTouchDelay(enemy));
                     }
                     if (isBlaze) // 블레이즈 실행
                     {
-                        StartCoroutine(BlazeDelay(enemy));
+                        GameManager.Instance.StartCoroutine(BlazeDelay(enemy));
                     }
                 }
                 Destroy(this.gameObject);
