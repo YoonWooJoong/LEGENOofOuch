@@ -125,5 +125,7 @@ public class GameManager : MonoBehaviour
         AbilityManager.ClearOwnedAbilities();
         //ProjectileManager.ClearProjectiles();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
+        //플레이어 init
+        player.ClearPlayerBuf();
     }
 }
