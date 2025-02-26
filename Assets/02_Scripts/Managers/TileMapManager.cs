@@ -166,6 +166,7 @@ public class TileMapManager : MonoBehaviour
             GameManager.Instance.player = newPlayer.GetComponent<PlayerCharacter>();
             GameManager.Instance.player.SetClass(playerClassEnum);
 
+            GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
 
             if (GameManager.Instance.player != null)
             {
@@ -237,6 +238,5 @@ public class TileMapManager : MonoBehaviour
     {
         SpawnPlayer(playerClassEnum);
         SpawnMonsters();
-        GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 }
