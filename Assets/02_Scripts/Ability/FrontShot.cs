@@ -21,15 +21,19 @@ public class FrontShot : AbilityBase
         projectileManager = GameManager.Instance.ProjectileManager;
         player = gameManager.player;
 
-        float value = (100 - 25) * 0.01f;
-        projectileManager.SetFinalDecreaseDamage(value);
         UpdateAbility();
     }
 
     protected override void UpdateAbility()
     {
         // 화살 개수 설정
-        arrowCount = isUpgraded ? (int)abilityData.values[0] : (int)abilityData.values[1];
+        arrowCount = isUpgraded ? (int)abilityData.values[1] : (int)abilityData.values[0];
+
+        if (isUpgraded)
+        {
+            float value = (100 - 25) * 0.01f;
+            projectileManager.SetFinalDecreaseDamage(value);
+        }
     }
 
     public override void UseSkill()

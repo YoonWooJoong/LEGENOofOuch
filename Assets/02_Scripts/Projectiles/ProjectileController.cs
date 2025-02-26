@@ -83,6 +83,9 @@ public class ProjectileController : MonoBehaviour
         //{ Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer); } // 무시
         //else // 그외
         //{
+
+        Debug.Log(collision.gameObject.name);
+
         if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
         {
             if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면

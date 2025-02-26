@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using UnityEditor.Playables;
 using UnityEngine;
 
 public class AbilityRepositoy : MonoBehaviour
@@ -34,8 +35,12 @@ public class AbilityRepositoy : MonoBehaviour
 
         for (int i = 0; i < abilityDataSOs.Length; i++)
         {
-            dicAbilityPrefabs[abilityDataSOs[i].Ability] = abilityPrefabs[i];
-            dicAbilityDataSO[abilityDataSOs[i].Ability] = abilityDataSOs[i];
+            AbilityEnum key = abilityDataSOs[i].Ability;
+            GameObject prefab = abilityPrefabs[i];
+            AbilityDataSO data = abilityDataSOs[i];
+
+            dicAbilityPrefabs[key] = prefab;
+            dicAbilityDataSO[key] = data;
         }
     }
 
