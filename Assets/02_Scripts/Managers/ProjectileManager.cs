@@ -23,9 +23,24 @@ public class ProjectileManager : MonoBehaviour
     private float fairyDecreaseDamage;
     private bool isDarkTouch = false;
     private bool isBlaze = false;
-    
 
 
+
+
+    public void ClearProjectile()
+    {
+        contactWallCount = 0;
+        contactEnemyCount = 0;
+        contactWallDecreaseDamage = 0;
+        contactEnemyDecreaseDamage = 0;
+        finalDecreaseDamage = 1f;
+        darkTouchDecreaseDamage = 0f;
+        blazeDecresaseDamage = 0f;
+        fireOrbDecreaseDamage = 0f;
+        fairyDecreaseDamage = 0f;
+        isDarkTouch = false;
+        isBlaze = false;
+    }
 
     /// <summary>
     /// 총알 생성, 리스트에 워리어, 위자드, 궁수 순서대로 프리팹 넣어야함

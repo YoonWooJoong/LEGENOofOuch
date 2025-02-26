@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -40,9 +41,29 @@ public class UIManager : MonoBehaviour
                 settingUI.SetActive(!settingUI.activeSelf);
                 break;
             case 3:
+                int selectedStageIndex = GameManager.Instance.SelectManager.GetSelectedStageIndex();
+                Debug.Log("선택된 스테이지 인덱스" + selectedStageIndex);
+                if (Enum.IsDefined(typeof(StageEnum), selectedStageIndex))
+                {
+                    StageEnum stage = (StageEnum)selectedStageIndex;
+                    Debug.Log("선택된 스테이지 " + stage);
+                    switch (stage)
+                    {
+                        case StageEnum.Castle:
+                            Debug.Log("Castle");
+                            break;
+                        case StageEnum.Swamp:
+                            Debug.Log("Swamp");
+                            break;
+                        case StageEnum.Volcano:
+                            Debug.Log("Volcano");
+                            break;
+                    }
+                }
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
                 GameManager.Instance.StartGame();
                 break;
+
         }
     }
     /// <summary>
