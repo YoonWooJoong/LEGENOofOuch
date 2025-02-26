@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
     public void GetAbility(AbilityEnum abilityEnum)
     {
         AbilityManager.SetAbility(abilityEnum);
+        Achievements.TriggerFirstAbility();
     }
 
     /// <summary>
