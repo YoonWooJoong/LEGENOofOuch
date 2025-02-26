@@ -22,6 +22,7 @@ public class DevilInteraction : MonoBehaviour
         {
             // 거래 UI 활성화
             tradeUI.SetActive(true);
+            SoundManager.instance.PlaySFX("악마웃음소리 SFX안에 넣어놧습니다");
         }
     }
 }
