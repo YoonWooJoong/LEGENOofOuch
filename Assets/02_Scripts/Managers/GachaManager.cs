@@ -53,7 +53,6 @@ public class GachaManager : MonoBehaviour
     public void GetAbilityName(string[] name)
     {
         //게임매니저에서 가져오기
-        gacha.SelectRandomAbility();
         AbilityName[0] = name[0];
         AbilityName[1] = name[1];
         AbilityName[2] = name[2];

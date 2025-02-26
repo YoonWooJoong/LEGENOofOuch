@@ -15,7 +15,10 @@ public class GachaAnimation : MonoBehaviour
     public float finalDelay = 0.3f;
 
     // Rare로 지정할 인덱스 집합
-    private int[] rareIndices = new int[] { 7, 8, 16, 19, 21, 22, 23 };
+    AbilityEnum[] rareIndices = new AbilityEnum[] {
+        AbilityEnum.BloodThirst, AbilityEnum.Invincibility, AbilityEnum.Blaze,
+        AbilityEnum.Spirit, AbilityEnum.Archer, AbilityEnum.Mage, AbilityEnum.Warrior
+    };
     public Color commonColor = Color.green;
     public Color rareColor = Color.yellow;
 
@@ -48,7 +51,7 @@ public class GachaAnimation : MonoBehaviour
             List<Sprite> nonRareSprites = new List<Sprite>();
             for (int i = 0; i < skillIcons.Length; i++)
             {
-                if (System.Array.IndexOf(rareIndices, i) < 0)
+                if (System.Array.IndexOf(rareIndices, (AbilityEnum)i) < 0)
                     nonRareSprites.Add(skillIcons[i]);
             }
             Sprite[] commonSprites = nonRareSprites.ToArray();
@@ -70,7 +73,7 @@ public class GachaAnimation : MonoBehaviour
             List<Sprite> rareSprites = new List<Sprite>();
             for (int i = 0; i < skillIcons.Length; i++)
             {
-                if (System.Array.IndexOf(rareIndices, i) >= 0)
+                if (System.Array.IndexOf(rareIndices, (AbilityEnum)i) >= 0)
                     rareSprites.Add(skillIcons[i]);
             }
             Sprite[] rareSpriteArray = rareSprites.ToArray();
@@ -94,7 +97,7 @@ public class GachaAnimation : MonoBehaviour
             List<Sprite> nonRareSprites = new List<Sprite>();
             for (int i = 0; i < skillIcons.Length; i++)
             {
-                if (System.Array.IndexOf(rareIndices, i) < 0)
+                if (System.Array.IndexOf(rareIndices, (AbilityEnum)i) < 0)
                     nonRareSprites.Add(skillIcons[i]);
             }
             Sprite[] commonSprites = nonRareSprites.ToArray();
@@ -121,6 +124,8 @@ public class GachaAnimation : MonoBehaviour
             Debug.LogWarning("selectedAbility out of range. Using index 0.");
             selectedAbility = 0;
         }
+        Debug.Log("스프라이트에 들어가는 인덱스: " + selectedAbility);
+        Debug.Log("인덱스번호: " + (int)selectedAbility);
         slotImage.sprite = skillIcons[(int)selectedAbility];
     }
 }

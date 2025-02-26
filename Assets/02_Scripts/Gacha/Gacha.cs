@@ -142,7 +142,7 @@ public class Gacha : MonoBehaviour
     /// </summary>
     public void IsRare()
     {
-        if (UnityEngine.Random.Range(0, 100) < 5)
+        if (UnityEngine.Random.Range(0, 100) <5)
             isRare = true;
     }
 
