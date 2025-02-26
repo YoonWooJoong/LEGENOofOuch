@@ -72,18 +72,21 @@ public class TileMapManager : MonoBehaviour
         selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
+
     public void SpawnEntity() 
     {
         SpawnPlayer();
         SpawnMonsters();
         GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
+
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
         Debug.Log($"선택된 맵: {selectedMapInstance[0].name}");
         SetTransrate();
     }
+
     /// <summary>
     /// 클리어시 다음맵 활성화.
     /// 맵을 활성화하면서 스폰포인트 전달
