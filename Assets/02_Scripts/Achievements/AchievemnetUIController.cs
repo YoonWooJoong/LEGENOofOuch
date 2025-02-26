@@ -7,24 +7,25 @@ public class AchievementUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        // 예시로 첫 라운드 클리어 이벤트가 발생하면 UI를 업데이트하도록 구독
-        Achievements.OnFirstRoundClear += HandleFirstRoundClear;
-    }
+        Achievements.OnFirstLevelUp += GetAchievemeent;
+        Achievements.OnFirstDeath += GetAchievemeent;
+        Achievements.OnFirstRoundClear += GetAchievemeent;
+        Achievements.OnFirstAbility += GetAchievemeent;
+        Achievements.OnFirstTradlear += GetAchievemeent;
+        Achievements.OnFirstCastleClear += GetAchievemeent;
+        Achievements.OnFirstSwampClear += GetAchievemeent;
+        Achievements.OnFirstVolcanoClear += GetAchievemeent;
+}
 
     private void OnDisable()
     {
-        Achievements.OnFirstRoundClear -= HandleFirstRoundClear;
+        Achievements.OnFirstRoundClear -= GetAchievemeent;
+
     }
 
     // 이벤트가 발생하면 Achievement UI의 Y값을 -180에서 180으로 변경
-    private void HandleFirstRoundClear()
+    private void GetAchievemeent()
     {
-        if (achievementUI != null)
-        {
-            Vector2 pos = achievementUI.anchoredPosition;
-            pos.y = 180;
-            achievementUI.anchoredPosition = pos;
-            Debug.Log("Achievement UI의 Y값이 180으로 변경되었습니다.");
-        }
+
     }
 }
