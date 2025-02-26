@@ -20,11 +20,11 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public TileMapManager TileMapManager { get; private set; }
     [field: SerializeField] public MonsterManager MonsterManager { get; private set; }
     [field: SerializeField] public GachaManager GachaManager { get; private set; }
-    public Test test; 
+    public Test test;
     //public Transform playerSpawn;
     //public Transform[] monsterSpawn;
 
-    public GameObject playerPrefab; 
+    public GameObject playerPrefab;
     public PlayerCharacter player;
     public int healReward = 0;
 
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void Start()
     {
         //StartGame();
@@ -103,12 +104,12 @@ public class GameManager : MonoBehaviour
     //    }
 
 
-        //if (player == null)
-        //{
-        //    GameObject newPlayer = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
-        //    player = newPlayer.GetComponent<PlayerCharacter>();
+    //if (player == null)
+    //{
+    //    GameObject newPlayer = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
+    //    player = newPlayer.GetComponent<PlayerCharacter>();
 
-        //    AbilityManager.SetAbility(AbilityEnum.FrontShot);
+    //    AbilityManager.SetAbility(AbilityEnum.FrontShot);
 
     //        if (player != null)
     //        {
@@ -194,10 +195,10 @@ public class GameManager : MonoBehaviour
         AbilityEnum[] selectedAbility = GachaManager.gacha.GetSelectedAbility();
         string[] abilityName = new string[3];
         string[] abilityDescription = new string[3];
-        
-        for (int i=0;i<selectedAbility.Length;i++)
-        {   
-            
+
+        for (int i = 0; i < selectedAbility.Length; i++)
+        {
+
             AbilityDataSO abilityData = AbilityManager.FindAbilityData(selectedAbility[i]);
             abilityName[i] = abilityData.AbilityName;
             int upgradeCount = GachaManager.gacha.gachaAbilityController.GetUpgradeCount(selectedAbility[i]);
@@ -205,10 +206,15 @@ public class GameManager : MonoBehaviour
             {
                 abilityName[i] += $"\n<color=yellow>+{upgradeCount}</color>";
             }
-            abilityDescription[i]= abilityData.Description.Replace("{0}", abilityData.Values[upgradeCount].ToString());
+            abilityDescription[i] = abilityData.Description.Replace("{0}", abilityData.Values[upgradeCount].ToString());
         }
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);
     }
-}
 
+    public void GoNextMap()
+    {
+        if (MonsterManager.ClearSpawn)
+            TileMapManager.NextMap();
+    }
+}

@@ -14,7 +14,7 @@ public class TileMapManager : MonoBehaviour
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
     public GameObject stageVolcanicDevilPrefabs;
-   [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// ¼±ÅÃµÈ ¸ÊÀÇ ÀÎ½ºÅÏ½º
+    [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// ì„ íƒëœ ë§µì˜ ì¸ìŠ¤í„´ìŠ¤
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
@@ -24,27 +24,27 @@ public class TileMapManager : MonoBehaviour
     public Transform[] monsterSpawn;
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö¿¡ ÇØ´çÇÏ´Â ¸ÊÀ» »ı¼º 
+    /// ìŠ¤í…Œì´ì§€ì— í•´ë‹¹í•˜ëŠ” ë§µì„ ìƒì„± 
     /// </summary>
     public void SpawnRandomMap()
     {
         //StageEnum stage = GameManager.Instance.GetStage();
         StageEnum stage = StageEnum.Castle;
-        // ·£´ıÇÑ ¸Ê ¼±ÅÃ
+        // ëœë¤í•œ ë§µ ì„ íƒ
         switch (stage)
         {
             case StageEnum.Castle:
-                InstantiateMaps(stageCastlePrefabs,stagecastleDevilPrefabs,stagecastleBossPrefabs);
+                InstantiateMaps(stageCastlePrefabs, stagecastleDevilPrefabs, stagecastleBossPrefabs);
                 break;
             case StageEnum.Swamp:
-                InstantiateMaps(stageSwampPrefabs,stageSwampDevilPrefabs,stageSwampBossPrefabs);
+                InstantiateMaps(stageSwampPrefabs, stageSwampDevilPrefabs, stageSwampBossPrefabs);
                 break;
             case StageEnum.Volcano:
-                InstantiateMaps(stageVolcanicPrefabs,stageVolcanicDevilPrefabs,stageVolcanicBossPrefabs);
+                InstantiateMaps(stageVolcanicPrefabs, stageVolcanicDevilPrefabs, stageVolcanicBossPrefabs);
                 break;
         }
         MapStart();
-        // »ı¼ºµÈ ¸Ê¿¡¼­ ÇÃ·¹ÀÌ¾î ½ºÆù Æ÷ÀÎÆ® Ã£±â
+        // ìƒì„±ëœ ë§µì—ì„œ í”Œë ˆì´ì–´ ìŠ¤í° í¬ì¸íŠ¸ ì°¾ê¸°
         Transform playerSpawnPoint = stageContainer.playerSpawnPoint;
         Transform[] monsterSpawnPoint = stageContainer.enemySpawnPoint;
 
@@ -52,7 +52,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ÊÀ» »ı¼ºÇÏ¿© ¹è¿­¿¡ Áı¾î³Ö´Â´Ù.
+    /// ë§µì„ ìƒì„±í•˜ì—¬ ë°°ì—´ì— ì§‘ì–´ë„£ëŠ”ë‹¤.
     /// </summary>
     /// <param name="mapPrefabs"></param>
     private void InstantiateMaps(GameObject[] mapPrefabs, GameObject devilPrefab, GameObject bossPrefab)
@@ -69,24 +69,24 @@ public class TileMapManager : MonoBehaviour
             selectedMapInstance[i] = Instantiate(selectedMap, Vector3.zero, Quaternion.identity);
             selectedMapInstance[i].SetActive(false);
         }
-        selectedMapInstance[TotalMaps-1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+        selectedMapInstance[TotalMaps - 1] = Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
         selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
 
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
-        Debug.Log($"¼±ÅÃµÈ ¸Ê: {selectedMapInstance[0].name}");
+        Debug.Log($"ì„ íƒëœ ë§µ: {selectedMapInstance[0].name}");
         SetTransrate();
     }
     /// <summary>
-    /// Å¬¸®¾î½Ã ´ÙÀ½¸Ê È°¼ºÈ­.
-    /// ¸ÊÀ» È°¼ºÈ­ÇÏ¸é¼­ ½ºÆùÆ÷ÀÎÆ® Àü´Ş
-    /// ½ºÅ×ÀÌÁö Å¬¸®¾î½Ã ¸ğµç ¸Ê »èÁ¦
+    /// í´ë¦¬ì–´ì‹œ ë‹¤ìŒë§µ í™œì„±í™”.
+    /// ë§µì„ í™œì„±í™”í•˜ë©´ì„œ ìŠ¤í°í¬ì¸íŠ¸ ì „ë‹¬
+    /// ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ì‹œ ëª¨ë“  ë§µ ì‚­ì œ
     /// </summary>
     public void NextMap()
     {
-        // ÇöÀç ¸Ê ºñÈ°¼ºÈ­
+        // í˜„ì¬ ë§µ ë¹„í™œì„±í™”
         if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(false);
@@ -94,14 +94,14 @@ public class TileMapManager : MonoBehaviour
 
         roundIndex++;
 
-        // ¸¸¾à ¸¶Áö¸· ¸Ê¿¡ µµ´ŞÇÏ¸é ¸ğµç ¸ÊÀ» »èÁ¦ÇÏ°í ½ºÅ×ÀÌÁö Å¬¸®¾î
+        // ë§Œì•½ ë§ˆì§€ë§‰ ë§µì— ë„ë‹¬í•˜ë©´ ëª¨ë“  ë§µì„ ì‚­ì œí•˜ê³  ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´
         if (roundIndex >= selectedMapInstance.Length)
         {
             foreach (GameObject map in selectedMapInstance)
             {
                 Destroy(map);
             }
-            // ½ºÅ×ÀÌÁö Å¬¸®¾î
+            // ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´
             return;
         }
         if (roundIndex == devilround)
@@ -111,7 +111,7 @@ public class TileMapManager : MonoBehaviour
             SpawnPlayer();
             return;
         }
-        // »õ·Î¿î ¸Ê È°¼ºÈ­
+        // ìƒˆë¡œìš´ ë§µ í™œì„±í™”
         if (roundIndex < selectedMapInstance.Length)
         {
             selectedMapInstance[roundIndex].SetActive(true);
@@ -122,7 +122,7 @@ public class TileMapManager : MonoBehaviour
 
 
     /// <summary>
-    /// ¸ÊÀÇ ÇÃ·¹ÀÌ¾î¿Í ¸ó½ºÅÍÀÇ ½ºÆù Æ÷ÀÎÆ®¸¦ °ÔÀÓ¸Ş´ÏÀú¿¡°Ô Àü´Ş
+    /// ë§µì˜ í”Œë ˆì´ì–´ì™€ ëª¬ìŠ¤í„°ì˜ ìŠ¤í° í¬ì¸íŠ¸ë¥¼ ê²Œì„ë©”ë‹ˆì €ì—ê²Œ ì „ë‹¬
     /// </summary>
     public void SetTransrate()
     {
@@ -133,7 +133,7 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼ÒÈ¯Æ÷ÀÎÆ®¸¦ ¹Ş¾Æ¿À´Â ÇÔ¼ö
+    /// ì†Œí™˜í¬ì¸íŠ¸ë¥¼ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="_playerSpawn"></param>
     /// <param name="_monsterSpawn"></param>
@@ -144,14 +144,14 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î¸¦ »ı¼º, ÀÌµ¿½ÃÅ°´Â ÇÔ¼ö
-    /// ¸Ê ÀÌµ¿½Ã ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ¹Ù²Ù¾îÁØ´Ù.
+    /// í”Œë ˆì´ì–´ë¥¼ ìƒì„±, ì´ë™ì‹œí‚¤ëŠ” í•¨ìˆ˜
+    /// ë§µ ì´ë™ì‹œ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ë°”ê¾¸ì–´ì¤€ë‹¤.
     /// </summary>
     public void SpawnPlayer()
     {
         if (playerSpawn == null)
         {
-            Debug.LogError("PlayerSpawn À§Ä¡°¡ ¼³Á¤µÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+            Debug.LogError("PlayerSpawn ìœ„ì¹˜ê°€ ì„¤ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             return;
         }
 
@@ -163,11 +163,11 @@ public class TileMapManager : MonoBehaviour
 
             if (GameManager.Instance.player != null)
             {
-                Debug.Log("»õ·Î¿î ÇÃ·¹ÀÌ¾î°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+                Debug.Log("ìƒˆë¡œìš´ í”Œë ˆì´ì–´ê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
             }
             else
             {
-                Debug.LogError("»ı¼ºµÈ ÇÃ·¹ÀÌ¾î¿¡ PlayerCharacter ÄÄÆ÷³ÍÆ®°¡ ¾ø½À´Ï´Ù!");
+                Debug.LogError("ìƒì„±ëœ í”Œë ˆì´ì–´ì— PlayerCharacter ì»´í¬ë„ŒíŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤!");
             }
         }
         else
@@ -177,31 +177,31 @@ public class TileMapManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ó½ºÅÍ¸¦ »ı¼ºÇÏ´Â ÇÔ¼ö
-    /// ½ºÆùÆ÷ÀÎÆ®Áß ·£´ıÇÑÆ÷ÀÎÆ®¿¡ ¸ó½ºÅÍ »ı¼º
+    /// ëª¬ìŠ¤í„°ë¥¼ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
+    /// ìŠ¤í°í¬ì¸íŠ¸ì¤‘ ëœë¤í•œí¬ì¸íŠ¸ì— ëª¬ìŠ¤í„° ìƒì„±
     /// </summary>
     public void SpawnMonsters()
     {
-        //¿©±â¿¡ ½ºÅ×ÀÌÁö ¸Å´ÏÀú¿¡¼­ ¸ó½ºÅÍ ¸¶¸®¼ö Á¤ÇØÁÙ°Í
+        //ì—¬ê¸°ì— ìŠ¤í…Œì´ì§€ ë§¤ë‹ˆì €ì—ì„œ ëª¬ìŠ¤í„° ë§ˆë¦¬ìˆ˜ ì •í•´ì¤„ê²ƒ
         if (monsterSpawn == null || monsterSpawn.Length < 3)
         {
-            Debug.LogError("¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ®°¡ ºÎÁ·ÇÕ´Ï´Ù! ÃÖ¼Ò 3°³ ÀÌ»ó ÇÊ¿äÇÕ´Ï´Ù.");
+            Debug.LogError("ëª¬ìŠ¤í„° ìŠ¤í° í¬ì¸íŠ¸ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤! ìµœì†Œ 3ê°œ ì´ìƒ í•„ìš”í•©ë‹ˆë‹¤.");
             return;
         }
 
-        // ·£´ıÇÑ 3°³ÀÇ ½ºÆù À§Ä¡ ¼±ÅÃ (Áßº¹ ¾øÀÌ)
+        // ëœë¤í•œ 3ê°œì˜ ìŠ¤í° ìœ„ì¹˜ ì„ íƒ (ì¤‘ë³µ ì—†ì´)
         Transform[] selectedSpawns = GetRandomSpawnPoints(3);
 
-        // ¼±ÅÃµÈ À§Ä¡¿¡ ¸ó½ºÅÍ »ı¼º
+        // ì„ íƒëœ ìœ„ì¹˜ì— ëª¬ìŠ¤í„° ìƒì„±
         foreach (Transform spawnPoint in selectedSpawns)
         {
-            Debug.Log("¸ó½ºÅÍ »ı¼º³Ñ°ÜÁÜ");
+            Debug.Log("ëª¬ìŠ¤í„° ìƒì„±ë„˜ê²¨ì¤Œ");
             GameManager.Instance.MonsterManager.Spawn(spawnPoint);
         }
     }
 
     /// <summary>
-    /// ¸ó½ºÅÍ ½ºÆù Æ÷ÀÎÆ® Áß ·£´ıÇÑ Æ÷ÀÎÆ®¸¦ ¼±ÅÃÇÏ¿© ¹İÈ¯
+    /// ëª¬ìŠ¤í„° ìŠ¤í° í¬ì¸íŠ¸ ì¤‘ ëœë¤í•œ í¬ì¸íŠ¸ë¥¼ ì„ íƒí•˜ì—¬ ë°˜í™˜
     /// </summary>
     /// <param name="count"></param>
     /// <returns></returns>
@@ -210,7 +210,7 @@ public class TileMapManager : MonoBehaviour
         List<Transform> spawnList = new List<Transform>(monsterSpawn);
         Transform[] selected = new Transform[count];
 
-        // Fisher-Yates ¼ÅÇÃÀ» »ç¿ëÇÏ¿© ¸®½ºÆ® ¼¯±â
+        // Fisher-Yates ì…”í”Œì„ ì‚¬ìš©í•˜ì—¬ ë¦¬ìŠ¤íŠ¸ ì„ê¸°
         for (int i = spawnList.Count - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -219,7 +219,7 @@ public class TileMapManager : MonoBehaviour
             spawnList[randomIndex] = temp;
         }
 
-        // ¾Õ¿¡¼­ºÎÅÍ `count`°³ ¼±ÅÃ
+        // ì•ì—ì„œë¶€í„° `count`ê°œ ì„ íƒ
         for (int i = 0; i < count; i++)
         {
             selected[i] = spawnList[i];
@@ -234,51 +234,3 @@ public class TileMapManager : MonoBehaviour
         GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
     }
 }
-
-
-/////////////////////////*½Â±Ô´Ô ÄÚµå*/////////////////////////
-//public Image SelectImage; // UI¿¡ Ç¥½ÃÇÒ ÀÌ¹ÌÁö
-//public Text SelectName; // ¸Ê ÀÌ¸§ Ç¥½Ã
-//public Sprite[] SelectImages; // ¸Ê ÀÌ¹ÌÁö ¹è¿­
-//public string[] SelectNames; // ¸Ê ÀÌ¸§ ¹è¿­
-//public GameObject[] MapPrefabs; // ¸Ê ÇÁ¸®ÆÕ ¹è¿­
-//public Transform mapSpawnPoint;
-//public Camera mainCamera;
-
-//private int SelectIndex = 0; // ÇöÀç ¼±ÅÃµÈ ¸ÊÀÇ ÀÎµ¦½º
-//private GameObject currentMapInstance; // ÇöÀç È°¼ºÈ­µÈ ¸Ê ÇÁ¸®ÆÕ
-
-//void Start()
-//{
-//    LoadSelectedMap();
-//}
-
-//void UpdateStageUI()
-//{
-//    if (SelectImages.Length > 0 && SelectNames.Length > 0)
-//    {
-//        SelectImage.sprite = SelectImages[SelectIndex];
-//        SelectName.text = SelectNames[SelectIndex];
-//    }
-//}
-
-////void GameStart()
-
-//void LoadSelectedMap()
-//{
-//    // ±âÁ¸ ¸Ê »èÁ¦
-//    if (currentMapInstance != null)
-//    {
-//        Destroy(currentMapInstance);
-//    }
-
-//    if (MapPrefabs != null && SelectIndex < MapPrefabs.Length && MapPrefabs[SelectIndex] != null)
-//    {
-//        currentMapInstance = Instantiate(MapPrefabs[SelectIndex], Vector3.zero, Quaternion.identity);
-//    }
-//    else
-//    {
-//        Debug.LogError("¸Ê ÇÁ¸®ÆÕÀÌ Á¸ÀçÇÏÁö ¾ÊÀ½: " + SelectNames[SelectIndex]);
-//    }
-//}
-/////////////////////////*½Â±Ô´Ô ÄÚµå*/////////////////////////

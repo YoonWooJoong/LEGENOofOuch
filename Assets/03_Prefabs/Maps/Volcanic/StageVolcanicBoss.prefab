@@ -3541,6 +3541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167454302241989980}
   - component: {fileID: 835029986206594746}
+  - component: {fileID: 4949753162617430352}
   m_Layer: 0
   m_Name: StageVolcanicBoss
   m_TagString: Untagged
@@ -3579,6 +3580,18 @@ MonoBehaviour:
   enemySpawnPoint:
   - {fileID: 5855670130072005208}
   playerSpawnPoint: {fileID: 5694500534875521474}
+--- !u!114 &4949753162617430352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294205467680841828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425c59db73a116b44a49b36a29f04002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7594098505226640813
 GameObject:
   m_ObjectHideFlags: 0

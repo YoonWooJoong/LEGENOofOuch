@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Bits: 256
   layerMaskTeam:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1088
 --- !u!50 &2335754997076783828
 Rigidbody2D:
   serializedVersion: 4
