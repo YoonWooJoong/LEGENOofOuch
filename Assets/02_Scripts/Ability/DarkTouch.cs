@@ -15,7 +15,7 @@ public class DarkTouch : AbilityBase
         gameManager = GameManager.Instance;
         projectileManager = gameManager.ProjectileManager;
 
-        projectileManager.SetBlaze(true);
+        projectileManager.SetDarkTouch(true);
         UpdateAbility();
     }
 
