@@ -6,13 +6,12 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     [SerializeField] GameObject[] monsterPrefebs;
-    [SerializeField] GameObject[] bossPrefebs;
     public List<EnemyCharacter> spawnedEnemys = new();
 
     public bool ClearSpawn => spawnedEnemys.Count == 0;
 
     /// <summary>
-    /// 호출되면 지정된 위치에서 무작위 적이 나타납니다.
+    /// 호출되면 지정된 범위내의 랜덤한 위치에서 무작위 적이 나타납니다.
     /// </summary>
     /// <param name="rect">적이 나타날 범위입니다.</param>
     public void Spawn(Transform spawnPoint)
@@ -20,23 +19,7 @@ public class MonsterManager : MonoBehaviour
         Debug.Log("몬스터Spawn");
         GameObject randomPrefeb = monsterPrefebs[Random.Range(0, monsterPrefebs.Length)];
 
-        MonsterSpawn(spawnPoint, randomPrefeb);
-    }
-
-    /// <summary>
-    /// 보스몬스터를 지정된 위치에 소환합니다.
-    /// </summary>
-    /// <param name="spawnPoint"></param>
-    public void BossSpawn(Transform spawnPoint)
-    {
-        Debug.Log("Boss몬스터Spawn");
-        GameObject randomPrefeb = bossPrefebs[Random.Range(0, monsterPrefebs.Length)];
-
-        MonsterSpawn(spawnPoint, randomPrefeb);
-    }
-
-    void MonsterSpawn (Transform spawnPoint, GameObject randomPrefeb)
-    {
+        //Vector2 randomP = new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
         //스폰포인트를 받아서 스폰
         Debug.Log($"몬스터스폰 위치{spawnPoint}");
         GameObject spawned = Instantiate(randomPrefeb, spawnPoint.position, spawnPoint.rotation);
