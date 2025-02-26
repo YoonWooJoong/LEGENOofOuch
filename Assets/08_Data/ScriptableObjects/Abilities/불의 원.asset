@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
   m_Name: "\uBD88\uC758 \uC6D0"
   m_EditorClassIdentifier: 
-  ability: 18
+  ability: 17
   abilityName: "\uBD88\uC758 \uC6D0"
   description: "\uC911\uAC70\uB9AC\uC5D0\uC11C \uBC18\uC2DC\uACC4\uBC29\uD5A5\uC73C\uB85C
     \uD68C\uC804\uD558\uB294 2 \uAC1C\uC758 \uAD6C\uCCB4\uB97C \uC0DD\uC131\uD55C\uB2E4.
-    \uAE30\uBCF8 \uB300\uBBF8\uC9C0\uC758 85 %\uB97C \uC8FC\uBA70,"
+    \uAE30\uBCF8 \uB300\uBBF8\uC9C0\uC758 {0}%\uB97C \uC900\uB2E4."
   rank: 0
   canUpgrade: 0
   values:

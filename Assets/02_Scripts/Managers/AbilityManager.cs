@@ -9,10 +9,12 @@ public class AbilityManager : MonoBehaviour
     public AbilityRepositoy AbilityRepositoy => abilityRepositoy;
 
     [SerializeField] private Transform abilityParent;
+    private bool multiShotOn = false;
 
     private void Awake()
     {
         abilityParent = transform;
+        SetAbility(AbilityEnum.FrontShot);
     }
 
     /// <summary>
@@ -61,5 +63,14 @@ public class AbilityManager : MonoBehaviour
     public AbilityDataSO FindAbilityData(AbilityEnum abilityEnum)
     {
         return abilityRepositoy.FindAbilityData(abilityEnum);
+    }
+
+    public void SetMultiShotOn(bool value)
+    {
+        multiShotOn = value;
+    }
+    public bool GetMultiShotOn()
+    {
+        return multiShotOn;
     }
 }

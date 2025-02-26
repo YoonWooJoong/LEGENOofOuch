@@ -5,13 +5,24 @@ using UnityEngine;
 
 public class Blaze : AbilityBase
 {
+    private GameManager gameManager;
+    private ProjectileManager projectileManager;
+
     public override void Init(AbilityDataSO abilityDataSO)
     {
         base.Init(abilityDataSO);
+
+        gameManager = GameManager.Instance;
+        projectileManager = gameManager.ProjectileManager;
+
+        projectileManager.SetBlaze(true);
+        UpdateAbility();
     }
 
-    public override void UseSkill()
+    protected override void UpdateAbility()
     {
-        Debug.Log($"UseSkill{this.name}");
+        float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
+        value *= 0.01f;
+        projectileManager.SetBlazeDecresaseDamage(value);
     }
 }
