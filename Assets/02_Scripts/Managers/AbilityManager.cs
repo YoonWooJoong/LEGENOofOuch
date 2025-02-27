@@ -11,6 +11,9 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private Transform abilityParent;
     private bool multiShotOn = false;
 
+    /// <summary>
+    /// 어빌리티 생성시 하이라이키 정리를 위한 부모 설정
+    /// </summary>
     private void Start()
     {
         abilityParent = transform;
@@ -68,6 +71,10 @@ public class AbilityManager : MonoBehaviour
         return abilityRepositoy.FindAbilityData(abilityEnum);
     }
 
+    /// <summary>
+    /// 어빌리티 중 멀티샷 기능 On/Off
+    /// </summary>
+    /// <param name="value"></param>
     public void SetMultiShotOn(bool value)
     {
         multiShotOn = value;

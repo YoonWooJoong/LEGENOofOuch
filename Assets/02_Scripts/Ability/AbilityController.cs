@@ -25,6 +25,9 @@ public class AbilityController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 현재 컨트롤러가 가지고 있는 Abilitybase의 UseSkill() 작동
+    /// </summary>
     public void UseSkill()
     {
         AbilityBase?.UseSkill();

@@ -20,6 +20,10 @@ public class AbilityRepositoy : MonoBehaviour
         InitDictionary();
     }
 
+    /// <summary>
+    /// abilityDataSOs 변수 세팅
+    /// </summary>
+    /// <param name="abilityDataSOs"></param>
     public void SetabilityDataSOs(AbilityDataSO[] abilityDataSOs)
     {
         this.abilityDataSOs = abilityDataSOs;

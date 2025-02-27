@@ -5,6 +5,9 @@ using UnityEngine.U2D;
 using static UnityEngine.Rendering.DebugUI;
 
 
+/// <summary>
+/// ¾îºô¸®Æ¼ SO
+/// </summary>
 [CreateAssetMenu(fileName = "NewAbility", menuName = "Scriptable Object/Ability Data", order = int.MaxValue)]
 public class AbilityDataSO : ScriptableObject
 {

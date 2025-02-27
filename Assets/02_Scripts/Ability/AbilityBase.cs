@@ -4,6 +4,9 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 
+/// <summary>
+/// 각 어빌리티가 가지고 있는 정보
+/// </summary>
 public struct AbilityData
 {
     public AbilityEnum abilityID { get; }
@@ -48,8 +51,14 @@ public abstract class AbilityBase : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 어빌리티 내용 업데이트 (수치)
+    /// </summary>
     protected virtual void UpdateAbility() { }
 
+    /// <summary>
+    /// 스킬 사용시 작동함
+    /// </summary>
     public virtual void UseSkill() { }
 
     /// <summary>

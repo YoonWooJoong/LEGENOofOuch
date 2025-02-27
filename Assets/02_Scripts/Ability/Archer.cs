@@ -39,6 +39,9 @@ public class Archer : AbilityBase
         }
     }
 
+    /// <summary>
+    /// 모든 방향으로 화살 발사
+    /// </summary>
     private void FireInAllDirections()
     {
         Vector3 playerPos = player.transform.position;
