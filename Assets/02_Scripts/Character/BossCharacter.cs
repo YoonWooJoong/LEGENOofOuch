@@ -17,6 +17,7 @@ public class BossCharacter : EnemyCharacter
 
         if (attackCount >= attackThreshold)
         {
+            animHandle.Attack(AttackSpeed);
             FireInAllDirections(); // 전방향 공격 실행
             attackCount = 0; // 카운트 초기화
             return;
