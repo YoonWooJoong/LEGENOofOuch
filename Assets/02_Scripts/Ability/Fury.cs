@@ -26,7 +26,7 @@ public class Fury : AbilityBase
 
     protected override void UpdateAbility()
     {
-        damageIncreasePerPercent = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
+        damageIncreasePerPercent = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
     }
 
     private IEnumerator UpdateFuryDamage(PlayerCharacter player)
@@ -42,9 +42,7 @@ public class Fury : AbilityBase
             furyAtkBonus = newFuryAtkBonus;
             player.AtkBuf += furyAtkBonus;
 
-            Debug.Log($" 잃은 체력: {lostHpPercent}%, Fury 추가 공격력: {furyAtkBonus * 100}%");
-
-            yield return new WaitForSeconds(0.5f); // 0.5초마다 업데이트
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

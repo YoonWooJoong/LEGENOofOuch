@@ -17,18 +17,17 @@ public class HPBoost : AbilityBase
 
         if (isUpgraded)
         {
-            player.MaxHpBuf -= abilityData.values[0];
+            player.MaxHpBuf -= abilityData.values[0] * 0.01f;
         }
 
         // 새로운 HP 버프 적용
         float previousMaxHp = player.MaxHp;  // 기존 최대 체력 저장
-        float hpBoost = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
+        float hpBoost = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
         player.MaxHpBuf += hpBoost;
         float newMaxHp = player.MaxHp;  // 새로운 최대 체력 저장
 
         // 증가한 체력만큼 회복
         float hpIncrease = newMaxHp - previousMaxHp;
         player.ChangeHealth(hpIncrease);
-        Debug.Log($"hp 부스트 {player.MaxHpBuf} 체력 증가");
     }
 }

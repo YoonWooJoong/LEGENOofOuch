@@ -18,10 +18,10 @@ public class AttackBoost : AbilityBase
 
         if (isUpgraded)
         {
-            player.AtkBuf -= abilityData.values[0];
+            player.AtkBuf -= abilityData.values[0] * 0.01f;
         }
 
-        float attackBoost = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
+        float attackBoost = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
         player.AtkBuf += attackBoost;
     }
 }

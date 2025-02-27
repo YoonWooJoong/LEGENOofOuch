@@ -32,8 +32,7 @@ public class Warrior : AbilityBase
 
     protected override void UpdateAbility()
     {
-        sizeMultiplier = isUpgraded ? abilityData.values[1] : abilityData.values[0];
-        sizeMultiplier *= 0.01f;
+        sizeMultiplier = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
     }
 
     private IEnumerator AutoShootProjectile()

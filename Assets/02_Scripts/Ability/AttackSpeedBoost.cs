@@ -18,9 +18,10 @@ public class AttackSpeedBoost : AbilityBase
 
         if (isUpgraded)
         {
-            player.AsBuf -= abilityData.values[0];
+            player.AsBuf -= abilityData.values[0] * 0.01f;
         }
         float attackSpeedBoost = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
+        Debug.LogError(attackSpeedBoost);
         player.AsBuf += attackSpeedBoost;
     }
 }

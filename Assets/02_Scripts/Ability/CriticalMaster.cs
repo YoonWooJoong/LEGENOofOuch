@@ -17,9 +17,9 @@ public class CriticalMaster : AbilityBase
 
         if (isUpgraded)
         {
-            player.CriChanceBuf -= abilityData.values[0];
+            player.CriChanceBuf -= abilityData.values[0] * 0.01f;
         }
-        float criChanceBoost = isUpgraded ? abilityData.values[1] : abilityData.values[0] * 0.01f;
+        float criChanceBoost = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
         player.CriChanceBuf += criChanceBoost;
         player.CriDmgBuf = 0.4f;
 
