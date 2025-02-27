@@ -21,6 +21,7 @@ public class MultiShot : AbilityBase
 
         UpdateAbility();
     }
+
     protected override void UpdateAbility()
     {
         float value;

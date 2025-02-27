@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
         LevelManager.ClearPotion();
         MonsterManager.ClearSpawns();
+        AbilityManager.SetMultiShotOn(false);
     }
 
     /// <summary>
