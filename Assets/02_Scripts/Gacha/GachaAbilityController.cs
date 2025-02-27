@@ -28,6 +28,11 @@ public class GachaAbilityController : MonoBehaviour
         return upgradeCounts[(int)ability];
     }
 
+    /// <summary>
+    /// 지정한 능력이 풀 업그레이드 상태인지 확인합니다.
+    /// </summary>
+    /// <param name="ability"></param>
+    /// <returns></returns>
     public bool FullUpgrade(AbilityEnum ability)
     {
         if (upgradeCounts[(int)ability] == 2)
@@ -39,6 +44,10 @@ public class GachaAbilityController : MonoBehaviour
             return false;
         }
     }
+    /// <summary>
+    /// 업그레이드 횟수를 초기화합니다.
+    /// 게임 시작 시 호출.
+    /// </summary>
     public void ClearUpgradeCount()
     {
         for (int i = 0; i < upgradeCounts.Length; i++)
