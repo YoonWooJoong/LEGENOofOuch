@@ -207,7 +207,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        //여기에 스테이지 매니저에서 몬스터 마리수 정해줄것
         if (monsterSpawn == null || monsterSpawn.Length < 3)
         {
             Debug.LogError("몬스터 스폰 포인트가 부족합니다! 최소 3개 이상 필요합니다.");
@@ -220,8 +219,11 @@ public class LevelManager : MonoBehaviour
         // 선택된 위치에 몬스터 생성
         foreach (Transform spawnPoint in selectedSpawns)
         {
-            Debug.Log("몬스터 생성넘겨줌");
+            int i = 0;
+            Debug.Log(i);
+            Debug.Log("몬스터생성");
             GameManager.Instance.MonsterManager.Spawn(spawnPoint);
+            i++;
         }
     }
 
