@@ -37,20 +37,22 @@ public class MonsterManager : MonoBehaviour
 
     void MonsterSpawn(Transform spawnPoint, GameObject randomPrefeb)
     {
-        //소환 전 남아있는 몬스터들 다 삭제
-        while (spawnedEnemys.Count > 0)
-        {
-            var enemy = spawnedEnemys[0];
-            spawnedEnemys.Remove(enemy);
-            Destroy(enemy.gameObject);
-        }
-
         //스폰포인트를 받아서 스폰
         Debug.Log($"몬스터스폰 위치{spawnPoint}");
         GameObject spawned = Instantiate(randomPrefeb, spawnPoint.position, spawnPoint.rotation);
         EnemyCharacter enemyCharacter = spawned.GetComponent<EnemyCharacter>();
 
         spawnedEnemys.Add(enemyCharacter);
+    }
+
+    public void ClearSpawns()
+    {
+        while (spawnedEnemys.Count > 0)
+        {
+            var enemy = spawnedEnemys[0];
+            spawnedEnemys.Remove(enemy);
+            Destroy(enemy.gameObject);
+        }
     }
 
     /// <summary>

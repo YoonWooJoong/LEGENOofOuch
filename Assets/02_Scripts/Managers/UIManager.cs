@@ -117,27 +117,18 @@ public class UIManager : MonoBehaviour
         number = number - 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
+
     /// <summary>
     /// 게임오버 , 클리어시 택스트 출력
     /// </summary>
-    public void GameOver()
+    
+    public void GameEndUI(bool isClear, float gameTimer)
     {
-        GameCrealorOverText.text = "Game Over";
+        GameCrealorOverText.text = isClear ? "Game Clear" : "Game Over";
         GameOverPanel.SetActive(true);
 
-        GameManager.Instance.EndGame();
         int minutes = (int)(GameManager.Instance.gameTimer / 60);
         int seconds = (int)(GameManager.Instance.gameTimer % 60);
         Time.text = $"{minutes:00}:{seconds:00}";
     }
-    public void GameClear()
-    {
-        GameCrealorOverText.text = "Game Clear";
-        GameOverPanel.SetActive(true);
-
-        GameManager.Instance.EndGame();
-        int minutes = (int)(GameManager.Instance.gameTimer / 60);
-        int seconds = (int)(GameManager.Instance.gameTimer % 60);
-        Time.text = $"{minutes:00}:{seconds:00}";
-    }   
 }

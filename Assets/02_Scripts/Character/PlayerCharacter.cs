@@ -114,7 +114,7 @@ public class PlayerCharacter : BaseCharacter
         //사망시 게임종료 로직 실행
         Achievements.TriggerFirstDeath();
         base.Death();
-        GameManager.Instance.UIManager.GameOver();
+        GameManager.Instance.EndGame();
     }
 
     protected override void Attack()

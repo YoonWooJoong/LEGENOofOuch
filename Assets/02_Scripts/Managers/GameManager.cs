@@ -77,7 +77,13 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         isGameRunning = false;
-    }
+        bool isClear = (player != null && player.CurHp > 0);
+        UIManager.GameEndUI(isClear, gameTimer);
+
+        if (player != null)
+            Destroy(player.gameObject);
+        MonsterManager.ClearSpawns();
+    }   
 
     /// <summary>
     /// 몬스터를 죽였을때 호출되는 함수
@@ -147,7 +153,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GoNextMap()
     {
-        if (MonsterManager.ClearSpawn)    
+        if (MonsterManager.ClearSpawn)
             LevelManager.NextMap();
     }
 

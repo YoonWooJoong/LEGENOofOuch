@@ -103,7 +103,7 @@ public class LevelManager : MonoBehaviour
         // 만약 마지막 맵에 도달하면 모든 맵을 삭제하고 스테이지 클리어
         if (roundIndex >= selectedMapInstance.Length)
         {
-            GameManager.Instance.UIManager.GameClear();
+            GameManager.Instance.EndGame();
             switch (stageEnum)
             {
                 case StageEnum.Castle:
@@ -200,6 +200,8 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void SpawnMonsters()
     {
+        GameManager.Instance.MonsterManager.ClearSpawns();
+
         //보스스테이이면 보스몹 소환하고 종료
         if (roundIndex == TotalMaps - 1 && monsterSpawn.Length >= 1)
         {
