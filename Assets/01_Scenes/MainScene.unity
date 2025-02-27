@@ -6554,7 +6554,10 @@ MonoBehaviour:
   - {fileID: 3760012203042012043, guid: 7faa231fab9740d45bc6450190ca9f36, type: 3}
   - {fileID: 3760012203042012043, guid: b2393c9125a5c244cb15948a38f38cce, type: 3}
   - {fileID: 3760012203042012043, guid: dad99e4301cf21742bdbc376a4a763c2, type: 3}
-  bossPrefebs: []
+  bossPrefebs:
+  - {fileID: 3760012203042012043, guid: c4b197f48f227ad43b1394ffc1e8b2c5, type: 3}
+  - {fileID: 3760012203042012043, guid: a733324470b1f194189d4176d6ef38eb, type: 3}
+  - {fileID: 3760012203042012043, guid: b48d5f2e48fffe44bb273064c0f913b2, type: 3}
   spawnedEnemys: []
 --- !u!1 &1552250267
 GameObject:
