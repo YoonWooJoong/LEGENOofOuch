@@ -46,7 +46,7 @@ public class Mage : AbilityBase
             int randomIndex = Random.Range(0, monsterManager.spawnedEnemys.Count);
             EnemyCharacter targetEnemy = monsterManager.spawnedEnemys[randomIndex];
 
-            if (targetEnemy == null || targetEnemy.GetCurHp() <= 0) continue;
+            if (targetEnemy == null || targetEnemy.CurHp <= 0) continue;
 
             // 데미지 적용
             float lightningDamage = player.AttackPower * damageMultiplier;

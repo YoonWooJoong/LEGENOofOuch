@@ -142,27 +142,4 @@ public class BaseCharacter : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    /// <summary>
-    /// 현재 HP 반환
-    /// </summary>
-    /// <returns></returns>
-    public float GetCurHp()
-    {
-        return CurHp;
-    }
-
-    /// <summary>
-    /// 현재 바라보는 방향 vector
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 GetlookDir()
-    {
-        return lookDir;
-    }
-
-    public SpriteRenderer GetPlayerSpriteRenderer()
-    {
-        return sprite;
-    }
 }

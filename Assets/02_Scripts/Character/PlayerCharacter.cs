@@ -87,7 +87,7 @@ public class PlayerCharacter : BaseCharacter
             var enemyCharacter = enemy.GetComponent<EnemyCharacter>();
             float distance = (enemyCharacter.gameObject.transform.position - transform.position).magnitude;
 
-            if (distance < TargetDis && enemyCharacter.GetCurHp() != 0)
+            if (distance < TargetDis && enemyCharacter.CurHp != 0)
                 target = enemy.GameObject().transform;
         }
     }

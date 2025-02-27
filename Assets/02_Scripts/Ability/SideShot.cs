@@ -31,7 +31,7 @@ public class SideShot : AbilityBase
         PlayerClassEnum pClass = player.GetPlayerClass();
 
         // 캐릭터가 바라보는 방향 벡터
-        Vector3 lookDir = player.GetlookDir().normalized;
+        Vector3 lookDir = player.LookDir.normalized;
 
         // lookDir 기준으로 오른쪽 방향 벡터 구하기 (법선 벡터 이용)
         Vector3 rightDir = Vector3.Cross(Vector3.forward, lookDir).normalized;

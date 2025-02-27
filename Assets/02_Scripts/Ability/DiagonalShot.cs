@@ -27,7 +27,7 @@ public class DiagonalShot : AbilityBase
 
     public override void UseSkill()
     {
-        Vector3 lookDir = player.GetlookDir();
+        Vector3 lookDir = player.LookDir;
         PlayerClassEnum pClass = player.GetPlayerClass();
 
         // 기본 화살 (전방 1개)

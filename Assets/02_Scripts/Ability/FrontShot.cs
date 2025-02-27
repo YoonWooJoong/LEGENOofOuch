@@ -38,7 +38,7 @@ public class FrontShot : AbilityBase
 
     public override void UseSkill()
     {
-        Vector3 lookDir = player.GetlookDir();
+        Vector3 lookDir = player.LookDir;
         PlayerClassEnum pClass = player.GetPlayerClass();
 
         for (int i = 0; i < arrowCount; i++)

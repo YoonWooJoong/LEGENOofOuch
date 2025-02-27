@@ -23,8 +23,8 @@ public class Invincibility : AbilityBase
         {
             StopCoroutine(invincibilityCoroutine);
         }
-        spriteRenderer = player.GetPlayerSpriteRenderer();
-        originalMat = player.GetPlayerSpriteRenderer().material;
+        spriteRenderer = player.Sprite;
+        originalMat = player.Sprite.material;
         invincibilityCoroutine = StartCoroutine(ActivateInvincibility(player));
     }
 

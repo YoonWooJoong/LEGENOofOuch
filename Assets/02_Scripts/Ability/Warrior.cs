@@ -42,7 +42,7 @@ public class Warrior : AbilityBase
             yield return new WaitForSeconds(skillCooldown);
 
             Vector3 playerPos = player.transform.position;
-            Vector3 lookDir = player.GetlookDir();
+            Vector3 lookDir = player.LookDir;
             PlayerClassEnum pClass = player.GetPlayerClass();
 
             Vector3 projectileScale = Vector3.one * sizeMultiplier; // 크기 적용
