@@ -26,7 +26,9 @@ public class ProjectileManager : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Projectile 능력정보 초기화
+    /// </summary>
     public void ClearProjectile()
     {
         contactWallCount = 0;
@@ -85,7 +87,7 @@ public class ProjectileManager : MonoBehaviour
 
         FireOrbController fireOrbController1 = obj1.GetComponent<FireOrbController>();
         FireOrbController fireOrbController2 = obj2.GetComponent<FireOrbController>();
-        fireOrbController1.Init(0);
+        fireOrbController1.Init(0); //각도로 2개 생성
         fireOrbController2.Init(180);
     }
 
@@ -116,7 +118,13 @@ public class ProjectileManager : MonoBehaviour
         projectileController.Init(direction, false, false, GameManager.Instance.player.AttackPower* fairyDecreaseDamage);
         
     }
-
+    /// <summary>
+    /// 큰 검기 오브젝트 반환해주는 메서드
+    /// </summary>
+    /// <param name="startPosition"></param>
+    /// <param name="direction"></param>
+    /// <param name="playerClass"></param>
+    /// <returns></returns>
     public GameObject ShootBigSwordAura(Vector3 startPosition, Vector3 direction, PlayerClassEnum playerClass)
     {
         GameObject origin = projectilePrefabs[Convert.ToInt32(playerClass)];
@@ -142,6 +150,8 @@ public class ProjectileManager : MonoBehaviour
     /// BlazeDecresaseDamage; // 블레이즈 데미지 감소량
     /// fireOrbDecreaseDamage; // 불의원 데미지 감소량
     /// fairyDecreaseDamage // 정령 데미지 감소량
+    /// isBlaze // 블레이즈 on off
+    /// isDarkTouch // 어둠의 접촉 on off
     /// </summary>
     /// <returns></returns>
     #region

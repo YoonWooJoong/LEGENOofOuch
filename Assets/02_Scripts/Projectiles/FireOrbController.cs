@@ -18,6 +18,10 @@ public class FireOrbController : MonoBehaviour
     {
         SurroundPosition();
     }
+
+    /// <summary>
+    /// 생성시 플레이어 주변 회전하는 메서드
+    /// </summary>
     private void SurroundPosition()
     {
         deg += Time.deltaTime * speed;
@@ -36,12 +40,17 @@ public class FireOrbController : MonoBehaviour
         else { deg = 0; }
     }
 
+
+    /// <summary>
+    /// 적과 접촉했을때 구현
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer)))
         {
             EnemyCharacter enemy = collision.gameObject.GetComponent<EnemyCharacter>();
-            enemy.ChangeHealth(-(GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetFireOrbDecreaseDamage())); // 변수 바뀌면 적용
+            enemy.ChangeHealth(-(GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetFireOrbDecreaseDamage())); 
         }
     }
 

@@ -11,11 +11,19 @@ public class SurroundController : MonoBehaviour
     private float AttackDelay = 5f; // 공격 딜레이
     private bool IsAttacking = true; // 공격 여부
 
+    /// <summary>
+    /// 각도 받아옴
+    /// </summary>
+    /// <param name="chagedeg"></param>
     public void Init(float chagedeg = 0)
     {
         deg = chagedeg;
     }
-    // Update is called once per frame
+    
+
+    /// <summary>
+    /// 5초마다 공격하고 플레이어 주변을 돌아다님
+    /// </summary>
     void Update()
     {
         SurroundPosition();
@@ -34,7 +42,7 @@ public class SurroundController : MonoBehaviour
     }
 
     /// <summary>
-    /// 생성시 회전시키는 메서드
+    /// 생성시 플레이어 주변을 회전시키는 메서드
     /// </summary>
     private void SurroundPosition()
     {
