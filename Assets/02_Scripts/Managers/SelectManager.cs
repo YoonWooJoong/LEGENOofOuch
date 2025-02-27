@@ -32,42 +32,50 @@ public class SelectManager : MonoBehaviour
         SetSelectedStageIndex(0);
     }
 
-    public void OnClick_CheckSelectedCharacter()
-    {
-        PlayerClassEnum num = GetSelectedCharacter();
-        Debug.Log($"선택된 캐릭터 인덱스: {num}");
-    }
 
-    public void OnClick_CheckSelectedStage()
-    {
-        StageEnum num2 = GetSelectedStageIndex();
-        Debug.Log($"선택된 스테이지 인덱스: {num2}");
-    }
-    public PlayerClassEnum GetSelectedCharacter()
+    /// <summary>
+    /// 선택된 캐릭터 인덱스값 반환
+    /// </summary>
+    /// <returns></returns>
+    public PlayerClassEnum GetSelectedCharacter() 
     {
         return (PlayerClassEnum)selectedCharacterIndex;
     }
-    
+
+
+    /// <summary>
+    ///선택창에 캐릭터 이미지,이름 표시
+    /// </summary>
+    /// <param name="index"></param>
     public void SelectCharater(int index)
     {
         PlayerClassEnum playerClass = (PlayerClassEnum)index;
-        Debug.Log($"선택된 캐릭터  + { playerClass}   {index}");
+
         selectedCharacterIndex = index;
         GameManager.Instance.SelectManager.selectedCharacterIndex = index;//게임메니저에 선택된 캐릭터 인덱스 전달
 
-        characterPreview.sprite = characterImages[index];
-        characterNameText.text = characterNames[index];
+        characterPreview.sprite = characterImages[index]; // 선택된 캐릭터 이미지 표시
+        characterNameText.text = characterNames[index]; //선택된 캐릭터 이름 표시
     }
 
+    /// <summary>
+    /// 스테이지 인덱스값  반환
+    /// </summary>
+    /// <returns></returns>
     public StageEnum GetSelectedStageIndex()
     {
         return (StageEnum)selectedStageIndex;
     }
 
+
+    /// <summary>
+    /// 선택창에 스테이지 이미지,이름 표시
+    /// </summary>
+    /// <param name="number"></param>
     public void SetSelectedStageIndex(int number)
     {
         StageEnum stage = (StageEnum)number;
-        Debug.Log($"선택된 스테이지 {stage}");
+
         selectedStageIndex = number;
         GameManager.Instance.SelectManager.selectedStageIndex = number;// 게임메니저에 선택된 스테이지 인덱스 전달
 

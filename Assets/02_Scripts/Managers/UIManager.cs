@@ -32,25 +32,24 @@ public class UIManager : MonoBehaviour
         ButtonActivate();
     }
 
-
+    ///int 값에 따른 패널 실행
     public void toglePanel(int selectPanelNumber)
     {
         switch (selectPanelNumber)
         {
-            case 0:
+            case 0://시작 패널
                 startUI.SetActive(!startUI.activeSelf);
                 break;
 
-            case 1:
+            case 1: //캐릭터 패널
                 characterUI.SetActive(!characterUI.activeSelf);
                 break;
 
-            case 2:
+            case 2: //설정 패널
                 settingUI.SetActive(!settingUI.activeSelf);
                 break;
-            case 3:
+            case 3: //게임시작 버튼
                 StageEnum selectedStageIndex = GameManager.Instance.SelectManager.GetSelectedStageIndex();
-                Debug.Log("선택된 스테이지 인덱스" + selectedStageIndex);
                 if (Enum.IsDefined(typeof(StageEnum), selectedStageIndex))
                 {
                     StageEnum stage = selectedStageIndex;
@@ -58,33 +57,30 @@ public class UIManager : MonoBehaviour
                     switch (stage)
                     {
                         case StageEnum.Castle:
-                            Debug.Log("Castle");
                             break;
                         case StageEnum.Swamp:
-                            Debug.Log("Swamp");
                             break;
                         case StageEnum.Volcano:
-                            Debug.Log("Volcano");
                             break;
                     }
                     MainCanvas.SetActive(!MainCanvas.activeSelf);
                     GameManager.Instance.StartGame();
                 }
                 break;
-            case 4:
+            case 4: //게임오버 패널 ->  메인캔버스로 이동
                 GameManager.Instance.TileMapManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
                 break;
-            case 5:
+            case 5: //오버 패널 -> 다시시작하는 버튼
                 GameManager.Instance.TileMapManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 GameManager.Instance.StartGame();
                 break;
-            case 6:
+            case 6: //튜토리얼 패널
                 TutorialUI.SetActive(!TutorialUI.activeSelf);
                 break;
-            case 7:
+            case 7: //업적 패널
                 AchievementUI.SetActive(!AchievementUI.activeSelf);
                 break;
 
@@ -104,7 +100,7 @@ public class UIManager : MonoBehaviour
         nextStageButton.SetActive((int)number < GameManager.Instance.SelectManager.stageImages.Length - 1);
     }
     /// <summary>
-    /// 다음스테이지 화면을 볼 수 있게 해주는 버튼
+    /// 선택창에서 다음스테이지를 띄워주는 버튼
     /// </summary>
     public void NextStageButton()
     {
@@ -113,7 +109,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
     /// <summary>
-    /// 스테이지 화면을 볼 수 있게 해주는 버튼
+    /// 선택창에서 이전스테이지 를띄워주는 버튼
     /// </summary>
     public void PreviousStageButton()
     {
@@ -121,6 +117,9 @@ public class UIManager : MonoBehaviour
         number = number - 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
+    /// <summary>
+    /// 게임오버 , 클리어시 택스트 출력
+    /// </summary>
     public void GameOver()
     {
         GameCrealorOverText.text = "Game Over";
