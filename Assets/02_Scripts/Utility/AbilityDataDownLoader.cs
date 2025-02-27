@@ -31,18 +31,6 @@ public class AbilityDataDownLoader : MonoBehaviour
 
     const string URL_AbilityDataSheet = "https://docs.google.com/spreadsheets/d/1Pl0qeIoV5spMGGxwze2p57locYqj8LpiyNRB4fx34r0/export?format=tsv&range=A1:H23"; // ability
 
-    private void Awake()
-    {
-      //  StartDownload(false);
-    }
-    private void Start()
-    {
-        Invoke("SetActiveDisable", 10f);
-    }
-    private void SetActiveDisable()
-    {
-        gameObject.SetActive(false);
-    }
     public void StartDownload(bool renameFiles)
     {
         StartCoroutine(DownloadAbilityData(renameFiles));
@@ -139,7 +127,6 @@ public class AbilityDataDownLoader : MonoBehaviour
             }
             else
             {
-                Debug.Log("sefes");
                 abilityData = CreateNewAbilityDataSO(abilityName); // 货肺款 SO 积己
                 abilityDataSO.Add(abilityData);
             }
@@ -213,6 +200,7 @@ public class AbilityDataDownLoader : MonoBehaviour
     {
         AbilityDataSO newSO = ScriptableObject.CreateInstance<AbilityDataSO>();
 
+#if UNITY_EDITOR
         string folderPath = "Assets/08_Data/ScriptableObjects/Abilities"; 
         if (!Directory.Exists(folderPath))
         {
@@ -225,6 +213,7 @@ public class AbilityDataDownLoader : MonoBehaviour
         AssetDatabase.Refresh();
 
         Debug.Log($"货肺款 ScriptableObject 积己: {assetPath}");
+#endif
         return newSO;
     }
 
