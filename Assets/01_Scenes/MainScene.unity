@@ -1842,7 +1842,7 @@ MonoBehaviour:
   <UIManager>k__BackingField: {fileID: 1313185638}
   <ProjectileManager>k__BackingField: {fileID: 94595738}
   <SelectManager>k__BackingField: {fileID: 959683902}
-  <TileMapManager>k__BackingField: {fileID: 735993694}
+  <LevelManager>k__BackingField: {fileID: 735993694}
   <MonsterManager>k__BackingField: {fileID: 1549722065}
   <GachaManager>k__BackingField: {fileID: 6311328766886578965}
   playerClassEnum: 0
@@ -4535,7 +4535,7 @@ GameObject:
   - component: {fileID: 735993693}
   - component: {fileID: 735993694}
   m_Layer: 0
-  m_Name: TileMapManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
