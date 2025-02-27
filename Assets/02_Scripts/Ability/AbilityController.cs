@@ -16,7 +16,6 @@ public class AbilityController : MonoBehaviour
     {
         if (abilityBase == null)
         {
-            Debug.LogError("abilityBase가 설정되지 않았다", this);
             return;
         }
 

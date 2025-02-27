@@ -52,6 +52,9 @@ public abstract class AbilityBase : MonoBehaviour
 
     public virtual void UseSkill() { }
 
+    /// <summary>
+    /// 어빌리티 업그레이드하고 수치도 업데이트
+    /// </summary>
     public void UpgradeAbility()
     {
         isUpgraded = true;

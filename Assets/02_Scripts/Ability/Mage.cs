@@ -31,8 +31,7 @@ public class Mage : AbilityBase
 
     protected override void UpdateAbility()
     {
-        float value = isUpgraded ? abilityData.values[1] : abilityData.values[0];
-        damageMultiplier = value * 0.01f; // % 값을 1.0 기준 변환
+        damageMultiplier = (isUpgraded ? abilityData.values[1] : abilityData.values[0]) * 0.01f;
     }
 
     private IEnumerator AutoLightningStrike()

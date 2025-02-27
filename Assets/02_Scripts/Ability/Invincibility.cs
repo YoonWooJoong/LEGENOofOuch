@@ -41,7 +41,6 @@ public class Invincibility : AbilityBase
         while (player != null && player.GetCurHp() > 0)
         {
             player.GodMod = true; // 무적 상태 활성화
-            Debug.Log("무적 시작");
 
             StartCoroutine(BlinkEffect(player, invincibleMat, originalMat)); // 깜빡이는 효과
 
@@ -49,7 +48,6 @@ public class Invincibility : AbilityBase
 
             player.GodMod = false; // 무적 상태 해제
             spriteRenderer.material = originalMat; // 원래 머티리얼 복원
-            Debug.Log("무적 종료");
 
             yield return new WaitForSeconds(cooldownTime); // {n}초 대기
         }
@@ -60,7 +58,7 @@ public class Invincibility : AbilityBase
         for (int i = 0; i < 6; i++) // 6번 깜빡이게 설정
         {
             spriteRenderer.material = (i % 2 == 0) ? blinkMat : originalMat;
-            yield return new WaitForSeconds(0.1f); // 0.2초마다 깜빡이기
+            yield return new WaitForSeconds(0.15f); // 0.15초마다 깜빡이기
         }
 
         spriteRenderer.material = originalMat; // 원래 머티리얼로 복구

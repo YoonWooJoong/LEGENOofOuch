@@ -27,12 +27,10 @@ public class SpeedBoost : AbilityBase
         while (true)
         {
             player.AsBuf += 0.625f;
-            Debug.Log("공격 속도 증가 시작");
 
             yield return new WaitForSeconds(2);
 
             player.AsBuf -= 0.625f;
-            Debug.Log("공격 속도 증가 종료");
 
             yield return new WaitForSeconds(cooldownTime); // {n}초 대기
         }
