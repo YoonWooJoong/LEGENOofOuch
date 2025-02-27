@@ -12,13 +12,16 @@ public class ProjectileController : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Collider2D arrowCollider;
     private Vector3 direction; // 플레이어의 방향
-    private int contactWall; // 벽과 충돌 횟수
-    private int contactEnemy; // 적과 충돌 횟수
+    private int contactWall =0; // 벽과 충돌 횟수
+    private int contactEnemy= 0; // 적과 충돌 횟수
     private int contactWallCount; // 받아온 벽 충돌 횟수
     private int contactEnemyCount; // 받아온 적 충돌 횟수
     private bool isDarkTouch;
     private bool isBlaze;
     private float arrowAttackPower;
+    private float arrowDestoryTime = 0f;
+    private float arrowStayTime = 6f;
+
 
     private void Awake()
     {
@@ -46,6 +49,12 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
         DirectionProjcetile();
+        if (arrowDestoryTime >= arrowStayTime)
+        {
+            Destroy(this.gameObject);
+        }
+        else { arrowDestoryTime += Time.deltaTime; }
+
     }
 
     /// <summary>
@@ -88,21 +97,24 @@ public class ProjectileController : MonoBehaviour
 
         Debug.Log(collision.gameObject.name);
 
-        if (layerMaskWall.value == (layerMaskWall.value | (1 << collision.gameObject.layer))) // 벽과 충돌했을때
+        if ((layerMaskWall.value & (1 << collision.gameObject.layer)) != 0) // 벽과 충돌했을때
         {
             if (contactWall < contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수보다 적다면
             {
-                var contact = collision.contacts[0];
-                // 충돌 지점
-                direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
-                RotationRojectile();
-                contactWall += 1;
-                arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactWallDecreaseDamage();
+                if (collision.contacts.Length > 0)
+                {
+                    var contact = collision.contacts[0];
+                    // 충돌 지점
+                    direction = Vector3.Reflect(direction, contact.normal); // 현재 진행방향과 충돌지점을 계산해 반사각을 구해줌
+                    RotationRojectile();
+                    contactWall += 1;
+                    arrowAttackPower = GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetContactWallDecreaseDamage();
+                }
             }
-            else if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
+            if (contactWall >= contactWallCount) // 현재 충돌횟수가 받아온 충돌횟수와 같거나 크다면
                 Destroy(this.gameObject);
         }
-        else if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
+        if (layerMaskEnemy.value == (layerMaskEnemy.value | (1 << collision.gameObject.layer))) // 적과 충돌했을때
         {
             if (contactEnemy < contactEnemyCount)
             {
@@ -142,7 +154,7 @@ public class ProjectileController : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        else if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀일 경우
+        if (layerMaskTeam.value == (layerMaskTeam.value | (1 << collision.gameObject.layer))) // 같은 팀일 경우
         {
             Physics2D.IgnoreLayerCollision(this.gameObject.layer, collision.gameObject.layer);
         }

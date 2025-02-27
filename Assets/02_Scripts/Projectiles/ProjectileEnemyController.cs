@@ -14,6 +14,8 @@ public class ProjectileEnemyController : MonoBehaviour
     private int contactWallCount; // 받아온 벽 충돌 횟수
     private int contactEnemyCount; // 받아온 적 충돌 횟수
     private float damage;
+    private float arrowDestoryTime = 0f;
+    private float arrowStayTime = 6f;
 
     private void Awake()
     {
@@ -38,6 +40,11 @@ public class ProjectileEnemyController : MonoBehaviour
     void Update()
     {
         DirectionProjcetile();
+        if (arrowDestoryTime >= arrowStayTime)
+        {
+            Destroy(this.gameObject);
+        }
+        else { arrowDestoryTime += Time.deltaTime; }
     }
 
     /// <summary>
