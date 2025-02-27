@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heal: 1
+  healParticle: {fileID: 5406767978647780189, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
 --- !u!1 &9000561185907989112
 GameObject:
   m_ObjectHideFlags: 0

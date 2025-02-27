@@ -16,6 +16,7 @@ public class PlayerCharacter : BaseCharacter
     [SerializeField] PlayerClassEnum pClass;
     [SerializeField] Slider expbar;
     [SerializeField] TextMeshProUGUI levelTxt;
+    [SerializeField] ParticleSystem healParticle;
 
     //버프수치: 20%증가시 0.2f 입력
     public float MaxHpBuf { get; set; }
@@ -98,7 +99,15 @@ public class PlayerCharacter : BaseCharacter
     public override void ChangeHealth(float change)
     {
         if (!GodMod || change > 0)
+        {
             base.ChangeHealth(change);
+
+            // 체력 회복일 때만 파티클 실행
+            if (change > 0 && healParticle != null)
+            {
+                healParticle.Play();
+            }
+        }
     }
 
     /// <summary>

@@ -1279,6 +1279,7 @@ Transform:
   - {fileID: 9019798303192434908}
   - {fileID: 1919632140276348125}
   - {fileID: 2945934014489492145}
+  - {fileID: 8191732213537960217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1672096562675060840
@@ -1307,6 +1308,7 @@ MonoBehaviour:
   pClass: 2
   expbar: {fileID: 3174079635511100778}
   levelTxt: {fileID: 9201396124417904433}
+  healParticle: {fileID: 8191732213537960222}
   GodMod: 0
   life: 1
   isMultiShot: 0
@@ -1417,3 +1419,74 @@ MonoBehaviour:
     idle: {fileID: 7400000, guid: 9fbc5f77d5946a541a4ffaeab3431ec8, type: 2}
     move: {fileID: 7400000, guid: f3bea068ddac30243a51207c9376288f, type: 2}
   over: {fileID: 22100000, guid: ac151f534c8078746bbd923f2c544a09, type: 2}
+--- !u!1001 &4226157519276083779
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7503036953647361897}
+    m_Modifications:
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780189, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406767978647780191, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+      propertyPath: m_Name
+      value: Health_Up_green
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+--- !u!4 &8191732213537960217 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5406767978647780186, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+  m_PrefabInstance: {fileID: 4226157519276083779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8191732213537960222 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5406767978647780189, guid: 80fe8c6ae16270d4da7a6ff6295167df, type: 3}
+  m_PrefabInstance: {fileID: 4226157519276083779}
+  m_PrefabAsset: {fileID: 0}
