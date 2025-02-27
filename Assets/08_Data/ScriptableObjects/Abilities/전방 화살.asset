@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\uC804\uBC29 \uD654\uC0B4"
   m_EditorClassIdentifier: 
   ability: 11
-  abilityName: "\uC804\uBC29 \uD654\uC0B4 +1"
+  abilityName: "\uC804\uBC29 \uD654\uC0B4"
   description: "\uC804\uBC29\uC73C\uB85C \uBC1C\uC0AC\uD558\uB294 \uD654\uC0B4\uC744
     \uCD94\uAC00\uD558\uC9C0\uB9CC, \uD654\uC0B4\uB2F9 \uACF5\uACA9\uB825\uC740 25
     % \uD558\uB77D\uD55C\uB2E4. (+ {0}\uAC1C)"
