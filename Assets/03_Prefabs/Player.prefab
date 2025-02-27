@@ -1300,7 +1300,7 @@ MonoBehaviour:
   speed: 3
   attackPower: 1
   attackSpeed: 1
-  criticalDamage: 0.2
+  criticalDamage: 0
   criticalChance: 0
   level: 1
   exp: 0
