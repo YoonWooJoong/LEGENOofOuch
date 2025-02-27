@@ -92,6 +92,11 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void NextMap()
     {
+        //필드에 나와있는 모든 물약 삭제
+        var potions = FindObjectsOfType<HpPotion>();
+        foreach (var potion in potions)
+            Destroy(potion.gameObject);
+
         // 현재 맵 비활성화
         if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
         {
@@ -141,11 +146,6 @@ public class LevelManager : MonoBehaviour
             SetTransrate();
             SpawnEntity(GameManager.Instance.playerClassEnum);
         }
-
-        //필드에 나와있는 모든 물약 삭제
-        var potions = FindObjectsOfType<HpPotion>();
-        foreach (var potion in potions)
-            Destroy(potion.gameObject);
     }
 
 
