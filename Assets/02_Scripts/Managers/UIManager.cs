@@ -124,10 +124,20 @@ public class UIManager : MonoBehaviour
     {
         GameCrealorOverText.text = "Game Over";
         GameOverPanel.SetActive(true);
+
+        GameManager.Instance.EndGame();
+        int minutes = (int)(GameManager.Instance.gameTimer / 60);
+        int seconds = (int)(GameManager.Instance.gameTimer % 60);
+        Time.text = $"{minutes:00}:{seconds:00}";
     }
     public void GameClear()
     {
         GameCrealorOverText.text = "Game Clear";
         GameOverPanel.SetActive(true);
+
+        GameManager.Instance.EndGame();
+        int minutes = (int)(GameManager.Instance.gameTimer / 60);
+        int seconds = (int)(GameManager.Instance.gameTimer % 60);
+        Time.text = $"{minutes:00}:{seconds:00}";
     }   
 }

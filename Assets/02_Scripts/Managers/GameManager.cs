@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public PlayerCharacter player;
     public int healReward = 0;
+    public float gameTimer = 0;
+    private bool isGameRunning = false;
 
     private void Awake()
     {
-
-
         if (Instance == null)
         {
             Instance = this;
@@ -52,14 +52,31 @@ public class GameManager : MonoBehaviour
         LevelManager.SpawnRandomMap(stageEnum);
         LevelManager.MapStart();
         LevelManager.SpawnEntity(playerClassEnum);
-        Debug.Log("StartGame");
-        //SpawnPlayer();
-        //SpawnMonsters();
-        //적생성
-        //플레이어생성
-        //스테이지선택
-        //
 
+        gameTimer = 0f;
+        isGameRunning = true;
+        StartCoroutine(GameTimerCoroutine());  // 코루틴 시작
+    }
+
+    /// <summary>
+    /// 게임 진행 타이머 코루틴
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator GameTimerCoroutine()
+    {
+        while (isGameRunning)
+        {
+            yield return new WaitForSeconds(1f); // 1초마다 실행
+            gameTimer += 1f; // 1초씩 증가
+        }
+    }
+
+    /// <summary>
+    /// 게임 종료 시 호출할 함수
+    /// </summary>
+    public void EndGame()
+    {
+        isGameRunning = false;
     }
 
     /// <summary>
