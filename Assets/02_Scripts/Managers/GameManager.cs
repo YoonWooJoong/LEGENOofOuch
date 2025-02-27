@@ -76,13 +76,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        isGameRunning = false;
         bool isClear = (player != null && player.CurHp > 0);
         UIManager.GameEndUI(isClear, gameTimer);
 
         if (player != null)
             Destroy(player.gameObject);
         MonsterManager.ClearSpawns();
+        isGameRunning = false;
     }   
 
     /// <summary>

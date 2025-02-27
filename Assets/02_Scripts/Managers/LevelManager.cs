@@ -92,13 +92,15 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void NextMap()
     {
-        // 현재 맵 비활성화
-        if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
+        //필드에 나와있는 모든 물약 삭제
+        var potions = FindObjectsOfType<HpPotion>();
+        foreach (var potion in potions)
+            Destroy(potion.gameObject);
+
+        // 보스 몹 제외 현재 맵 비활성화
+        if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length - 1)
         {
-            if (roundIndex == TotalMaps-1)
-                return;
-            else
-                selectedMapInstance[roundIndex].SetActive(false);
+            selectedMapInstance[roundIndex].SetActive(false);
         }
 
         roundIndex++;
@@ -134,7 +136,7 @@ public class LevelManager : MonoBehaviour
         // 새로운 맵 활성화
         if (roundIndex < selectedMapInstance.Length)
         {
-            if(devil!=null)
+            if (devil != null)
             {
                 Destroy(devil.gameObject);
             }
@@ -142,11 +144,6 @@ public class LevelManager : MonoBehaviour
             SetTransrate();
             SpawnEntity(GameManager.Instance.playerClassEnum);
         }
-
-        //필드에 나와있는 모든 물약 삭제
-        var potions = FindObjectsOfType<HpPotion>();
-        foreach (var potion in potions)
-            Destroy(potion.gameObject);
     }
 
 
@@ -219,7 +216,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // 랜덤한 3개의 스폰 위치 선택 (중복 없이)
-        Transform[] selectedSpawns = GetRandomSpawnPoints(roundIndex+2);
+        Transform[] selectedSpawns = GetRandomSpawnPoints(roundIndex + 2);
 
         // 선택된 위치에 몬스터 생성
         foreach (Transform spawnPoint in selectedSpawns)

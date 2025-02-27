@@ -105,7 +105,9 @@ public class BaseCharacter : MonoBehaviour
     /// </summary>
     protected virtual void Attack()
     {
-        animHandle?.Attack();
+        animHandle?.Attack(AttackSpeed);
+        //투사체 발사시 나오는 효과음
+        SoundManager.instance.PlaySFX("");
         //gamemaneger.~~~
     }
 
@@ -115,6 +117,10 @@ public class BaseCharacter : MonoBehaviour
     /// <param name="change">변경할 수치입니다. 데미지면 음수, 회복이면 양수값을 입력합니다.</param>
     public virtual void ChangeHealth(float change)
     {
+        //피격/회복시 나오는 효과음
+        string changeSfx = change >= 0 ? "" :"";
+        SoundManager.instance.PlaySFX(changeSfx);
+
         CurHp += change;
         HpBar.value = CurHp / MaxHp;
         if (CurHp == 0f)
@@ -126,6 +132,9 @@ public class BaseCharacter : MonoBehaviour
     /// </summary>
     protected virtual void Death()
     {
+        //사망시 나오는 효과음
+        SoundManager.instance.PlaySFX("");
+
         rig.velocity = Vector2.zero;
 
         foreach (var compo in transform.GetComponentsInChildren<Behaviour>())

@@ -5,7 +5,8 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour
 {
     static readonly int IsMoving = Animator.StringToHash("isMove");
-    static readonly int IsAttack = Animator.StringToHash("Attack");
+    static readonly int IsAttack = Animator.StringToHash("attack");
+    static readonly int AttackSpeed = Animator.StringToHash("attackSpeed");
 
     protected Animator anim;
     private void Awake()
@@ -18,8 +19,9 @@ public class AnimationHandler : MonoBehaviour
         anim.SetBool(IsMoving, obj.magnitude > .5f);
     }
 
-    public void Attack()
+    public void Attack(float attackSpeed)
     {
+        anim.SetFloat(AttackSpeed, attackSpeed);
         anim.SetTrigger(IsAttack);
     }
 }
