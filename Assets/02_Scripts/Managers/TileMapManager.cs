@@ -261,8 +261,9 @@ public class TileMapManager : MonoBehaviour
         {
             GameObject newDevil = Instantiate(devilPrefab, monsterSpawn[0].position, monsterSpawn[0].rotation);
             devil = newDevil.GetComponent<DevilInteraction>();
-
-
+            TradeUI.gameObject.SetActive(true);
+            devil.tradeUI = TradeUI;
+            TradeUI.gameObject.SetActive(false);
             if (devil != null)
             {
                 Debug.Log("새로운 플레이어가 생성되었습니다.");
