@@ -102,10 +102,12 @@ public class GameManager : MonoBehaviour
         player.ChangeHealth(healReward);
         if (MonsterManager.ClearSpawn)
         {
-            PlayerPauseControll(true);
 
             if (LevelManager.NowRound() < 14)
-                GachaManager.StartGacha();
+            { 
+            PlayerPauseControll(true);
+            GachaManager.StartGacha();
+            }
         }
     }
 
