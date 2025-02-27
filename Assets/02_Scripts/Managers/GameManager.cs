@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
             int upgradeCount = GachaManager.gacha.gachaAbilityController.GetUpgradeCount(selectedAbility[i]);
             if (upgradeCount > 0)
             {
-                abilityName[i] += $"\n<color=yellow>+{upgradeCount}</color>";
+                abilityName[i] += $"<color=yellow>+{upgradeCount}</color>";
             }
             abilityDescription[i] = abilityData.Description.Replace("{0}", abilityData.Values[upgradeCount].ToString());
         }

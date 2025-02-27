@@ -40,7 +40,8 @@ public class GachaManager : MonoBehaviour
     /// </summary>
     public void StartGacha()
     {
-        SoundManager.instance.PlaySFX("°¡Ã­½Î¿îµå / SFX/UIÆú´õ¿¡ ³Ö¾î³ù½À´Ï´Ù.");
+        //°¡Ã­½Î¿îµå / SFX/UIÆú´õ¿¡ ³Ö¾î³ù½À´Ï´Ù.
+        SoundManager.instance.PlaySFX("");
         gachaobject.gameObject.SetActive(true);
         gachaHandler.init();
         gacha.SelectRandomAbility();

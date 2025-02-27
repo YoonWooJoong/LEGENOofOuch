@@ -149,11 +149,11 @@ public class GachaController : MonoBehaviour
     {
         for (int i = 0; i < abilityName.Length; i++)
         {
-            abilityName[i].text = GachaManager.Instance.AbilityName[i];
+            abilityName[i].text = GameManager.Instance.GachaManager.AbilityName[i];
         }
         for (int i = 0; i < abilityDescription.Length; i++)
         {
-            abilityDescription[i].text = GachaManager.Instance.Abilitydescription[i];
+            abilityDescription[i].text = GameManager.Instance.GachaManager.Abilitydescription[i];
         }
     }
 
@@ -167,7 +167,8 @@ public class GachaController : MonoBehaviour
         AbilityEnum[] selectedAbility = gacha.GetSelectedAbility();
         gacha.gachaAbilityController.UpgradeAbility(selectedAbility[bottonSelect]);
         GachaManager.Instance.GachaSelect(selectedAbility[bottonSelect]);
-        SoundManager.instance.PlaySFX("클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.");
+        //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.
+        SoundManager.instance.PlaySFX("");
         Achievements.TriggerFirstAbility();
         GameManager.Instance.PlayerPauseControll(false);
         init();
@@ -182,5 +183,6 @@ public class GachaController : MonoBehaviour
         commonBackground.SetActive(false);
         rareBackground.SetActive(false);
         backGround.SetActive(false);
+        gacha.isRare = false;
     }
 }
