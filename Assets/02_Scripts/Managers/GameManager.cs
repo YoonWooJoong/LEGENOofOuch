@@ -152,6 +152,6 @@ public class GameManager : MonoBehaviour
     /// <param name="paused"></param>
     public void PlayerPauseControll(bool paused)
     {
-        player.PauseControll(paused);
+        player.PlayerPaused = paused;
     }
 }

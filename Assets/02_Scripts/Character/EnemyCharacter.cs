@@ -64,6 +64,6 @@ public class EnemyCharacter : BaseCharacter
     protected override void Attack()
     {
         base.Attack();
-        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position, lookDir, AttackPower);
+        GameManager.Instance.ProjectileManager.ShootEnemyProjectile(transform.position, LookDir, AttackPower);
     }
 }

@@ -109,11 +109,6 @@ public class BaseCharacter : MonoBehaviour
         //gamemaneger.~~~
     }
 
-    public virtual void CreateProjectile()
-    {
-
-    }
-
     /// <summary>
     /// 캐릭터의 현제 체력을 변경합니다.
     /// </summary>
