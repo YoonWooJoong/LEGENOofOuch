@@ -31,10 +31,10 @@ public class Fury : AbilityBase
 
     private IEnumerator UpdateFuryDamage(PlayerCharacter player)
     {
-        while (player != null && player.GetCurHp() > 0)
+        while (player != null && player.CurHp > 0)
         {
             // 현재 체력에 따른 추가 공격력 계산
-            float lostHpPercent = (1 - (player.GetCurHp() / player.MaxHp)) * 100;
+            float lostHpPercent = (1 - (player.CurHp / player.MaxHp)) * 100;
             float newFuryAtkBonus = (int)lostHpPercent * damageIncreasePerPercent;
 
             // 기존 Fury 보너스를 제거 후 새 값을 추가

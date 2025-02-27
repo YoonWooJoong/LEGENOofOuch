@@ -38,7 +38,7 @@ public class Invincibility : AbilityBase
     /// </summary>
     private IEnumerator ActivateInvincibility(PlayerCharacter player)
     {
-        while (player != null && player.GetCurHp() > 0)
+        while (player != null && player.CurHp > 0)
         {
             player.GodMod = true; // 무적 상태 활성화
 
