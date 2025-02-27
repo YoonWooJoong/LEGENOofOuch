@@ -6,13 +6,6 @@ using UnityEngine.Rendering.LookDev;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-    // 완성되면 각각 주석 해제
-    // Player player;
-    // Battel battle;
-    // PlayerClassEnum chooseplayerClass;
-    // StageEnum chooseStage;
-
     [field: SerializeField] public AbilityManager AbilityManager { get; private set; }
     [field: SerializeField] public UIManager UIManager { get; private set; }
     [field: SerializeField] public ProjectileManager ProjectileManager { get; set; }
@@ -24,9 +17,6 @@ public class GameManager : MonoBehaviour
     public PlayerClassEnum playerClassEnum;
     public StageEnum stageEnum;
     public Test test;
-    //public Transform playerSpawn;
-    //public Transform[] monsterSpawn;
-
     public GameObject playerPrefab;
     public PlayerCharacter player;
     public int healReward = 0;
@@ -126,25 +116,40 @@ public class GameManager : MonoBehaviour
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);
     }
+
+    /// <summary>
+    /// DevilStage/TradeUI 거래진행
+    /// </summary>
     public void Trade()
     {
         GetAbility(AbilityEnum.ExtraLife);
         player.ChangeHealth(-3f);
     }
+
+    /// <summary>
+    ///몬스터가 없으면 다음맵으로 넘어가는 충돌체 활성화
+    /// </summary>
     public void GoNextMap()
     {
         if (MonsterManager.ClearSpawn)    
             TileMapManager.NextMap();
     }
 
+    /// <summary>
+    /// 초기화함수
+    /// 어빌리티매니저 ,프로젝타일매니저,가챠매니저 초기화
+    /// </summary>
     public void Initialized()
     {
-        //프로젝타일 매니저 init
         AbilityManager.ClearOwnedAbilities();
         ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
     }
 
+    /// <summary>
+    /// 플레이어 움직임을 멈추는 함수
+    /// </summary>
+    /// <param name="paused"></param>
     public void PlayerPauseControll(bool paused)
     {
         player.PauseControll(paused);

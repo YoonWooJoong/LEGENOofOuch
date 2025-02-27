@@ -21,7 +21,11 @@ public class Achievements : MonoBehaviour
     public static event Action OnFirstSwampClear;
     public static event Action OnFirstVolcanoClear;
 
-    // 도전과제 트리거 메서드들 (외부에서는 이 메서드들을 호출하여 이벤트를 발행)
+ 
+    
+    /// <summary>
+    /// 도전과제 트리거 메서드들
+    /// </summary>
     public static void TriggerFirstLevelUp()
     {
         if (!isFirstLevelUp)
