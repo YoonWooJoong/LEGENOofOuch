@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        Initialized();
         bool isClear = (player != null && player.CurHp > 0);
         UIManager.GameEndUI(isClear, gameTimer);
 
