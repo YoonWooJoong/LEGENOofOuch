@@ -12,6 +12,8 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] public Transform target;
     [SerializeField] Slider HpBar;
 
+    public SpriteRenderer Sprite => sprite;
+
     [Header("BaseStat")]
     [SerializeField] float maxHp = 100;
     [SerializeField] float speed = 2;
@@ -23,11 +25,13 @@ public class BaseCharacter : MonoBehaviour
     public virtual float AttackSpeed => attackSpeed;
 
     float curHp;
-    protected float CurHp { get => curHp; set => curHp = value <= MaxHp ? (value >= 0 ? value : 0) : MaxHp; }
+    public float CurHp { get => curHp; protected set => curHp = Mathf.Clamp(value, 0, MaxHp); }
 
     protected Rigidbody2D rig;
     protected Vector2 lookDir, moveDir;
-    protected bool IsMove => moveDir.magnitude > 0.5f;
+    public Vector2 LookDir => lookDir;
+    public Vector2 MoveDir => moveDir;
+    protected bool IsMove => MoveDir.magnitude > 0.5f;
     protected float TargetDis => target == null ? float.MaxValue : (target.position - transform.position).magnitude;
 
     protected virtual bool IsAttacking => !IsMove && target != null;
@@ -132,7 +136,7 @@ public class BaseCharacter : MonoBehaviour
         foreach (var compo in transform.GetComponentsInChildren<Behaviour>())
             compo.enabled = false;
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject);
     }
 
     /// <summary>
