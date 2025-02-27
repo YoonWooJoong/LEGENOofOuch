@@ -1,9 +1,6 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Threading;
-using UnityEditor.Searcher;
+using UnityEngine;
 
 public class Gacha : MonoBehaviour
 {

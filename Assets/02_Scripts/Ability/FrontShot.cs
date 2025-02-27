@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using static UnityEditor.ShaderData;
-using static UnityEngine.Rendering.DebugUI;
 
 public class FrontShot : AbilityBase
 {

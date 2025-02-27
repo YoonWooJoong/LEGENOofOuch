@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
-using UnityEngine;
-
 public class Blaze : AbilityBase
 {
     private GameManager gameManager;

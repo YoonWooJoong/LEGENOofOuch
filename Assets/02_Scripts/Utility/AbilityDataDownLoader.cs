@@ -1,13 +1,13 @@
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.IO;
-using Newtonsoft.Json.Linq;
-using System.Linq;
-using System;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(AbilityDataDownLoader))]
 public class SheetDownButton : Editor
 {
@@ -218,6 +218,8 @@ public class AbilityDataDownLoader : MonoBehaviour
     /// </summary>
     private void CreatePrefabs()
     {
+
+#if UNITY_EDITOR
         string folderPath = "Assets/03_Prefabs/Abilities";
 
         // 폴더가 없으면 생성
@@ -244,6 +246,7 @@ public class AbilityDataDownLoader : MonoBehaviour
         // 변경 사항 저장
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+#endif
     }
 
     private void ApplyAbilityDataSO()
@@ -251,3 +254,4 @@ public class AbilityDataDownLoader : MonoBehaviour
         abilityRepositoy.SetabilityDataSOs(abilityDataSO.ToArray());
     }
 }
+#endif

@@ -1,9 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
-using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
-
 public class WallReflection : AbilityBase
 {
     public override void Init(AbilityDataSO abilityDataSO)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraSetup : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera thisCam;
     [SerializeField] private CinemachineConfiner2D confiner;
     [SerializeField] private Collider2D confinerCollider;
 
@@ -12,6 +13,7 @@ public class CameraSetup : MonoBehaviour
     {
         confiner = GetComponent<CinemachineConfiner2D>();
         confinerCollider = transform.parent.GetComponent<StageContainer>().cameraCollider;
+        GameManager.Instance.CameraManager.SetVirtualCam(thisCam);
     }
 
     /// <summary>

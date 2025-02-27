@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public LevelManager LevelManager { get; private set; }
     [field: SerializeField] public MonsterManager MonsterManager { get; private set; }
     [field: SerializeField] public GachaManager GachaManager { get; private set; }
+    [field: SerializeField] public CameraManager CameraManager { get; private set; }
 
     public PlayerClassEnum playerClassEnum;
     public StageEnum stageEnum;
