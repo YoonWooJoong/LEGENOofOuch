@@ -31,7 +31,6 @@ public class TileMapManager : MonoBehaviour
     /// </summary>
     public void SpawnRandomMap(StageEnum stage)
     {
-        //StageEnum stage = GameManager.Instance.GetStage();
         roundIndex = 0;
         // 랜덤한 맵 선택
         switch (stage)
@@ -76,10 +75,12 @@ public class TileMapManager : MonoBehaviour
         selectedMapInstance[TotalMaps - 1].SetActive(false);
     }
 
+    /// <summary>
+    /// 게임시작시 첫번째 맵을 활성화
+    /// </summary>
     public void MapStart()
     {
         selectedMapInstance[0].SetActive(true);
-        Debug.Log($"선택된 맵: {selectedMapInstance[0].name}");
         SetTransrate();
     }
     /// <summary>
@@ -162,7 +163,6 @@ public class TileMapManager : MonoBehaviour
     {
         if (playerSpawn == null)
         {
-            Debug.LogError("PlayerSpawn 위치가 설정되지 않았습니다!");
             return;
         }
 
@@ -173,15 +173,6 @@ public class TileMapManager : MonoBehaviour
             GameManager.Instance.player.SetClass(playerClassEnum);
 
             GameManager.Instance.AbilityManager.SetAbility(AbilityEnum.FrontShot);
-
-            if (GameManager.Instance.player != null)
-            {
-                Debug.Log("새로운 플레이어가 생성되었습니다.");
-            }
-            else
-            {
-                Debug.LogError("생성된 플레이어에 PlayerCharacter 컴포넌트가 없습니다!");
-            }
         }
         else
         {
@@ -198,7 +189,6 @@ public class TileMapManager : MonoBehaviour
         //보스스테이이면 보스몹 소환하고 종료
         if (roundIndex == TotalMaps - 1 && monsterSpawn.Length >= 1)
         {
-            Debug.Log("보스스테이지 입니다.");
             GameManager.Instance.MonsterManager.BossSpawn(monsterSpawn[0]);
             return;
         }
@@ -224,7 +214,7 @@ public class TileMapManager : MonoBehaviour
     /// <summary>
     /// 몬스터 스폰 포인트 중 랜덤한 포인트를 선택하여 반환
     /// </summary>
-    /// <param name="count"></param>
+    /// <param name="count">몇마리의 몬스터 소환할지</param>
     /// <returns></returns>
     private Transform[] GetRandomSpawnPoints(int count)
     {
@@ -240,7 +230,6 @@ public class TileMapManager : MonoBehaviour
             spawnList[randomIndex] = temp;
         }
 
-        // 앞에서부터 `count`개 선택
         for (int i = 0; i < count; i++)
         {
             selected[i] = spawnList[i];
@@ -249,6 +238,9 @@ public class TileMapManager : MonoBehaviour
         return selected;
     }
 
+    /// <summary>
+    /// 악마를 생성하는 함수
+    /// </summary>
     public void SpawnDevil()
     {
 
@@ -273,12 +265,20 @@ public class TileMapManager : MonoBehaviour
             devil.transform.position = monsterSpawn[0].position;
         }
     }
+    /// <summary>
+    /// 플레이어와 몬스터를 생성하는 함수
+    /// </summary>
+    /// <param name="playerClassEnum"></param>
     public void SpawnEntity(PlayerClassEnum playerClassEnum)
     {
         SpawnPlayer(playerClassEnum);
         SpawnMonsters();
     }
 
+    /// <summary>
+    /// 맵을 삭제하는 함수
+    /// 게임종료시 호출
+    /// </summary> 
     public void DestroyMap()
     {
         foreach (GameObject map in selectedMapInstance)

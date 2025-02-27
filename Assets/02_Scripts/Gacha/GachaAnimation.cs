@@ -124,8 +124,6 @@ public class GachaAnimation : MonoBehaviour
             Debug.LogWarning("selectedAbility out of range. Using index 0.");
             selectedAbility = 0;
         }
-        Debug.Log("스프라이트에 들어가는 인덱스: " + selectedAbility);
-        Debug.Log("인덱스번호: " + (int)selectedAbility);
         slotImage.sprite = skillIcons[(int)selectedAbility];
     }
 }

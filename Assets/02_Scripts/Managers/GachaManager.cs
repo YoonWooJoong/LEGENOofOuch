@@ -29,11 +29,6 @@ public class GachaManager : MonoBehaviour
         gachaobject.gameObject.SetActive(false);
     }
 
-    public void Start()
-    {
-        //gachaobject.gameObject.SetActive(true);
-        //StartGacha();
-    }
 
     /// <summary>
     /// 게임매니저에서 가챠를 실행하는 함수
@@ -78,7 +73,6 @@ public class GachaManager : MonoBehaviour
     /// <returns></returns>
     public void GachaSelect(AbilityEnum abilityEnum)
     {
-        Debug.Log(abilityEnum);
         gachaobject.gameObject.SetActive(false);
         GameManager.Instance.GetAbility(abilityEnum);
     }

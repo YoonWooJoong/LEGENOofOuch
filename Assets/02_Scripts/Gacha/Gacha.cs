@@ -11,6 +11,7 @@ public class Gacha : MonoBehaviour
     private AbilityEnum[] selectedAbility = new AbilityEnum[3]; // 선택된 3개 능력 인덱스
     public bool isRare = false;
     public GachaAbilityController gachaAbilityController;//능력 업그레이드 수치를 저장하는 클래스
+   
     /// <summary>
     /// 능력을 랜덤으로 선택
     /// 5프로 확률로 레어 능력이 선택됨
@@ -32,7 +33,6 @@ public class Gacha : MonoBehaviour
 
         // 플레이어의 직업을 가져옴
         PlayerClassEnum playerClass = GameManager.Instance.playerClassEnum;
-        //하드코딩됨 나중에 수정할것
 
         if (isRare)
         {
@@ -155,6 +155,10 @@ public class Gacha : MonoBehaviour
             isRare = true;
     }
 
+    /// <summary>
+    /// 가챠에서 선택한 능력을 반환하는 함수
+    /// </summary>
+    /// <returns></returns>
     public AbilityEnum[] GachaSelect()
     {
         return selectedAbility;

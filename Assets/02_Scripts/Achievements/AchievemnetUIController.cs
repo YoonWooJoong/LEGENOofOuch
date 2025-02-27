@@ -37,6 +37,9 @@ public class AchievementUIController : MonoBehaviour
         achievements.Add("VolcanoClear", new AchievementData { name = "첫 화산 클리어!", description = "처음으로 화산을 클리어했습니다.", image = iconlist[6] });
     }
 
+    /// <summary>
+    /// 이벤트 등록
+    /// </summary>
     private void OnEnable()
     {
         // 이벤트 등록
@@ -57,6 +60,9 @@ public class AchievementUIController : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 이벤트 해제
+    /// </summary>
     private void OnDisable()
     {
         // 이벤트 해제
@@ -77,7 +83,7 @@ public class AchievementUIController : MonoBehaviour
     }
 
     /// <summary>
-    /// 도전과제 UI를 표시하는 메서드
+    /// 도전과제 팝업UI를 표시하는 메서드
     /// </summary>
     private void ShowAchievement(string achievementKey)
     {
@@ -105,6 +111,11 @@ public class AchievementUIController : MonoBehaviour
                 .AppendInterval(1f) // 1초 대기
                 .Append(achievementUI.transform.DOLocalMoveY(originalY, 0.5f).SetEase(Ease.InCubic)); // 다시 원래 위치로 이동
     }
+
+    /// <summary>
+    /// 도전과제 패널을 업데이트하는 메서드
+    /// </summary>
+    /// <param name="achievementKey"></param>
     private void UpdatePannel(string achievementKey)
     {
         if (!achievements.ContainsKey(achievementKey))
@@ -137,6 +148,11 @@ public class AchievementUIController : MonoBehaviour
                 break;
         }
     }
+    /// <summary>
+    /// 패널에 데이터를 업데이트하는 메서드
+    /// </summary>
+    /// <param name="achievementKey"></param>딕셔너리의 키값
+    /// <param name="index"></param>
     private void UpdateUIData(string achievementKey,int index)
     {
         AchievementData achievement = achievements[achievementKey];
