@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class BaseCharacter : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sprite;
-    AnimationHandler animHandle;
+    protected AnimationHandler animHandle;
     [SerializeField] public Transform target;
     [SerializeField] Slider HpBar;
 
