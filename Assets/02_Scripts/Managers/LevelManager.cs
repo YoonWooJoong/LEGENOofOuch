@@ -293,4 +293,8 @@ public class LevelManager : MonoBehaviour
         foreach (var potion in potions)
             Destroy(potion.gameObject);
     }
+    public int NowRound()
+    {
+        return roundIndex;
+    }
 }

@@ -145,11 +145,11 @@ public class Gacha : MonoBehaviour
     }
 
     /// <summary>
-    /// 확률에 따라 레어 능력을 선택
+    /// 확률에 따라 레어 능력을 선택//test용 15퍼
     /// </summary>
     public void IsRare()
     {
-        if (UnityEngine.Random.Range(0, 100) <5)
+        if (UnityEngine.Random.Range(0, 100) <15)
             isRare = true;
     }
 
