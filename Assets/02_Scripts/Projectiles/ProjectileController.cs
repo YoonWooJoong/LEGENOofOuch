@@ -194,7 +194,6 @@ public class ProjectileController : MonoBehaviour
 
             if (nearEnemy == null)
             {
-                Debug.Log("Projectile의 DarkTouchDelay의 nearEnemy가 null입니다!");
             }
             else { nearEnemy.ChangeHealth(-GameManager.Instance.player.AttackPower * GameManager.Instance.ProjectileManager.GetDarkTouchDecreaseDamage()); }
         }

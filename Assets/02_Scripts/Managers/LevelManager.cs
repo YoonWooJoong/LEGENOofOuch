@@ -256,14 +256,6 @@ public class LevelManager : MonoBehaviour
             TradeUI.gameObject.SetActive(true);
             devil.tradeUI = TradeUI;
             TradeUI.gameObject.SetActive(false);
-            if (devil != null)
-            {
-                Debug.Log("새로운 플레이어가 생성되었습니다.");
-            }
-            else
-            {
-                Debug.LogError("생성된 플레이어에 PlayerCharacter 컴포넌트가 없습니다!");
-            }
         }
         else
         {

@@ -29,9 +29,6 @@ public class Trade : MonoBehaviour
     /// </summary>
     public void AcceptTrade()
     {
-        Debug.Log("거래를 수락했습니다.");
-        //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
-        SoundManager.instance.PlaySFX("");
         GameManager.Instance.Trade();
         Achievements.TriggerFirstTrade();
         Destroy(devil);
@@ -44,9 +41,6 @@ public class Trade : MonoBehaviour
     /// </summary>
     public void RejectTrade()
     {
-        Debug.Log("거래를 거절했습니다.");
-        //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
-        SoundManager.instance.PlaySFX("");
         Destroy(devil);
         this.gameObject.SetActive(false);
     }

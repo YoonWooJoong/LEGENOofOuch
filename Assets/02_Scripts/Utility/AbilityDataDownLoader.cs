@@ -139,7 +139,6 @@ public class AbilityDataDownLoader : MonoBehaviour
             abilityData.SetData(abilityEnum, abilityName, description, rankEnum, isUpgraded, values);
             EditorUtility.SetDirty(abilityData); // 변경 사항 강제 적용, 반드시 하나했을때 개별적으로 적용시키기.
 
-            Debug.Log($"{abilityData.name} 업데이트 완료");
         }
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
@@ -157,7 +156,6 @@ public class AbilityDataDownLoader : MonoBehaviour
         if (path != newPath)
         {
             AssetDatabase.RenameAsset(path, newFileName);
-            Debug.Log($"파일명 변경: {path} => {newPath}");
 
             // 즉시 저장하여 반영
             AssetDatabase.SaveAssets();
@@ -184,7 +182,6 @@ public class AbilityDataDownLoader : MonoBehaviour
         foreach (string file in files)
         {
             AssetDatabase.DeleteAsset(file);
-            Debug.Log($"삭제됨: {file}");
         }
 
         AssetDatabase.SaveAssets();
@@ -212,7 +209,6 @@ public class AbilityDataDownLoader : MonoBehaviour
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log($"새로운 ScriptableObject 생성: {assetPath}");
 #endif
         return newSO;
     }

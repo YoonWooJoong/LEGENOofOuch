@@ -101,12 +101,10 @@ public class Gacha : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning($"슬롯 {i}에 할당할 능력이 부족합니다.");
                     continue;
                 }
             }
             selectedAbility[i] = selectedCandidate;
-            Debug.Log($"선택된 능력 {i} : {selectedAbility[i]}");
         }
     }
 

@@ -108,7 +108,6 @@ public class AbilityRepositoy : MonoBehaviour
                 return;
             }
         }
-        Debug.Log($"{ability}°¡ ¾øÀ½");
     }
 
 

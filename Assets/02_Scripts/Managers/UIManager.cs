@@ -53,7 +53,6 @@ public class UIManager : MonoBehaviour
                 if (Enum.IsDefined(typeof(StageEnum), selectedStageIndex))
                 {
                     StageEnum stage = selectedStageIndex;
-                    Debug.Log("선택된 스테이지 " + stage);
                     switch (stage)
                     {
                         case StageEnum.Castle:
@@ -69,6 +68,7 @@ public class UIManager : MonoBehaviour
                 break;
             case 4: //게임오버 패널 ->  메인캔버스로 이동
                 GameManager.Instance.LevelManager.DestroyMap();
+                SoundManager.instance.PlayBGM("MainBGM");
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
                 break;

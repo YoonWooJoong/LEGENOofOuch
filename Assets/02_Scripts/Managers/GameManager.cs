@@ -80,9 +80,13 @@ public class GameManager : MonoBehaviour
         bool isClear = (player != null && player.CurHp > 0);
         UIManager.GameEndUI(isClear, gameTimer);
 
+        string sfxName = isClear ? "Clear" : "Death";
+        SoundManager.instance.PlayBGM(sfxName);
+
         if (player != null)
             Destroy(player.gameObject);
         isGameRunning = false;
+
     }
 
     /// <summary>
@@ -96,7 +100,6 @@ public class GameManager : MonoBehaviour
         player.GetExp(17);
         //체력회복 스킬이 있으면 그 수치만큼 체력을 회복시켜줍니다.
         player.ChangeHealth(healReward);
-        Debug.Log("KillMonster");
         if (MonsterManager.ClearSpawn)
         {
             PlayerPauseControll(true);
@@ -163,6 +166,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Initialized()
     {
+        Debug.LogError("heheheheheheh");
+        SoundManager.instance.PlayBGM("MainBGM");
         AbilityManager.ClearOwnedAbilities();
         ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();

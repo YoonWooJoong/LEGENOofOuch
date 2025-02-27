@@ -23,6 +23,5 @@ public class CriticalMaster : AbilityBase
         player.CriChanceBuf += criChanceBoost;
         player.CriDmgBuf = 0.4f;
 
-        Debug.Log($"크리티컬 마스터 {player.AtkBuf} 확률 증가 및 크리 뎀지 증가 {player.CriDmgBuf}");
     }
 }

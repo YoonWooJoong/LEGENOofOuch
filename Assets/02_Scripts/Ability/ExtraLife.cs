@@ -12,6 +12,5 @@ public class ExtraLife : AbilityBase
         PlayerCharacter player = GameManager.Instance.player;
         if (player == null) return;
         player.life++;
-        Debug.Log("¸ñ¼û Ãß°¡");
     }
 }
