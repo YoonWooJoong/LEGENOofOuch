@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         bool isClear = (player != null && player.CurHp > 0);
         UIManager.GameEndUI(isClear, gameTimer);
 
-        string sfxName = isClear ? "Clear" : "Death";
+        string sfxName = isClear ? "Clear" : "lose";
         SoundManager.instance.PlayBGM(sfxName);
 
         if (player != null)
@@ -166,7 +166,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Initialized()
     {
-        Debug.LogError("heheheheheheh");
         SoundManager.instance.PlayBGM("MainBGM");
         AbilityManager.ClearOwnedAbilities();
         ProjectileManager.ClearProjectile();

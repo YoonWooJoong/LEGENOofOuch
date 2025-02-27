@@ -134,7 +134,7 @@ public class BaseCharacter : MonoBehaviour
     protected virtual void Death()
     {
         //사망시 나오는 효과음
-        SoundManager.instance.PlaySFX("");
+        SoundManager.instance.PlaySFX("Death");
 
         rig.velocity = Vector2.zero;
 

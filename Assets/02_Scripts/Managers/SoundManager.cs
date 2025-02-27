@@ -115,10 +115,6 @@ public class SoundManager : MonoBehaviour
                 StartCoroutine(ReturnToPool(newSource, clip.length));
             }
         }
-        else
-        {
-            Debug.LogWarning("SFX not found");
-        }
     }
 
     /// <summary>
@@ -135,10 +131,6 @@ public class SoundManager : MonoBehaviour
                 bgmPlayer.volume = bgmVolume;
                 bgmPlayer.Play();
             }
-        }
-        else
-        {
-            Debug.LogWarning("BGM not found");
         }
     }
 
