@@ -82,9 +82,8 @@ public class GameManager : MonoBehaviour
 
         if (player != null)
             Destroy(player.gameObject);
-        MonsterManager.ClearSpawns();
         isGameRunning = false;
-    }   
+    }
 
     /// <summary>
     /// 몬스터를 죽였을때 호출되는 함수
@@ -167,6 +166,8 @@ public class GameManager : MonoBehaviour
         AbilityManager.ClearOwnedAbilities();
         ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
+        LevelManager.ClearPotion();
+        MonsterManager.ClearSpawns();
     }
 
     /// <summary>
