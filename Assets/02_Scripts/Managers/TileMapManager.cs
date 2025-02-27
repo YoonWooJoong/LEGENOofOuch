@@ -14,11 +14,14 @@ public class TileMapManager : MonoBehaviour
     public GameObject[] stageVolcanicPrefabs;
     public GameObject stageVolcanicBossPrefabs;
     public GameObject stageVolcanicDevilPrefabs;
+    public GameObject TradeUI;
     [SerializeField] private GameObject[] selectedMapInstance = new GameObject[TotalMaps];// 선택된 맵의 인스턴스
     private StageContainer stageContainer;
     private const int TotalMaps = 15;
     private const int NormalMaps = 14;
     private const int devilround = 4;
+    public GameObject devilPrefab;
+    public DevilInteraction devil;
     public int roundIndex = 0;
     public Transform playerSpawn;
     public Transform[] monsterSpawn;
@@ -109,11 +112,16 @@ public class TileMapManager : MonoBehaviour
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
             SpawnPlayer(GameManager.Instance.playerClassEnum);
+            SpawnDevil();
             return;
         }
         // 새로운 맵 활성화
         if (roundIndex < selectedMapInstance.Length)
         {
+            if(devil!=null)
+            {
+                Destroy(devil.gameObject);
+            }
             selectedMapInstance[roundIndex].SetActive(true);
             SetTransrate();
             SpawnEntity(GameManager.Instance.playerClassEnum);
@@ -241,6 +249,35 @@ public class TileMapManager : MonoBehaviour
         }
 
         return selected;
+    }
+
+    public void SpawnDevil()
+    {
+        if (playerSpawn == null)
+        {
+            Debug.LogError("PlayerSpawn 위치가 설정되지 않았습니다!");
+            return;
+        }
+
+        if (GameManager.Instance.player == null)
+        {
+            GameObject newDevil = Instantiate(devilPrefab, monsterSpawn[0].position, monsterSpawn[0].rotation);
+            devil = newDevil.GetComponent<DevilInteraction>();
+
+
+            if (devil != null)
+            {
+                Debug.Log("새로운 플레이어가 생성되었습니다.");
+            }
+            else
+            {
+                Debug.LogError("생성된 플레이어에 PlayerCharacter 컴포넌트가 없습니다!");
+            }
+        }
+        else
+        {
+            devil.transform.position = monsterSpawn[0].position;
+        }
     }
     public void SpawnEntity(PlayerClassEnum playerClassEnum)
     {

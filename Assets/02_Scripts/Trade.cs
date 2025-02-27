@@ -8,7 +8,7 @@ public class Trade : MonoBehaviour
 {
     public Button acceptButton;
     public Button rejectButton;
-
+    public GameObject devil;
     public void Awake()
     {
 
@@ -16,7 +16,10 @@ public class Trade : MonoBehaviour
         rejectButton.onClick.AddListener(RejectTrade);
         this.gameObject.SetActive(false);
     }
-
+    private void OnEnable()
+    {
+        devil = GameObject.Find("Devil");
+    }
     /// <summary>
     /// 플레이어가 거래버튼을 눌렀을때 게임매니저에게 수락을 보내준다.
     /// 게임매니저는 플레이어에게 extralife를 주고 생명력 30을 가져온다.
@@ -24,8 +27,9 @@ public class Trade : MonoBehaviour
     public void AcceptTrade()
     {
         Debug.Log("거래를 수락했습니다.");
-
-        SoundManager.instance.PlaySFX("클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.");
+        //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
+        SoundManager.instance.PlaySFX("");
+        Destroy(devil);
         //GameManager.instance.Trade();
         this.gameObject.SetActive(false);
     }
@@ -35,8 +39,9 @@ public class Trade : MonoBehaviour
     public void RejectTrade()
     {
         Debug.Log("거래를 거절했습니다.");
-
-        SoundManager.instance.PlaySFX("클릭사운드/공용클릭사운드 없으면 찾아오겠습니다.");
+        //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
+        SoundManager.instance.PlaySFX("");
+        Destroy(devil);
         this.gameObject.SetActive(false);
     }
 }
