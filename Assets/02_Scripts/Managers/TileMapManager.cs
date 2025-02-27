@@ -32,7 +32,7 @@ public class TileMapManager : MonoBehaviour
     public void SpawnRandomMap(StageEnum stage)
     {
         //StageEnum stage = GameManager.Instance.GetStage();
-
+        roundIndex = 0;
         // 랜덤한 맵 선택
         switch (stage)
         {
@@ -100,10 +100,8 @@ public class TileMapManager : MonoBehaviour
         // 만약 마지막 맵에 도달하면 모든 맵을 삭제하고 스테이지 클리어
         if (roundIndex >= selectedMapInstance.Length)
         {
-            foreach (GameObject map in selectedMapInstance)
-            {
-                Destroy(map);
-            }
+            GameManager.Instance.UIManager.GameClear();
+            roundIndex = 0;
             // 스테이지 클리어
             return;
         }
@@ -283,5 +281,13 @@ public class TileMapManager : MonoBehaviour
     {
         SpawnPlayer(playerClassEnum);
         SpawnMonsters();
+    }
+
+    public void DestroyMap()
+    {
+        foreach (GameObject map in selectedMapInstance)
+        {
+            Destroy(map);
+        }
     }
 }

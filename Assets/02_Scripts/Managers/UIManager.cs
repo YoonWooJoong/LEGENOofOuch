@@ -69,6 +69,7 @@ public class UIManager : MonoBehaviour
                 }
                 break;
             case 4:
+                GameManager.Instance.TileMapManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
                 break;
