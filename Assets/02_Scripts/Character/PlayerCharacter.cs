@@ -36,9 +36,6 @@ public class PlayerCharacter : BaseCharacter
     public bool GodMod = false;
     public int life = 1;
 
-    // 멀티샷
-    public bool isMultiShot = false;
-
     //플레이어의 일시정지상태를 확인하는 변수입니다.
     bool playerPaused = false;
     public bool PlayerPaused
@@ -184,7 +181,7 @@ public class PlayerCharacter : BaseCharacter
     public void ClearPlayerBuf()
     {
         MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
-        GodMod = isMultiShot = false;
+        GodMod = false;
         life = 1;
         PlayerPaused = false;
         CurHp = MaxHp;

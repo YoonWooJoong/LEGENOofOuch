@@ -43,7 +43,10 @@ public class EnemyCharacter : BaseCharacter
             return;
 
         Vector2 deltaP = agent.nextPosition - transform.position;
-        if (TargetDis > attackRange && deltaP.magnitude < attackRange*2)
+        if (deltaP.magnitude > attackRange * 2)
+            agent.nextPosition = transform.position;
+
+        if (TargetDis > attackRange)
             agent.SetDestination(target.position);
         else
             agent.SetDestination(transform.position);
