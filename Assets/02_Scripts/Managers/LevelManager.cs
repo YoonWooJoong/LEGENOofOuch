@@ -95,6 +95,8 @@ public class LevelManager : MonoBehaviour
         // 현재 맵 비활성화
         if (roundIndex >= 0 && roundIndex < selectedMapInstance.Length)
         {
+            if (roundIndex == TotalMaps-1)
+                return;
             selectedMapInstance[roundIndex].SetActive(false);
         }
 
@@ -216,16 +218,12 @@ public class LevelManager : MonoBehaviour
         }
 
         // 랜덤한 3개의 스폰 위치 선택 (중복 없이)
-        Transform[] selectedSpawns = GetRandomSpawnPoints(3);
+        Transform[] selectedSpawns = GetRandomSpawnPoints(roundIndex+2);
 
         // 선택된 위치에 몬스터 생성
         foreach (Transform spawnPoint in selectedSpawns)
         {
-            int i = 0;
-            Debug.Log(i);
-            Debug.Log("몬스터생성");
             GameManager.Instance.MonsterManager.Spawn(spawnPoint);
-            i++;
         }
     }
 
@@ -239,18 +237,11 @@ public class LevelManager : MonoBehaviour
         List<Transform> spawnList = new List<Transform>(monsterSpawn);
         Transform[] selected = new Transform[count];
 
-        // Fisher-Yates 셔플을 사용하여 리스트 섞기
-        for (int i = spawnList.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            Transform temp = spawnList[i];
-            spawnList[i] = spawnList[randomIndex];
-            spawnList[randomIndex] = temp;
-        }
-
         for (int i = 0; i < count; i++)
         {
-            selected[i] = spawnList[i];
+            // spawnList에서 임의의 위치를 선택하여 selected 배열에 저장
+            int randomIndex = Random.Range(0, spawnList.Count);
+            selected[i] = spawnList[randomIndex];
         }
 
         return selected;
