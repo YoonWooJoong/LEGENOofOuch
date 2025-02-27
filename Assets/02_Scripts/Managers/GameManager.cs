@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        
+        Initialized();
         playerClassEnum = SelectManager.GetSelectedCharacter();
         stageEnum = SelectManager.GetSelectedStageIndex();
         TileMapManager.SpawnRandomMap(stageEnum);
@@ -126,7 +126,11 @@ public class GameManager : MonoBehaviour
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);
     }
-
+    public void Trade()
+    {
+        GetAbility(AbilityEnum.ExtraLife);
+        player.ChangeHealth(-3f);
+    }
     public void GoNextMap()
     {
         if (MonsterManager.ClearSpawn)    
@@ -139,8 +143,6 @@ public class GameManager : MonoBehaviour
         AbilityManager.ClearOwnedAbilities();
         ProjectileManager.ClearProjectile();
         GachaManager.gacha.gachaAbilityController.ClearUpgradeCount();
-        //플레이어 init
-        player?.ClearPlayerBuf();
     }
 
     public void PlayerPauseControll(bool paused)

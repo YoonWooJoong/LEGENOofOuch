@@ -251,13 +251,8 @@ public class TileMapManager : MonoBehaviour
 
     public void SpawnDevil()
     {
-        if (playerSpawn == null)
-        {
-            Debug.LogError("PlayerSpawn 위치가 설정되지 않았습니다!");
-            return;
-        }
 
-        if (GameManager.Instance.player == null)
+        if (devil == null)
         {
             GameObject newDevil = Instantiate(devilPrefab, monsterSpawn[0].position, monsterSpawn[0].rotation);
             devil = newDevil.GetComponent<DevilInteraction>();
