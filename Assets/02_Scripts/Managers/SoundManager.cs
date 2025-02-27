@@ -31,11 +31,20 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //BGM.백그라운드화면에서 나오는 음악
+        SoundManager.instance.PlayBGM("");
+        //SeletStage.스테이지선택창 음악
+        SoundManager.instance.PlayBGM("");
+        //Button.버튼효과음
+        SoundManager.instance.PlaySFX("");
     }
+
+
 
     private void Start()
     {
         PlayBGM("TestBGM");
+
     }
 
     /// <summary>

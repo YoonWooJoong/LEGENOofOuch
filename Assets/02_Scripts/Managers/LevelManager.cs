@@ -102,7 +102,8 @@ public class LevelManager : MonoBehaviour
         {
             if (roundIndex == TotalMaps-1)
                 return;
-            selectedMapInstance[roundIndex].SetActive(false);
+            else
+                selectedMapInstance[roundIndex].SetActive(false);
         }
 
         roundIndex++;
