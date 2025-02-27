@@ -383,11 +383,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8470349979964968874}
-  - component: {fileID: 3073045624681482171}
   - component: {fileID: 2271822649697971388}
   - component: {fileID: 907818331032063877}
   - component: {fileID: 8967471886217578710}
   - component: {fileID: 4951817431639011318}
+  - component: {fileID: 6651705908035271612}
   m_Layer: 7
   m_Name: Werebear
   m_TagString: Untagged
@@ -412,29 +412,6 @@ Transform:
   - {fileID: 8406618408073101116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3073045624681482171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3760012203042012043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38b6d3ab73119ff48be30fc0da6477ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 6710667964943839992}
-  target: {fileID: 0}
-  HpBar: {fileID: 3657336185170633128}
-  maxHp: 60
-  speed: 1
-  attackPower: 8
-  attackSpeed: 0.8
-  attackRange: 3
-  mEnum: 0
-  potionPrefeb: {fileID: 1077902193551154372, guid: ff527ef4c0663784088eebcbfb700717, type: 3}
-  potionDrop: 60
 --- !u!50 &2271822649697971388
 Rigidbody2D:
   serializedVersion: 4
@@ -531,6 +508,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &6651705908035271612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760012203042012043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7087b310566ca85499fc977266e9e07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6710667964943839992}
+  target: {fileID: 0}
+  HpBar: {fileID: 3657336185170633128}
+  maxHp: 60
+  speed: 1
+  attackPower: 8
+  attackSpeed: 0.8
+  attackRange: 3
+  mEnum: 0
+  potionPrefeb: {fileID: 1077902193551154372, guid: ff527ef4c0663784088eebcbfb700717, type: 3}
+  potionDrop: 1
+  isBoss: 1
+  attackThreshold: 3
 --- !u!1 &3952943424075052175
 GameObject:
   m_ObjectHideFlags: 0
