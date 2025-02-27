@@ -33,6 +33,7 @@ public class PlayerCharacter : BaseCharacter
     // 멀티샷
     public bool isMultiShot = false;
 
+    bool playerPaused = false;
 
     /// <summary>
     /// 키보드 입력으로 이동방향을 결정합니다.
@@ -40,7 +41,17 @@ public class PlayerCharacter : BaseCharacter
     protected override void HandleAction()
     {
         base.HandleAction();
-        moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+
+        // 키 바인딩에서 사용자 설정 키 가져오기
+        bool moveUp = Input.GetKey(OptionManager.instance.GetKey("Up"));
+        bool moveDown = Input.GetKey(OptionManager.instance.GetKey("Down"));
+        bool moveLeft = Input.GetKey(OptionManager.instance.GetKey("Left"));
+        bool moveRight = Input.GetKey(OptionManager.instance.GetKey("Right"));
+
+        moveDir.Set((moveRight ? 1 : 0) - (moveLeft ? 1 : 0),
+                    (moveUp ? 1 : 0) - (moveDown ? 1 : 0));
+
+        moveDir.Normalize();
         SearchTarget();
     }
 
@@ -135,6 +146,7 @@ public class PlayerCharacter : BaseCharacter
         MaxHpBuf = SpeedBuf = AtkBuf = AsBuf = CriDmgBuf = CriChanceBuf = 0;
         GodMod = isMultiShot = false;
         life = 1;
+        PauseControll(false);
         CurHp = MaxHp;
     }
 
@@ -143,5 +155,18 @@ public class PlayerCharacter : BaseCharacter
         this.pClass = pClass;
         var pForm = GetComponent<PlayerFormChange>();
         pForm.FormChange(pClass);
+    }
+
+    /// <summary>
+    /// 스테이지 종료 직후 플레이어를 일시정지/스킬 획득 후 해체합니다.
+    /// </summary>
+    public void PauseControll(bool paused)
+    {
+        moveDir = Vector2.zero;
+        playerPaused = paused;
+        var collider = GetComponent<BoxCollider2D>();
+        var rigi = GetComponent<Rigidbody2D>();
+        collider.enabled = !playerPaused;
+        rigi.simulated = !playerPaused;
     }
 }
