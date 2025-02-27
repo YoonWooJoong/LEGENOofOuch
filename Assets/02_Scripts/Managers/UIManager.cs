@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingUI;
     [SerializeField] private GameObject MainCanvas;
 
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private TextMeshProUGUI Time;
+    [SerializeField] private TextMeshProUGUI GameCrealorOverText;
 
     private void Update()
     {
@@ -59,10 +64,16 @@ public class UIManager : MonoBehaviour
                             Debug.Log("Volcano");
                             break;
                     }
+                    MainCanvas.SetActive(!MainCanvas.activeSelf);
+                    GameManager.Instance.StartGame();
                 }
-                MainCanvas.SetActive(!MainCanvas.activeSelf);
-                GameManager.Instance.StartGame();
                 break;
+            case 4:
+                GameOverPanel.SetActive(!GameOverPanel.activeSelf);
+                MainCanvas.SetActive(!MainCanvas.activeSelf);
+                break;
+
+
 
         }
     }
@@ -95,11 +106,14 @@ public class UIManager : MonoBehaviour
         number = number - 1;
         GameManager.Instance.SelectManager.SetSelectedStageIndex(number);
     }
-
-
-    public void StartButton()
+    public void GameOver()
     {
-
+        GameCrealorOverText.text = "Game Over";
+        GameOverPanel.SetActive(true);
     }
-
+    public void GameClear()
+    {
+        GameCrealorOverText.text = "Game Clear";
+        GameOverPanel.SetActive(true);
+    }   
 }
