@@ -112,6 +112,7 @@ public class PlayerCharacter : BaseCharacter
             return;
         }
         //사망시 게임종료 로직 실행
+        Achievements.TriggerFirstDeath();
         base.Death();
         GameManager.Instance.UIManager.GameOver();
     }
@@ -146,12 +147,13 @@ public class PlayerCharacter : BaseCharacter
 
     public void GetExp(int exp)
     {
-        Debug.Log($"{exp}exp get");
         this.exp += exp;
 
         int upLv = this.exp / 100;
 
         level += upLv;
+        if (upLv > 0)
+            Achievements.TriggerFirstLevelUp();
         for (int i = 0; i < upLv; i++)
             ChangeHealth(MaxHp / 10);
         this.exp %= 100;

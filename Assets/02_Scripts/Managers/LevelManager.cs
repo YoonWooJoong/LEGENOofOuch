@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TileMapManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
 
     public GameObject[] stageCastlePrefabs;
@@ -25,12 +25,14 @@ public class TileMapManager : MonoBehaviour
     public int roundIndex = 0;
     public Transform playerSpawn;
     public Transform[] monsterSpawn;
+    private StageEnum stageEnum;
 
     /// <summary>
     /// 스테이지에 해당하는 맵을 생성 
     /// </summary>
     public void SpawnRandomMap(StageEnum stage)
     {
+        stageEnum = stage;
         roundIndex = 0;
         // 랜덤한 맵 선택
         switch (stage)
@@ -102,6 +104,18 @@ public class TileMapManager : MonoBehaviour
         if (roundIndex >= selectedMapInstance.Length)
         {
             GameManager.Instance.UIManager.GameClear();
+            switch (stageEnum)
+            {
+                case StageEnum.Castle:
+                    Achievements.TriggerFirstCastleClear();
+                    break;
+                case StageEnum.Swamp:
+                    Achievements.TriggerFirstSwampClear();
+                    break;
+                case StageEnum.Volcano:
+                    Achievements.TriggerFirstVolcanoClear();
+                    break;
+            }
             roundIndex = 0;
             // 스테이지 클리어
             return;

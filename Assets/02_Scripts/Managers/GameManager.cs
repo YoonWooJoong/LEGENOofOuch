@@ -10,13 +10,12 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public UIManager UIManager { get; private set; }
     [field: SerializeField] public ProjectileManager ProjectileManager { get; set; }
     [field: SerializeField] public SelectManager SelectManager { get; private set; }
-    [field: SerializeField] public TileMapManager TileMapManager { get; private set; }
+    [field: SerializeField] public LevelManager LevelManager { get; private set; }
     [field: SerializeField] public MonsterManager MonsterManager { get; private set; }
     [field: SerializeField] public GachaManager GachaManager { get; private set; }
 
     public PlayerClassEnum playerClassEnum;
     public StageEnum stageEnum;
-    public Test test;
     public GameObject playerPrefab;
     public PlayerCharacter player;
     public int healReward = 0;
@@ -50,9 +49,9 @@ public class GameManager : MonoBehaviour
         Initialized();
         playerClassEnum = SelectManager.GetSelectedCharacter();
         stageEnum = SelectManager.GetSelectedStageIndex();
-        TileMapManager.SpawnRandomMap(stageEnum);
-        TileMapManager.MapStart();
-        TileMapManager.SpawnEntity(playerClassEnum);
+        LevelManager.SpawnRandomMap(stageEnum);
+        LevelManager.MapStart();
+        LevelManager.SpawnEntity(playerClassEnum);
         Debug.Log("StartGame");
         //SpawnPlayer();
         //SpawnMonsters();
@@ -109,7 +108,7 @@ public class GameManager : MonoBehaviour
             int upgradeCount = GachaManager.gacha.gachaAbilityController.GetUpgradeCount(selectedAbility[i]);
             if (upgradeCount > 0)
             {
-                abilityName[i] += $"<color=yellow>+{upgradeCount}</color>";
+                abilityName[i] += $"+{upgradeCount}";
             }
             abilityDescription[i] = abilityData.Description.Replace("{0}", abilityData.Values[upgradeCount].ToString());
         }
@@ -132,7 +131,7 @@ public class GameManager : MonoBehaviour
     public void GoNextMap()
     {
         if (MonsterManager.ClearSpawn)    
-            TileMapManager.NextMap();
+            LevelManager.NextMap();
     }
 
     /// <summary>

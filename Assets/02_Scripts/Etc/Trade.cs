@@ -33,6 +33,7 @@ public class Trade : MonoBehaviour
         //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
         SoundManager.instance.PlaySFX("");
         GameManager.Instance.Trade();
+        Achievements.TriggerFirstTrade();
         Destroy(devil);
         //GameManager.instance.Trade();
         this.gameObject.SetActive(false);

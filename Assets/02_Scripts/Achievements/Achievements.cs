@@ -7,7 +7,7 @@ public class Achievements : MonoBehaviour
     public static bool isFirstLevelUp { get; private set; } = false;
     public static bool isFirstDeath { get; private set; } = false;
     public static bool isFirstAbility { get; private set; } = false;
-    public static bool isFirstTradlear { get; private set; } = false;
+    public static bool isFirstTrade { get; private set; } = false;
     public static bool isFirstCastleClear { get; private set; } = false;
     public static bool isFirstSwampClear { get; private set; } = false;
     public static bool isFirstVolcanoClear { get; private set; } = false;
@@ -54,11 +54,11 @@ public class Achievements : MonoBehaviour
         }
     }
 
-    public static void TriggerFirstTradlear()
+    public static void TriggerFirstTrade()
     {
-        if (!isFirstTradlear)
+        if (!isFirstTrade)
         {
-            isFirstTradlear = true;
+            isFirstTrade = true;
             OnFirstTradlear?.Invoke();
         }
     }

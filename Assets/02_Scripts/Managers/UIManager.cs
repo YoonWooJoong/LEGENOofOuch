@@ -68,12 +68,12 @@ public class UIManager : MonoBehaviour
                 }
                 break;
             case 4: //게임오버 패널 ->  메인캔버스로 이동
-                GameManager.Instance.TileMapManager.DestroyMap();
+                GameManager.Instance.LevelManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
                 break;
             case 5: //오버 패널 -> 다시시작하는 버튼
-                GameManager.Instance.TileMapManager.DestroyMap();
+                GameManager.Instance.LevelManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 GameManager.Instance.StartGame();
                 break;
