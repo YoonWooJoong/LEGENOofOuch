@@ -28,7 +28,7 @@ public class BossCharacter : EnemyCharacter
 
     private void FireInAllDirections()
     {
-        foreach (float angle in fireAngles)
+        for (float angle = 0; angle < 360; angle += 30)
         {
             Vector3 direction = Quaternion.Euler(0, 0, angle) * Vector3.right;
             GameManager.Instance.ProjectileManager.ShootEnemyProjectile(this.transform.position, direction, AttackPower);
