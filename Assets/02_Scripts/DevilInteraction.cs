@@ -7,10 +7,7 @@ public class DevilInteraction : MonoBehaviour
 {
     public GameObject tradeUI;  // 거래 UI를 참조하는 변수
 
-    private void OnEnable()
-    { 
-        tradeUI= GameObject.Find("TradeUI");
-    }
+
     /// <summary>
     /// 악마라운드에서 플레이어가 악마와 접촉했을때 trade진행
     /// </summary>

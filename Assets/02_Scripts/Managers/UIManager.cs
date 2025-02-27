@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject characterUI;
     [SerializeField] private GameObject settingUI;
+    [SerializeField] private GameObject TutorialUI;
+    [SerializeField] private GameObject AchievementUI;
     [SerializeField] private GameObject MainCanvas;
 
     [SerializeField] private GameObject GameOverPanel;
@@ -72,6 +74,12 @@ public class UIManager : MonoBehaviour
                 GameManager.Instance.TileMapManager.DestroyMap();
                 GameOverPanel.SetActive(!GameOverPanel.activeSelf);
                 MainCanvas.SetActive(!MainCanvas.activeSelf);
+                break;
+            case 5:
+                TutorialUI.SetActive(!TutorialUI.activeSelf);
+                break;
+            case 6:
+                AchievementUI.SetActive(!AchievementUI.activeSelf);
                 break;
 
 
