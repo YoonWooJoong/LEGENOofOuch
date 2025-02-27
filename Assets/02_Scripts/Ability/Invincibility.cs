@@ -30,7 +30,7 @@ public class Invincibility : AbilityBase
 
     protected override void UpdateAbility()
     {
-        cooldownTime = abilityData.values[isUpgraded ? 1 : 0];
+        cooldownTime = isUpgraded ? abilityData.values[1] : abilityData.values[0];
     }
 
     /// <summary>

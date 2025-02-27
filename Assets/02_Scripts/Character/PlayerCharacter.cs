@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCharacter : BaseCharacter
 {
     [SerializeField] float criticalDamage = 0.2f, criticalChance;
-    [SerializeField] int level;
+    [SerializeField] int level = 1;
     [SerializeField] int exp;
 
     [Header("")]
     [SerializeField] PlayerClassEnum pClass;
+    [SerializeField] Slider expbar;
+    [SerializeField] TextMeshProUGUI levelTxt;
 
     //버프수치: 20%증가시 0.2f 입력
     public float MaxHpBuf { get; set; }
@@ -126,11 +130,16 @@ public class PlayerCharacter : BaseCharacter
     {
         Debug.Log($"{exp}exp get");
         this.exp += exp;
+
         int upLv = this.exp / 100;
+
         level += upLv;
         for (int i = 0; i < upLv; i++)
             ChangeHealth(MaxHp / 10);
         this.exp %= 100;
+
+        expbar.value = this.exp / 100f;
+        levelTxt.text = level.ToString();
     }
 
     public PlayerClassEnum GetPlayerClass()
@@ -148,6 +157,8 @@ public class PlayerCharacter : BaseCharacter
         life = 1;
         PauseControll(false);
         CurHp = MaxHp;
+        exp = 0;
+        level = 1;
     }
 
     public void SetClass(PlayerClassEnum pClass)
