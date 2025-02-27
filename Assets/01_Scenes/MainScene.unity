@@ -8194,10 +8194,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementUI: {fileID: 1999861672}
-  achievementNameText: {fileID: 0}
-  achievementDescriptionText: {fileID: 0}
-  achievementImage: {fileID: 0}
-  iconlist: []
+  achievementNameText: {fileID: 520712331}
+  achievementDescriptionText: {fileID: 532031102}
+  achievementImage: {fileID: 952059572}
+  iconlist:
+  - {fileID: 21300000, guid: 2d2bdc63fae04244ba862bdb4f0c6c02, type: 3}
+  - {fileID: 21300000, guid: ac81c5e650b05b64db82a3618b3c4886, type: 3}
+  - {fileID: 21300000, guid: 0118c33a8d592c5448de9be8453b7d21, type: 3}
+  - {fileID: 21300000, guid: 15d5b1bce39430445bb6021708cfcbc0, type: 3}
+  - {fileID: 21300000, guid: 6de478407b835fd42a6a4252e1312c64, type: 3}
+  - {fileID: 21300000, guid: a4ad25b1d2b5c1643bf36216ddaad524, type: 3}
+  - {fileID: 21300000, guid: 4e3a156ceac8c364a8d87995f4e64942, type: 3}
 --- !u!114 &1999861676
 MonoBehaviour:
   m_ObjectHideFlags: 0
