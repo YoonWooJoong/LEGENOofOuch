@@ -523,9 +523,9 @@ MonoBehaviour:
   sprite: {fileID: 6710667964943839992}
   target: {fileID: 0}
   HpBar: {fileID: 3657336185170633128}
-  maxHp: 50
+  maxHp: 100
   speed: 3
-  attackPower: 5
+  attackPower: 1
   attackSpeed: 1
   attackRange: 5
   mEnum: 1

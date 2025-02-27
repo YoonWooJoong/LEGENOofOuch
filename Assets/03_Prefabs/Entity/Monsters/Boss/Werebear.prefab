@@ -272,7 +272,7 @@ Animator:
   m_GameObject: {fileID: 3060188668310631242}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 0ff6900e87a3d0c4583dfd7054f987a9, type: 2}
+  m_Controller: {fileID: 22100000, guid: f70bc7cde3f7f024c9e872010ab46079, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -523,9 +523,9 @@ MonoBehaviour:
   sprite: {fileID: 6710667964943839992}
   target: {fileID: 0}
   HpBar: {fileID: 3657336185170633128}
-  maxHp: 60
+  maxHp: 120
   speed: 1
-  attackPower: 8
+  attackPower: 1.5
   attackSpeed: 0.8
   attackRange: 3
   mEnum: 0

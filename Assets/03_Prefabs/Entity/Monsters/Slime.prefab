@@ -351,7 +351,7 @@ MonoBehaviour:
   target: {fileID: 0}
   HpBar: {fileID: 3447528388547154239}
   maxHp: 5
-  speed: 1
+  speed: 2
   attackPower: 1
   attackSpeed: 1
   attackRange: 1
