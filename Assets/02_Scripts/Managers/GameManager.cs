@@ -103,7 +103,9 @@ public class GameManager : MonoBehaviour
         if (MonsterManager.ClearSpawn)
         {
             PlayerPauseControll(true);
-            GachaManager.StartGacha();
+
+            if (LevelManager.NowRound() < 14)
+                GachaManager.StartGacha();
         }
     }
 

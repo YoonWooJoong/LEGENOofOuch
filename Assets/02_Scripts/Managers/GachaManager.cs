@@ -40,7 +40,6 @@ public class GachaManager : MonoBehaviour
         gachaHandler.init();
         gacha.SelectRandomAbility();
         GameManager.Instance.SetAbilityText();
-        if(GameManager.Instance.LevelManager.NowRound()<14)
         gachaHandler.StartGacha();
     }
 
