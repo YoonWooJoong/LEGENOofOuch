@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a931ec36f742367448035a3708137f50, type: 3}
-  m_Name: "\uCE21\uBA74 \uD654\uC0B4 +1"
+  m_Name: "\uC0AC\uC120 \uD654\uC0B4"
   m_EditorClassIdentifier: 
-  ability: 13
-  abilityName: "\uCE21\uBA74 \uD654\uC0B4 +1"
-  description: "\uC88C\uC6B0 90\uB3C4 \uAC01\uB3C4\uB85C \uBC1C\uC0AC\uD558\uB294
-    \uD654\uC0B4\uC744 \uCD94\uAC00\uD55C\uB2E4. (+ {0}\uAC1C)"
+  ability: 12
+  abilityName: "\uC0AC\uC120 \uD654\uC0B4 +1"
+  description: "\uB300\uAC01\uC120\uC73C\uB85C \uB098\uAC00\uB294 \uD654\uC0B4\uC744
+    \uCD94\uAC00. 2 \uD68C \uC5BB\uC73C\uBA74 30 \uB3C4, 60 \uB3C4\uB85C \uD654\uC0B4\uC774
+    \uB098\uAC04\uB2E4. (+ {0}\uAC1C)"
   rank: 0
   canUpgrade: 0
   values:
