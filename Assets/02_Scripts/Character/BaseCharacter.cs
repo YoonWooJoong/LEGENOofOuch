@@ -105,7 +105,7 @@ public class BaseCharacter : MonoBehaviour
     /// </summary>
     protected virtual void Attack()
     {
-        animHandle?.Attack();
+        animHandle?.Attack(AttackSpeed);
         //gamemaneger.~~~
     }
 
