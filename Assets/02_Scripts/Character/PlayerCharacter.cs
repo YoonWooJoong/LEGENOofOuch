@@ -127,6 +127,7 @@ public class PlayerCharacter : BaseCharacter
     {
         base.Attack();
 
+        SoundManager.instance.PlaySFX("PlayerAttack");
         GameManager.Instance.AbilityManager.UseAbility();
         if (GameManager.Instance.AbilityManager.GetMultiShotOn())
         {
@@ -137,6 +138,7 @@ public class PlayerCharacter : BaseCharacter
     IEnumerator AttackWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        SoundManager.instance.PlaySFX("PlayerAttack");
         GameManager.Instance.AbilityManager.UseAbility();
     }
 

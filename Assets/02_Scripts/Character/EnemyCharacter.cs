@@ -68,6 +68,8 @@ public class EnemyCharacter : BaseCharacter
     protected override void Attack()
     {
         base.Attack();
+
+        SoundManager.instance.PlaySFX("EnemyAttack");
         GameManager.Instance.ProjectileManager.ShootEnemyProjectile(transform.position, LookDir, AttackPower);
     }
 }

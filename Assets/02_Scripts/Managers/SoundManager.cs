@@ -31,20 +31,23 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //BGM.백그라운드화면에서 나오는 음악
-        SoundManager.instance.PlayBGM("");
-        //SeletStage.스테이지선택창 음악
-        SoundManager.instance.PlayBGM("");
-        //Button.버튼효과음
-        SoundManager.instance.PlaySFX("");
     }
 
-
-
-    private void Start()
+    private void Update()
     {
-        PlayBGM("TestBGM");
+        // 마우스 왼쪽 버튼 클릭 시 클릭 효과음 재생
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayClickSound();
+        }
+    }
 
+    /// <summary>
+    /// 클릭 효과음 재생
+    /// </summary>
+    public void PlayClickSound()
+    {
+        PlaySFX("Click");
     }
 
     /// <summary>
@@ -136,6 +139,17 @@ public class SoundManager : MonoBehaviour
         else
         {
             Debug.LogWarning("BGM not found");
+        }
+    }
+
+    /// <summary>
+    /// 현재 재생 중인 BGM 정지
+    /// </summary>
+    public void StopBGM()
+    {
+        if (bgmPlayer.isPlaying)
+        {
+            bgmPlayer.Stop();
         }
     }
 

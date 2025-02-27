@@ -17,7 +17,7 @@ public class DevilInteraction : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             tradeUI.SetActive(true);
-            SoundManager.instance.PlaySFX("악마웃음소리 SFX안에 넣어놧습니다");
+            SoundManager.instance.PlaySFX("Devillaughter");
         }
     }
 }

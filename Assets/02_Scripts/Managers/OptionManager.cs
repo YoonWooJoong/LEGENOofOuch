@@ -109,7 +109,6 @@ public class OptionManager : MonoBehaviour
                 {
                     keyBindings[waitingForKey] = key;
                     waitingForKey = null;
-                    Debug.Log($"키 바인딩 변경: {key}");
 
                     // UI 업데이트
                     UpdateKeyBindingUI();
