@@ -126,7 +126,11 @@ public class GameManager : MonoBehaviour
         GachaManager.GetAbilityName(abilityName);
         GachaManager.GetAbilitydescription(abilityDescription);
     }
-
+    public void Trade()
+    {
+        GetAbility(AbilityEnum.ExtraLife);
+        player.ChangeHealth(-3f);
+    }
     public void GoNextMap()
     {
         if (MonsterManager.ClearSpawn)    

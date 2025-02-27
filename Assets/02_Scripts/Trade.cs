@@ -18,7 +18,7 @@ public class Trade : MonoBehaviour
     }
     private void OnEnable()
     {
-        devil = GameObject.Find("Devil");
+        devil = GameObject.FindGameObjectWithTag("Devil");
     }
     /// <summary>
     /// 플레이어가 거래버튼을 눌렀을때 게임매니저에게 수락을 보내준다.
@@ -29,6 +29,7 @@ public class Trade : MonoBehaviour
         Debug.Log("거래를 수락했습니다.");
         //클릭사운드/공용클릭사운드 없으면 찾아오겠습니다
         SoundManager.instance.PlaySFX("");
+        GameManager.Instance.Trade();
         Destroy(devil);
         //GameManager.instance.Trade();
         this.gameObject.SetActive(false);
